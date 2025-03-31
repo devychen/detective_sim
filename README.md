@@ -1,8 +1,8 @@
-# Notes for Thesis
+# Notes For Thesis
 
 Proposal and paper access from [Overleaf](https://www.overleaf.com/read/fbhjtzxsnzjb#78ecdc) (View only).
 
-# To Polina: About the papers
+# To Polina: About the Papers
 1. [Xu et al., 2024](https://arxiv.org/abs/2403.10249) and [Guo et al., 2024](https://arxiv.org/abs/2402.01680) are the two review papers that I found most useful in this field (i.e. LLM-based multi-agent interactive system). There might be other ones but they are sufficient so far. They summaried the workflow, framework, architecture, purposes of most representative previous works. They also have Git repos where all works mentione could be accessed. For your convenient here're the links: [Xu.ea](https://github.com/BAAI-Agents/GPA-LM), [Guo.ea](https://github.com/taichengguo/LLM_MultiAgents_Survey_Papers) 
 2. Three possibly most relevant games and respective works are listed below. They are all communicative games with high requirements on cooperation, collaboration, competition and heavily rely on natural languages - a key feature of LLM agents. 
 - Avalon: [Paper 1](https://arxiv.org/pdf/2310.14985), [paper 2](https://arxiv.org/pdf/2310.05036), [paper 3](https://arxiv.org/pdf/2310.01320)
