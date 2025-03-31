@@ -11,7 +11,7 @@ Proposal and paper access from [Overleaf](https://www.overleaf.com/read/fbhjtzxs
 
 # Meeting Notes 0425 (tbc)
 
-Many systems were designed in different frameworks, architectures and for different purpose. So let's evaluate them in one setting which have most elements covered. Then to discover which is the best and why. These might include:
+Many systems were designed in different frameworks, architectures and for different purposes. So let's evaluate them in one setting which have most elements covered. Then to discover which is the best and why. These might include:
 - Deceptive environment.
 - Input from both environment and agent interactions. **Question** Too hard???
 - Evaluation of success rate, and dialogue analysis.
