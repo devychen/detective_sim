@@ -11,7 +11,7 @@ Proposal and paper access from [Overleaf](https://www.overleaf.com/read/fbhjtzxs
 
 # Meeting Notes 0425 (tbc)
 
-Many systems were designed in different frameworks, architectures and for different purposes. So how about evaluate them in one setting which have most elements covered. Then to discover which is the best and why. These elements might include:
+Many systems were designed in different frameworks, architectures and for different purposes. So how about evaluating them in one setting which have most elements covered. Then to discover which is the best and why. These elements might include:
 - Deceptive environment.
 - Input from both environment and agent interactions. **Question** Too hard???
 - Evaluation of success rate, and dialogue analysis.
@@ -24,9 +24,23 @@ Many systems were designed in different frameworks, architectures and for differ
 - Rare research on LLM-based multi-agent using Cluedo.
 - Can we use a novel setting, not an existing one?
 - Game should be used for specific purpose.
-3. Using CoT as baseline.
-4. I can't tell the clear difference between previous works, how to categories them in terms of underlying architecture etc.
-5. I might really lack solid background, but I really wanna do this well. 
+3. Choises of baseline
+4. Word count
+5. I can't tell the clear difference between previous works, how to categories them in terms of underlying architecture etc.
+
+**Variable：Architecture**
+- Transformer decoder-only
+- Transformer encoder-decoder
+- Non Transformer（e.g SSM）
+
+**Variable：Training Paradigm**
+- pre-trained + supervised fine-tuning
+- w/o reinforcement learning (self-play, RLHF)
+- online interaction training
+
+**Variable：agent set up**
+- single-agent vs multi-agent
+- shared model vs specialized agent
 
 
 
@@ -37,7 +51,7 @@ Many systems were designed in different frameworks, architectures and for differ
 - Find a specific task !!!!! brainstorming some tasks / benchmarks
 - What would be interesting within the architecture of the agents.
 - Read some papers in details. 5-10 different ones.
-- Proposal!!!!! (Michael Franke)
+- Proposal!!!!! (to Prof. Franke)
 
 ### Expected timeline
 - Proposal in March

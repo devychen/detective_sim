@@ -2,7 +2,9 @@
 1. Game: deceptive, communcative games. Test-bed for decision-making and language-processing capabilities.
 2. Interruption is more a "communication" matter. Is it possible to combine then?
 
-### Wang.ea-23-Avalon:  
+
+### Wang.ea-23, Avalon:  
+
 1. Design/framework: **`ReCon`** (Recursive contemplation)
 - *"Think twice before act"*
 - Two mechanisms: <br>
@@ -17,6 +19,7 @@
 4. Notes
 - *6 Related Word* section 有MAI，有thought methods/mechanisms, 有game-playing in deceptive environment (AI-related deception).
 
+
 ### Light.ea-23-Avalon
 
 1. Work: **`AvalonBench`**, a agme engine to benchmark the Multi-LLM agents. Includes: 1/ a game environment to play Avalon, 2/ rule-based AI bots as baseline opponents, 3/ ReAct-style i.e Reason-then-Act (_Yao.ea-23_) LLM agents with tailored prompts for each role.
@@ -26,22 +29,33 @@
 - belive other plays will do the same. 
 4. Notes: 4 phrases of Avalon: team selection - voting - quest/action - assassination. Each has a discussion.
 
-### Lan.ea-23-Avalon
+### Lan.ea-23, Avalon
 
-### Fair.ea-22-Diplomacy
+1. Contribution: 
+- a **`framework`** to play Avalon and to faciliate efficient communication and interaction (提供了quantify的方法论)
+- explore social behavious of LLMA: teamwork, leadership, persuation, camouflage, confrontation.
+2. Model: GPT-3.5-turbo-16k
+3. Evaluation: **Baseline: Xu.ea.23's Werewolf AI Agent**
 
-### Mukobi.ea-23-Diplomacy
+
+### Meta.ea-22, Diplomacy
+1. Base model: BART-based encoder-decoder called R2C2 (2.7b)
+2. Model: base model trained on Diplomacy data
+
+### Mukobi.ea-23, Diplomacy
 
 
-### Xu.ea-23-Werewolves
+### Xu.ea-23, Werewolves
 ```
 Facilitate gameplay by LLMs through retrieval and reflection.
 Observe solely the camouflage during gameplay, Wang.ea-23-Avalon identifies the camouflage & introduce a comprehensive framework to discern and address deception.
 ```
 
-### Xu.ea-23-Werewolves RL
+### Xu.ea.23, Werewolves RL
 
-### Park.ea-23, Social
+### Park.ea.23, Society Simulation
+
+### Qian.ea.23, Software Development Company
 
 ### Shao.ea.23, Character-LLM
 ```
@@ -55,4 +69,4 @@ character simulacra of human beings
 Dialogue system challenge
 ```
 
-### lin.ea-23, HAC Dialogue
+### Lin.ea-23, Human-AI Dialogue
