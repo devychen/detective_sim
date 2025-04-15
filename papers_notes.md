@@ -1,7 +1,3 @@
-### Notes
-1. Game: deceptive, communcative games. Test-bed for decision-making and language-processing capabilities.
-2. Interruption is more a "communication" matter. Is it possible to combine then?
-
 
 ### Wang.ea-23, Avalon:  
 
