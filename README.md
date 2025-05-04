@@ -2,6 +2,10 @@
 
 Proposal and paper access from [Overleaf](https://www.overleaf.com/read/fbhjtzxsnzjb#78ecdc) (View only).
 
+[ChatDev](https://github.com/OpenBMB/ChatDev?tab=readme-ov-file)  
+
+[AgentSims](https://github.com/py499372727/AgentSims)
+
 # Meeting Notes 150425
 
 - Game environment/testbed: **Jubensha**
