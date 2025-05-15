@@ -1,7 +1,7 @@
 # Notes For Thesis
 
 - Paper access from [Overleaf](https://www.overleaf.com/read/fbhjtzxsnzjb#78ecdc) (View only).
-- Proposal access from [Notion](https://www.notion.so/Master-Thesis-Proposal-1505-1ed738761bc880fba492ef0200a6e7dc?pvs=4)(permission required)
+- Proposal access from [Notion](https://www.notion.so/Master-Thesis-Proposal-1505-1ed738761bc880fba492ef0200a6e7dc)(permission required)
 
 [ChatDev](https://github.com/OpenBMB/ChatDev?tab=readme-ov-file)  
 
