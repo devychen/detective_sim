@@ -1,0 +1,59 @@
+Prompt. Task: Generate a concise and formal description to distinguishing characteristics of the **vocabulary** used by the fictional detective D_name.
+
+Requirements:
+- Base your description of the vocabulary used in stories where D_name is the protagonist or a principal investigator.
+- Avoid discourse-level, focus solely on the lexical-level and dinsinguishing features that would be able to define this detective's personality from the linguistic perspective.
+- Consider only the distinguishing characteristics that set the vocabulary of D_name apart from those of other fictional detectives.
+- Do not include biographical details, story summaries, or references to specific cases.
+- Structure the response as a single paragraph, without bullet points or numbered lists.
+- Do not include any introductory or concluding sentences outside of the description itself.
+- Limit the response to a maximum of 5 sentences.
+
+---
+Prompt. Task: Generate a concise and formal description to distinguishing characteristics of the **sentences** used by the fictional detective D_name.
+
+Requirements:
+- Base your description of the sentences used in stories where D_name is the protagonist or a principal investigator.
+- Avoid lexical or discourse level. Focus on syntactic, structural and distinguishing features that define this detective's personality from the linguistic perspective.
+- Consider only the distinguishing characteristics that set the sentences spoken by D_name apart from those of other fictional detectives.
+- Do not include biographical details, story summaries, or references to specific cases.
+- Structure the response as a single paragraph, without bullet points or numbered lists.
+- Do not include any introductory or concluding sentences outside of the description itself.
+- Limit the response to a maximum of 5 sentences.
+
+---
+
+Prompt. Task: Generate a concise and formal description to distinguishing characteristics of the **investigative method** used by the fictional detective D_name.
+
+Requirements:
+- Base your description of the investigative method used on stories where D_name is the protagonist or a principal investigator.
+- Focus solely on the investigative approach, strategies, and distinguishing features that define this detective's method of solving cases.
+- Consider only the distinguishing characteristics that set the investigative method of D_name apart from those of other fictional detectives.
+- Do not include biographical details, story summaries, or references to specific cases.
+- Structure the response as a single paragraph, without bullet points or numbered lists.
+- Do not include any introductory or concluding sentences outside of the description itself.
+- Limit the response to a maximum of 5 sentences.
+
+---
+Prompt. Task: Generate a concise and formal description to distinguishing characteristics of the **discourse pattern** of the fictional detective D_name.
+
+Requirements:
+- Base your description of the discourse pattern used in stories where D_name is the protagonist or a principal investigator.
+- Avoid lexical-level, focus on discourse patterns and distinguishing features that would be able to define this detective's personality from the linguistic perspective.
+- Consider only the distinguishing characteristics that set the discourse patterns of D_name apart from those of other fictional detectives.
+- Do not include biographical details, story summaries, or references to specific cases.
+- Structure the response as a single paragraph, without bullet points or numbered lists.
+- Do not include any introductory or concluding sentences outside of the description itself.
+- Limit the response to a maximum of 5 sentences.
+
+---
+Prompt. Task: Generate a concise and formal description to distinguishing characteristics of the **personal traits** of the fictional detective D_name.
+
+Requirements:
+- Base your description of the personality traits used in stories where D_name is the protagonist or a principal investigator.
+- Focus on individual and distinguishing features that would be able to define this detective's personality.
+- Consider only the distinguishing personal traits that set the discourse patterns of D_name apart from those of other fictional detectives.
+- Do not include biographical details, story summaries, or references to specific cases.
+- Structure the response as a single paragraph, without bullet points or numbered lists.
+- Do not include any introductory or concluding sentences outside of the description itself.
+- Limit the response to a maximum of 5 sentences.
