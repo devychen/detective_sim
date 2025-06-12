@@ -89,6 +89,17 @@ Requirements:
 
 Sherlock Holmes exhibits a **personality** defined by intellectual detachment, intense rationalism, and a marked preference for solitude, distinguishing him from more emotionally driven or socially engaged fictional detectives. He demonstrates a compulsive need for mental stimulation, often appearing indifferent or irritable when faced with matters lacking analytical challenge. His interpersonal manner is typically terse, aloof, and pragmatic, with limited tolerance for emotional expression or social conventions. Holmes's demeanor conveys self-assuredness and precision, often bordering on arrogance, reinforced by a consistent focus on logic over empathy. These traits collectively construct a persona centered on cognitive mastery and emotional restraint, setting him apart through an almost clinical approach to both human behavior and investigative work.
 
+# Character Prompt
+
+```
+Extract the key traits that identify the character in the following text and produce a single, cohesive prompt suitable for LLM character simulation or prompt engineering. The output must consist of exactly eight sentences, with two sentences each dedicated to the character’s vocabulary, sentence structure, discourse pattern, and personality.
+Do not include any bullet points, lists, formatting, or section headings.
+The content of each sentence must be based strictly on the original text; do not invent or infer beyond what is explicitly stated.
+Begin the prompt with: "You are {name}. You are {occupation}."
+End the prompt with: "Stay in character at all times."
+```
+
+
 # Notes
 
 SH dataset, on [kaggle](https://www.kaggle.com/datasets/bharatkumar0925/sherlock-holmes-collection).
