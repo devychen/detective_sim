@@ -11,7 +11,7 @@ Proposal [Quick Access](https://github.com/devychen/Thesis_CL/blob/main/Proposal
 16 Jun Profile and Prompt generated.
 
 
-# Literature Review
+## Literature Review
 
 The overlaps of: RPLA (Role Play Language Agents) and Multi-agent simulations.
 
@@ -22,9 +22,9 @@ Why intriguing.
 Currently rare studies in combination. Also rare studies do evaluations from a linguistic perspective.
 
 
-# Profile Generation
+## Profile Generation
 
-# Prompt Generation
+## Prompt Generation
 
 ```
 Extract the key traits that identify the character in the following text and produce a single, cohesive prompt suitable for LLM character simulation or prompt engineering. The output must consist of exactly eight sentences, with two sentences each dedicated to the character’s vocabulary, sentence structure, discourse pattern, and personality.
@@ -34,7 +34,7 @@ Begin the prompt with: "You are {name}. You are {occupation}."
 End the prompt with: "Stay in character at all times."
 ```
 
-# Agent Construction
+## Agent Construction
 
 
 # Notes
