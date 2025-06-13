@@ -47,7 +47,6 @@ SH txt book, on [github](https://github.com/lucko515/rnn-sherlock-holmes-book/bl
 
 HP video drama, [script](https://www.otrr.org/FILES/Scripts_pdf/Hercule%20Poirot/Hercule%20Poirot%2045-02-22%20Case%20of%20Careless%20Client.pdf)
 
----
 **Detective Selection** from *lima et al (2025)*:
 - SH (Private investigator): Arthur Conan Doyle, 1887; TV series Sherlock, 2010
     - exemplifies the application of logical reasoning over detailed observation 
