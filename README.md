@@ -1,5 +1,15 @@
 
-Proposal available [here]().
+# Three Detectives in a Room: <br> Investigating Character Consistency and Interactions in Multi-Agent LLM Dialogue
+
+Master thesis for M.A. in Computational Linguitstics at University of Tuebingen.
+
+Proposal [Quick Access](https://github.com/devychen/Thesis_CL/blob/main/Proposal_0601.md).
+
+**Current Status**:
+
+03 Jun Proposal approved.<br>
+16 Jun Profile and Prompt generated.
+
 
 # Literature Review
 
