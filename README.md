@@ -55,4 +55,4 @@ HP video drama, [script](https://www.otrr.org/FILES/Scripts_pdf/Hercule%20Poirot
 - HP (...): emphasizes psychological profiling
 - MM (Amateur detective): Agatha Christie, 1927; TV series Miss Marple, 1984
     - relies on her skill to find parallels between human behavior in her small village and current criminal actions. She frequently makes discoveries through gossip, a daily occupation that suits her temperament and sharp observational skills.
-- *The Second Half*, [blog](https://ysymyth.github.io/The-Second-Half/) article emphasise evaluation.
+- *The Second Half*, a [blog](https://ysymyth.github.io/The-Second-Half/) article emphasises evaluation > training is the future trending.
