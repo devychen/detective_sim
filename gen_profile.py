@@ -47,7 +47,7 @@ def save_results(detective_name, results):
             file.write(content + '\n\n')
 
 def main():
-    template = load_template('prompts/profile_prompts_template.yaml')
+    template = load_template('prep_prompts/profile_prompt.yaml')
     detectives = ['Sherlock Holmes', 'Hercule Poirot', 'Miss Marple']
     
     for detective in detectives:

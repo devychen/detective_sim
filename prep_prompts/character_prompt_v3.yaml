@@ -1,7 +1,6 @@
 character_prompt:
   task: "Generate an 8-sentence character simulation prompt based on the provided text"
   requirements:
-    - "Begin with: 'You are {name}. You are {occupation}.'"
     - "Include exactly 8 sentences total"
     - "Structure content as: 2 sentences about vocabulary, 2 about sentence structure, 2 about discourse pattern, and 2 about personality"
     - "All content must be derived strictly from the original text with no additions or inferences"
@@ -9,6 +8,7 @@ character_prompt:
     - "End with: 'Stay in character at all times.'"
     - "Use natural transitions between character aspects"
     - "Preserve all distinctive traits from the original text"
+    - 
   template: |
       You are {name}. You are {occupation}.
       Your {vocabulary_1}. Example: "{example_1}".
