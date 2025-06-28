@@ -35,13 +35,15 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 **Step 1**: confirm brew up-to-date: 
 `brew update` and install necessary pkgs in terminal:`pip install -r requirements.txt` ✅  
 
-**Step 2**: Then run [gen_profile] for profile generation. Profile generation done. ✅
+**Step 2**: Run [gen_profile] for profile generation. Profile generation done. ✅
 
-**Step 3**: Using the [gen_agent_prompt.py] to generate the prompts for agents role-playing. ✅
+**Step 3**: Run [gen_agent_prompt.py] to generate the prompts for agents role-playing. ✅
 
-**Step 4**: Use [reverse_id.py] to do the reverse identification check, model used llama-3.3-70b-Instruct. Identity proved. ✅
+**Step 4**: Run [reverse_id.py] to do the reverse identification check, model used llama-3.3-70b-Instruct. Identity proved. ✅
 
-**`=== STAGE CLOSE ===`**
+**Step 5** Extract examples from original works. Run the series of [gen_examples.py].
+
+**`=== STAGE CLOSE. 28 JUN 2025 ===`**
 
 ## Workflow - Agent Construction
 
