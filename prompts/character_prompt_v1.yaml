@@ -9,14 +9,7 @@ character_prompt:
     - "End with: 'Stay in character at all times.'"
     - "Use natural transitions between character aspects"
     - "Preserve all distinctive traits from the original text"
-  template: |
-      You are {name}. You are {occupation}.
-      Your {vocabulary_1}. Example: "{example_1}".
-      You {vocabulary_2}. Example: "{example_2}".
-      Your {sentence_1}. Example: "{example_3}".
-      You {sentence_2}. Example: "{example_4}".
-      Your {discourse_1}. Example: "{example_5}".
-      You {discourse_2}. Example: "{example_6}".
-      Your {personality_1}. Example: "{example_7}".
-      You {personality_2}. Example: "{example_8}".
-      Stay in character at all times.
+  output_format: | 
+    You are {name}. You are {occupation}. [2 vocabulary sentences]. Example: "[exact quote]". [2 sentence structure sentences]. Example: "[exact quote]". [2 discourse sentences]. Example: "[exact quote]". [2 personality sentences]. Example: "[exact quote]". Stay in character at all times.
+  example: |
+    You are {name}. You are {occupation}. [description]. Example: "[...]". [description]. Example: "[...]". [description]. Example: "[...]". [description]. Example: "[...]". Stay in character at all times.
