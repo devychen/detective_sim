@@ -32,26 +32,16 @@ For both aotomated generation process using remote API, the temperature  is set 
 Then using an open-source LLM (llama) to do a _Validation Via Reverse identification_, to validate these profiles and prompts are valid representation of the respective character. (The LLM can tell who is who from the input)
 
 
-**Step 1**: confirm brew up-to-date: ✅ 
-```
-brew --version
-brew update
-```
+**Step 1**: confirm brew up-to-date: 
+`brew update` and install necessary pkgs in terminal:`pip install -r requirements.txt` ✅  
+
 **Step 2**: Then run [gen_profile] for profile generation. Profile generation done. ✅
 
 **Step 3**: Using the [gen_agent_prompt.py] to generate the prompts for agents role-playing. ✅
 
 **Step 4**: Use [reverse_id.py] to do the reverse identification check, model used llama-3.3-70b-Instruct. Identity proved. ✅
-```
-Detective Identification Results:
 
-detective1: Sherlock Holmes
-detective2: Hercule Poirot
-detective3: Miss Marple
-```
-
-
-
+**`=== STAGE CLOSE ===`**
 
 ## Workflow - Agent Construction
 
