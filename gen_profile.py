@@ -6,7 +6,7 @@ import os
 from dotenv import load_dotenv
 
 # 初始化
-load_dotenv('key.env')
+load_dotenv('openai_key.env')
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # 确保密钥已正确加载

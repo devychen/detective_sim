@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 
 # Set OpenAI API key
-load_dotenv('key.env')
+load_dotenv('openai_key.env')
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Define the characters and their files
