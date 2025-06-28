@@ -37,9 +37,10 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 brew --version
 brew update
 ```
-Then run [codes](https://github.com/devychen/Thesis_CL/blob/main/prompts/profile_prompts_template.yaml) for profile generation. Profile generation done. ✅
+Then run [gen_profile] for profile generation. Profile generation done. ✅
 
-Using the [gen_agent_prompt.py] to generate the prompts for agents role-playing.
+Using the [gen_agent_prompt.py] to generate the prompts for agents role-playing. ✅
+
 
 
 
