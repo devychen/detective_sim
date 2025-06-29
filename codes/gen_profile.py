@@ -1,16 +1,16 @@
-# pip install openai python-dotenv
+# pip install openai python-dotenv pyyaml
 
-import openai
+from openai import OpenAI
 import yaml
 import os
 from dotenv import load_dotenv
 
 # 初始化
 load_dotenv('openai_key.env')
-openai.api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # 确保密钥已正确加载
-if not openai.api_key:
+if not client.api_key:
     raise ValueError("API key not found, please check the file key.env")
 
 def load_template(file_path):
@@ -25,7 +25,7 @@ def generate_content(detective_name, template):
         
         prompt = f"{task}\n\nRequirements:\n{requirements}"
         
-        response = openai.ChatCompletion.create(
+        response = client.chat.completions.create(
             model="gpt-4",
             messages=[
                 {"role": "system", "content": "You are a linguistic analysis expert specializing in fictional detective characters."},
@@ -35,7 +35,7 @@ def generate_content(detective_name, template):
             max_tokens=300
         )
         
-        results[category] = response.choices[0].message['content'].strip()
+        results[category] = response.choices[0].message.content.strip()
     
     return results
 

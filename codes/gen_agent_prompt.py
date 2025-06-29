@@ -2,10 +2,9 @@ import openai
 import os
 from dotenv import load_dotenv
 
-
 # Set OpenAI API key
 load_dotenv('openai_key.env')
-openai.api_key = os.getenv("OPENAI_API_KEY")
+client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))  # 新版初始化方式
 
 # Define the characters and their files
 character_files = {
@@ -17,9 +16,9 @@ character_files = {
 # System message template for GPT
 system_message = """You are a professional literary analysis assistant. Please process the text strictly according to these requirements:
 1. Extract the character's key traits
-2. Generate an 8-sentence character prompt
-3. First two sentences describe vocabulary traits, next two describe sentence structure, then two for discourse pattern, and finally two for personality
-4. Begin with "You are {name}. You are {occupation}."
+2. Generate an 13-sentence character prompt
+3. Begin with "You are {name}. You are {occupation}."
+4. Then for the middle, generate 2 sentences for each category. Namely, first two sentences describe vocabulary traits, next two describe sentence structure, then two for discourse pattern, and then two for personality traits, and finally two for investigative methods. 
 5. End with "Stay in character at all times."
 6. Do not use any bullet points, lists, or formatting
 7. Use only content explicitly stated in the original text"""
@@ -30,13 +29,13 @@ def generate_prompt(character_name, analysis_file):
         with open(analysis_file, "r") as file:
             character_analysis = file.read()
         
-        response = openai.ChatCompletion.create(
+        response = client.chat.completions.create(  # 新版调用方式
             model="gpt-4",
             messages=[
                 {"role": "system", "content": system_message},
                 {"role": "user", "content": character_analysis}
             ],
-            temperature=0.1
+            temperature=0.0
         )
         
         generated_prompt = response.choices[0].message.content

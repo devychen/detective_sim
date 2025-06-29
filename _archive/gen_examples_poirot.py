@@ -11,9 +11,10 @@ dotenv.load_dotenv("nvidia_key.env")
 # Configuration
 MODEL_NAME = "meta/llama-3.3-70b-instruct"
 API_URL = "https://integrate.api.nvidia.com/v1"
-OUTPUT_FILE = "marple_examples.json"
+OUTPUT_FILE = "poirot_examples.json"
 
-def find_marple_examples(prompt_text: str) -> List[Dict[str, str]]:
+def find_poirot_examples(prompt_text: str) -> List[Dict[str, str]]:
+   
     prompt_lines = [line.strip() for line in prompt_text.split('.') if line.strip()]
     results = []
     
@@ -24,7 +25,7 @@ def find_marple_examples(prompt_text: str) -> List[Dict[str, str]]:
     
     for line in prompt_lines:
         query = (
-            f"Find one exact quote from Agatha Christie's Miss Marple stories "
+            f"Find one exact quote from Agatha Christie's Hercule Poirot stories "
             f"that best illustrates this characteristic: '{line}'. "
             "Provide the exact quote followed by the source (story title). "
             "Format: 'QUOTE: [exact quote] - SOURCE: [source]'"
@@ -33,10 +34,10 @@ def find_marple_examples(prompt_text: str) -> List[Dict[str, str]]:
         payload = {
             "model": MODEL_NAME,
             "messages": [
-                {"role": "system", "content": "You are an expert on Agatha Christie's Miss Marple with perfect recall of all stories."},
+                {"role": "system", "content": "You are an expert on Agatha Christie's Hercule Poirot with perfect recall of all stories."},
                 {"role": "user", "content": query}
             ],
-            "temperature": 0.5,
+            "temperature": 0.0,
             "max_tokens": 500
         }
         
@@ -68,7 +69,7 @@ def save_results_to_file(results: List[Dict[str, str]]) -> None:
         "metadata": {
             "model_used": MODEL_NAME,
             "generated_at": datetime.datetime.now().isoformat(),
-            "character": "Miss Marple",
+            "character": "Hercule Poirot",
             "author": "Agatha Christie"
         },
         "results": results
@@ -79,8 +80,8 @@ def save_results_to_file(results: List[Dict[str, str]]) -> None:
     print(f"Results successfully saved to {OUTPUT_FILE}")
 
 if __name__ == "__main__":
-    with open("agent_prompts/miss_marple_prompt.txt", "r", encoding="utf-8") as f:
+    with open("agent_prompts/hercule_poirot_prompt.txt", "r", encoding="utf-8") as f:
         prompt_content = f.read()
     
-    matched_examples = find_marple_examples(prompt_content)
+    matched_examples = find_poirot_examples(prompt_content)
     save_results_to_file(matched_examples)
