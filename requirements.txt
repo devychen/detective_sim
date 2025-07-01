@@ -4,3 +4,4 @@ openai
 langchain
 pyyaml
 tiktoken
+huggingface-hub

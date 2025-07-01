@@ -8,7 +8,9 @@ Proposal [Quick Access](https://github.com/devychen/Thesis_CL/blob/main/Proposal
 **Current Status**:
 
 03 Jun, Proposal approved.<br>
-28 Jun, Profile and Prompt generated.
+28 Jun, Profile and Prompt generated. <br>
+01 Jul, Profile and Prompt (with examples) completed.
+
 
 
 ## Literature Review
@@ -43,7 +45,7 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 
 **Step 5** Extract examples from original works. Run the series of [gen_examples.py].
 
-**`=== STAGE CLOSE. 28 JUN 2025 ===`**
+**`=== STAGE CLOSE. 1 JUL 2025 ===`**
 
 ## Workflow - Agent Construction
 
@@ -56,6 +58,20 @@ LLM-based Assistants [Course Webbook](https://maxschmaltz.github.io/Course-LLM-b
 
 
 # Notes
+
+✅ Poirot [complete pdf](https://dn721604.ca.archive.org/0/items/MegaAgatha/hercule%20poirot-complete%20short%20stories%20-%20agatha%20christie.pdf) and [The murder of Roger Ackroyd](https://github.com/GITenberg/The-murder-of-Roger-Ackroyd_69087/tree/master)
+
+✅ Agatha [complete](https://github.com/oliviachang29/the-complete-works-of-agatha-christie). Have used _Nemesis_.
+
+✅ Holmes [complete txt](https://sherlock-holm.es/html/)
+
+✅ Miss Marple [complete pdf](https://ia801809.us.archive.org/19/items/AgathaBundle/Miss%20Marple_%20The%20Complete%20Short%20-%20Agatha%20Christie.pdf)
+
+MM [A Murder is Announced](https://archive.org/stream/amurderisannounced_201908/A%20Murder%20Is%20Announced_djvu.txt)
+
+[Nvidia models](https://build.nvidia.com/)
+
+OpenAI [API Reference](https://platform.openai.com/docs/api-reference/chat/create)
 
 SH dataset, on [kaggle](https://www.kaggle.com/datasets/bharatkumar0925/sherlock-holmes-collection).
 
