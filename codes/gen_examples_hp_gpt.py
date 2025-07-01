@@ -7,12 +7,12 @@ from typing import Dict, List, Tuple, Set
 from difflib import SequenceMatcher
 
 # Load environment variables
-dotenv.load_dotenv("nvidia_key.env")  # Ensure your API key is in this file
+dotenv.load_dotenv("openai_key.env")  # Ensure your OpenAI API key is in this file
 
 # API Configuration
-MODEL_NAME = "meta/llama-3.3-70b-instruct"
-API_URL = "https://integrate.api.nvidia.com/v1"
-OUTPUT_FILE = "hp_examples_04.json"
+MODEL_NAME = "gpt-4"  # or "gpt-3.5-turbo" if you prefer
+API_URL = "https://api.openai.com/v1/chat/completions"
+OUTPUT_FILE = "hp_examples_05.json"
 SIMILARITY_THRESHOLD = 0.9  # 90% similarity threshold for considering duplicates
 
 def calculate_similarity(a: str, b: str) -> float:
@@ -37,7 +37,7 @@ def find_examples(prompt_text: str) -> List[Dict[str, str]]:
         processed_lines = prompt_lines  # Fallback if not enough lines
     
     headers = {
-        "Authorization": f"Bearer {os.getenv('NVIDIA_API_KEY')}",
+        "Authorization": f"Bearer {os.getenv('OPENAI_API_KEY')}",
         "Content-Type": "application/json"
     }
     
@@ -67,7 +67,7 @@ def find_examples(prompt_text: str) -> List[Dict[str, str]]:
             
             try:
                 response = requests.post(
-                    f"{API_URL}/chat/completions",
+                    API_URL,
                     headers=headers,
                     json=payload,
                     timeout=45

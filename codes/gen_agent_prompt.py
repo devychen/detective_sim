@@ -19,9 +19,10 @@ system_message = """You are a professional literary analysis assistant. Please p
 2. Generate an 13-sentence character prompt
 3. Begin with "You are {name}. You are {occupation}."
 4. Then for the middle, generate 2 sentences for each category. Namely, first two sentences describe vocabulary traits, next two describe sentence structure, then two for discourse pattern, and then two for personality traits, and finally two for investigative methods. 
-5. End with "Stay in character at all times."
-6. Do not use any bullet points, lists, or formatting
-7. Use only content explicitly stated in the original text"""
+5. Do not repeat sentences, they are supposed to be different across categories.
+6. End with "Stay in character at all times."
+7. Do not use any bullet points, lists, or formatting
+8. Use only content explicitly stated in the original text"""
 
 def generate_prompt(character_name, analysis_file):
     """Generate a character prompt from an analysis file"""
