@@ -1,4 +1,4 @@
-from .base_agent import DetectiveAgent
+from detective_sim.agents.base_agent import DetectiveAgent
 from typing import Optional, List
 
 class MissMarpleAgent(DetectiveAgent):
