@@ -1,36 +1,38 @@
-import os
-from dotenv import load_dotenv
-from case_manager import CaseManager
+# main.py
+
+from agents.holmes_agent import HolmesAgent
+from agents.poirot_agent import PoirotAgent
+from agents.marple_agent import MarpleAgent
 
 def main():
-    # Load environment variables
-    load_dotenv("nvidia_key.env")
-    
-    # Initialize case manager with a case file
-    case_manager = CaseManager("config/cases/murder_at_manor.yaml")
-    
-    print("=== Starting Detective Simulation ===")
-    
-    # Stage 1: Onboarding
-    print("\n=== Stage 1: Initial Reports ===")
-    initial_reports = case_manager.run_onboarding()
-    for detective, report in initial_reports.items():
-        print(f"\n{detective}'s Initial Report:")
-        print(report)
-    
-    # Stage 2: Discussion
-    print("\n=== Stage 2: Discussion ===")
-    discussion = case_manager.run_discussion()
-    for i, msg in enumerate(discussion):
-        print(f"\nTurn {i//3 + 1}: {msg['speaker']}")
-        print(msg['content'])
-    
-    # Stage 3: Reflection
-    print("\n=== Stage 3: Final Reports ===")
-    final_reports = case_manager.run_reflection()
-    for detective, report in final_reports.items():
-        print(f"\n{detective}'s Final Report:")
-        print(report)
+    # 初始线索（测试用）
+    holmes_clue = """
+你在现场观察到尸体仰面朝下倒在书房地板上，手中握着一张撕裂的纸条，上面写着：“他知道了。”
+房间窗户紧闭，门上没有明显破坏痕迹。
+"""
+
+    poirot_clue = """
+据目击者说，死者昨晚约在8点进入书房，之后没有人再见到他。
+仆人听到书房中传来争执声，大约是在8:30到9:00之间。
+"""
+
+    marple_clue = """
+死者是镇上的法官，与本地几位知名人物关系紧张。
+其中一位嫌疑人——本杰明·克拉克——曾因该法官判决而失去财产，动机明显。
+"""
+
+    holmes = HolmesAgent()
+    poirot = PoirotAgent()
+    marple = MarpleAgent()
+
+    print("🕵️ Sherlock Holmes 思考中...")
+    print(holmes.run(holmes_clue), "\n")
+
+    print("🕵️ Hercule Poirot 思考中...")
+    print(poirot.run(poirot_clue), "\n")
+
+    print("🕵️ Miss Marple 思考中...")
+    print(marple.run(marple_clue), "\n")
 
 if __name__ == "__main__":
     main()

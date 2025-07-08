@@ -7,7 +7,7 @@ from typing import Dict, List, Tuple, Set
 from difflib import SequenceMatcher
 
 # Load environment variables
-dotenv.load_dotenv("nvidia_key.env")  # Ensure your API key is in this file
+dotenv.load_dotenv("nvidia_key.env") 
 
 # API Configuration
 MODEL_NAME = "meta/llama-3.3-70b-instruct"

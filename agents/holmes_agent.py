@@ -1,18 +1,9 @@
-from detective_sim.agents.base_agent import DetectiveAgent
-from typing import Optional, List
+# agents/holmes_agent.py
 
-class SherlockHolmesAgent(DetectiveAgent):
+from agents.base_agent import DetectiveAgent
+
+class HolmesAgent(DetectiveAgent):
     def __init__(self):
-        super().__init__("config/prompts/holmes_prompt.yaml")
-    
-    def generate_response(self, case_info: str, discussion_history: Optional[List[str]] = None) -> str:
-        prompt = self.format_prompt(case_info)
-        
-        if discussion_history:
-            history_text = "\n".join([f"Detective {msg['speaker']}: {msg['content']}" 
-                                    for msg in discussion_history])
-            prompt += f"\n\nDiscussion so far:\n{history_text}\n\nYour response:"
-        
-        response = self.llm.invoke(prompt)
-        self.add_to_memory(response.content)
-        return response.content
+        super().__init__(name="Holmes", prompt_path="prompts/holmes_prompt.yaml")
+
+print(" HolmesAgent is defined.")
