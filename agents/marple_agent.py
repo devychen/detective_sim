@@ -1,8 +1,14 @@
+# agents/holmes_agent.py
 
 from agents.base_agent import DetectiveAgent
+from llm_config import get_llama_llm
+import os
 
-class PoirotAgent(DetectiveAgent):
-    def __init__(self):
-        super().__init__(name="Poirot", prompt_path="prompts/marple_prompt.yaml")
+PROMPT_PATH = os.path.join("prompts", "marple_prompt.yaml")
+
+def create_marple_agent():
+    llm = get_llama_llm()
+    return DetectiveAgent(name="Miss Marple", prompt_path=PROMPT_PATH, llm=llm)
+
 
 print(" MarpleAgent is defined.")

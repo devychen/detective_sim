@@ -1,44 +1,34 @@
 # agents/base_agent.py
-
-import yaml
-import dotenv
-import os
 from langchain_core.prompts import PromptTemplate
-from langchain.chains import LLMChain
-from agents.nvidia_llm import NvidiaLLM
-
-# Load API key from .env
-dotenv.load_dotenv("nvidia_key.env")
-API_KEY = os.getenv("NVIDIA_API_KEY")
-API_URL = "https://integrate.api.nvidia.com/v1"
-MODEL_NAME = "meta/llama-3.3-70b-instruct"
+from langchain_core.language_models import BaseLanguageModel
+from langchain_core.runnables import RunnableSequence
+import yaml
 
 class DetectiveAgent:
-    def __init__(self, name: str, prompt_path: str, temperature=0.7):
+    def __init__(self, name: str, prompt_path: str, llm: BaseLanguageModel):
         self.name = name
-        self.prompt = self._load_prompt(prompt_path)
-        self.llm = NvidiaLLM(
-            model_name=MODEL_NAME,
-            api_url=API_URL,
-            api_key=API_KEY,
-            temperature=temperature
-        )
-        self.chain = self._build_chain()
+        self.llm = llm
+        self.prompt = self._build_prompt(prompt_path)
+        self.chain = self.prompt | self.llm  # 新写法：组合 Prompt 和 LLM. <<- self.chain = LLMChain(llm=self.llm, prompt=self.prompt)
 
-    def _load_prompt(self, path: str) -> PromptTemplate:
+    def _build_prompt(self, path: str) -> PromptTemplate:
         with open(path, 'r', encoding='utf-8') as f:
-            content = yaml.safe_load(f)
-        return PromptTemplate(
-            input_variables=content.get("input_variables", ["input"]),
-            template=content["template"]
-        )
+            data = yaml.safe_load(f)
 
-    def _build_chain(self) -> LLMChain:
-        return LLMChain(
-            llm=self.llm,
-            prompt=self.prompt
-        )
+        descriptions = []
+        for item in data:
+            if 'description' in item:
+                descriptions.append(item['description'])
+            if 'instruction' in item:
+                descriptions.append(item['instruction'])
 
+        prompt_text = "\n".join(descriptions) + "\n\n{input}"
+        return PromptTemplate.from_template(prompt_text) # <<- return PromptTemplate(template=prompt_text, input_variables=["input"])
+
+    # def run(self, input_text: str) -> str:
+    #    return self.chain.invoke({"input": input_text})  # 新写法：invoke 而不是 run <<- return self.chain.run(input=input_text)
+    
+    # 如果只返回生成内容
     def run(self, input_text: str) -> str:
-        response = self.chain.run({"input": input_text})
-        return response
+        response = self.chain.invoke({"input": input_text})
+        return response.content  # 只返回纯文本内容
