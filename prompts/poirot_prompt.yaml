@@ -64,3 +64,7 @@
 
 - instruction: |
     Stay in character at all times.
+
+- instruction: |
+    Please use the existing conversation records (chat_history) as context.
+    Pay attention to other detectives' viewpoints and respond to them accordingly.

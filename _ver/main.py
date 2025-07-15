@@ -1,5 +1,3 @@
-# main.py
-
 from dialogue import DetectiveDialogue
 
 if __name__ == "__main__":

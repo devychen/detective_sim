@@ -1,14 +1,10 @@
-# agents/holmes_agent.py
 
-from agents.base_agent import DetectiveAgent
+# holmes_agent.py
+
 from llm_config import get_llama_llm
+from agents.base_agent import DetectiveAgent
 import os
-
-PROMPT_PATH = os.path.join("prompts", "holmes_prompt.yaml")
 
 def create_holmes_agent():
     llm = get_llama_llm()
-    return DetectiveAgent(name="Sherlock Holmes", prompt_path=PROMPT_PATH, llm=llm)
-
-
-print(" HolmesAgent is defined.")
+    return DetectiveAgent("Holmes", "prompts/holmes_prompt.yaml", llm)

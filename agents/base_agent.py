@@ -1,15 +1,21 @@
-# agents/base_agent.py
+# base_agent.py
 from langchain_core.prompts import PromptTemplate
-from langchain_core.language_models import BaseLanguageModel
-from langchain_core.runnables import RunnableSequence
+from langchain_core.runnables import Runnable
+from langchain.chains import LLMChain
+from langchain.memory import ConversationBufferMemory
 import yaml
 
 class DetectiveAgent:
-    def __init__(self, name: str, prompt_path: str, llm: BaseLanguageModel):
+    def __init__(self, name: str, prompt_path: str, llm: Runnable):
         self.name = name
         self.llm = llm
         self.prompt = self._build_prompt(prompt_path)
-        self.chain = self.prompt | self.llm  # 新写法：组合 Prompt 和 LLM. <<- self.chain = LLMChain(llm=self.llm, prompt=self.prompt)
+        self.memory = ConversationBufferMemory(memory_key="chat_history", input_key="input", return_messages=False)
+        self.chain = LLMChain(
+            llm=self.llm,
+            prompt=self.prompt,
+            memory=self.memory
+        )
 
     def _build_prompt(self, path: str) -> PromptTemplate:
         with open(path, 'r', encoding='utf-8') as f:
@@ -22,13 +28,10 @@ class DetectiveAgent:
             if 'instruction' in item:
                 descriptions.append(item['instruction'])
 
-        prompt_text = "\n".join(descriptions) + "\n\n{input}"
-        return PromptTemplate.from_template(prompt_text) # <<- return PromptTemplate(template=prompt_text, input_variables=["input"])
+        # prompt 模板里加 chat_history 占位符
+        prompt_text = "\n".join(descriptions) + "\n\nCurrent Chat History：\n{chat_history}\n\n{input}"
+        return PromptTemplate.from_template(prompt_text)
 
-    # def run(self, input_text: str) -> str:
-    #    return self.chain.invoke({"input": input_text})  # 新写法：invoke 而不是 run <<- return self.chain.run(input=input_text)
-    
-    # 如果只返回生成内容
     def run(self, input_text: str) -> str:
         response = self.chain.invoke({"input": input_text})
-        return response.content  # 只返回纯文本内容
+        return response['text']
