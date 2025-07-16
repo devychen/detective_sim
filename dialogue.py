@@ -62,6 +62,12 @@ class DetectiveDialogue:
                     """.strip()
         # tell models to generate direct questions to address, each other.
         # give them an initial setting
+        # do not repeat questions
+        # do not repeat statements unless being disagree
+        # "be concise" instead of max_length
+        # repeating is a common issue. 1/ stop early. 2/ change the clues. (mixed) 3/ shuffle agents in each turns.
+        # 3 cases x 10 simulations x 10 turns max
+        # 1 debate x 10 simuations x 10 turns max
 
         return prompt
 
