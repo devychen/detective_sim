@@ -34,25 +34,67 @@ For both aotomated generation process using remote API, the temperature  is set 
 Then using an open-source LLM (llama) to do a _Validation Via Reverse identification_, to validate these profiles and prompts are valid representation of the respective character. (The LLM can tell who is who from the input)
 
 
-**Step 1**: confirm brew up-to-date: 
-`brew update` and install necessary pkgs in terminal:`pip install -r requirements.txt` ✅  
+✅ **Step 1**: confirm brew up-to-date: 
+`brew update` and install necessary pkgs in terminal:`pip install -r requirements.txt`  
 
-**Step 2**: Run [gen_profile] for profile generation. Profile generation done. ✅
+✅ **Step 2**: Run [gen_profile] for profile generation. Profile generation done. 
 
-**Step 3**: Run [gen_agent_prompt.py] to generate the prompts for agents role-playing. ✅
+✅ **Step 3**: Run [gen_agent_prompt.py] to generate the prompts for agents role-playing. 
 
-**Step 4**: Run [reverse_id.py] to do the reverse identification check, model used llama-3.3-70b-Instruct. Identity proved. ✅
+✅ **Step 4**: Run [reverse_id.py] to do the reverse identification check, model used llama-3.3-70b-Instruct. Identity proved. 
 
-**Step 5** Extract examples from original works. Run the series of [gen_examples.py].
+✅  **Step 5** Extract examples from original works. Run the series of [gen_examples.py]. API not working well, mannual extraction in the end.
 
 **`=== STAGE CLOSE. 1 JUL 2025 ===`**
 
 ## Workflow - Agent Construction
 
-LLM-based Assistants [Course Webbook](https://maxschmaltz.github.io/Course-LLM-based-Assistants/) might be helpful, especially the [Multi-agent Environment](https://maxschmaltz.github.io/Course-LLM-based-Assistants/sessions/block2_core_topics/pt1_business/2705/2705.html) part.
+> LLM-based Assistants [Course Webbook](https://maxschmaltz.github.io/Course-LLM-based-Assistants/) might be helpful, especially the [Multi-agent Environment](https://maxschmaltz.github.io/Course-LLM-based-Assistants/sessions/block2_core_topics/pt1_business/2705/2705.html) part.
+
+✅ **Step 1**: Build the foundation. The struction, do a trial simuation to make sure the basics work.   
+**agents** -> base_agent, individual_agents * 3.   
+**prompts** -> individual prompts files * 3.   
+**tools** (if any) -> ask_other_questions.   
+**tasks** task description files.  
+
+❓ Undecided - for collaboration task, should or not including `ReAct` to allow questions between each other? if so, how many questions allowed? 2 each turn?
+
+**`=== STAGE CLOSE. 15 JUL 2025 ===`**
+
+## Workflow - Task Preparation
 
 
+**Step 1**: Build real cases and extract the clues. Build the debate task description too.
 
+**Step 2**: Design the case report template.
+
+**`=== STAGE CLOSE. 20 JUL 2025 ===`**
+
+## Workflow - Finalise Setting & Run Simulations
+
+**Step 1**: Based on the task descriptions, finalise adjustments on dialogue and agent coding files.
+
+**Step 2**: Run the simulations and get the results.
+
+**`=== (Estimated) STAGE CLOSE. 31 JUL 2025 ===`**
+
+## Workflow - Baseline
+
+Establish baseline with BERT classification model.
+
+**`=== (Estimated) STAGE CLOSE. 07 AUG 2025 ===`**
+
+## Workflow - Data Analysis, the Metrics.
+
+Do the evaluation.
+
+**`=== (Estimated) STAGE CLOSE. 15 AUG 2025 ===`**
+
+## Workflow - Ablation Study (if needed)
+
+## Workflow - Writing Wrap-Up!
+
+**`=== (Estimated) STAGE CLOSE. 31 AUG 2025 ===`**
 
 
 
