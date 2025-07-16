@@ -60,6 +60,8 @@ class DetectiveDialogue:
             请严格使用以下格式写出你的结论：
             我认为凶手是：XXX
                     """.strip()
+        # tell models to generate direct questions to address, each other.
+        # give them an initial setting
 
         return prompt
 
