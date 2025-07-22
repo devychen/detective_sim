@@ -1,0 +1,49 @@
+case:
+  setting: |
+    作为受邀的侦探，你们三名侦探...
+
+  victim:
+    name: 
+    description: 
+    identifiers: 
+
+
+  suspects:
+    - name: 
+      role: 
+      motive: 
+      background: 
+      appearance:
+      key_items:
+
+
+
+  crime_scene:
+    time: 
+    location: 
+    body_state: |
+    environment: |
+    suspicious_items: |
+  
+  forensic evidence: 
+    time_of_death: |
+    cause_of_death: |
+    body_observations: |
+    toxicology: |
+    other_findings: |
+
+
+
+  timeline:
+    - "18:00: ...."
+
+
+  investigation_starter:
+    holmes: |
+      你的放大镜...
+
+    poirot: |
+      你的礼仪修养注意到...
+
+    marple: |
+      你像发现教堂捐款异常般注意到...

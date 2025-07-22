@@ -68,7 +68,7 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 
 **Step 2**: Design the case report template.
 
-**`=== STAGE CLOSE. 20 JUL 2025 ===`**
+**`=== STAGE CLOSE. 22 JUL 2025 ===`**
 
 ## Workflow - Finalise Setting & Run Simulations
 
