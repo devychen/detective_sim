@@ -65,6 +65,11 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 
 
 **Step 1**: Build real cases and extract the clues. Build the debate task description too.
+剧本杀paper和player paper的案例不适合用，因为背景比较中国，即使是西方背景，也可能会有不符合实际社会文化逻辑的地方，这样也许会限制agent的发挥，影响扮演。所以最好还是用原著的案件？或者进行调整。
+
+加一个setting。 <br>
+加一个要求第一轮先分享线索，并且强调合作。
+
 
 **Step 2**: Design the case report template.
 
