@@ -55,7 +55,7 @@ class DetectiveDialogue:
 
             Your exclusive clue is: {clue}
 
-            Please analyze the available clues and deduce who the murderer might be, explaining your reasoning.
+            Please analyse the available clues and deduce who the murderer might be, explaining your reasoning.
             If needed, you can address direct questions to other detectives, but avoid repeating the same questions.
             Unless you have a different perspective, don't repeat your statements.
             Be concise.

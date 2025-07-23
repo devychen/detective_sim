@@ -70,6 +70,8 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 加一个setting。 <br>
 加一个要求第一轮先分享线索，并且强调合作。
 
+to see if GPT/llama could solve the case based on the complete yaml file.
+
 
 **Step 2**: Design the case report template.
 
