@@ -39,11 +39,19 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 
 ✅ **Step 2**: Run [gen_profile] for profile generation. Profile generation done. 
 
+> 🍎 FOLDER 'profiles', incl. three character profile yaml files
+
 ✅ **Step 3**: Run [gen_agent_prompt.py] to generate the prompts for agents role-playing. 
 
-✅ **Step 4**: Run [reverse_id.py] to do the reverse identification check, model used llama-3.3-70b-Instruct. Identity proved. 
+> 🍎 FOLDER 'prompts', incl. three character prompts yaml files
 
-✅  **Step 5** Extract examples from original works. Run the series of [gen_examples.py]. API not working well, mannual extraction in the end.
+✅ **Step 4**: Run [reverse_id.py] to do the reverse identification check, model used llama-3.3-70b-Instruct. 
+
+> 🍎 Identity proved. 
+
+✅  **Step 5** Get examples. Tried extract examples from original works. Run the series of [gen_examples.py]. But API not working well, so mannual extraction in the end.
+
+> 🍎 in the prompt, examples included.
 
 **`=== STAGE CLOSE. 1 JUL 2025 ===`**
 
@@ -57,26 +65,27 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 **tools** (if any) -> ask_other_questions.   
 **tasks** task description files.  
 
-❓ Undecided - for collaboration task, should or not including `ReAct` to allow questions between each other? if so, how many questions allowed? 2 each turn?
+> 🍎 dialogue.py + base_agent.py + three agent.py +  llm_config.py + main.py
+
+【No need】Undecided - for collaboration task, should or not including `ReAct` to allow questions between each other? if so, how many questions allowed? 2 each turn?
 
 **`=== STAGE CLOSE. 15 JUL 2025 ===`**
 
 ## Workflow - Task Preparation
 
 
-**Step 1**: Build real cases and extract the clues. Build the debate task description too.
-剧本杀paper和player paper的案例不适合用，因为背景比较中国，即使是西方背景，也可能会有不符合实际社会文化逻辑的地方，这样也许会限制agent的发挥，影响扮演。所以最好还是用原著的案件？或者进行调整。
+**Step 1**: Use the script from a previous work - [Player](https://github.com/alickzhu/PLAYER/tree/main) - which has mystery game scripts. And mannually extract the information based on my case template. 
+> 🍎 case1.yaml, case2.yaml, case3.yaml
 
-to see if GPT/llama could solve the case based on the complete yaml file.
+**Step 2**: use GPT/llama to prove that the case extracted works - namely it could be solved.
 
-based on inspiring works ([Player](https://github.com/alickzhu/PLAYER/tree/main)), modify the task prompt.  
+**Step 3**: Based on inspiring works ([Player](https://github.com/alickzhu/PLAYER/tree/main)), modify the task prompt.  
 加一个setting。 <br>
 加一个要求第一轮先分享线索，并且强调合作。
 
 
-**Step 2**: Design the case report template.
 
-**`=== STAGE CLOSE. 22 JUL 2025 ===`**
+**`=== STAGE CLOSE. 25 JUL 2025 ===`**
 
 ## Workflow - Finalise Setting & Run Simulations
 
