@@ -11,7 +11,7 @@ case:
     description: |
       45 years old, a prominent London nightclub owner with extensive illegal operations (drugs, gambling, etc.).
       Former drug addict, regularly traded drugs with Charlie on the Sunshine.
-      Paranoid but lax with details, relied on Wendy and deceased assistant "Naive."
+      Paranoid but lax with details, relied on Wendy and deceased assistant Nick.
       Found with contorted posture, facial cyanosis, white foam at the mouth, and cyanotic nails—consistent with cyanide poisoning.
     identifiers: |
       - Carried drugs and a torn transaction ledger.
@@ -37,7 +37,7 @@ case:
       role: John's assistant, secretly plotting to replace him
       motive: |
         1. Take control of the drug supply chain.
-        2. Silence John to cover her betrayal (killed Little William and Naive).
+        2. Silence John to cover her betrayal (killed Little William and Nick).
       background: |
         32 years old, outwardly loyal but ambitious. Altered Linda's reports and hid William's involvement. Skilled at forging handwriting.
       appearance: |
@@ -50,10 +50,10 @@ case:
     - name: Charlie
       role: First mate, John's drug supplier
       motive: |
-        1. Revenge for his brother Naive (killed by John).
+        1. Revenge for his brother Nick (killed by John).
         2. Prevent John and William from teaming up against him.
       background: |
-        48 years old, seasoned sailor. Used his position to facilitate drug trade. Brother Naive was John's former aide.
+        48 years old, seasoned sailor. Used his position to facilitate drug trade. Brother Nick was John's former aide.
       appearance: |
         - Cyanide traces in inner pocket.
         - Fresh scrape on right hand (from climbing ventilation ducts).
