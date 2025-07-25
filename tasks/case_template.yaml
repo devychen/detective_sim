@@ -25,7 +25,7 @@ case:
     environment: |
     suspicious_items: |
   
-  forensic evidence: 
+  forensic_evidence: 
     time_of_death: |
     cause_of_death: |
     body_observations: |

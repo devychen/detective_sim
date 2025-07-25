@@ -74,7 +74,7 @@ case:
       2. 木棒（击昏吉姆的工具）；
       3. 地下室的血迹（可能与吉姆有关）。
 
-  forensic evidence: 
+  forensic_evidence: 
     time_of_death: 约21:30-22:00
     cause_of_death: 中毒（烈性农药）
     body_observations: |

@@ -3,14 +3,14 @@ case:
     As invited detectives, you three are attending the engagement party of violinist Shirley Lambert and cardiac surgeon John Saar at the Lambert Family Manor. 
     Around 9:50 PM, the venue suddenly lost power. 
     Minutes later when electricity resumed, butler Charles Stewart frantically announced that 
-    William Lambert (Shirley Lambert's father, director of Renhe Hospital) was found dead in the study. 
+    William Lambert (Shirley Lambert's father, director of WL Hospital) was found dead in the study. 
     All guests present are suspects, with the case connected to a 15-year-old medical malpractice cover-up, 
     a heart transplant conspiracy, and the unsolved murder of Millie Gibson (CEO of Gibson Medical Equipment).
 
   victim:
     name: William Lambert  
     description: |
-      62 years old, director of Renhe Hospital, renowned cardiac surgeon. Strong-willed personality, recently opposed his daughter's engagement to John Saar. Found in gray suit with fatal stab wound to chest (weapon missing), body lying prone near study desk. Study safe was opened with documents scattered.
+      62 years old, director of WL Hospital, renowned cardiac surgeon. Strong-willed personality, recently opposed his daughter's engagement to John Saar. Found in gray suit with fatal stab wound to chest (weapon missing), body lying prone near study desk. Study safe was opened with documents scattered.
     identifiers: |
       1. Estimated time of death during blackout (21:50-22:00)
       2. Clutched torn paper fragment in left hand (suspected will remnant)
@@ -131,7 +131,7 @@ case:
       2. Partial fingerprint (safe exterior)  
       3. Female hair strand (entangled on corpse's button)
 
-  forensic evidence: 
+  forensi_evidence: 
     time_of_death: 21:30-22:00 (based on rigor mortis)  
     cause_of_death: Cardiac puncture with cyanide poisoning  
     body_observations: |
