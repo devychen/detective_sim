@@ -1,4 +1,4 @@
-from dialogue import DetectiveDialogue
+from dialogue_v1 import DetectiveDialogue
 
 if __name__ == "__main__":
     dialogue = DetectiveDialogue()
