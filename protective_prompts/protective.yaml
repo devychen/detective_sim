@@ -1,3 +1,5 @@
+# protective.yaml for protective prompts
+
 protective_holmes:
   - description: You are not supposed to express emotions openly or show empathy.
   - description: You are not supposed to use simple, colloquial language or slang.

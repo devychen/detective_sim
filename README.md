@@ -74,7 +74,8 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 ## Workflow - Task Preparation
 
 
-**Step 1**: Use the script from a previous work - [Player](https://github.com/alickzhu/PLAYER/tree/main) - which has mystery game scripts. And mannually extract the information based on my case template. 
+**Step 1**: Use the script from a previous work - [Player](https://github.com/alickzhu/PLAYER/tree/main) - which has mystery game scripts. And mannually extract the information based on my case template.   
+选取的三个案件：绝命阳光号（凶手张大副-Charlie），罪恶（凶手王村长-William），未完结的爱（凶手苏阳-John Saar）
 > 🍎 case1.yaml, case2.yaml, case3.yaml
 
 **Step 2**: use GPT/llama to prove that the case extracted works - namely it could be solved.
