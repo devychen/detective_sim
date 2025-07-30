@@ -30,13 +30,13 @@ class DetectiveAgent:
             if 'instruction' in item:
                 descriptions.append(item['instruction'])
 
-        # prompt 模板里加 chat_history 占位符
-        prompt_text = "\n".join(descriptions) + "\n\nCurrent Chat History：\n{chat_history}\n\n{input}"
+        # Add chat_history placeholder in the prompt template
+        prompt_text = "\n".join(descriptions) + "\n\nCurrent Chat History:\n{chat_history}\n\n{input}"
         return PromptTemplate.from_template(prompt_text)
 
     def update_memory(self, speaker: str, text: str):
-        """更新memory，记录其他agent的发言"""
-        if speaker != self.name:  # 避免重复记录自己的发言
+        """Update memory to record other agents' speech"""
+        if speaker != self.name:  # Avoid duplicate recording of own speech
             self.memory.save_context({"input": f"{speaker} said: {text}"}, {"output": ""})
 
     def run(self, input_text: str) -> str:

@@ -87,14 +87,14 @@ class DetectiveDialogue:
 
     def extract_suspect_from(self, response: str) -> str | None:
         patterns = [
-            r"I believe the murderer is[:：]\s*(\w+)",  # 只匹配单词
+            r"I believe the murderer is[:：]\s*(\w+)",  # only match the next noun
             r"The killer (?:must be|is)\s*[:：]?\s*(\w+)",
-            r"(?:murderer|killer)\s*is\s*(\w+)",       # 更灵活的格式
+            r"(?:murderer|killer)\s*is\s*(\w+)",       # more flexible
         ]
         for pattern in patterns:
             match = re.search(pattern, response, re.IGNORECASE)
             if match:
-                return match.group(1).strip()  # 返回第一个捕获组（单词）
+                return match.group(1).strip()  
         return None
 
     def save_log(self):
@@ -126,7 +126,7 @@ class DetectiveDialogue:
                 print(log_entry)
                 self.log_lines.append(f"{agent_name}:\n{response}")
 
-                # 更新其他agent的memory
+                # update the memory of other agents
                 for other_agent_name in ["Holmes", "Poirot", "Marple"]:
                     if other_agent_name != agent_name:
                         self.agents[other_agent_name].update_memory(agent_name, response)

@@ -20,7 +20,7 @@ case:
       background: |
         Graduated from a maritime academy and worked his way up to become the first mate.
         Had a brother, Nick, who worked for Yosef. At his brother's request, he used his position to help Yosef smuggle drugs, demonstrating skillful methods.
-        Had a subordinate, Wilson, whom he controlled by arranging for Lynn to date and marry Wilson's son, Wang Xiaogong.
+        Had a subordinate, Wilson, whom he controlled by arranging for Lynn to date and marry Wilson's son, Wilson Jr..
         To protect his position, he hid Wilson's existence from Yosef. However, his brother, out of loyalty, revealed this to Yosef, leading to his brother's loss of value and subsequent murder by Yosef.
         Motivated by self-preservation and revenge, he developed murderous intentions.
       appearance: |
@@ -37,12 +37,12 @@ case:
     - name: Wilson
       role: Senior crew member of the Sunshine, Zack's subordinate in drug trafficking
       motive: |
-        1. Revenge: His son Wang Xiaogong died from a drug overdose, and he suspected Yosef and Zack of conspiring to kill him.
+        1. Revenge: His son Wilson Jr. died from a drug overdose, and he suspected Yosef and Zack of conspiring to kill him.
         2. Saving someone: His daughter-in-law Lynn claimed Yosef was trying to kill her.
       background: |
         Worked on the ship for over a decade. Under Zack's coercion and incentives, he participated in drug trafficking but kept this hidden from his son and daughter-in-law out of love.
         Was once approached by Wendy's subordinate, who asked if he would replace Zack, but he declined as he did not want to get further involved.
-        His son Wang Xiaogong recently died, with the official cause being a drug overdose. Only after his son's death did he learn that his son was also an addict, victimized by Yosef, Zack, and himself, leading to immense guilt.
+        His son Wilson Jr. recently died, with the official cause being a drug overdose. Only after his son's death did he learn that his son was also an addict, victimized by Yosef, Zack, and himself, leading to immense guilt.
         However, due to the unnatural contortion of his son's body at death, he suspected foul play.
         Had a daughter-in-law, Lynn, whom he treated like his own child. He did not share his suspicions with her.
         Shortly after his son's death, he overheard Yosef telling Zack, "That kid has been taken care of for you," leading him to suspect they had conspired to kill his son. He developed murderous intentions.
@@ -54,7 +54,7 @@ case:
         1. A business card left by Wendy's subordinate.
         2. A small medicine bottle labeled "Vitamin C" but actually containing "X Poison" provided by Lynn. The accompanying syringe was missing, suspected to have been thrown into the sea.
         3. Secret correspondence with Yosef, proposing to replace Zack.
-        4. His son Wang Xiaogong's belongings (photos, drug paraphernalia).
+        4. His son Wilson Jr.'s belongings (photos, drug paraphernalia).
 
     - name: Lynn
       role: Ship doctor, Wilson's daughter-in-law, double agent (providing intelligence on Yosef and Zack to each other)
@@ -64,9 +64,9 @@ case:
       background: |
         Orphaned, she only cared about money, which gave her a sense of security. After graduating from medical school, she chose to work as a ship doctor for easier access to wealthy clients.
         Skilled at deception, she was recruited by Yosef to spy on Zack for substantial rewards. Later, she reported to Wendy instead of Yosef.
-        Was then recruited by Zack to get close to Wilson for surveillance, leading to a relationship with Wang Xiaogong. When Wang proposed, she demanded more money from Zack to marry him and continue spying.
-        Collected intelligence for both Yosef and Zack while married to Wang Xiaogong and monitoring Wilson.
-        Recognized that Wang Xiaogong's death was suspicious but did not care.
+        Was then recruited by Zack to get close to Wilson for surveillance, leading to a relationship with Wilson Jr.. When Wang proposed, she demanded more money from Zack to marry him and continue spying.
+        Collected intelligence for both Yosef and Zack while married to Wilson Jr. and monitoring Wilson.
+        Recognized that Wilson Jr.'s death was suspicious but did not care.
         Visited Yosef that day and was questioned about hiding Wilson's existence. Fearing Yosef would kill her, she planned to use Wilson to act.
       appearance: |
         Young woman, well-educated appearance.
@@ -81,13 +81,13 @@ case:
       role: Yosef's secretary, second in command in the criminal organization, the "brain" behind operations
       motive: |
         1. Planned to replace Yosef and eliminate obstacles.
-        2. Had killed Wang Xiaogong and Nick, possibly to cover up crimes.
+        2. Had killed Wilson Jr. and Nick, possibly to cover up crimes.
       background: |
         Eager to rise in society but found it difficult as a woman, so she joined Yosef and became his right-hand woman.
         Realized Yosef was not particularly skilled and secretly planned to usurp his power. Had largely succeeded, controlling the final link in the drug trafficking chain.
         Selectively reported Lynn's intelligence, such as hiding Lynn's report about Wilson being Zack's partner in drug shipments. Instead, she privately approached Wilson, asking if he would supply drugs and replace Zack, but Wilson refused.
-        Upon learning of Wang Xiaogong's existence, she lured him into using their drugs and convinced Yosef that Wang was a threat to drug shipments, leading Yosef to agree to kill him. Her real goal was to use Wang's death to sow discord between Yosef and Zack.
-        Killed Wang Xiaogong with drugs laced with "X Poison," waiting for Wilson to discover the truth and seek revenge on Yosef or Zack, thereby using him as a pawn.
+        Upon learning of Wilson Jr.'s existence, she lured him into using their drugs and convinced Yosef that Wang was a threat to drug shipments, leading Yosef to agree to kill him. Her real goal was to use Wang's death to sow discord between Yosef and Zack.
+        Killed Wilson Jr. with drugs laced with "X Poison," waiting for Wilson to discover the truth and seek revenge on Yosef or Zack, thereby using him as a pawn.
         Nick was also a threat due to his loyalty to Yosef, so she killed him, declaring war on Yosef.
         On the day of the incident, she boarded the ship intending to kill Yosef.
       appearance: |
