@@ -1,6 +1,6 @@
 case:
   setting: |
-    作为受邀的侦探，你们三名侦探...
+    作为受邀的侦探，
 
   victim:
     name: 
@@ -38,12 +38,12 @@ case:
     - "18:00: ...."
 
 
-  investigation_starter:
-    holmes: |
-      你的放大镜...
+  # investigation_starter:
+  #   holmes: |
+  #     你的放大镜...
 
-    poirot: |
-      你的礼仪修养注意到...
+  #   poirot: |
+  #     你的礼仪修养注意到...
 
-    marple: |
-      你像发现教堂捐款异常般注意到...
+  #   marple: |
+  #     你像发现教堂捐款异常般注意到...

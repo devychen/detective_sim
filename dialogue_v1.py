@@ -73,6 +73,18 @@ class DetectiveDialogue:
         rule_prompt = self.rules[f"system_prompt_{agent_name.lower()}"]
         formatted_prompt = rule_prompt.format(**context)
 
+        # final_prompt = f"""
+        # {formatted_prompt}
+
+        # 【Shared Dialogue History】:
+        # {chat_history if chat_history else "(None yet)"}
+
+        # Please analyze the available clues, communicate if needed, and try to deduce the murderer.
+        # IMPORTANT: Do not ask more than **two questions** in a round. Limit question loops.
+        # IMPORTANT: If you are asked a question in previous round, you may respond and optionally ask ONE follow-up.
+        # Remember to include:
+        # I believe the murderer is: XXX
+        # """.strip()
 
         final_prompt = f"""
         {formatted_prompt}
@@ -82,6 +94,12 @@ class DetectiveDialogue:
         """.strip()
 
         return final_prompt
+
+    # def extract_suspect_from(self, response: str) -> str | None:
+    #     for line in response.splitlines():
+    #         if line.strip().startswith("I believe the murderer is:"):
+    #             return line.split(":", 1)[1].strip()
+    #     return None
     
     def extract_suspect_from(self, response: str) -> str | None:
         pattern = r"I believe the murderer is[:：]\s*(.+)"
