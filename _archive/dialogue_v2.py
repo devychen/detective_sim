@@ -1,3 +1,5 @@
+# direct output in terminal, txt
+
 import time
 from datetime import datetime
 import yaml

@@ -7,7 +7,7 @@ from datetime import datetime
 # Set NVIDIA API key
 load_dotenv('nvidia_key.env')
 API_URL = "https://integrate.api.nvidia.com/v1"
-MODEL_NAME = "meta/llama-3.3-70b-instruct"  # 修正模型名称(原代码中的3.3可能有误)
+MODEL_NAME = "meta/llama-3.3-70b-instruct"  
 API_KEY = os.getenv("NVIDIA_API_KEY")
 
 def load_case_files():
@@ -18,7 +18,7 @@ def load_case_files():
             case_data = yaml.safe_load(file)
             if case_data is None:
                 raise ValueError("YAML file is empty or invalid")
-            return [case_data['case']]  # 确保返回包含单个案例的列表
+            return [case_data['case']]  
     except Exception as e:
         print(f"Error loading YAML file: {e}")
         raise

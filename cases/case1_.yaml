@@ -110,7 +110,7 @@ case:
       1. Abnormal dust distribution in the ventilation ducts, indicating multiple people had entered.
       2. The drugs by the bedside did not contain "X Poison," but Yosef's consumed drugs did, suggesting the poisoned drugs were replaced after his death.
 
-  forensic_evidence:
+  forensic_evidence: 
     time_of_death: June 19, 1902, 22:40 to 23:00
     cause_of_death: Poisoning by "X Poison," ingested through drugs laced with it
     body_observations: |
@@ -130,14 +130,14 @@ case:
     - "18:20: Zack and Yosef completed their deal. As Zack left the cabin, he passed Lynn outside."
     - "18:30: Wendy was spotted near the medical room."
     - "18:40: A crew member testified that Wendy asked about the ventilation ducts at this time."
-    - "18:50: Lynn noticed the key was missing. When she went to the medical room to retrieve 'X Poison', she found the key on the cabinet and one bottle of 'X Poison' missing."
-    - "19:30: Wilson was about to visit Yosef when Lynn approached him, claiming Yosef was trying to kill her and begging for help. She gave Wilson a bottle of 'X Poison' and a syringe."
+    - "18:50: Lynn noticed the key was missing. When she went to the medical room to retrieve "X Poison," she found the key on the cabinet and one bottle of "X Poison" missing."
+    - "19:30: Wilson was about to visit Yosef when Lynn approached him, claiming Yosef was trying to kill her and begging for help. She gave Wilson a bottle of "X Poison" and a syringe."
     - "19:40: Wilson met with Yosef to discuss cooperation."
     - "20:20: Wilson returned and told Lynn that Yosef had no intention of killing her, but Lynn still seemed uneasy."
     - "22:40: Wendy had just reached Yosef's cabin via the ventilation ducts when she witnessed Yosef's death. She removed the cover, confirmed his death, but left without entering, as someone had acted first."
     - "22:50: Lynn was spotted near the ventilation duct entrance. She admitted entering the ducts but heard someone else crawling inside and hid until the sound stopped."
     - "23:00: Wendy was seen handing something to an accomplice, resembling a medicine bottle and syringe."
-    - "23:20: Lynn reached Yosef's cabin via the ducts, found the cover removed, and saw Yosef dead, appearing to have died from 'X Poison'. She left without entering."
+    - "23:20: Lynn reached Yosef's cabin via the ducts, found the cover removed, and saw Yosef dead, appearing to have died from "X Poison." She left without entering."
     - "02:10: Zack reached Yosef's cabin via the ducts, found the cover removed, and jumped down to confirm Yosef's death."
     - "02:15: Zack was spotted near the ventilation duct exit in Yosef's room, possibly retrieving the poisoned drugs he had planted."
     - "02:20: Zack was seen at the ship's bow, using the wind to dispose of the poisoned drugs, looking sorrowful."

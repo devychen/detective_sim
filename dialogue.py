@@ -1,9 +1,12 @@
+# dialogue.py. Output csv
+
 import time
 from datetime import datetime
 import yaml
 import os
 import random
 import re
+import csv
 
 from agents.holmes_agent import create_holmes_agent
 from agents.poirot_agent import create_poirot_agent
@@ -73,6 +76,18 @@ class DetectiveDialogue:
         rule_prompt = self.rules[f"system_prompt_{agent_name.lower()}"]
         formatted_prompt = rule_prompt.format(**context)
 
+        # final_prompt = f"""
+        # {formatted_prompt}
+
+        # 【Shared Dialogue History】:
+        # {chat_history if chat_history else "(None yet)"}
+
+        # Please analyze the available clues, communicate if needed, and try to deduce the murderer.
+        # IMPORTANT: Do not ask more than **two questions** in a round. Limit question loops.
+        # IMPORTANT: If you are asked a question in previous round, you may respond and optionally ask ONE follow-up.
+        # Remember to include:
+        # I believe the murderer is: XXX
+        # """.strip()
 
         final_prompt = f"""
         {formatted_prompt}
@@ -82,6 +97,12 @@ class DetectiveDialogue:
         """.strip()
 
         return final_prompt
+
+    # def extract_suspect_from(self, response: str) -> str | None:
+    #     for line in response.splitlines():
+    #         if line.strip().startswith("I believe the murderer is:"):
+    #             return line.split(":", 1)[1].strip()
+    #     return None
     
     def extract_suspect_from(self, response: str) -> str | None:
         pattern = r"I believe the murderer is[:：]\s*(.+)"
@@ -91,13 +112,19 @@ class DetectiveDialogue:
         return None
 
     def save_log(self):
-        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        with open(self.log_file, "w", encoding="utf-8") as f:
-            f.write(f"🕵️‍♂️ Multi-Agent Detective Dialogue Log ({timestamp})\n")
-            f.write("=" * 50 + "\n\n")
-            for line in self.log_lines:
-                f.write(line + "\n\n")
-        print(f"\n📝 Dialogue log saved to: {self.log_file}")
+        csv_file = self.log_file.replace(".txt", ".csv")
+        with open(csv_file, "w", encoding="utf-8", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(["Turn No.", "Agent Name", "Dialogue", "Believed Murderer"])
+            turn = 1
+            for group in self.turn_logs:
+                for agent_name, dialogue in group:
+                    believed_murderer = self.extract_suspect_from(dialogue) or ""
+                    writer.writerow([turn, agent_name, dialogue, believed_murderer])
+                turn += 1
+        print(f"\n📝 Dialogue log saved to: {csv_file}")
+
+
 
     def run_dialogue(self):
         for turn in range(self.max_turns):
