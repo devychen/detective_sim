@@ -1,5 +1,3 @@
-# test_case_llama.py
-
 import os
 import requests
 from dotenv import load_dotenv
@@ -27,22 +25,22 @@ def load_case_files():
 
 def analyse_case(case_data, case_number):
     """Analyse a single case using the Llama API"""
-    case_name = case_data.get('setting', 'Unknown case').split('\n')[0]
+    case_name = case_data.get('setting', '未知案件').split('\n')[0]
     
-    prompt = f"""Please carefully analyze the following murder case and determine the most likely perpetrator.
-        Consider all evidence, motives, opportunities, and forensic findings. Explain your reasoning step by step.
-        All information is correct. Suspects may withhold information but definitely do not lie.
+    prompt = f"""请仔细分析以下谋杀案并确定最可能的凶手。
+        考虑所有证据、动机、机会和法医发现。逐步解释你的推理过程。
+        信息全部都正确，嫌疑人提供的信息也许有隐瞒，但绝对没有撒谎。
 
-        Case: {case_name}
-        Victim: {case_data['victim']['name']}
-        Suspects: {', '.join([s['name'] for s in case_data['suspects']])}
+        案件: {case_name}
+        受害者: {case_data['victim']['name']}
+        嫌疑人: {', '.join([s['name'] for s in case_data['suspects']])}
 
-        Key evidence:
-        - Crime scene: {case_data['crime_scene'].get('body_state', 'No information')}
-        - Forensic findings: {case_data.get('forensic_evidence', {}).get('cause_of_death', 'No information')}
-        - Timeline: {'; '.join(case_data['timeline'])}
+        关键证据:
+        - 犯罪现场: {case_data['crime_scene'].get('body_state', '无信息')}
+        - 法医发现: {case_data.get('forensic_evidence', {}).get('cause_of_death', '无信息')}
+        - 时间线: {'; '.join(case_data['timeline'])}
 
-        After analyzing all factors, provide the most likely perpetrator and a detailed explanation.
+        分析所有因素后，给出最可能的凶手和详细解释。
         """
     
     headers = {
@@ -53,7 +51,7 @@ def analyse_case(case_data, case_number):
     payload = {
         "model": MODEL_NAME,
         "messages": [
-            {"role": "system", "content": "You are a world-class detective analyzing complex murder cases."},
+            {"role": "system", "content": "你是一位世界级的侦探，正在分析复杂的谋杀案件。"},
             {"role": "user", "content": prompt}
         ],
         "temperature": 0.3
@@ -63,17 +61,17 @@ def analyse_case(case_data, case_number):
     response.raise_for_status()
     response_data = response.json()
     
-    return f"Case {case_number} analysis:\n{response_data['choices'][0]['message']['content']}\n"
+    return f"案件 {case_number} 分析:\n{response_data['choices'][0]['message']['content']}\n"
 
 def save_results_to_file(results, filename=None):
     """Save analysis results to a text file with timestamp"""
     if not filename:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"Case_Analysis_Results_{timestamp}.txt"
+        filename = f"案件分析结果_{timestamp}.txt"
     
     with open(filename, 'w', encoding='utf-8') as file:
-        file.write("Murder Case Analysis Report\n")
-        file.write(f"Generated at: {datetime.now().strftime('%Y-%m-%d %H:%M')}\n")
+        file.write("谋杀案件分析报告\n")
+        file.write(f"生成时间: {datetime.now().strftime('%Y年%m月%d日 %H:%M')}\n")
         file.write("="*50 + "\n\n")
         file.write(results)
     
@@ -86,16 +84,16 @@ def main():
         
         for i, case_data in enumerate(cases, 1):
             print(f"\n{'='*40}")
-            print(f"Analyzing case {i}...")
+            print(f"正在分析案件 {i}...")
             case_analysis = analyse_case(case_data, i)
             print(case_analysis)
             all_results += case_analysis + "\n" + "="*40 + "\n\n"
         
         # Save all results to file
         output_file = save_results_to_file(all_results)
-        print(f"\nAnalysis completed. Results saved to: {output_file}")
+        print(f"\n分析完成。结果已保存至: {output_file}")
     except Exception as e:
-        print(f"Program error: {e}")
+        print(f"程序出错: {e}")
 
 if __name__ == "__main__":
     main()
