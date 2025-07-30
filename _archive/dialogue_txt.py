@@ -1,4 +1,4 @@
-# dialogue.py. Output csv
+# dialogue.py
 
 import time
 from datetime import datetime
@@ -6,7 +6,6 @@ import yaml
 import os
 import random
 import re
-import csv
 
 from agents.holmes_agent import create_holmes_agent
 from agents.poirot_agent import create_poirot_agent
@@ -17,15 +16,12 @@ class DetectiveDialogue:
         self.max_turns = max_turns
         self.delay = delay
         self.log_file = log_file
-        self.memory = {
-            "Holmes": [],
-            "Poirot": [],
-            "Marple": [],
-        }
+        self.log_lines = []
 
         # Load case file
         if not os.path.exists(case_file):
             raise FileNotFoundError(f"Case file not found: {case_file}")
+
         with open(case_file, 'r', encoding='utf-8') as f:
             self.case_data = yaml.safe_load(f)["case"]
 
@@ -36,6 +32,13 @@ class DetectiveDialogue:
         # Load protective prompts
         with open("protective_prompts/protective.yaml", 'r', encoding='utf-8') as f:
             self.protectives = yaml.safe_load(f)
+
+        # Initialize memory
+        self.memory = {
+            "Holmes": [],
+            "Poirot": [],
+            "Marple": [],
+        }
 
         # Initialize agents
         self.holmes = create_holmes_agent()
@@ -72,6 +75,7 @@ class DetectiveDialogue:
         rule_prompt = self.rules[f"system_prompt_{agent_name.lower()}"]
         formatted_prompt = rule_prompt.format(**context)
 
+
         final_prompt = f"""
         {formatted_prompt}
 
@@ -83,31 +87,34 @@ class DetectiveDialogue:
 
     def extract_suspect_from(self, response: str) -> str | None:
         patterns = [
-            r"I believe the murderer is[:：]\s*(\w+)",
+            r"I believe the murderer is[:：]\s*(\w+)",  # 只匹配单词
             r"The killer (?:must be|is)\s*[:：]?\s*(\w+)",
-            r"(?:murderer|killer)\s*is\s*(\w+)",
+            r"(?:murderer|killer)\s*is\s*(\w+)",       # 更灵活的格式
         ]
         for pattern in patterns:
             match = re.search(pattern, response, re.IGNORECASE)
             if match:
-                return match.group(1).strip()
+                return match.group(1).strip()  # 返回第一个捕获组（单词）
         return None
 
-    def save_log_as_csv(self, dialogue_rows):
-        csv_file = self.log_file.replace(".txt", ".csv")
-        with open(csv_file, mode='w', newline='', encoding='utf-8') as f:
-            writer = csv.writer(f)
-            writer.writerow(["Turn No.", "Agent Name", "Spoken Content", "Believed murderer"])
-            for row in dialogue_rows:
-                writer.writerow(row)
+    def save_log(self):
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        with open(self.log_file, "w", encoding="utf-8") as f:
+            f.write(f"🕵️‍♂️ Multi-Agent Detective Dialogue Log ({timestamp})\n")
+            f.write("=" * 50 + "\n\n")
+            for line in self.log_lines:
+                f.write(line + "\n\n")
+        print(f"\n📝 Dialogue log saved to: {self.log_file}")
 
     def run_dialogue(self):
-        dialogue_rows = []
         for turn in range(self.max_turns):
-            agent_order = ["Holmes", "Poirot", "Marple"]
-            random.shuffle(agent_order)
+            round_header = f"\n🔄 Round {turn + 1}\n" + "-" * 30
+            print(round_header)
+            self.log_lines.append(round_header.strip())
 
             responses = {}
+            agent_order = ["Holmes", "Poirot", "Marple"]
+            random.shuffle(agent_order)
             for agent_name in agent_order:
                 agent = self.agents[agent_name]
                 prompt = self.format_input_for_agent(agent_name)
@@ -115,22 +122,36 @@ class DetectiveDialogue:
                 self.memory[agent_name].append(response)
                 responses[agent_name] = response
 
-                believed = self.extract_suspect_from(response) or ""
-                dialogue_rows.append([
-                    turn + 1,
-                    agent_name,
-                    response.strip(),
-                    believed
-                ])
+                log_entry = f"\n🕵️‍♂️ {agent_name} says:\n{response}"
+                print(log_entry)
+                self.log_lines.append(f"{agent_name}:\n{response}")
 
-                for other_agent_name in self.agents:
+                # 更新其他agent的memory
+                for other_agent_name in ["Holmes", "Poirot", "Marple"]:
                     if other_agent_name != agent_name:
                         self.agents[other_agent_name].update_memory(agent_name, response)
 
                 time.sleep(self.delay)
 
-            suspects = [self.extract_suspect_from(responses[a]) for a in ["Holmes", "Poirot", "Marple"]]
-            if all(suspects) and len(set(suspects)) == 1 and suspects[0].lower() not in ["unknown", "undetermined", "not sure", "uncertain"]:
-                break
+            suspects = [
+                self.extract_suspect_from(responses["Holmes"]),
+                self.extract_suspect_from(responses["Poirot"]),
+                self.extract_suspect_from(responses["Marple"]),
+            ]
 
-        self.save_log_as_csv(dialogue_rows)
+            if all(suspects) and len(set(suspects)) == 1:
+                consensus = suspects[0]
+                if consensus.lower() not in ["unknown", "undetermined", "not sure", "uncertain"]:
+                    summary = "\n✅ All three detectives have reached a consensus.\n" + f"🎯 The murderer is: {consensus}"
+                    print(summary)
+                    self.log_lines.append(summary.strip())
+                    break
+
+        else:
+            conclusion = "\n❌ Reached maximum rounds without consensus among the detectives."
+            print(conclusion)
+            self.log_lines.append(conclusion.strip())
+
+        self.save_log()
+
+
