@@ -86,7 +86,10 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 
 **======For Debate Task======**
 
-**Step 1**: Complete task prompt
+**Step 1**: Write a more detailed description on their investigation methods. Use the summarised _investigative traits_ from Lima et al (2025) directly (but rephrased to imperative sentences). 
+> 🍎 prompts > holmes_methods.yaml, poirot_methods.yaml, marple_methods.yaml
+
+**Step 2**: Complete task prompt
 > 🍎 rules > debate_rule.yaml
 
 
