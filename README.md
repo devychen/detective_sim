@@ -75,14 +75,19 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 
 
 **Step 1**: Use the script from a previous work - [Player](https://github.com/alickzhu/PLAYER/tree/main) - which has mystery game scripts. And mannually extract the information based on my case template.   
-选取的三个案件：绝命阳光号（凶手张大副-Charlie），罪恶（凶手王村长-William），未完结的爱（凶手苏阳-John Saar）
-> 🍎 case1.yaml, case2.yaml, case3.yaml
+选取的三个案件：绝命阳光号（凶手张大副-Zack），罪恶（凶手王村长-William），未完结的爱（凶手苏阳-John Saar）
+> 🍎 cases > case1.yaml, case2.yaml, case3.yaml
 
 **Step 2**: use GPT/llama to prove that the case extracted works - namely it could be solved.
+> 🍎 tests > test_case_gpt.yaml, test_case_llama.yaml, test_allcases.py
 
 **Step 3**: Based on inspiring works ([Player](https://github.com/alickzhu/PLAYER/tree/main)), modify the task prompt.  
-加一个setting。 <br>
-加一个要求第一轮先分享线索，并且强调合作。
+> 🍎 rules > rule.yaml
+
+**======For Debate Task======**
+
+**Step 1**: Complete task prompt
+> 🍎 rules > debate_rule.yaml
 
 
 
