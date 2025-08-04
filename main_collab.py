@@ -1,4 +1,4 @@
-# main.py
+# main_collab.py
 
 from collab import DetectiveDialogue
 

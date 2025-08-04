@@ -96,15 +96,21 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 
 **Step Final**: Run the simulations and get the results.
 
-**`=== (Estimated) STAGE CLOSE. 31 JUL 2025 ===`**
+**`=== (Estimated) STAGE CLOSE. 05 AUG 2025 ===`**
 
 ## Workflow - Baseline
 
-Establish baseline with BERT classification model.
+Establish baseline with a cased [BERT](https://huggingface.co/google-bert/bert-base-cased) classification model.
 
-**`=== (Estimated) STAGE CLOSE. 07 AUG 2025 ===`**
+supervised classifier.
+sh, mm, hp, others. Four classes.
+Datasize: 5000 tokens, 500 examples each.
+Example texts
 
-## Workflow - Data Analysis, the Metrics.
+
+**`=== (Estimated) STAGE CLOSE. -- AUG 2025 ===`**
+
+## Workflow - Data Analysis, Metrics.
 
 Do the evaluation.
 
@@ -112,7 +118,7 @@ Do the evaluation.
 
 ## Workflow - Ablation Study (if needed)
 
-## Workflow - Writing Wrap-Up!
+## Workflow - Writing, ALL Wrap-Up!
 
 **`=== (Estimated) STAGE CLOSE. 31 AUG 2025 ===`**
 
