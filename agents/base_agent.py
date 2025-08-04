@@ -1,11 +1,11 @@
 # base_agent.py
 
-# base_agent.py
 from langchain_core.prompts import PromptTemplate
 from langchain_core.runnables import Runnable
 from langchain.chains import LLMChain
 from langchain.memory import ConversationBufferMemory
 import yaml
+import time
 
 class DetectiveAgent:
     def __init__(self, name: str, prompt_path: str, llm: Runnable):
@@ -40,8 +40,19 @@ class DetectiveAgent:
             self.memory.save_context({"input": f"{speaker} said: {text}"}, {"output": ""})
 
     def run(self, input_text: str) -> str:
-        response = self.chain.invoke({"input": input_text})
-        return response['text']
+        for attempt in range(3):
+            try:
+                response = self.chain.invoke({"input": input_text})
+                return response['text']
+            except Exception as e:
+                print(f"[{self.name}] Retry {attempt+1}/3 due to error: {e}")
+                time.sleep(5)
+        raise RuntimeError(f"{self.name} failed after 3 retries.")
+
+
+    # def run(self, input_text: str) -> str:
+    #     response = self.chain.invoke({"input": input_text})
+    #     return response['text']
 
 
 

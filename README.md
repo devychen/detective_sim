@@ -8,8 +8,8 @@ Proposal [Quick Access](https://github.com/devychen/Thesis_CL/blob/main/Proposal
 **Current Status**:
 
 03 Jun, Proposal approved.<br>
-28 Jun, Profile and Prompt generated. <br>
-01 Jul, Profile and Prompt (with examples) completed.
+01 Jul, Profile and Prompt (with examples) completed. <br>
+01 Aug, Two tasks prepared.  <br>
 
 
 
@@ -71,7 +71,7 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 
 **`=== STAGE CLOSE. 15 JUL 2025 ===`**
 
-## Workflow - Task Preparation
+## Workflow - Task Preparation, Finalise Setting & Run Simulations
 
 
 **Step 1**: Use the script from a previous work - [Player](https://github.com/alickzhu/PLAYER/tree/main) - which has mystery game scripts. And mannually extract the information based on my case template.   
@@ -90,17 +90,11 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 > 🍎 prompts > holmes_methods.yaml, poirot_methods.yaml, marple_methods.yaml
 
 **Step 2**: Complete task prompt
-> 🍎 rules > debate_rule.yaml
+> 🍎 rules > rule_debate.yaml
 
 
 
-**`=== STAGE CLOSE. 25 JUL 2025 ===`**
-
-## Workflow - Finalise Setting & Run Simulations
-
-**Step 1**: Based on the task descriptions, finalise adjustments on dialogue and agent coding files.
-
-**Step 2**: Run the simulations and get the results.
+**Step Final**: Run the simulations and get the results.
 
 **`=== (Estimated) STAGE CLOSE. 31 JUL 2025 ===`**
 

@@ -1,6 +1,6 @@
 # main.py
 
-from dialogue import DetectiveDialogue
+from collab import DetectiveDialogue
 
 if __name__ == "__main__":
     dialogue = DetectiveDialogue()

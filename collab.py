@@ -1,4 +1,5 @@
-# dialogue.py. Output csv
+# collab.py
+# Required output csv
 
 import time
 from datetime import datetime
@@ -30,11 +31,11 @@ class DetectiveDialogue:
             self.case_data = yaml.safe_load(f)["case"]
 
         # Load rule prompts
-        with open("rules/rule.yaml", 'r', encoding='utf-8') as f:
+        with open("rules/rule_collab.yaml", 'r', encoding='utf-8') as f:
             self.rules = yaml.safe_load(f)
 
         # Load protective prompts
-        with open("protective_prompts/protective.yaml", 'r', encoding='utf-8') as f:
+        with open("prompts/protective.yaml", 'r', encoding='utf-8') as f:
             self.protectives = yaml.safe_load(f)
 
         # Initialize agents
