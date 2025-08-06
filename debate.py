@@ -49,4 +49,9 @@ def build_system_prompt(agent_name: str, template_path: Path) -> str:
         agent_methods_summary=agent_methods_summary
     )
 
+    # add print statements
+    print(f"\n===== {agent_name} SYSTEM PROMPT (debate.py) =====")
+    print(system_prompt)
+    print("=" * 50)
+
     return system_prompt
