@@ -15,7 +15,7 @@ from debate import build_system_prompt
 NUM_ROUNDS = 10
 PROMPT_TEMPLATE_PATH = Path("rules/rule_debate.yaml")
 
-def initialize_agents():
+def initialise_agents():
     agents = {
         "Holmes": create_holmes_agent(),
         "Poirot": create_poirot_agent(),
@@ -28,7 +28,7 @@ def inject_system_prompt(agent, system_prompt: str):
     agent.update_memory("System", system_prompt)
 
 def main():
-    agents = initialize_agents()
+    agents = initialise_agents()
     system_prompts = {}  # 用于收集所有agent的system prompt
 
     # Build and inject system prompts
@@ -38,7 +38,7 @@ def main():
         system_prompts[name] = sys_prompt  # 收集system prompt
 
     # 保存system prompts到yaml文件
-    system_prompt_path = Path("data/system_prompts.yaml")
+    system_prompt_path = Path("data/system_prompts_debate.yaml")
     system_prompt_path.parent.mkdir(exist_ok=True)
     with open(system_prompt_path, "w", encoding="utf-8") as f:
         yaml.dump(system_prompts, f, allow_unicode=True, default_flow_style=False)
