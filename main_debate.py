@@ -1,6 +1,11 @@
 # main_debate.py
 # PURPOSE: to run the debate and save output as CSV
 
+
+
+
+
+
 import random
 import csv
 from pathlib import Path
@@ -28,12 +33,21 @@ def inject_system_prompt(agent, system_prompt: str):
 
 def main():
     agents = initialize_agents()
+    system_prompts = {}  # 用于收集所有agent的system prompt
 
     # Build and inject system prompts
     for name, agent in agents.items():
         sys_prompt = build_system_prompt(name, PROMPT_TEMPLATE_PATH)
         inject_system_prompt(agent, sys_prompt)
+        system_prompts[name] = sys_prompt  # 收集system prompt
 
+    # 保存system prompts到yaml文件
+    system_prompt_path = Path("data/system_prompts.yaml")
+    system_prompt_path.parent.mkdir(exist_ok=True)
+    with open(system_prompt_path, "w", encoding="utf-8") as f:
+        yaml.dump(system_prompts, f, allow_unicode=True, default_flow_style=False)
+
+    # 开始辩论流程（与原来一致）
     csv_rows = []
     turn_number = 0
 
@@ -62,9 +76,8 @@ def main():
         writer.writerow(["Turn", "Agent", "Content"])
         writer.writerows(csv_rows)
 
-if __name__ == "__main__":
-    main()
 
+# ========================================旧的，没有csv，没有print prompt
 
 # # main_debate.py
 # # PURPOSE: to run the debate

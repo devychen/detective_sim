@@ -80,11 +80,6 @@ class DetectiveDialogue:
         {chat_history if chat_history else "(None yet)"}
         """.strip()
 
-        # add print statements
-        print(f"\n===== {agent_name} FINAL PROMPT (collab.py) =====")
-        print(final_prompt)
-        print("=" * 50)
-
         return final_prompt
 
     def extract_suspect_from(self, response: str) -> str | None:
