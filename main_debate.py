@@ -1,14 +1,10 @@
 # main_debate.py
 # PURPOSE: to run the debate and save output as CSV
 
-
-
-
-
-
 import random
 import csv
 from pathlib import Path
+import yaml
 
 from agents.holmes_agent import create_holmes_agent
 from agents.poirot_agent import create_poirot_agent
@@ -75,6 +71,9 @@ def main():
         writer = csv.writer(f)
         writer.writerow(["Turn", "Agent", "Content"])
         writer.writerows(csv_rows)
+
+if __name__ == "__main__":
+    main()
 
 
 # ========================================旧的，没有csv，没有print prompt
