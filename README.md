@@ -92,7 +92,7 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 **Step 2**: Complete task prompt
 > 🍎 rules > rule_debate.yaml
 
-
+**Step ZZZ** Print out the system prompt, make sure it's not too chaotic.
 
 **Step Final**: Run the simulations and get the results.
 
