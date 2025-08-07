@@ -93,11 +93,20 @@ class DetectiveDialogue:
             if match:
                 return match.group(1).strip()
         return None
-
+    
+    # 存为单独文件
     def save_system_prompts(self):
-        prompt_path = self.output_dir / "collab_system_prompts.yaml"
-        with open(prompt_path, "w", encoding="utf-8") as f:
-            yaml.dump(self.system_prompts, f, allow_unicode=True, default_flow_style=False)
+        for agent_name, prompt in self.system_prompts.items():
+            filename = f"{agent_name.lower()}_system_prompt.txt"
+            filepath = self.output_dir / filename
+            with open(filepath, "w", encoding="utf-8") as f:
+                f.write(prompt)
+
+    # 存为整体文件
+    # def save_system_prompts(self):
+    #     prompt_path = self.output_dir / "collab_system_prompts.yaml"
+    #     with open(prompt_path, "w", encoding="utf-8") as f:
+    #         yaml.dump(self.system_prompts, f, allow_unicode=True, default_flow_style=False)
 
     def save_dialogue_as_csv(self, dialogue_rows):
         csv_path = self.output_dir / "collab_run_001.csv"  # ← 固定命名
