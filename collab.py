@@ -136,7 +136,7 @@ class DetectiveDialogue:
                     if other_agent_name != agent_name:
                         self.agents[other_agent_name].update_memory(agent_name, response)
 
-                time.sleep(self.delay)
+                # time.sleep(self.delay)
 
             # Early exit if consensus reached
             suspects = [self.extract_suspect_from(responses[a]) for a in ["Holmes", "Poirot", "Marple"]]
