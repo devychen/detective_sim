@@ -100,8 +100,7 @@ class DetectiveDialogue:
             yaml.dump(self.system_prompts, f, allow_unicode=True, default_flow_style=False)
 
     def save_dialogue_as_csv(self, dialogue_rows):
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        csv_path = self.output_dir / f"collab_dialogue_{timestamp}.csv"
+        csv_path = self.output_dir / "collab_run_001.csv"  # ← 固定命名
         with open(csv_path, mode='w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
             writer.writerow(["Turn No.", "Agent Name", "Spoken Content", "Believed Murderer"])

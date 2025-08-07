@@ -38,7 +38,7 @@ def main():
         system_prompts[name] = sys_prompt  # 收集system prompt
 
     # 保存system prompts到yaml文件
-    system_prompt_path = Path("data/system_prompts_debate.yaml")
+    system_prompt_path = Path("data/debate_system_prompts.yaml")
     system_prompt_path.parent.mkdir(exist_ok=True)
     with open(system_prompt_path, "w", encoding="utf-8") as f:
         yaml.dump(system_prompts, f, allow_unicode=True, default_flow_style=False)
