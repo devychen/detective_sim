@@ -2,8 +2,29 @@
 # Three Detectives in a Room: <br> Investigating Character Consistency and Interactions in Multi-Agent LLM Dialogue
 
 Master thesis for M.A. in Computational Linguitstics at University of Tuebingen.
+Arthur: Yifei Chen
+Supervisor: PhD (Candidate) Polina
 
 Proposal [Quick Access](https://github.com/devychen/Thesis_CL/blob/main/Proposal_0601.md).
+
+### Background
+With the rise of large language models (LLMs), there has been growing interest in their ability to simulate fictional characters in narrative and interactive settings. Role-playing language agents powered by LLMs show impressive fluency but often suffer from inconsistencies in characters, undermining the consistency and believability of dialogue. Most existing work focuses on single agent simulation or on agent architectures, training paradigms, there is a gap in understanding character consistency in a multi-agent interaction setting from a more linguistic grounded perspective. This thesis investigates: How well do LLM agents maintain distinct characters in collective task solving?
+
+### Question
+This research focus on how LLM-based agents maintain their characters in collaborative dialogue from a linguistically grounded perspective, asking:
+- RQ1: How well do agents remain in character across dialogue?
+- RQ2: What linguistic signals indicate breakdowns in character?
+- RQ3: How does character inconsistency affect the interaction?
+- RQ4: How does the interaction influence individual character coherence?  
+RQ1 & 2 are about the evaluation of character consistency in multi-agent interactions. RQ3 & 4 are about the correlation of interactions and character consistency.
+
+### Outcomes
+This thesis contributes to a linguistically grounded framework for analysing LLM-based multiple role-play agents simulation, with future implications for human-AI interaction design such as AI companions or AI Non-Player Characters. Deliverables include:
+- A hierarchical evaluation framework across lexical, syntactic and discourse levels.  
+- A detailed design of character profile.
+- Linguistically grounded metrics for character coherence.
+- A novel experimental setup using dialogue simulation in mystery-solving tasks with three characters: Sherlock Holmes, Hercule Poirot, Miss Marple.
+
 
 **Current Status**:
 
