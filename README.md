@@ -108,7 +108,7 @@ Datasize: 5000 tokens, 500 examples each.
 Example texts
 
 
-**`=== (Estimated) STAGE CLOSE. -- AUG 2025 ===`**
+**`=== (Estimated) STAGE CLOSE. -- AUG 10 2025 ===`**
 
 ## Workflow - Data Analysis, Metrics.
 
