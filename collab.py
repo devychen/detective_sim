@@ -101,6 +101,8 @@ class DetectiveDialogue:
 
     def run_dialogue(self):
         dialogue_rows = []
+        start_time = time.time()
+        max_runtime = 300  # 最多运行 5 分钟
 
         for turn in range(self.max_turns):
             agent_order = ["Holmes", "Poirot", "Marple"]
@@ -110,24 +112,50 @@ class DetectiveDialogue:
             for agent_name in agent_order:
                 agent = self.agents[agent_name]
                 prompt = self.format_input_for_agent(agent_name)
-                response = agent.run(prompt).strip()
+
+                # 打印提示长度（防止超长）
+                print(f"[DEBUG] Prompt length for {agent_name}: {len(prompt.split())} words")
+
+                try:
+                    response = agent.run(prompt).strip()
+                except Exception as e:
+                    print(f"[{agent_name}] Error: {e}, skipping this turn.")
+                    response = "(No response due to error)"
 
                 self.memory[agent_name].append(response)
                 responses[agent_name] = response
 
                 believed = self.extract_suspect_from(response) or ""
-                dialogue_rows.append([turn + 1, agent_name, response, believed])
+                dialogue_rows.append([
+                    turn + 1,
+                    agent_name,
+                    response,
+                    believed
+                ])
 
+                # 更新其他 agent 的 memory
                 for other_agent_name in self.agents:
                     if other_agent_name != agent_name:
                         self.agents[other_agent_name].update_memory(agent_name, response)
 
+                # 检查总运行时间
+                if time.time() - start_time > max_runtime:
+                    print("Max runtime reached, stopping dialogue.")
+                    self.save_system_prompts()
+                    self.save_dialogue_as_csv(dialogue_rows)
+                    return
+
+            # 提前退出：如果三人意见一致且确定凶手
             suspects = [self.extract_suspect_from(responses[a]) for a in ["Holmes", "Poirot", "Marple"]]
-            if all(suspects) and len(set(suspects)) == 1 and suspects[0].lower() not in ["unknown", "undetermined", "not sure", "uncertain"]:
+            if all(suspects) and len(set(suspects)) == 1 and suspects[0].lower() not in [
+                "unknown", "undetermined", "not sure", "uncertain"
+            ]:
                 break
 
+        # 保存结果
         self.save_system_prompts()
         self.save_dialogue_as_csv(dialogue_rows)
+
 
 
 # import time
