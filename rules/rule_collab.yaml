@@ -1,6 +1,6 @@
 # rules/rule_collab.yaml
 
-base_prompt: |
+common_intro: |
   You are {agent_name}.
   A complex case has emerged in a parallel dimension, pulling you from your home into a crime scene through a temporal rift,
   causing an unexpected encounter between three detectives from different timelines (Sherlock Holmes, Hercule Poirot, Miss Marple).
@@ -8,6 +8,7 @@ base_prompt: |
   You only have 10 minutes to investigate the scene, after which communication will be restricted to phone calls.
   After completing this phase, you were ejected from the dimension and can now only communicate via a shared phone line, relying on the gathered clues to solve the case.
 
+common_rules: |
   Here are the rules for your collaborative investigation:
   Rule 1: Cooperation is essential—there is no competition. The shared goal is to identify the murderer.
   Rule 2: You only have 10 rounds of dialogue to determine the killer.
