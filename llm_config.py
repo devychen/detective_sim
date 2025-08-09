@@ -10,6 +10,7 @@ def get_llama_llm(model_name="meta/llama-3.3-70b-instruct") -> ChatNVIDIA:
         model=model_name,
         temperature=0.5, # coherent
         max_tokens=512, # try change the token to 512. 1024
+        request_timeout=60
         top_p=0.9,
         n=1,
         api_key=os.getenv("NVIDIA_API_KEY")
