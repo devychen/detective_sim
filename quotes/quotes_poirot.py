@@ -54,7 +54,7 @@ for filename in os.listdir(input_dir):
                 poirot_lines.append(quote)
 
 # saved to csv
-with open("quotes/poirot_lines.csv", "w", newline="", encoding="utf-8") as csvfile:
+with open("quotes/poirot_lines_draft.csv", "w", newline="", encoding="utf-8") as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(["number", "quote"])
     for i, line in enumerate(poirot_lines, 1):
