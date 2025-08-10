@@ -1,0 +1,14 @@
+# 删除旧的 venv（可选，如果没装太多包）
+rm -rf venv
+
+# 在项目根目录新建 venv
+cd /Users/ychen/Documents/detective_sim
+python3 -m venv venv
+
+# 激活
+source venv/bin/activate
+
+# 重新安装需要的依赖
+pip install pandas numpy
+pip install numpy==1.26.4 
+pip install pandas pyarrow
