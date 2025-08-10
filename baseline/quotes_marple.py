@@ -2,17 +2,16 @@ import re
 import csv
 import os
 
-# 1. 目录路径
-input_dir = "_novels/holmes"
+input_dir = "_novels/marple" 
 
-# 2. 关键词配置
-sherlock_keywords = [
-    "sherlock", 
-    "holmes", 
-    "sherlock holmes"
-    "mr. holmes", 
-    "mr holmes"
+marple_keywords = [
+    "marple", 
+    "miss marple",
+    "ms. marple"
+    "ms marple"
+    "jane marple"
 ]
+
 speak_verbs = [
     "says", "said", 
     "replies", "replied", 
@@ -25,10 +24,8 @@ speak_verbs = [
     "comments", "commented"
 ]
 
-# 3. 结果列表
-sherlock_lines = []
+marple_lines  = []
 
-# 4. 遍历目录下所有 txt 文件
 for filename in os.listdir(input_dir):
     if filename.lower().endswith(".txt"):
         filepath = os.path.join(input_dir, filename)
@@ -37,7 +34,6 @@ for filename in os.listdir(input_dir):
         with open(filepath, "r", encoding="utf-8") as f:
             text = f.read()
 
-        # 匹配所有引号中的内容
         dialogue_pattern = r'["“](.*?)["”]'
         matches = list(re.finditer(dialogue_pattern, text, re.DOTALL))
 
@@ -48,18 +44,18 @@ for filename in os.listdir(input_dir):
             context_before = text[max(0, start-80):start].lower()
             context_after = text[end:end+80].lower()
 
-            if (any(name in context_before for name in sherlock_keywords) and
+            if (any(name in context_before for name in marple_keywords) and
                 any(verb in context_before for verb in speak_verbs)):
-                sherlock_lines.append(quote)
-            elif (any(name in context_after for name in sherlock_keywords) and
+                marple_lines.append(quote)
+            elif (any(name in context_after for name in marple_keywords) and
                   any(verb in context_after for verb in speak_verbs)):
-                sherlock_lines.append(quote)
+                marple_lines.append(quote)
 
-# 5. 保存到 CSV
-with open("quotes/sherlock_lines.csv", "w", newline="", encoding="utf-8") as csvfile:
+# saved to csv
+with open("quotes/marple_lines.csv", "w", newline="", encoding="utf-8") as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(["number", "quote"])
-    for i, line in enumerate(sherlock_lines, 1):
+    for i, line in enumerate(marple_lines, 1):
         writer.writerow([i, line])
 
-print(f"Extraction completed, found {len(sherlock_lines)} lines in total")
+print(f"Extraction completed, found {len(marple_lines)} lines in total")
