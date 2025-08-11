@@ -110,7 +110,8 @@ Example texts
 Resources: [sherlock](https://sherlock-holm.es/ascii/), [marple & poirot](https://github.com/oliviachang29/the-complete-works-of-agatha-christie)
 > 🍎 quotes > three .py and .csv
 
-**Step 2** Select 5
+**Step 2** Select 500 for each agents. Make sure the total tokens are not too differentiated.
+
 
 **`=== (Estimated) STAGE CLOSE. -- AUG 13 2025 ===`**
 
