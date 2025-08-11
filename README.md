@@ -99,7 +99,7 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 
 ## Workflow - Baseline
 
-Establish baseline with a cased [BERT](https://huggingface.co/google-bert/bert-base-cased) classification model.
+Establish baseline with a small BERT classification model.
 
 supervised classifier.
 sh, mm, hp, others. Four classes.
@@ -108,9 +108,12 @@ Example texts
 
 **Step 1** From original books, extract the quotes.  
 Resources: [sherlock](https://sherlock-holm.es/ascii/), [marple & poirot](https://github.com/oliviachang29/the-complete-works-of-agatha-christie)
-> 🍎 quotes > three .py and .csv
+> 🍎 lines > three .py and .csv
 
 **Step 2** Select 500 for each agents. Make sure the total tokens are not too differentiated.
+> 🍎 lines > combined_lines.csv
+
+**Step 3** Use [BERT-cased](https://huggingface.co/google-bert/bert-base-cased). 
 
 
 **`=== (Estimated) STAGE CLOSE. -- AUG 13 2025 ===`**
