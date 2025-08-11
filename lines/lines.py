@@ -1,3 +1,4 @@
+# combine lines
 import pandas as pd
 import random
 import re
@@ -56,6 +57,6 @@ for i, (char, quote) in enumerate(final_data, 1):
     output_rows.append([i, char, quote])
 
 df_out = pd.DataFrame(output_rows, columns=["number", "character", "quote"])
-df_out.to_csv("combined_quotes.csv", index=False, encoding="utf-8")
+df_out.to_csv("lines/train.csv", index=False, encoding="utf-8")
 
-print(f"合并完成，总共 {len(final_data)} 条台词，保存到 combined_lines.csv")
+print(f"Combined in total {len(final_data)} lines，saved to train.csv.")
