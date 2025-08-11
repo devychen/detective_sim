@@ -134,26 +134,10 @@ Do the evaluation.
 
 # Notes
 
-✅ Poirot [complete pdf](https://dn721604.ca.archive.org/0/items/MegaAgatha/hercule%20poirot-complete%20short%20stories%20-%20agatha%20christie.pdf) and [The murder of Roger Ackroyd](https://github.com/GITenberg/The-murder-of-Roger-Ackroyd_69087/tree/master)
-
-✅ Agatha [complete](https://github.com/oliviachang29/the-complete-works-of-agatha-christie). Have used _Nemesis_.
-
-✅ Holmes [complete txt](https://sherlock-holm.es/html/)
-
-✅ Miss Marple [complete pdf](https://ia801809.us.archive.org/19/items/AgathaBundle/Miss%20Marple_%20The%20Complete%20Short%20-%20Agatha%20Christie.pdf)
-
-MM [A Murder is Announced](https://archive.org/stream/amurderisannounced_201908/A%20Murder%20Is%20Announced_djvu.txt)
-
-[Nvidia models](https://build.nvidia.com/)
-
-OpenAI [API Reference](https://platform.openai.com/docs/api-reference/chat/create)
-
-SH dataset, on [kaggle](https://www.kaggle.com/datasets/bharatkumar0925/sherlock-holmes-collection).
-
-BBC'S SH script, on [BBC web](https://www.bbc.co.uk/writers/scripts/tv-drama/sherlock/).
-
-SH txt book, on [github](https://github.com/lucko515/rnn-sherlock-holmes-book/blob/master/datasets/holmes.txt).
-
+[Nvidia models](https://build.nvidia.com/)  
+OpenAI [API Reference](https://platform.openai.com/docs/api-reference/chat/create).  
+SH dataset, on [kaggle](https://www.kaggle.com/datasets/bharatkumar0925/. sherlock-holmes-collection).  
+BBC'S SH script, on [BBC web](https://www.bbc.co.uk/writers/scripts/tv-drama/sherlock/).  
 HP video drama, [script](https://www.otrr.org/FILES/Scripts_pdf/Hercule%20Poirot/Hercule%20Poirot%2045-02-22%20Case%20of%20Careless%20Client.pdf)
 
 **Detective Selection** from *de Lima et al (2025)*:
