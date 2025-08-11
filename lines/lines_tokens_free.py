@@ -25,6 +25,8 @@ def filter_by_token_count(quotes, min_tokens=8):
     return filtered
 
 final_data = []
+token_counts = {char: 0 for char in files.keys()}  # 新增：统计 token 总数
+
 for char, filepath in files.items():
     # 读取 CSV
     df = pd.read_csv(filepath)
@@ -44,9 +46,10 @@ for char, filepath in files.items():
     else:
         sampled_quotes = filtered_quotes
 
-    # 加入总数据
+    # 加入总数据 & 统计 token
     for q in sampled_quotes:
         final_data.append([char, q])
+        token_counts[char] += len(clean_text(q).split())  # 新增：累计 token 数
 
 # 打乱顺序（可选）
 random.shuffle(final_data)
@@ -60,3 +63,8 @@ df_out = pd.DataFrame(output_rows, columns=["number", "character", "quote"])
 df_out.to_csv("lines/train.csv", index=False, encoding="utf-8")
 
 print(f"Combined in total {len(final_data)} lines，saved to train.csv.")
+
+# 新增：输出每个角色 token 总数
+print("\nToken counts by character:")
+for char, count in token_counts.items():
+    print(f"{char}: {count} tokens")
