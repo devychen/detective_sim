@@ -5,3 +5,6 @@ langchain
 pyyaml
 tiktoken
 huggingface-hub
+pandas
+numpy
+pyarrow
