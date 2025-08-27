@@ -6,9 +6,9 @@ import csv
 from pathlib import Path
 import yaml
 
-from agent._archive.holmes_agent import create_holmes_agent
-from agent._archive.poirot_agent import create_poirot_agent
-from agent._archive.marple_agent import create_marple_agent
+from agents._archive.holmes_agent import create_holmes_agent
+from agents._archive.poirot_agent import create_poirot_agent
+from agents._archive.marple_agent import create_marple_agent
 
 from debate import build_system_prompt
 

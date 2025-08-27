@@ -1,7 +1,7 @@
 
 
 from llm_config import get_llama_llm
-from agent._archive.base_agent import DetectiveAgent
+from agents._archive.base_agent import DetectiveAgent
 import os
 
 def create_poirot_agent():

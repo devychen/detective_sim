@@ -1,99 +1,105 @@
 # collab.py
 import yaml
-from agents.holmes_agent import create_holmes_agent
-from agents.poirot_agent import create_poirot_agent
-from agents.marple_agent import create_marple_agent
+import csv
+import os
+import time
+from agents.holmes_agent import HolmesAgent
+from agents.poirot_agent import PoirotAgent
+from agents.marple_agent import MarpleAgent
 
-def load_yaml(path: str):
-    with open(path, "r", encoding="utf-8") as f:
-        return yaml.safe_load(f)
 
-def build_prompt(agent_name: str, agent_config: dict, rules: dict, case_data: dict, chat_history: str) -> str:
-    """组装 prompt"""
+class DetectiveDialogue:
+    def __init__(self, 
+                 rule_path="rules/rule_collab.yaml", 
+                 case_path="cases/case1.yaml", 
+                 log_file="data/dialogue_log.csv", 
+                 turns=10):
+        self.rule_path = rule_path
+        self.case_path = case_path
+        self.rules = self._load_yaml(rule_path)
+        self.case_info = self._load_yaml(case_path)
+        self.turns = turns
+        self.log_file = log_file
 
-    # ===== 全局规则 =====
-    common_intro = rules.get("common_intro", "").format(agent_name=agent_name)
-    common_rules = rules.get("common_rules", "")
+        # 初始化三个探员
+        self.agents = [
+            HolmesAgent(),
+            PoirotAgent(),
+            MarpleAgent()
+        ]
 
-    # ===== agent 专属 prompt =====
-    role_play_parts = "\n".join(
-        [f"- {item['description']}\nExample: {item['example']}" for item in agent_config.get("role_play", [])]
-    )
-    protective_parts = "\n".join(
-        [f"- {item['description']}" for item in agent_config.get("protective", [])]
-    )
-    task = agent_config.get("task", "")
+        # 给每个 agent 注入开场提示和全局规则
+        for agent in self.agents:
+            agent.update_memory("system", self.rules["common_intro"].format(agent_name=agent.name))
+            agent.update_memory("system", self.rules["common_rules"])
+            agent.update_memory("system", f"Case info: {self.case_info}")
 
-    # ===== 案件数据 =====
-    case_info = []
-    if "setting" in case_data:
-        case_info.append(f"Setting:\n{case_data['setting']}")
-    if "victim" in case_data:
-        case_info.append(f"Victim:\n{case_data['victim']}")
-    if "suspects" in case_data:
-        case_info.append("Suspects:")
-        for s in case_data["suspects"]:
-            case_info.append(f"- {s}")
-    if "forensic_evidence" in case_data:
-        case_info.append(f"Forensic Evidence:\n{case_data['forensic_evidence']}")
+    def _load_yaml(self, path):
+        with open(path, "r", encoding="utf-8") as f:
+            return yaml.safe_load(f)
 
-    case_text = "\n".join(case_info)
+    def format_input_for_agent(self, agent, context_instruction=""):
+        """构造 agent 当前 step 的输入"""
+        base_task = (
+            "Continue the collaborative investigation.\n"
+            "Remember to strictly follow the common rules and your protective constraints."
+        )
+        if context_instruction:
+            base_task += f"\n{context_instruction}"
+        return base_task
 
-    # ===== 拼接最终 prompt =====
-    prompt = f"""
-{common_intro}
+    def broadcast(self, speaker, content):
+        """把某个 agent 的发言广播到其他人"""
+        for agent in self.agents:
+            if agent.name != speaker.name:
+                agent.update_memory(speaker.name, content)
 
-{common_rules}
+    def extract_suspect(self, text: str):
+        """
+        从 agent 的发言里提取结论。
+        格式要求: 'I believe the murderer is: XXX'
+        """
+        marker = "I believe the murderer is:"
+        if marker in text:
+            return text.split(marker, 1)[1].strip().split()[0]  # 取名字部分
+        return None
 
-=== Role Play Guidelines for {agent_name} ===
-{role_play_parts}
+    def save_log(self, dialogue_rows):
+        os.makedirs(os.path.dirname(self.log_file), exist_ok=True)
+        with open(self.log_file, "w", newline="", encoding="utf-8") as f:
+            writer = csv.writer(f)
+            writer.writerow(["Turn No.", "Agent Name", "Spoken Content", "Believed murderer"])
+            writer.writerows(dialogue_rows)
 
-=== Protective Guidelines ===
-{protective_parts}
+    def run_dialogue(self):
+        dialogue_rows = []
+        suspects = {agent.name: None for agent in self.agents}
 
-=== Task ===
-{task}
+        for turn in range(self.turns):
+            for agent in self.agents:
+                task_instruction = self.format_input_for_agent(agent)
+                response = agent.run(task_instruction)
+                time.sleep(2)  # 避免触发速率限制
 
-=== Case Information ===
-{case_text}
+                # 提取 suspect
+                murderer_guess = self.extract_suspect(response)
+                if murderer_guess:
+                    suspects[agent.name] = murderer_guess
 
-=== Conversation So Far ===
-{chat_history}
+                dialogue_rows.append([turn + 1, agent.name, response, murderer_guess or "N/A"])
 
-Now, please respond in character as {agent_name}.
-"""
-    return prompt.strip()
+                # 广播给其他人
+                self.broadcast(agent, response)
 
-def format_input_for_agent(agent_name: str, agent_yaml_path: str, rules_path: str, case_path: str, chat_history: str):
-    agent_config = load_yaml(agent_yaml_path)
-    rules = load_yaml(rules_path)
-    case_data = load_yaml(case_path)
-    return build_prompt(agent_name, agent_config, rules, case_data, chat_history)
+            # 检查是否三人达成一致
+            current_guesses = [s for s in suspects.values() if s]
+            if len(current_guesses) == len(self.agents):
+                if len(set(g.lower() for g in current_guesses)) == 1:
+                    agreed = current_guesses[0].lower()
+                    if agreed not in ["unknown", "undetermined", "not sure", "uncertain"]:
+                        # 三人达成一致 → 停止
+                        self.save_log(dialogue_rows)
+                        return
 
-def run_collab():
-    # 加载三个 agent
-    holmes = create_holmes_agent()
-    poirot = create_poirot_agent()
-    marple = create_marple_agent()
-
-    # 加载配置
-    chat_history = ""
-    holmes_prompt = format_input_for_agent("Sherlock Holmes", "prompts/holmes.yaml", "rules/rule_collab.yaml", "cases/case1.yaml", chat_history)
-    poirot_prompt = format_input_for_agent("Hercule Poirot", "prompts/poirot.yaml", "rules/rule_collab.yaml", "cases/case1.yaml", chat_history)
-    marple_prompt = format_input_for_agent("Miss Marple", "prompts/marple.yaml", "rules/rule_collab.yaml", "cases/case1.yaml", chat_history)
-
-    # 模拟第一轮
-    holmes_reply = holmes.run(holmes_prompt)
-    chat_history += f"\nHolmes: {holmes_reply}"
-
-    poirot_reply = poirot.run(poirot_prompt + chat_history)
-    chat_history += f"\nPoirot: {poirot_reply}"
-
-    marple_reply = marple.run(marple_prompt + chat_history)
-    chat_history += f"\nMarple: {marple_reply}"
-
-    print("=== Conversation ===")
-    print(chat_history)
-
-if __name__ == "__main__":
-    run_collab()
+        # 如果没提前停止 → 存储全局对话
+        self.save_log(dialogue_rows)
