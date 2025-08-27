@@ -1,7 +1,7 @@
 
-# poirot_agent.py
+# agents/poirot_agent.py
 
-from base_agent import BaseAgent
+from .base_agent import BaseAgent
 
 class PoirotAgent(BaseAgent):
     def __init__(self, llm=None):
