@@ -1,6 +1,6 @@
 # agents/holmes_agent.py
 
-from agents.base_agent import DetectiveAgent
+from agent._archive.base_agent import DetectiveAgent
 from llm_config import get_llama_llm
 import os
 

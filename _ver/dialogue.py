@@ -1,9 +1,9 @@
 import time
 from datetime import datetime
 
-from agents.holmes_agent import create_holmes_agent
-from agents.poirot_agent import create_poirot_agent
-from agents.marple_agent import create_marple_agent
+from agent._archive.holmes_agent import create_holmes_agent
+from agent._archive.poirot_agent import create_poirot_agent
+from agent._archive.marple_agent import create_marple_agent
 
 class DetectiveDialogue:
     def __init__(self, max_turns=10, delay=1, log_file="dialogue_log.txt"):
