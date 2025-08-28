@@ -1,161 +1,122 @@
 # collab.py
+import yaml
+import csv
 import os
 import time
-import re
-import csv
-import yaml
-from typing import List, Dict, Optional
-from datetime import datetime
-
 from agents.holmes_agent import HolmesAgent
 from agents.poirot_agent import PoirotAgent
 from agents.marple_agent import MarpleAgent
 
 
 class DetectiveDialogue:
-    """
-    协作管理器：加载规则/案件；初始化三位探员；轮次管理；共识停止；日志与 Prompt 落盘。
-    """
-    def __init__(
-        self,
-        rule_path: str = "rules/rule_collab.yaml",
-        case_path: str = "cases/case2.yaml",
-        turns: int = 10,
-        log_file: str = "data/dialogue_log.csv",
-        prompt_file: str = "data/prompts_log.txt",
-        append_timestamp: bool = False,
-    ):
-        self.turns = turns
+    def __init__(self, rule_path="rules/rule_collab.yaml", case_path="cases/case1.yaml", turns=10):
+        self.rule_path = rule_path
+        self.case_path = case_path
         self.rules = self._load_yaml(rule_path)
-        self.case_ctx = self._load_case(case_path)
+        self.case_info = self._load_yaml(case_path)
+        self.turns = turns
 
-        # 输出文件：可选时间戳，避免覆盖
-        if append_timestamp:
-            ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-            log_root, log_ext = os.path.splitext(log_file)
-            prm_root, prm_ext = os.path.splitext(prompt_file)
-            log_file  = f"{log_root}_{ts}{log_ext or '.csv'}"
-            prompt_file = f"{prm_root}_{ts}{prm_ext or '.txt'}"
+        # 输出目录
+        os.makedirs("data", exist_ok=True)
+        self.log_file = "data/dialogue_log.csv"
+        self.prompt_log_file = "data/prompt_log.txt"
 
-        self.log_file = log_file
-        self.prompt_file = prompt_file
-        os.makedirs(os.path.dirname(self.log_file), exist_ok=True)
-        os.makedirs(os.path.dirname(self.prompt_file), exist_ok=True)
-
-        # 初始化三个探员（你已有的 Poirot/Marple 类保持不变）
+        # 初始化三个探员
         self.agents = [
             HolmesAgent(),
             PoirotAgent(),
-            MarpleAgent(),
+            MarpleAgent()
         ]
 
-        # 注入全局 intro/rules + 案件上下文
+        # 给每个 agent 注入 system prompt（但不进入 conversation history）
         for agent in self.agents:
-            agent.set_context(self.case_ctx)  # 供 task.format(**ctx) 使用
-            agent.update_memory("system", self.rules.get("common_intro", "").format(agent_name=agent.name))
-            agent.update_memory("system", self.rules.get("common_rules", ""))
-            # 把案件信息以 YAML 格式写入系统记忆，便于 LLM 消化
-            # agent.update_memory("system", "Case Information:\n" + yaml.safe_dump(self.case_ctx, allow_unicode=True))
+            agent.set_system_prompt([
+                agent.get_role_play_text(),
+                agent.get_protective_text(),
+                self.rules["common_intro"].format(agent_name=agent.name),
+                self.rules["common_rules"],
+            ])
+            agent.set_initial_clues(self.case_info.get(agent.name.lower(), {}))  # 每个 agent 自己的线索
 
-    # ---------- 文件加载 ----------
-    @staticmethod
-    def _load_yaml(path: str) -> Dict:
+    def _load_yaml(self, path):
         with open(path, "r", encoding="utf-8") as f:
-            return yaml.safe_load(f) or {}
+            return yaml.safe_load(f)
 
-    @staticmethod
-    def _load_case(path: str) -> Dict:
-        data = DetectiveDialogue._load_yaml(path)
-        # 兼容两种结构：{case: {...}} 或直接 {...}
-        return data.get("case", data)
+    def format_input_for_agent(self, agent, context_instruction=""):
+        """构造 agent 当前 step 的完整输入 prompt"""
+        system_prompt = agent.system_prompt  # 独立存放，不混入 history
 
-    # ---------- Prompt 组装（回合级别的额外指令） ----------
-    @staticmethod
-    def format_input_for_agent(agent_name: str, extra: str = "") -> str:
-        base = (
-            "Continue the collaborative investigation.\n"
-            "Remember to strictly follow the common rules and your protective constraints."
+        history = agent.get_conversation_history_text()  # 仅 agent 间对话
+
+        # 拼接任务：初始线索 + 动态指令
+        task = agent.get_task_prompt()
+        if context_instruction:
+            task += f"\n{context_instruction}"
+
+        full_prompt = (
+            f"{system_prompt}\n"
+            f"=== Conversation So Far ===\n{history}\n"
+            f"=== Current Task ===\n{task}"
         )
-        if extra:
-            base += f"\n{extra}"
-        return base
+        return full_prompt
 
-    # ---------- 广播 ----------
-    def broadcast(self, speaker_name: str, content: str) -> None:
+    def broadcast(self, speaker, content):
+        """把某个 agent 的发言广播到其他人"""
         for agent in self.agents:
-            if agent.name != speaker_name:
-                agent.update_memory(speaker_name, content)
+            if agent.name != speaker.name:
+                agent.update_memory(speaker.name, content)
 
-    # ---------- 提取凶手名 ----------
-    @staticmethod
-    def extract_suspect(text: str) -> Optional[str]:
-        """
-        解析结论格式（尽量鲁棒）：
-        - I believe the murderer is: XXX
-        - The killer is XXX
-        - Murderer is XXX
-        """
-        patterns = [
-            r"I believe the murderer is[:：]\s*([A-Za-z][A-Za-z\-\.' ]+)",
-            r"The killer (?:must be|is)\s*[:：]?\s*([A-Za-z][A-Za-z\-\.' ]+)",
-            r"(?:murderer|killer)\s*is\s*([A-Za-z][A-Za-z\-\.' ]+)",
-        ]
-        for p in patterns:
-            m = re.search(p, text, flags=re.IGNORECASE)
-            if m:
-                guess = m.group(1).strip()
-                # 截断到行尾/句号前，避免抓到多余话
-                guess = re.split(r"[\n\r\.,;!?:]", guess)[0].strip()
-                return guess if guess else None
+    def extract_suspect(self, response: str):
+        """从 agent 回复中提取结论里的嫌疑人"""
+        marker = "I believe the murderer is:"
+        if marker in response:
+            return response.split(marker)[-1].strip().split()[0]
         return None
 
-    # ---------- 日志 ----------
-    def save_log(self, rows: List[List[str]]) -> None:
+    def run_dialogue(self):
+        dialogue_rows = []
+        prompt_logs = []
+        suspects = []
+
+        for turn in range(self.turns):
+            for agent in self.agents:
+                task_instruction = self.format_input_for_agent(agent)
+
+                # 保存 prompt 到日志
+                prompt_logs.append(
+                    f"\n=== Turn {turn+1}, Agent: {agent.name} ===\n{task_instruction}\n"
+                )
+
+                response = agent.run(task_instruction)
+                self.broadcast(agent, response)
+
+                suspected = self.extract_suspect(response)
+                if suspected:
+                    suspects.append(suspected)
+
+                dialogue_rows.append([turn+1, agent.name, response, suspected])
+
+                time.sleep(2)  # 防止超过 RPM 限制
+
+            # 检查提前停止条件（全体一致）
+            if suspects and len(suspects) >= len(self.agents):
+                last_round = suspects[-len(self.agents):]
+                if all(last_round) and len(set(last_round)) == 1 and last_round[0].lower() not in [
+                    "unknown", "undetermined", "not sure", "uncertain"
+                ]:
+                    break
+
+        # 存日志
+        self.save_log(dialogue_rows)
+        self.save_prompt_log(prompt_logs)
+
+    def save_log(self, dialogue_rows):
         with open(self.log_file, "w", newline="", encoding="utf-8") as f:
             writer = csv.writer(f)
             writer.writerow(["Turn No.", "Agent Name", "Spoken Content", "Believed murderer"])
-            writer.writerows(rows)
+            writer.writerows(dialogue_rows)
 
-    def append_prompt_dump(self, turn: int, agent_name: str, prompt: str, response: str) -> None:
-        with open(self.prompt_file, "a", encoding="utf-8") as f:
-            f.write(f"--- Round {turn} | {agent_name} ---\n")
-            f.write("[INPUT PROMPT]\n")
-            f.write(prompt.strip() + "\n\n")
-            f.write("[RESPONSE]\n")
-            f.write(response.strip() + "\n\n")
-
-    # ---------- 主流程 ----------
-    def run_dialogue(self) -> None:
-        dialogue_rows: List[List[str]] = []
-
-        for turn in range(1, self.turns + 1):
-            turn_suspects: List[str] = []
-
-            # 固定顺序（如需随机，可自行打乱 self.agents）
-            for agent in self.agents:
-                instruction = self.format_input_for_agent(agent.name)
-                response, prompt = agent.run(instruction)
-
-                # 记录
-                guess = self.extract_suspect(response) or ""
-                dialogue_rows.append([turn, agent.name, response, guess or ""])
-                self.append_prompt_dump(turn, agent.name, prompt, response)
-
-                # 广播给其他探员
-                self.broadcast(agent.name, response)
-
-                # 每个 agent 说完等 2 秒，避免触发 RPM 限制
-                time.sleep(3)
-
-                if guess:
-                    turn_suspects.append(guess)
-
-            # 停止条件：三人一致且不为 unknown 等
-            if len(turn_suspects) == len(self.agents):
-                lowered = [g.lower() for g in turn_suspects]
-                if len(set(lowered)) == 1 and lowered[0] not in {"unknown", "undetermined", "not sure", "uncertain"}:
-                    self.save_log(dialogue_rows)
-                    return
-
-        # 若未提前一致，保存满回合日志
-        self.save_log(dialogue_rows)
+    def save_prompt_log(self, prompt_logs):
+        with open(self.prompt_log_file, "w", encoding="utf-8") as f:
+            for row in prompt_logs:
+                f.write(row + "\n")

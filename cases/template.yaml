@@ -1,0 +1,45 @@
+# cases/case1.yaml
+
+case:
+  setting: |
+    The time setting is June 19, 1902, and the incident occurred in Yosef's cabin...
+
+  victim:
+    name: Yosef
+    description: |
+      Yosef was ...
+
+  suspects:
+    - name: 
+      role: 
+      motive: |
+      background: |
+      appearance: |
+      key_items: |
+
+    - name: 
+      role: 
+      motive: |
+      background: |
+      appearance: |
+      key_items: |
+
+
+
+  crime_scene:
+    time: June 19, 1902, 22:40 to 23:00
+    location: Yosef's cabin on the Sunshine
+    body_state: |
+    environment: |
+    suspicious_items: |
+
+  forensic_evidence:
+    time_of_death: June 19, 1902, 22:40 to 23:00
+    cause_of_death: Poisoning by "X Poison," ingested through drugs laced with it
+    body_observations: |
+    toxicology: |
+    other_findings: |
+    other_information: |
+
+  timeline:
+    - "17:00: Yosef boarded the ship. Zack inspected his belongings and opened Yosef's bag containing drugs, possibly replacing Yosef's clean drugs with poisoned ones."
