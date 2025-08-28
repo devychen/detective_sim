@@ -10,6 +10,8 @@ Proposal [Quick Access](https://github.com/devychen/Thesis_CL/blob/main/Proposal
 03 Jun, Proposal approved.<br>
 01 Jul, Profile and Prompt (with examples) completed. <br>
 01 Aug, Two tasks prepared.  <br>
+28 Aug, Finalise simulation codes. <br>
+
 
 
 
@@ -116,13 +118,13 @@ Resources: [sherlock](https://sherlock-holm.es/ascii/), [marple & poirot](https:
 **Step 3** Use [BERT-cased](https://huggingface.co/google-bert/bert-base-cased). 
 
 
-**`=== (Estimated) STAGE CLOSE. -- AUG 13 2025 ===`**
+**`=== (Estimated) STAGE CLOSE. -- 5 SEP 2025 ===`**
 
 ## Workflow - Data Analysis, Metrics.
 
 Do the evaluation.
 
-**`=== (Estimated) STAGE CLOSE. 25 AUG 2025 ===`**
+**`=== (Estimated) STAGE CLOSE. 15 SEP 2025 ===`**
 
 ## Workflow - Ablation Study (if needed)
 

@@ -1,4 +1,5 @@
 # main_collab.py
+
 from collab import DetectiveDialogue
 
 if __name__ == "__main__":

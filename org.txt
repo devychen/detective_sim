@@ -1,0 +1,25 @@
+base_agent.py（纯执行器）
+
+holmes_agent.py（create_agent）
+
+collab.py（大 orchestrator，负责拼接 prompt）
+
+main_collab.py（启动入口）
+========================
+
+base_agent.py：就是一个通用执行器，只管 run(prompt)，不拼 prompt。
+
+agent_xxx.py（holmes、poirot、marple）：只负责 create_agent()，从各自的 YAML 里读 llm 配置（比如 model、temperature），然后返回一个 BaseAgent 实例。
+
+真正拼接 system prompt、partial clues、rules、memory 的逻辑，全都在 collab.py 里完成。
+
+====================
+system prompt（intro + rules + role_play + protective + task + partial clues）永远在最上方。
+
+conversation history 只包含 agents 的发言，不再混杂 rules/intro。
+
+prompt_log.txt 里可以看到每个 agent 的完整输入。
+
+dialogue_log.csv 存每一轮发言和嫌疑人。
+
+=====================
