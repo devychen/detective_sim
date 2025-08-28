@@ -1,3 +1,5 @@
+# rules/rule_collab.yaml
+
 common_intro: |
   You are {agent_name}.
   A complex case has emerged in a parallel dimension, pulling you from your home into a crime scene through a temporal rift,

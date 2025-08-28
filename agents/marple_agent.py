@@ -1,8 +1,6 @@
+# agents/holmes_agent.py
+from agents.base_agent import BaseAgent
+from llm_config import get_llama_llm
 
-# agents/marple_agent.py
-
-from .base_agent import BaseAgent
-
-class MarpleAgent(BaseAgent):
-    def __init__(self, llm=None):
-        super().__init__(name="Miss Marple", yaml_path="prompts/marple.yaml", llm=llm)
+def create_agent():
+    return BaseAgent(name="Miss Marple", llm=get_llama_llm())

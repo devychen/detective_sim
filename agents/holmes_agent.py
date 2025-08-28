@@ -1,8 +1,6 @@
 # agents/holmes_agent.py
-from .base_agent import BaseAgent
+from agents.base_agent import BaseAgent
+from llm_config import get_llama_llm
 
-class HolmesAgent(BaseAgent):
-    def __init__(self, llm=None):
-        super().__init__(name="Holmes", yaml_path="prompts/holmes.yaml", llm=llm)
-
-
+def create_agent():
+    return BaseAgent(name="Sherlock Holmes", llm=get_llama_llm())
