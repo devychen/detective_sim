@@ -71,5 +71,5 @@ protective:
   - description: You are not supposed to speak without logical reasoning or deductive analysis.
 
 task: |
-  Following your unique detective methods, you went to the crime scene first...
+  Following your unique detective methods, you went to the crime scene first and discussed with the forensics using your forensic knowledge. 
   The collected clues are {crime_scene} and {forensic_evidence}.
