@@ -1,3 +1,8 @@
+# extract_watson.py
+# Aim: extract other character's quotes from original books
+# Use Dr. watson
+
+
 import re
 import csv
 import os
@@ -6,12 +11,13 @@ import os
 input_dir = "_novels/holmes"
 
 # 2. 关键词配置
-sherlock_keywords = [
-    "sherlock", 
-    "holmes", 
-    "sherlock holmes"
-    "mr. holmes", 
-    "mr holmes"
+watson_keywords = [
+    "watson", 
+    "john watson", 
+    "john h. watson"
+    "mr. watson", 
+    "mr watson",
+    "dr. watson"
 ]
 speak_verbs = [
     "says", "said", 
@@ -22,11 +28,12 @@ speak_verbs = [
     "remarks", "remarked", 
     "observes", "observed", 
     "shouts", "shouted",
-    "comments", "commented"
+    "comments", "commented",
+    "suggest", "suggested"
 ]
 
 # 3. 结果列表
-sherlock_lines = []
+watson_lines = []
 
 # 4. 遍历目录下所有 txt 文件
 for filename in os.listdir(input_dir):
@@ -48,18 +55,30 @@ for filename in os.listdir(input_dir):
             context_before = text[max(0, start-80):start].lower()
             context_after = text[end:end+80].lower()
 
-            if (any(name in context_before for name in sherlock_keywords) and
+            if (any(name in context_before for name in watson_keywords) and
                 any(verb in context_before for verb in speak_verbs)):
-                sherlock_lines.append(quote)
-            elif (any(name in context_after for name in sherlock_keywords) and
+                candidate = quote
+            elif (any(name in context_after for name in watson_keywords) and
                   any(verb in context_after for verb in speak_verbs)):
-                sherlock_lines.append(quote)
+                candidate = quote
+            else:
+                continue
+
+            # ---- 新增约束 ----
+            # 1. 去掉引号（包括单双引号和特殊样式引号）
+            candidate = candidate.replace('"', '').replace("“", "").replace("”", "").replace("‘", "").replace("’", "").replace("'", "")
+
+            # 2. 限制长度 5-100 tokens
+            tokens = candidate.split()
+            if 5 <= len(tokens) <= 100:
+                watson_lines.append(candidate)
 
 # 5. 保存到 CSV
-with open("lines/sherlock_lines_draft.csv", "w", newline="", encoding="utf-8") as csvfile:
+os.makedirs("lines", exist_ok=True)
+with open("lines/watson_lines.csv", "w", newline="", encoding="utf-8") as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(["number", "quote"])
-    for i, line in enumerate(sherlock_lines, 1):
+    for i, line in enumerate(watson_lines, 1):
         writer.writerow([i, line])
 
-print(f"Extraction completed, found {len(sherlock_lines)} lines in total")
+print(f"Extraction completed, found {len(watson_lines)} lines in total")
