@@ -10,7 +10,7 @@ import tiktoken  # pip install tiktoken
 
 # === 参数 ===
 lines_dir = "lines"
-output_file = "lines/dev_lines.csv"
+output_file = "lines/train_lines.csv"
 files = {
     "holmes": "cleaned_holmes_lines.csv",
     "marple": "cleaned_marple_lines.csv",
