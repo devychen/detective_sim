@@ -9,3 +9,6 @@ pandas
 numpy
 pyarrow
 transformer
+datasets
+scikit-learn 
+accelerate
