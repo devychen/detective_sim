@@ -1,25 +1,13 @@
 # extract_quotes.py
-# 通用脚本：提取不同角色的对话
+# 通用脚本：提取所有角色的对话
 
 import re
 import csv
 import os
-import argparse
 
 def extract_quotes(input_dir, keywords, speak_verbs, min_tokens=10, max_tokens=100, context_window=80):
     """
     从指定目录的文本文件中提取特定角色的对话
-    
-    Args:
-        input_dir: 输入目录路径
-        keywords: 角色关键词列表
-        speak_verbs: 说话动词列表
-        min_tokens: 最小token数量
-        max_tokens: 最大token数量
-        context_window: 上下文窗口大小
-    
-    Returns:
-        提取的对话列表
     """
     lines = []
     
@@ -31,7 +19,6 @@ def extract_quotes(input_dir, keywords, speak_verbs, min_tokens=10, max_tokens=1
             with open(filepath, "r", encoding="utf-8") as f:
                 text = f.read()
 
-            # 匹配所有引号中的内容
             dialogue_pattern = r'[""“](.*?)[""”]'
             matches = list(re.finditer(dialogue_pattern, text, re.DOTALL))
 
@@ -51,10 +38,7 @@ def extract_quotes(input_dir, keywords, speak_verbs, min_tokens=10, max_tokens=1
                 else:
                     continue
 
-                # 清理引号
                 candidate = candidate.replace('"', '').replace("“", "").replace("”", "").replace("‘", "").replace("’", "").replace("'", "")
-
-                # 限制长度
                 tokens = candidate.split()
                 if min_tokens <= len(tokens) <= max_tokens:
                     lines.append(candidate)
@@ -62,13 +46,7 @@ def extract_quotes(input_dir, keywords, speak_verbs, min_tokens=10, max_tokens=1
     return lines
 
 def main():
-    # 配置参数
-    parser = argparse.ArgumentParser(description='Extract character quotes from novels')
-    parser.add_argument('character', choices=['holmes', 'marple', 'poirot', 'hastings', 'watson', 'japp'], 
-                       help='Character to extract quotes for')
-    args = parser.parse_args()
-    
-    # 角色配置（现在所有角色的min_tokens都是10）
+    # 角色配置
     character_configs = {
         'holmes': {
             'input_dir': '_novels/holmes',
@@ -104,33 +82,25 @@ def main():
         }
     }
     
-    # 通用的说话动词列表
     speak_verbs = [
         "says", "said", "replies", "replied", "asks", "asked", "cries", "cried",
         "answers", "answered", "remarks", "remarked", "observes", "observed", 
         "shouts", "shouted", "comments", "commented", "suggest", "suggested"
     ]
     
-    # 获取配置
-    config = character_configs[args.character]
-    
-    # 提取对话（所有角色都使用min_tokens=10）
-    lines = extract_quotes(
-        config['input_dir'], 
-        config['keywords'], 
-        speak_verbs,
-        min_tokens=10  # 统一设置为10
-    )
-    
-    # 保存到CSV
-    os.makedirs("lines", exist_ok=True)
-    with open(config['output_file'], "w", newline="", encoding="utf-8") as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow(["number", "quote"])
-        for i, line in enumerate(lines, 1):
-            writer.writerow([i, line])
-    
-    print(f"Extraction completed for {args.character}, found {len(lines)} lines in total")
+    # 提取所有角色的对话
+    for character, config in character_configs.items():
+        print(f"\nExtracting quotes for {character}...")
+        lines = extract_quotes(config['input_dir'], config['keywords'], speak_verbs)
+        
+        os.makedirs("lines", exist_ok=True)
+        with open(config['output_file'], "w", newline="", encoding="utf-8") as csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerow(["number", "quote"])
+            for i, line in enumerate(lines, 1):
+                writer.writerow([i, line])
+        
+        print(f"Extraction completed for {character}, found {len(lines)} lines")
 
 if __name__ == "__main__":
     main()

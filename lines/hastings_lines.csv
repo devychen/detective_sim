@@ -1,117 +1,65 @@
 number,quote
-1,But you take this one seriously?
-2,"You are in error, my friend. You do not understand my meaning. A robbery would be a relief since it would dispossess my mind of the fear of something else."
-3,"Thats an idea, that is. Ought to be put in a book."
-4,"Ha ha! That would be a joke, that would,"
-5,Have you heard about Monsieur Poirots anonymous letter?
-6,"It had quite slipped my memory. Let me see, what was the date mentioned?"
-7,"Getting as grey as a badger,"
-8,What do we do next?
-9,"No, but what do we do?"
-10,"The sanity of a city full of men against the insanity of one man? I fear, Hastings—I very much fear. Remember the long-continued successes of Jack the Ripper."
-11,"And this is Mr. Hercule Poirot, also from London, and er—"
-12,"Pleased to meet you, gentlemen,"
-13,"Well, youre better at it than I am,"
-14,"You are incontestably right, Hastings. Am I correct in supposing that you intend to be a cavalier to one of the ladies?"
-15,"I wonder where he is at this minute,"
-16,Are the little grey cells equal to the task?
-17,"She took them out of the attaché case on her table,"
-18,You believe it actually is Mrs. Leidners former husband?
-19,"Dont you think so, nurse?"
-20,"Well, I think it is open to doubt,"
-21,well make a note of that. It will be something for the police to go on. The man may have some connection with the case.
-22,"Wed better get down to it,"
-23,"Look here, Leidner, Im going to read to you exactly what every member of your expedition was doing between one and two this afternoon."
-24,"They were closed and latched on the inside,"
-25,"even if they had been open, no one could have entered or left the room that way. My fellows and I have assured ourselves of that. It is the same with all the other windows giving on the open country. They all have iron bars and all the bars are in good condition. To have got into your wifes room, a stranger must have come through the arched doorway into the courtyard. But we have the united assurance of the guard, the cook and the houseboy that nobody did so."
-26,This idea of yours is infamous. Its—its frankly incredible.
-27,"You cant get away from—er—the facts,"
-28,"Facts? Facts? Lies told by an Indian cook and a couple of Arab house-boys. You know these fellows as well as I do, Reilly, so do you, Maitland. Truth as truth means nothing to them. They say what you want them to say as a mere matter of politeness."
-29,My wife receives threatening letters. She has reason to fear a certain person. Then she is—killed. And you ask me to believe that she is killed—not by that person—but by someone entirely different! I say that that is ridiculous.
-30,"Coincidence—eh? What do you say, Maitland? Are you in favour of the idea? Shall we put it up to Leidner?"
-31,Have you ever heard of a man called Hercule Poirot Leidner?
-32,"What do you think, Captain Maitland?"
-33,"My fellows are good scouts at scouring the countryside and investigating Arab blood feuds, but frankly, Leidner, this business of your wifes seems to me rather out of my class. The whole thing looks confoundedly fishy. Im more than willing to have the fellow take a look at the case."
-34,"We were all three wrong,"
-35,"Maitland gave it to me,"
-36,He had to go off on that Kurdish business.
-37,Nothing to show whether she took it herself from the laboratory?
-38,Did you know exactly what she had taken?
-39,"No—but I could see, of course, that it was a corrosive acid."
-40,"Is it your opinion, nurse, that Miss Johnson deliberately administered this stuff to herself?"
-41,"I agree that it isnt what one would choose,"
-42,Not in the least. I puzzled and puzzled over it but I couldnt even get a glimmering.
-43,"What do you think, M. Poirot?"
-44,I think you have there a possible motive.
-45,A person who is sleeping quite soundly will often wake up at the sound of a footfall. If the table could be reached from the window it would be the safer way.
-46,"Im not only thinking of the glass,"
-47,"Thatll be your job, Reilly,"
-48,But I shouldnt say that theres much doubt about this being the instrument with which Mrs. Leidner was killed!
-49,"I dont know where she hid this to begin with,"
-50,Every room was searched after the first crime.
-51,"I dont know what to believe,"
-52,Theres the French Fathers disappearance to be cleared up too. My men are out hunting around in case hes been knocked on the head and his body rolled into a convenient irrigation ditch.
-53,Hed been cross-questioning me about the man with a squint who was looking in at the window that day. He asked me just where hed stood on the path and then he said he was going out to have a look round. He said in detective stories the criminal always dropped a convenient clue.
-54,"Damned if any of my criminals ever do,"
-55,"So thats what he was after, was it? By Jove, I wonder if he did find anything. A bit of a coincidence if both he and Miss Johnson discovered a clue to the identity of the murderer at practically the same time."
-56,Ill be quiet. But I must leave this place. Joseph and I can go in and sleep at the Rest House.
-57,if Captain Maitland doesnt mind my staying?
-58,"Stay by all means, mademoiselle,"
-59,perhaps we shall get at the truth!
-60,I have not seen him about here before?
-61,"No, he has not been here for some time. But he is the son—adopted son,
+1,"You are in error, my friend. You do not understand my meaning. A robbery would be a relief since it would dispossess my mind of the fear of something else."
+2,"Thats an idea, that is. Ought to be put in a book."
+3,"It had quite slipped my memory. Let me see, what was the date mentioned?"
+4,"The sanity of a city full of men against the insanity of one man? I fear, Hastings—I very much fear. Remember the long-continued successes of Jack the Ripper."
+5,"And this is Mr. Hercule Poirot, also from London, and er—"
+6,"You are incontestably right, Hastings. Am I correct in supposing that you intend to be a cavalier to one of the ladies?"
+7,"She took them out of the attaché case on her table,"
+8,well make a note of that. It will be something for the police to go on. The man may have some connection with the case.
+9,"Look here, Leidner, Im going to read to you exactly what every member of your expedition was doing between one and two this afternoon."
+10,"even if they had been open, no one could have entered or left the room that way. My fellows and I have assured ourselves of that. It is the same with all the other windows giving on the open country. They all have iron bars and all the bars are in good condition. To have got into your wifes room, a stranger must have come through the arched doorway into the courtyard. But we have the united assurance of the guard, the cook and the houseboy that nobody did so."
+11,"Facts? Facts? Lies told by an Indian cook and a couple of Arab house-boys. You know these fellows as well as I do, Reilly, so do you, Maitland. Truth as truth means nothing to them. They say what you want them to say as a mere matter of politeness."
+12,My wife receives threatening letters. She has reason to fear a certain person. Then she is—killed. And you ask me to believe that she is killed—not by that person—but by someone entirely different! I say that that is ridiculous.
+13,"Coincidence—eh? What do you say, Maitland? Are you in favour of the idea? Shall we put it up to Leidner?"
+14,Have you ever heard of a man called Hercule Poirot Leidner?
+15,"My fellows are good scouts at scouring the countryside and investigating Arab blood feuds, but frankly, Leidner, this business of your wifes seems to me rather out of my class. The whole thing looks confoundedly fishy. Im more than willing to have the fellow take a look at the case."
+16,Nothing to show whether she took it herself from the laboratory?
+17,"No—but I could see, of course, that it was a corrosive acid."
+18,"Is it your opinion, nurse, that Miss Johnson deliberately administered this stuff to herself?"
+19,Not in the least. I puzzled and puzzled over it but I couldnt even get a glimmering.
+20,A person who is sleeping quite soundly will often wake up at the sound of a footfall. If the table could be reached from the window it would be the safer way.
+21,But I shouldnt say that theres much doubt about this being the instrument with which Mrs. Leidner was killed!
+22,"I dont know where she hid this to begin with,"
+23,Theres the French Fathers disappearance to be cleared up too. My men are out hunting around in case hes been knocked on the head and his body rolled into a convenient irrigation ditch.
+24,Hed been cross-questioning me about the man with a squint who was looking in at the window that day. He asked me just where hed stood on the path and then he said he was going out to have a look round. He said in detective stories the criminal always dropped a convenient clue.
+25,"So thats what he was after, was it? By Jove, I wonder if he did find anything. A bit of a coincidence if both he and Miss Johnson discovered a clue to the identity of the murderer at practically the same time."
+26,Ill be quiet. But I must leave this place. Joseph and I can go in and sleep at the Rest House.
+27,"No, he has not been here for some time. But he is the son—adopted son,
 rather—of Mr. Ackroyd of Fernly Park."
-62,"One prefers to remain incognito. I am not anxious for notoriety. I
+28,"One prefers to remain incognito. I am not anxious for notoriety. I
 have not even troubled to correct the local version of my name."
-63,"And so he is engaged to Mr.
+29,"And so he is engaged to Mr.
 Ackroyds niece, the charming Miss Flora."
-64,"You have not the trust in me of Miss Flora,"
-65,"And yours
-and Mr. Raymonds dont fit either, doctor."
-66,"I shouldnt put so much
+30,"You have not the trust in me of Miss Flora,"
+31,"I shouldnt put so much
 stress on the footmarks if it wasnt for everything else."
-67,To leave so much evidence of his presence.
-68,"I observe that you do not
+32,"I observe that you do not
 quit my side. How say you, Dr. Sheppard, shall we investigate that
 summer-house? It interests me."
-69,"You and I, M. le docteur, we
+33,"You and I, M. le docteur, we
 investigate this affair side by side. Without you I should be lost. I
 desire a little information from the good Mr. Hammond."
-70,"however strong the circumstantial evidence against
+34,"however strong the circumstantial evidence against
 him may be. The mere fact that he was hard pressed for money——"
-71,"To begin with, I want to make a very special plea
+35,"To begin with, I want to make a very special plea
 to mademoiselle."
-72,"On every page,
+36,"On every page,
 many, many times was the word I. What _he_ thought—what _he_ did.
 But you—you have kept your personality in the background; only once or
 twice does it obtrude—in scenes of home life, shall we say?"
-73,it was a question of murder.
-74,"But the murder hadnt happened, then."
-75,"Remarkable night, what? After that foul day."
-76,Linda? I dont know. I expect shes mooning round the island somewhere.
-77,And the husband? Did he know about it? What did he feel?
-78,"Kenneth Marshall said coldly:
-
-Certainly."
-79,Havent the least idea. Might have been the weather—extra fine day and all that.
-80,It is no question of suspicion. Everyone on the island will be asked to account for his or her movements between a quarter to eleven and twenty minutes to twelve this morning.
-81,Captain Marshall has told us that you and she met casually at a cocktail party. Is that right?
-82,"Yes, thats how it came about."
-83,Well—not exactly. As a matter of fact I saw a fair amount of her one way and another.
-84,I dont know whether he knew about it or not.
-85,"What about her husband? Did he mind, do you think?"
-86,"Well, what I mean to say—strangled, you know. Same idea. Feller suddenly sees red!"
-87,"Oh, look here, I never said that."
-88,"On perfectly good terms, I should say."
-89,He may have been. I cant really tell you anything about that. Captain Marshall is rather old-fashioned—he hasnt got the modern habit of shouting matrimonial woes upon the housetop.
-90,"Yes. Blackmail, or no blackmail. I still feel it points to him. And his manner—well, his manner is unfortunate."
-91,Arlena Marshall wasnt killed by a woman. Its a man weve got to look for. Weve got to stick to the men in the case.
-92,"So you think it possible,"
-93,Not at all. Never said anything of the sort. Just letting you know that hes the sort of fellow who could go berserk on occasions.
-94,Can you tell me what arrangements I can make about the funeral?
-95,"Excuse me, sir, allow me to return you these."
-96,Has the police department been testing the speed of my typing? I hope my character is cleared.
-97,"That wasnt so bad, was it, Ken?"
-98,"Yes, of course. Id forgotten that."
-99,Kenneth did see me? Did—did he say so?
-100,Whats this about Linda? Whats the matter with her?
+37,Linda? I dont know. I expect shes mooning round the island somewhere.
+38,And the husband? Did he know about it? What did he feel?
+39,Havent the least idea. Might have been the weather—extra fine day and all that.
+40,It is no question of suspicion. Everyone on the island will be asked to account for his or her movements between a quarter to eleven and twenty minutes to twelve this morning.
+41,Captain Marshall has told us that you and she met casually at a cocktail party. Is that right?
+42,Well—not exactly. As a matter of fact I saw a fair amount of her one way and another.
+43,I dont know whether he knew about it or not.
+44,"What about her husband? Did he mind, do you think?"
+45,"Well, what I mean to say—strangled, you know. Same idea. Feller suddenly sees red!"
+46,He may have been. I cant really tell you anything about that. Captain Marshall is rather old-fashioned—he hasnt got the modern habit of shouting matrimonial woes upon the housetop.
+47,"Yes. Blackmail, or no blackmail. I still feel it points to him. And his manner—well, his manner is unfortunate."
+48,Arlena Marshall wasnt killed by a woman. Its a man weve got to look for. Weve got to stick to the men in the case.
+49,Not at all. Never said anything of the sort. Just letting you know that hes the sort of fellow who could go berserk on occasions.
+50,Can you tell me what arrangements I can make about the funeral?
+51,Has the police department been testing the speed of my typing? I hope my character is cleared.
