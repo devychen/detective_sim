@@ -14,7 +14,7 @@ from agents.poirot_agent import create_agent as create_poirot
 
 
 class DetectiveDialogue:
-    def __init__(self, rule_path="prompt/rule_collab.yaml", case_path="cases/case3.yaml", turns=10):
+    def __init__(self, rule_path="prompts/rule_collab.yaml", case_path="cases/case1.yaml", turns=10):
         self.turns = turns
         self.memory = []  # [(speaker, content)]
 
