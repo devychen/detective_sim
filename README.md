@@ -118,8 +118,7 @@ Resources: [sherlock](https://sherlock-holm.es/ascii/), [marple & poirot](https:
 **Step 3** Use [BERT-cased](https://huggingface.co/google-bert/bert-base-cased) to train the classifier
 > 🍎 lines > train.py, and 'bert-classifier' folder containing the model
 
-
-**`=== (Estimated) STAGE CLOSE. -- 3 SEP 2025 ===`**
+**`=== STAGE CLOSE. -- 3 SEP 2025 ===`**
 
 ## Workflow - Data Analysis, Metrics.
 

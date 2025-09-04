@@ -1,3 +1,9 @@
+# collab.py
+# 支持流式响应（避免 504 超时）。
+# CSV 增加 believed_murderer 列。
+# 停止条件：达到 10 轮 或 三个侦探意见一致。
+# max_tokens 默认不传，保持旧行为，只有在调用时显式传才生效。
+
 import os
 import random
 import time
@@ -12,10 +18,13 @@ from agents.poirot_agent import create_agent as create_poirot
 
 
 class DetectiveDialogue:
-    def __init__(self, rule_path="prompts/rule_collab.yaml", case_path="cases/case3.yaml", turns=10, max_tokens=300):
+    
+    def __init__(self, rule_path="prompts/rule_collab.yaml", case_path="cases/case3.yaml", turns=10, max_tokens=None, temperature=None):
         self.turns = turns
-        self.max_tokens = max_tokens
+        self.max_tokens = max_tokens  # 默认 None
+        self.temperature = temperature  # 默认 None，不传给 API
         self.memory = []  # [(speaker, content, believed_murderer)]
+
 
         # load rules
         with open(rule_path, "r", encoding="utf-8") as f:
@@ -53,6 +62,9 @@ class DetectiveDialogue:
             writer.writerow(["turn", "speaker", "utterance", "believed_murderer"])
         with open(self.prompt_log_path, "w", encoding="utf-8") as f:
             f.write("=== PROMPT LOG ===\n\n")
+
+        # 🔍 打印当前配置
+        print(f"[DetectiveDialogue] max_tokens={self.max_tokens}, temperature={self.temperature}")
 
     # -------------------------------
     # helper methods
@@ -137,13 +149,14 @@ class DetectiveDialogue:
             writer.writerow([turn, speaker, utterance, believed_murderer])
 
     def extract_believed_murderer(self, text):
-        """尝试从文本中提取 'I believe the murderer is X' 或类似表达"""
+        """简单正则提取 'murderer is X'"""
         match = re.search(r"(?:murderer|culprit).{0,20}?(\b[A-Z][a-zA-Z]+\b)", text)
         if match:
             return match.group(1)
         return None
 
     def check_agreement(self):
+        """检查最后三句话是否意见一致"""
         beliefs = [bm for _, _, bm in self.memory if bm]
         if len(beliefs) >= 3 and len(set(beliefs[-3:])) == 1:
             return True
@@ -163,13 +176,16 @@ class DetectiveDialogue:
 
                 # build prompt
                 prompt_text = self.build_prompt_for_agent(agent_name, agent_prompt)
-                
-                # run agent with max_tokens + temperature
-                response = agent.run(
-                    prompt_text,
-                    max_tokens=self.max_tokens,
-                    temperature=0.7  # 你可以改成 0~1 之间的任何值
-                ).strip()
+
+                # run (支持 max_tokens，但默认不传)
+                kwargs = {"stream": True}
+                if self.max_tokens is not None:
+                    kwargs["max_tokens"] = self.max_tokens
+                if self.temperature is not None:
+                    kwargs["temperature"] = self.temperature
+
+                response = agent.run(prompt_text, **kwargs).strip()
+
 
                 # extract believed murderer
                 believed_murderer = self.extract_believed_murderer(response)
@@ -181,19 +197,26 @@ class DetectiveDialogue:
                 self.save_prompt_log(agent_name, prompt_text, t)
                 self.save_dialogue_log(t, agent_name, response, believed_murderer)
 
-                # # print current turn
-                # print(f"[Turn {t}] {agent_name}: {response}")
-                # if believed_murderer:
-                #     print(f"    believes murderer is: {believed_murderer}")
-
-                time.sleep(2)  # 防止速率限制
-
-            # check if all agree
+            # check stop condition
             if self.check_agreement():
-                print(f"Agreement reached at turn {t}. Simulation stops early.")
                 break
+
+            time.sleep(2)  # 每轮休眠，避免速率限制
+
 
 
 if __name__ == "__main__":
+    # 默认行为（不传参数）
+    # sim = DetectiveDialogue()
+
+    # 控制回复长度
+    # sim = DetectiveDialogue(max_tokens=400)
+
+    # 控制创造性
+    # sim = DetectiveDialogue(temperature=0.7)
+
+    # 同时控制
+    # sim = DetectiveDialogue(max_tokens=400, temperature=0.7)
+
     sim = DetectiveDialogue()
     sim.simulate()

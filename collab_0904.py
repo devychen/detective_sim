@@ -1,10 +1,12 @@
+# collab.py
+# 没有设置达成一致意见后停止
+# 没有max token
 import os
 import random
 import time
 import yaml
 import csv
-import datetime
-import re
+import datetime   # with time stamp
 
 from agents.holmes_agent import create_agent as create_holmes
 from agents.marple_agent import create_agent as create_marple
@@ -12,10 +14,9 @@ from agents.poirot_agent import create_agent as create_poirot
 
 
 class DetectiveDialogue:
-    def __init__(self, rule_path="prompts/rule_collab.yaml", case_path="cases/case3.yaml", turns=10, max_tokens=300):
+    def __init__(self, rule_path="prompt/rule_collab.yaml", case_path="cases/case3.yaml", turns=10):
         self.turns = turns
-        self.max_tokens = max_tokens
-        self.memory = []  # [(speaker, content, believed_murderer)]
+        self.memory = []  # [(speaker, content)]
 
         # load rules
         with open(rule_path, "r", encoding="utf-8") as f:
@@ -42,7 +43,7 @@ class DetectiveDialogue:
         # make sure data dir exists
         os.makedirs("data", exist_ok=True)
 
-        # timestamp
+        # ✅ 生成时间戳，用于区分不同 run
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         self.dialogue_log_path = f"data/dialogue_log_{timestamp}.csv"
         self.prompt_log_path = f"data/prompt_log_{timestamp}.txt"
@@ -50,23 +51,26 @@ class DetectiveDialogue:
         # reset logs
         with open(self.dialogue_log_path, "w", encoding="utf-8", newline="") as f:
             writer = csv.writer(f)
-            writer.writerow(["turn", "speaker", "utterance", "believed_murderer"])
+            writer.writerow(["turn", "speaker", "utterance"])
         with open(self.prompt_log_path, "w", encoding="utf-8") as f:
             f.write("=== PROMPT LOG ===\n\n")
 
     # -------------------------------
     # helper methods
     # -------------------------------
-    def update_memory(self, speaker, content, believed_murderer):
-        self.memory.append((speaker, content, believed_murderer))
+    def update_memory(self, speaker, content):
+        """只存 agent 对话"""
+        self.memory.append((speaker, content))
 
     def get_conversation_history_text(self):
+        """返回纯对话形式的 history"""
         history = []
-        for speaker, content, _ in self.memory:
+        for speaker, content in self.memory:
             history.append(f"{speaker}: {content}")
         return "\n".join(history)
 
     def get_partial_clues(self, agent_name):
+        """返回某个 agent 对应的 partial case info"""
         if agent_name == "Holmes":
             return {
                 "crime_scene": self.case.get("crime_scene", {}),
@@ -84,6 +88,7 @@ class DetectiveDialogue:
             return {}
 
     def build_system_prompt(self, agent_name, agent_prompt):
+        """拼接 system prompt（不进 memory）"""
         role_play = "\n".join(
             [f"- {r['description']}" for r in agent_prompt.get("role_play", [])]
         )
@@ -91,6 +96,7 @@ class DetectiveDialogue:
             [f"- {p['description']}" for p in agent_prompt.get("protective", [])]
         )
 
+        # partial clues
         partial_clues = self.get_partial_clues(agent_name)
         task_template = agent_prompt.get("task", "")
         task_text = task_template.format(**partial_clues)
@@ -115,6 +121,7 @@ class DetectiveDialogue:
         return system_prompt
 
     def build_prompt_for_agent(self, agent_name, agent_prompt):
+        """拼接完整输入：system + conversation so far"""
         system_prompt = self.build_system_prompt(agent_name, agent_prompt)
         history_text = self.get_conversation_history_text()
 
@@ -131,23 +138,10 @@ class DetectiveDialogue:
             f.write(prompt_text)
             f.write("\n\n")
 
-    def save_dialogue_log(self, turn, speaker, utterance, believed_murderer=None):
+    def save_dialogue_log(self, turn, speaker, utterance):
         with open(self.dialogue_log_path, "a", encoding="utf-8", newline="") as f:
             writer = csv.writer(f)
-            writer.writerow([turn, speaker, utterance, believed_murderer])
-
-    def extract_believed_murderer(self, text):
-        """尝试从文本中提取 'I believe the murderer is X' 或类似表达"""
-        match = re.search(r"(?:murderer|culprit).{0,20}?(\b[A-Z][a-zA-Z]+\b)", text)
-        if match:
-            return match.group(1)
-        return None
-
-    def check_agreement(self):
-        beliefs = [bm for _, _, bm in self.memory if bm]
-        if len(beliefs) >= 3 and len(set(beliefs[-3:])) == 1:
-            return True
-        return False
+            writer.writerow([turn, speaker, utterance])
 
     # -------------------------------
     # main simulation
@@ -163,35 +157,20 @@ class DetectiveDialogue:
 
                 # build prompt
                 prompt_text = self.build_prompt_for_agent(agent_name, agent_prompt)
-                
-                # run agent with max_tokens + temperature
-                response = agent.run(
-                    prompt_text,
-                    max_tokens=self.max_tokens,
-                    temperature=0.7  # 你可以改成 0~1 之间的任何值
-                ).strip()
 
-                # extract believed murderer
-                believed_murderer = self.extract_believed_murderer(response)
+                # run
+                response = agent.run(prompt_text).strip()
 
                 # update memory
-                self.update_memory(agent_name, response, believed_murderer)
+                self.update_memory(agent_name, response)
 
                 # save logs
                 self.save_prompt_log(agent_name, prompt_text, t)
-                self.save_dialogue_log(t, agent_name, response, believed_murderer)
+                self.save_dialogue_log(t, agent_name, response)
 
-                # # print current turn
-                # print(f"[Turn {t}] {agent_name}: {response}")
-                # if believed_murderer:
-                #     print(f"    believes murderer is: {believed_murderer}")
+                # print(f"[Turn {t}] {agent_name}: {response}\n")
 
-                time.sleep(2)  # 防止速率限制
-
-            # check if all agree
-            if self.check_agreement():
-                print(f"Agreement reached at turn {t}. Simulation stops early.")
-                break
+                time.sleep(2)  # 防止超过速率限制
 
 
 if __name__ == "__main__":
