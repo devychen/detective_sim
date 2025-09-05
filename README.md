@@ -110,15 +110,19 @@ Example texts
 
 **Step 1** From original books, extract the quotes.  
 Resources: [sherlock](https://sherlock-holm.es/ascii/), [marple & poirot](https://github.com/oliviachang29/the-complete-works-of-agatha-christie)
-> 🍎 lines > extract_lines.py and {character}_lines.csv * 6
+> 🍎 lines > three .py and .csv
 
-**Step 2** Clean and combine quotes, prepare the training dataset.
-> 🍎 lines > clean_lines.csv, and train_lines.csv
+**Step 2** Select 500 for each agents. Make sure the total tokens are not too differentiated.
+> 🍎 lines > train.csv
 
-**Step 3** Use [BERT-cased](https://huggingface.co/google-bert/bert-base-cased) to train the classifier
-> 🍎 lines > train.py, and 'bert-classifier' folder containing the model
+**Step 3** Use [BERT-cased](https://huggingface.co/google-bert/bert-base-cased). 
 
+<<<<<<< HEAD
 **`=== STAGE CLOSE. -- 3 SEP 2025 ===`**
+=======
+
+**`=== (Estimated) STAGE CLOSE. -- 5 SEP 2025 ===`**
+>>>>>>> parent of f51aa74 (Update README.md)
 
 ## Workflow - Data Analysis, Metrics.
 
