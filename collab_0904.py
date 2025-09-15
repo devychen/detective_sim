@@ -103,21 +103,21 @@ class DetectiveDialogue:
 
         system_prompt = f"""You are {agent_name}.
 
-=== Background ===
-{self.rules.get('common_intro', '').format(agent_name=agent_name)}
+        === Background ===
+        {self.rules.get('common_intro', '').format(agent_name=agent_name)}
 
-=== Collaboration Rules ===
-{self.rules.get('common_rules', '')}
+        === Collaboration Rules ===
+        {self.rules.get('common_rules', '')}
 
-=== Role Play Guidelines ===
-{role_play}
+        === Role Play Guidelines ===
+        {role_play}
 
-=== Protective Guidelines ===
-{protective}
+        === Protective Guidelines ===
+        {protective}
 
-=== Task ===
-{task_text}
-"""
+        === Task ===
+        {task_text}
+        """
         return system_prompt
 
     def build_prompt_for_agent(self, agent_name, agent_prompt):
@@ -127,9 +127,9 @@ class DetectiveDialogue:
 
         full_prompt = f"""{system_prompt}
 
-=== Conversation So Far ===
-{history_text if history_text else "(no conversation yet)"}
-"""
+        === Conversation So Far ===
+        {history_text if history_text else "(no conversation yet)"}
+        """
         return full_prompt
 
     def save_prompt_log(self, agent_name, prompt_text, turn):

@@ -9,8 +9,8 @@ load_dotenv("nvidia_key.env")
 def get_llama_llm(model_name="meta/llama-3.3-70b-instruct") -> ChatNVIDIA:
     return ChatNVIDIA(
         model=model_name,
-        temperature=0.5,   # 稍微保守
-        max_tokens=512,   # 可以调大点，比如 1024
+        temperature=0.5,   #
+        max_tokens=512,   
         request_timeout=60,
         top_p=0.9,
         n=1,

@@ -117,24 +117,19 @@ Resources: [sherlock](https://sherlock-holm.es/ascii/), [marple & poirot](https:
 
 **Step 3** Use [BERT-cased](https://huggingface.co/google-bert/bert-base-cased). 
 
-<<<<<<< HEAD
 **`=== STAGE CLOSE. -- 3 SEP 2025 ===`**
-=======
-
-**`=== (Estimated) STAGE CLOSE. -- 5 SEP 2025 ===`**
->>>>>>> parent of f51aa74 (Update README.md)
 
 ## Workflow - Data Analysis, Metrics.
 
-Do the evaluation.
 
-**`=== (Estimated) STAGE CLOSE. 15 SEP 2025 ===`**
+
+**`=== (Estimated) STAGE CLOSE. 30 SEP 2025 ===`**
 
 ## Workflow - Ablation Study (if needed)
 
 ## Workflow - Writing, ALL Wrap-Up!
 
-**`=== (Estimated) STAGE CLOSE. 31 AUG 2025 ===`**
+**`=== (Estimated) STAGE CLOSE. 15 OCT 2025 ===`**
 
 
 
