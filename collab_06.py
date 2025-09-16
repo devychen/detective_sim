@@ -1,5 +1,4 @@
-# + 达成一致则终止
-
+# + 去掉多余的speaker前缀。此版本已完全可行，只是终止为10轮，没有达成一致即停止
 # collab.py
 import os
 import random
@@ -213,8 +212,6 @@ IMPORTANT:
             agent_order = list(self.agents.keys())
             random.shuffle(agent_order)
 
-            beliefs = {}  # 记录本轮每个人的推测
-
             for agent_name in agent_order:
                 agent = self.agents[agent_name]
                 agent_prompt = self.agent_prompts[agent_name.lower()]
@@ -228,7 +225,6 @@ IMPORTANT:
 
                 # extract believed_murderer
                 believed = extract_believed_murderer(response)
-                beliefs[agent_name] = believed
 
                 # update memory
                 self.update_memory(agent_name, response)
@@ -244,13 +240,6 @@ IMPORTANT:
                     print(f"{Fore.GREEN}  ↳ Believes murderer is: {believed}{Style.RESET_ALL}")
 
                 time.sleep(2)
-
-            # ✅ 一轮结束后检查三人意见是否一致
-            unique_beliefs = set(beliefs.values()) - {""}
-            if len(unique_beliefs) == 1 and len(beliefs) == 3:
-                murderer = unique_beliefs.pop()
-                print(f"{Fore.CYAN}All detectives agree the murderer is {murderer}! Simulation ends at turn {t}.{Style.RESET_ALL}")
-                return
 
 
 if __name__ == "__main__":

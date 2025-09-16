@@ -1,5 +1,3 @@
-# + 达成一致则终止
-
 # collab.py
 import os
 import random
@@ -7,54 +5,14 @@ import time
 import yaml
 import csv
 import datetime   # with time stamp
-from colorama import Fore, Style, init
 
 from agents.holmes_agent import create_agent as create_holmes
 from agents.marple_agent import create_agent as create_marple
 from agents.poirot_agent import create_agent as create_poirot
 
-init(autoreset=True)
-
-
-def extract_believed_murderer(response: str) -> str:
-    """
-    Extract murderer name only if the response contains:
-    "I believe the murderer is ..."
-    """
-    text = response.strip()
-    key = "i believe the murderer is "
-    idx = text.lower().find(key)
-    if idx != -1:
-        name = text[idx + len(key):].split()[0]
-        return name.strip("：:,.!? ")
-    return ""
-
-
-def clean_response(speaker: str, response: str) -> str:
-    """
-    Keep only the current speaker's part.
-    - Remove leading "Holmes:", "Marple:", "Poirot:" (even if repeated).
-    - Stop if response contains another agent's line.
-    """
-    text = response.strip()
-
-    # remove repeated speaker prefix at the start
-    lowers = text.lower()
-    while lowers.startswith(speaker.lower() + ":"):
-        text = text[len(speaker) + 1:].strip()
-        lowers = text.lower()
-
-    # truncate if response contains another agent's name
-    for other in ["Holmes", "Marple", "Poirot"]:
-        if other != speaker:
-            idx = text.find(other + ":")
-            if idx != -1:
-                text = text[:idx].strip()
-    return text
-
 
 class DetectiveDialogue:
-    def __init__(self, rule_path="prompts/rule_collab.yaml", case_path="cases/case1.yaml", turns=10):
+    def __init__(self, rule_path="prompts/rule_collab.yaml", case_path="cases/case2.yaml", turns=10):
         self.turns = turns
         self.memory = []  # [(speaker, content)]
 
@@ -73,7 +31,7 @@ class DetectiveDialogue:
             "Poirot": create_poirot(),
         }
 
-        # load agent prompts
+        # load agent prompts (role_play + protective + task)
         self.agent_prompts = {}
         for name in ["holmes", "marple", "poirot"]:
             path = f"prompts/{name}.yaml"
@@ -83,7 +41,7 @@ class DetectiveDialogue:
         # make sure data dir exists
         os.makedirs("data", exist_ok=True)
 
-        # create run folder with timestamp
+        # 生成本次 run 的独立文件夹（带 timestamp）
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         self.run_dir = os.path.join("data", f"run_{timestamp}")
         os.makedirs(self.run_dir, exist_ok=True)
@@ -94,7 +52,7 @@ class DetectiveDialogue:
             writer = csv.writer(f)
             writer.writerow(["turn", "speaker", "utterance", "believed_murderer"])
 
-        # prompt log per agent
+        # prompt log 每个 agent 单独一个文件
         self.prompt_log_paths = {}
         for agent_name in self.agents.keys():
             path = os.path.join(self.run_dir, f"prompt_log_{agent_name}.txt")
@@ -106,18 +64,18 @@ class DetectiveDialogue:
     # helper methods
     # -------------------------------
     def update_memory(self, speaker, content):
-        """store dialogue only"""
+        """只存 agent 对话"""
         self.memory.append((speaker, content))
 
-    def get_conversation_history_text(self, max_turns=5):
-        """return last max_turns turns"""
+    def get_conversation_history_text(self):
+        """返回纯对话形式的 history"""
         history = []
-        for speaker, content in self.memory[-max_turns:]:
+        for speaker, content in self.memory:
             history.append(f"{speaker}: {content}")
         return "\n".join(history)
 
     def get_partial_clues(self, agent_name):
-        """return partial case info"""
+        """返回某个 agent 对应的 partial case info"""
         if agent_name == "Holmes":
             return {
                 "crime_scene": self.case.get("crime_scene", {}),
@@ -135,7 +93,7 @@ class DetectiveDialogue:
             return {}
 
     def build_system_prompt(self, agent_name, agent_prompt):
-        """system prompt (not stored in memory)"""
+        """拼接 system prompt（不进 memory）"""
         role_play = "\n".join(
             [f"- {r['description']}" for r in agent_prompt.get("role_play", [])]
         )
@@ -164,19 +122,11 @@ class DetectiveDialogue:
 
 === Task ===
 {task_text}
-
-IMPORTANT:
-- Always write in coherent, self-contained paragraphs (not fragments).
-- Ensure each response has a clear beginning, middle, and end.
-- Do not exceed 5 sentences.
-- End your reply with this exact format and you must name one and only one suspect:
-  I believe the murderer is XXX
         """
         return system_prompt
 
-
     def build_prompt_for_agent(self, agent_name, agent_prompt):
-        """system prompt + conversation history"""
+        """拼接完整输入：system + conversation so far"""
         system_prompt = self.build_system_prompt(agent_name, agent_prompt)
         history_text = self.get_conversation_history_text()
 
@@ -188,7 +138,7 @@ IMPORTANT:
         return full_prompt
 
     def save_prompt_log(self, agent_name, prompt_text, turn):
-        """save prompt per agent"""
+        """保存每个 agent 自己的 prompt"""
         path = self.prompt_log_paths[agent_name]
         with open(path, "a", encoding="utf-8") as f:
             f.write(f"--- Turn {turn}, Agent: {agent_name} ---\n")
@@ -196,7 +146,7 @@ IMPORTANT:
             f.write("\n\n")
 
     def save_dialogue_log(self, turn, speaker, utterance, believed_murderer=""):
-        """save dialogue with believed_murderer"""
+        """增加 believed_murderer 列"""
         with open(self.dialogue_log_path, "a", encoding="utf-8", newline="") as f:
             writer = csv.writer(f)
             writer.writerow([turn, speaker, utterance, believed_murderer])
@@ -205,15 +155,11 @@ IMPORTANT:
     # main simulation
     # -------------------------------
     def simulate(self):
-        colors = {"Holmes": Fore.RED, "Marple": Fore.YELLOW, "Poirot": Fore.BLUE}
-
         for t in range(1, self.turns + 1):
-            print(f"{Fore.MAGENTA}===== Turn {t} ====={Style.RESET_ALL}")
-
             agent_order = list(self.agents.keys())
             random.shuffle(agent_order)
 
-            beliefs = {}  # 记录本轮每个人的推测
+            current_beliefs = {}  # 存每个 agent 当前的凶手推测
 
             for agent_name in agent_order:
                 agent = self.agents[agent_name]
@@ -223,12 +169,16 @@ IMPORTANT:
                 prompt_text = self.build_prompt_for_agent(agent_name, agent_prompt)
 
                 # run
-                response_raw = agent.run(prompt_text).strip()
-                response = clean_response(agent_name, response_raw)
+                response = agent.run(prompt_text).strip()
 
-                # extract believed_murderer
-                believed = extract_believed_murderer(response)
-                beliefs[agent_name] = believed
+                # 尝试从 response 提取 believed_murderer
+                # 假设 agent 的推测格式是 "I believe the murderer is XXX"
+                if "murderer is" in response.lower():
+                    believed = response.split("murderer is")[-1].strip().split('.')[0]
+                else:
+                    believed = ""
+
+                current_beliefs[agent_name] = believed
 
                 # update memory
                 self.update_memory(agent_name, response)
@@ -237,21 +187,13 @@ IMPORTANT:
                 self.save_prompt_log(agent_name, prompt_text, t)
                 self.save_dialogue_log(t, agent_name, response, believed)
 
-                # print to terminal with color
-                color = colors.get(agent_name, "")
-                print(f"{color}{agent_name}: {response}{Style.RESET_ALL}")
-                if believed:
-                    print(f"{Fore.GREEN}  ↳ Believes murderer is: {believed}{Style.RESET_ALL}")
-
                 time.sleep(2)
 
-            # ✅ 一轮结束后检查三人意见是否一致
-            unique_beliefs = set(beliefs.values()) - {""}
-            if len(unique_beliefs) == 1 and len(beliefs) == 3:
-                murderer = unique_beliefs.pop()
-                print(f"{Fore.CYAN}All detectives agree the murderer is {murderer}! Simulation ends at turn {t}.{Style.RESET_ALL}")
-                return
-
+            # 检查终止条件：三人推测一致
+            beliefs_set = set(current_beliefs.values()) - {""}  # 去掉空字符串
+            if len(beliefs_set) == 1:
+                print(f"All agents agreed on the murderer: {beliefs_set.pop()} at turn {t}")
+                break
 
 if __name__ == "__main__":
     sim = DetectiveDialogue()
