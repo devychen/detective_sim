@@ -1,5 +1,5 @@
-# + conversation so far储存前n-1轮
-
+# + 达成一致则终止
+# 本来定稿了，唯一问题是conversation so far里只储存了上一轮，而不是上n-1轮。
 
 # collab.py
 import os
@@ -110,16 +110,11 @@ class DetectiveDialogue:
         """store dialogue only"""
         self.memory.append((speaker, content))
 
-    def get_conversation_history_text(self, max_turns=None):
-        """
-        Return all turns if max_turns is None.
-        Otherwise return the last max_turns turns.
-        """
-        if max_turns is None:
-            source = self.memory
-        else:
-            source = self.memory[-max_turns:]
-        history = [f"{speaker}: {content}" for speaker, content in source]
+    def get_conversation_history_text(self, max_turns=5):
+        """return last max_turns turns"""
+        history = []
+        for speaker, content in self.memory[-max_turns:]:
+            history.append(f"{speaker}: {content}")
         return "\n".join(history)
 
     def get_partial_clues(self, agent_name):
@@ -180,10 +175,11 @@ IMPORTANT:
         """
         return system_prompt
 
+
     def build_prompt_for_agent(self, agent_name, agent_prompt):
-        """system prompt + FULL conversation history"""
+        """system prompt + conversation history"""
         system_prompt = self.build_system_prompt(agent_name, agent_prompt)
-        history_text = self.get_conversation_history_text(max_turns=None)  # ✅ 全部历史
+        history_text = self.get_conversation_history_text()
 
         full_prompt = f"""{system_prompt}
 
