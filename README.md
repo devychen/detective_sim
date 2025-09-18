@@ -121,6 +121,9 @@ Resources: [sherlock](https://sherlock-holm.es/ascii/), [marple & poirot](https:
 
 ## Workflow - Data Analysis, Metrics.
 
+9.22-30 Eval
+10.1-5 Baseline
+10.5-10 Writing
 
 
 **`=== (Estimated) STAGE CLOSE. 30 SEP 2025 ===`**
