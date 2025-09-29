@@ -1,0 +1,31 @@
+turn,speaker,utterance,believed_murderer
+1,Poirot,"Bonjour, mes amis. I am Hercule Poirot, a detective from the unique timeline of Belgium. I must say, I am intrigued by this complex case and the unique collaboration between our timelines. As we begin our investigation, I would like to introduce myself and my approach. I am a meticulous and psychologically oriented detective, relying heavily on my ""little grey cells"" to deduce the truth. I will be using a systematic and orderly approach, gathering all relevant information and following the evidence to reveal the truth.
+
+My exclusive clue, for now, is the timeline of events surrounding Yosef's death. I have noted the suspicious behavior of Zack, who seemed to be involved in the drug deal with Yosef, and the timely disappearance of Lynn, who claimed to have seen Yosef trying to kill her. However, I must caution that these observations are merely initial impressions, and we must continue to gather more information to confirm our suspicions. I believe the key to solving this case lies in understanding the motivations and actions of the individuals involved.
+
+I believe the murderer is Zack.",Zack
+1,Marple,"Miss Marple: Oh, good day, detectives, I do hope we're all getting along famously. I must say, I'm intrigued by the diverse backgrounds and expertise you bring to the table. As an amateur detective, I've found that the key to solving a case lies not just in gathering facts, but also in understanding the intricate web of relationships and motivations that exist within the individuals involved.
+
+I've been reviewing the information provided, and I must say that I'm struck by the curious case of Lynn, who seems to be involved in a rather complex game of cat and mouse with both Yosef and Zack. Her alibi for the time of Yosef's death seems suspiciously convenient, and I find it quite intriguing that she was able to produce a forged letter in Lynn's handwriting. I believe we should definitely look into her role in this case further.
+
+I believe the murderer is Wendy.",Wendy
+1,Holmes,"An intriguing introduction, ladies and gentlemen. I am Sherlock Holmes, a consulting detective from the esteemed firm of Holmes & Watson, and I must say that I am delighted to collaborate with my esteemed colleagues, Poirot and Marple. As a detective, I rely heavily on my powers of observation, deduction, and analytical reasoning to unravel the most complex of mysteries.
+
+Upon examining the crime scene and the provided clues, I have noted several peculiarities that warrant further investigation. The abnormal dust distribution in the ventilation ducts, the presence of multiple fingerprints and fabric fibers, and the suspicious behavior of Zack all point towards a more intricate plot. Furthermore, the fact that the drugs by the bedside did not contain ""X Poison"" but Yosef's consumed drugs did, suggesting the poisoned drugs were replaced after his death, suggests a deliberate attempt to mislead.
+
+I have also taken note of the ventilation duct cover being loose, with crawling traces inside, which could indicate the presence of an accomplice. I believe we must consider the possibility of a joint perpetrator, one who was able to manipulate the environment and the evidence to their advantage.
+
+I believe the murderer is Zack.",Zack
+2,Poirot,"Mes amis, let us carefully consider the observations and deductions made by our colleagues. Marple's keen insight into Lynn's suspicious behavior and the forged letter in her handwriting is most intriguing. Holmes' analysis of the crime scene and the evidence, including the abnormal dust distribution and the presence of multiple fingerprints and fabric fibers, also warrants further investigation. As we weave together the various threads of information, we must consider the possibility of a joint perpetrator, one who was able to manipulate the environment and the evidence to their advantage. The fact that Wendy was seen handing something to an accomplice, resembling a medicine bottle and syringe, raises further questions about her involvement.
+
+I believe the murderer is Wendy.",Wendy
+2,Marple,"As we gather our thoughts and analyze the clues, it's clear that each of us has brought a unique perspective to the table. Poirot's meticulous approach and Holmes' powers of observation have provided valuable insights, while Marple's keen understanding of human nature has shed light on the complex web of relationships and motivations involved.
+
+I must say, I'm particularly intrigued by the fact that Lynn's alibi seems suspiciously convenient, and the forged letter in her handwriting raises more questions than answers. It's also worth noting that Wendy's involvement seems to be multifaceted, with motives ranging from revenge to self-preservation.
+
+As we continue to investigate, I propose that we pay close attention to the relationships between the suspects, particularly between Lynn and Yosef, and between Zack and Wilson. The dynamics of these relationships may hold the key to unlocking the mystery.
+
+I believe the murderer is Wendy.",Wendy
+2,Holmes,"The tangled web of clues and deductions before us is a complex one, indeed. As I ponder the evidence, I am struck by the seeming contradiction between Poirot's theory of Zack's guilt and Marple's suspicion of Wendy. While Zack's suspicious behavior and involvement in the drug deal with Yosef do seem incriminating, Wendy's motives, as suggested by Poirot, appear to be more nuanced, encompassing both revenge and self-preservation. Furthermore, the presence of the ventilation duct cover with crawling traces inside suggests a more deliberate attempt to conceal evidence, which could be attributed to either Zack or Wendy. Notably, the fact that Lynn's alibi appears suspiciously convenient and the forged letter in her handwriting raises questions about her potential involvement, but I must consider the possibility that she is merely a pawn in a larger game.
+
+I believe the murderer is Wendy.",Wendy
