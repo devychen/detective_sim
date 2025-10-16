@@ -55,7 +55,7 @@ def clean_response(speaker: str, response: str) -> str:
 
 
 class DetectiveDialogue:
-    def __init__(self, rule_path="prompts/rule_collab.yaml", case_path="cases/case1.yaml", turns=10):
+    def __init__(self, rule_path="prompts/rule_collab.yaml", case_path="cases/case3.yaml", turns=10):
         self.turns = turns
         self.memory = []  # [(speaker, content)]
 
@@ -86,7 +86,7 @@ class DetectiveDialogue:
 
         # create run folder with timestamp
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-        self.run_dir = os.path.join("data", f"run_{timestamp}")
+        self.run_dir = os.path.join("data/case3", f"run_{timestamp}")
         os.makedirs(self.run_dir, exist_ok=True)
 
         # dialogue log
