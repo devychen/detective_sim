@@ -113,7 +113,7 @@ Resources: [sherlock](https://sherlock-holm.es/ascii/), [marple & poirot](https:
 > 🍎 lines > three .py and .csv
 
 **Step 2** Select 500 for each agents. Make sure the total tokens are not too differentiated.
-> 🍎 lines > train.csv
+> 🍎 lines > train_lines.csv
 
 **Step 3** Use [BERT-cased](https://huggingface.co/google-bert/bert-base-cased). 
 

@@ -1,9 +1,6 @@
-### Descriptive
-- Task performance: success rate
-- CI
-- avg number of turns, avg length of each turn.
 
-Case 1
+
+Case 1 - True murderer: Zack
 4 turns, Lynn
 2 turns, Wendy
 5 turns, Wendy
@@ -15,8 +12,13 @@ Case 1
 6, Lynn
 2, Wendy
 
+Case 2 
 
 
+### Descriptive
+- Task performance: success rate
+- CI
+- avg number of turns, avg length of each turn.
 
 
 ### Classifier model
