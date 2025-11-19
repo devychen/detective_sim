@@ -1,7 +1,5 @@
-# add accuracy
+# add accuracy metrics
 # split 80/10/10 train/val/test
-
-# train.py — baseline model training with train/val/test split + accuracy metrics
 
 import pandas as pd
 import random
