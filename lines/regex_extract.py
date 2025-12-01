@@ -72,32 +72,32 @@ def main():
         'holmes': {
             'input_dir': '_novels/holmes',
             'keywords': ["holmes", "mr. holmes", "mr holmes"],
-            'output_file': 'lines/cleaned_holmes_lines.csv'
+            'output_file': 'lines/cleaned_data/holmes_lines.csv'
         },
         'marple': {
             'input_dir': '_novels/marple',
             'keywords': ["marple", "ms. marple", "ms marple"],
-            'output_file': 'lines/cleaned_marple_lines.csv'
+            'output_file': 'lines/cleaned_data/marple_lines.csv'
         },
         'poirot': {
             'input_dir': '_novels/poirot',
             'keywords': ["poirot", "mr. poirot", "mr poirot"],
-            'output_file': 'lines/cleaned_poirot_lines.csv'
+            'output_file': 'lines/cleaned_data/poirot_lines.csv'
         },
         'hastings': {
             'input_dir': '_novels/poirot',
             'keywords': ["hastings", "arthur hastings", "captain"],
-            'output_file': 'lines/cleaned_hastings_lines.csv'
+            'output_file': 'lines/cleaned_data/hastings_lines.csv'
         },
         'watson': {
             'input_dir': '_novels/holmes',
             'keywords': ["watson", "john watson", "dr. watson"],
-            'output_file': 'lines/cleaned_watson_lines.csv'
+            'output_file': 'lines/cleaned_data/watson_lines.csv'
         },
         'japp': {
             'input_dir': '_novels/poirot',
             'keywords': ["japp", "james japp", "inspector japp", "inspector"],
-            'output_file': 'lines/cleaned_japp_lines.csv'
+            'output_file': 'lines/cleaned_data/japp_lines.csv'
         }
     }
     
