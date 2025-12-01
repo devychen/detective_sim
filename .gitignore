@@ -1,3 +1,4 @@
 *.env
 /venv
 /bert-classifier
+/_novels
