@@ -1,4 +1,5 @@
-# llama_extract_lines.py
+# llama_extract_single_role.py
+# LLaMA-3.2-3b-instruct: extract quotes for a single character (English)
 
 import os
 import csv
@@ -7,10 +8,10 @@ from langchain.llms import HuggingFacePipeline
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 
 # === 1. API key ===
-load_dotenv("nvidia_key_3b.env")  # 设置你的环境变量
-NVIDIA_KEY = os.getenv("NVIDIA_KEY_3B")  # 你的 key
+load_dotenv("nvidia_key_3b.env")  # Set your environment variable
+NVIDIA_KEY = os.getenv("NVIDIA_KEY_3B")  # Your key
 
-# === 2. 模型初始化 ===
+# === 2. Model initialization ===
 model_name = "meta/llama-3.2-3b-instruct"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name)
@@ -26,30 +27,33 @@ llm_pipe = pipeline(
 
 llm = HuggingFacePipeline(pipeline=llm_pipe)
 
-# === 3. prompt 模板 ===
-PROMPT_TEMPLATE = """
-你是小说分析助手。请从下面文本中提取角色台词，只提取指定角色：
-Holmes, Poirot, Marple, Watson, Hastings, Japp
+# === 3. Parameters: change ROLE for each run ===
+ROLE = "holmes"  # e.g., "holmes", "poirot", "marple"
+INPUT_DIR = f"_novels/{ROLE}"  # folder containing .txt for this role
+OUTPUT_FILE = f"lines/cleaned_{ROLE}_lines.csv"
 
-输出格式：CSV，每行一个台词：
+# === 4. Prompt template ===
+PROMPT_TEMPLATE = f"""
+You are a novel text analysis assistant. Please extract dialogue lines spoken by the character {ROLE} from the text below.
+
+Output format: CSV, each line is one quote:
 character,quote
 
-要求：
-- 保留原文，不要改写
-- 不要生成不存在的台词
-- 不要输出无关文本
+Requirements:
+- Keep the original text exactly as in the novel
+- Do NOT create or invent quotes
+- Do NOT output unrelated text
 
-文本:
-{text}
+Text:
+{{text}}
 """
 
-# === 4. 函数：处理单个文本文件 ===
+# === 5. Function: process a single text chunk ===
 def extract_quotes_from_text(text, chunk_size=1500):
     """
-    按 chunk_size token 分片调用 LLaMA
-    返回 list of dict: [{'character': ..., 'quote': ...}, ...]
+    Split the text into chunks to avoid context overflow.
+    Returns a list of dict: [{'character': ..., 'quote': ...}, ...]
     """
-    # 简单按行分片，也可改成 tokenizer token
     lines = text.split("\n")
     quotes = []
 
@@ -62,7 +66,6 @@ def extract_quotes_from_text(text, chunk_size=1500):
             quotes.extend(parse_llm_output(output))
             chunk = []
 
-    # 剩余 chunk
     if chunk:
         prompt = PROMPT_TEMPLATE.format(text="\n".join(chunk))
         output = llm(prompt)
@@ -70,11 +73,11 @@ def extract_quotes_from_text(text, chunk_size=1500):
 
     return quotes
 
-# === 5. 解析 LLaMA 输出 ===
+# === 6. Parse LLaMA output ===
 def parse_llm_output(text):
     """
-    将 LLaMA 输出转换为 [{'character':..., 'quote':...}]
-    假设输出每行 CSV: character,quote
+    Convert LLaMA output to list of dicts [{'character':..., 'quote':...}]
+    Assumes CSV-like output: character,quote per line
     """
     result = []
     for line in text.strip().split("\n"):
@@ -86,9 +89,11 @@ def parse_llm_output(text):
         result.append({"character": character.strip(), "quote": quote.strip()})
     return result
 
-# === 6. 批量处理目录 ===
-def process_directory(input_dir, output_dir="lines"):
-    os.makedirs(output_dir, exist_ok=True)
+# === 7. Process folder ===
+def process_directory(input_dir, output_file):
+    os.makedirs(os.path.dirname(output_file), exist_ok=True)
+    all_quotes = []
+
     for filename in os.listdir(input_dir):
         if not filename.lower().endswith(".txt"):
             continue
@@ -97,18 +102,16 @@ def process_directory(input_dir, output_dir="lines"):
         with open(filepath, "r", encoding="utf-8") as f:
             text = f.read()
         quotes = extract_quotes_from_text(text)
+        all_quotes.extend(quotes)
 
-        # 按角色保存
-        for character in ["holmes", "marple", "poirot", "watson", "hastings", "japp"]:
-            char_quotes = [q["quote"] for q in quotes if q["character"].lower() == character]
-            out_file = os.path.join(output_dir, f"cleaned_{character}_lines.csv")
-            with open(out_file, "w", newline="", encoding="utf-8") as csvfile:
-                writer = csv.writer(csvfile)
-                writer.writerow(["number", "quote"])
-                for i, quote in enumerate(char_quotes, 1):
-                    writer.writerow([i, quote])
-            print(f"Saved {len(char_quotes)} lines for {character} -> {out_file}")
+    # Save all quotes for this role
+    with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(["number", "quote"])
+        for i, q in enumerate(all_quotes, 1):
+            writer.writerow([i, q["quote"]])
+
+    print(f"Saved {len(all_quotes)} lines for {ROLE} -> {output_file}")
 
 if __name__ == "__main__":
-    input_dir = "_novels"  # 小说目录
-    process_directory(input_dir)
+    process_directory(INPUT_DIR, OUTPUT_FILE)
