@@ -4,6 +4,8 @@
 
 import os
 import csv
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from llm_config import get_llama_llm
 
 # === 1. Parameters ===
