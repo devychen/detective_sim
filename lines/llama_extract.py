@@ -1,5 +1,5 @@
 # llama_extract_single_role.py
-# LLaMA-3.2-3b-instruct: extract quotes for a single character (English)
+# LLaMA-3.2-3b-instruct: extract quotes for a single character
 
 import os
 import csv
@@ -30,7 +30,7 @@ llm = HuggingFacePipeline(pipeline=llm_pipe)
 # === 3. Parameters: change ROLE for each run ===
 ROLE = "holmes"  # e.g., "holmes", "poirot", "marple"
 INPUT_DIR = f"_novels/{ROLE}"  # folder containing .txt for this role
-OUTPUT_FILE = f"lines/cleaned_{ROLE}_lines.csv"
+OUTPUT_FILE = f"lines/llm_data/{ROLE}_lines.csv"
 
 # === 4. Prompt template ===
 PROMPT_TEMPLATE = f"""
