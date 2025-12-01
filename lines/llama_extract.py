@@ -1,22 +1,22 @@
-# llama_extract_single_role.py
+# llama_extract_single_role_tf.py
 # LLaMA-3.2-3b-instruct: extract quotes for a single character
+# No langchain dependency, uses transformers pipeline directly
 
 import os
 import csv
 from dotenv import load_dotenv
-from langchain.llms import HuggingFacePipeline
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 
-# === 1. API key ===
-load_dotenv("nvidia_key_3b.env")  # Set your environment variable
-NVIDIA_KEY = os.getenv("NVIDIA_KEY_3B")  # Your key
+# === 1. Load API key (if needed) ===
+load_dotenv("nvidia_key_3b.env")
+NVIDIA_KEY = os.getenv("NVIDIA_KEY_3B")  # not used here but can be used if needed
 
 # === 2. Model initialization ===
 model_name = "meta/llama-3.2-3b-instruct"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name)
 
-llm_pipe = pipeline(
+llm = pipeline(
     "text-generation",
     model=model,
     tokenizer=tokenizer,
@@ -25,12 +25,10 @@ llm_pipe = pipeline(
     repetition_penalty=1.1
 )
 
-llm = HuggingFacePipeline(pipeline=llm_pipe)
-
 # === 3. Parameters: change ROLE for each run ===
 ROLE = "holmes"  # e.g., "holmes", "poirot", "marple"
 INPUT_DIR = f"_novels/{ROLE}"  # folder containing .txt for this role
-OUTPUT_FILE = f"lines/llm_data/{ROLE}_lines.csv"
+OUTPUT_FILE = f"lines/cleaned_{ROLE}_lines.csv"
 
 # === 4. Prompt template ===
 PROMPT_TEMPLATE = f"""
@@ -62,13 +60,13 @@ def extract_quotes_from_text(text, chunk_size=1500):
         chunk.append(line)
         if len(" ".join(chunk).split()) >= chunk_size:
             prompt = PROMPT_TEMPLATE.format(text="\n".join(chunk))
-            output = llm(prompt)
+            output = llm(prompt)[0]["generated_text"]  # transformers pipeline returns list of dict
             quotes.extend(parse_llm_output(output))
             chunk = []
 
     if chunk:
         prompt = PROMPT_TEMPLATE.format(text="\n".join(chunk))
-        output = llm(prompt)
+        output = llm(prompt)[0]["generated_text"]
         quotes.extend(parse_llm_output(output))
 
     return quotes
