@@ -101,33 +101,39 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 
 ## Workflow - Baseline
 
-Summary: 
+**Summary**:
 - Establish baseline with a small BERT classification model
 - supervised classifier.
 - Four classes: sh, mm, hp, others. (Others: `watson` from Conan Doyle, `japp` and `hastings` from Agatha Christie)
-- Datasize: in total 5000 tokens, 500 examples each character.
+- Datasize: SH, MM, HP each has around 14000 tokens, OTHERS use full tokens.
 
-
-**Step 1** From original books, extract the quotes.  
+**Step 1** From original books, using regex to extract the quotes.  
 Resources: [sherlock](https://sherlock-holm.es/ascii/), [marple & poirot](https://github.com/oliviachang29/the-complete-works-of-agatha-christie)
-> 🍎 lines > three .py and .csv
+> 🍎 _novels > all the txt files.   
+> 🍎 lines > extract_lines.py, results as 6 characters' csv.
+
+_**OR**_: From original books, using LLM (`meta/llama-3.2-3b-instruct`) to extract lines.
+> 🍎 lines > llama_extract_lines.py
+
 
 **Step 2** Select 500 for each agents. Make sure the total tokens are not too differentiated.
 > 🍎 lines > train_lines.csv
 
+
 **Step 3** Use [BERT-cased](https://huggingface.co/google-bert/bert-base-cased). 
 
-**`=== STAGE CLOSE. -- 3 SEP 2025 ===`**
+**`=== STAGE CLOSE. -- 10 Dec 2025 ===`**
 
 ## Workflow - Data Analysis, Metrics.
 
-9.22-30 Eval  
-10.1-5 Baseline  
-10.5-10 Writing 
 
+## Timeline
 
-
-
+12.15 Baseline.  
+12.31 Eval.  
+1.31 Writing.  
+2.28 Finalise.   
+3.30 Oral.  
 
 
 
