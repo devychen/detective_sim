@@ -1,4 +1,4 @@
-# extract_quotes.py
+# extract_lines.py
 # 通用脚本：提取所有角色的对话
 
 import re
