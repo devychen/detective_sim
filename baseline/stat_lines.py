@@ -19,5 +19,5 @@ for char in df["character"].unique():
         "pct_over_256": (token_lens > 256).mean(),
     }
 
-import pprint
-pprint.pprint(stats)
+import print
+print.pprint(stats)

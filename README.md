@@ -101,12 +101,12 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 
 ## Workflow - Baseline
 
-Establish baseline with a small BERT classification model.
+Summary: 
+- Establish baseline with a small BERT classification model
+- supervised classifier.
+- Four classes: sh, mm, hp, others. (Others: `watson` from Conan Doyle, `japp` and `hastings` from Agatha Christie)
+- Datasize: in total 5000 tokens, 500 examples each character.
 
-supervised classifier.
-sh, mm, hp, others. Four classes.
-Datasize: 5000 tokens, 500 examples each.
-Example texts
 
 **Step 1** From original books, extract the quotes.  
 Resources: [sherlock](https://sherlock-holm.es/ascii/), [marple & poirot](https://github.com/oliviachang29/the-complete-works-of-agatha-christie)
