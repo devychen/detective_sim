@@ -1,36 +1,17 @@
-# llama_extract_single_role_tf.py
-# LLaMA-3.2-3b-instruct: extract quotes for a single character
-# No langchain dependency, uses transformers pipeline directly
+# llama_extract_single_role_nvidia.py
+# LLaMA-3.2-3b-instruct (NVIDIA) extract quotes for a single character (English)
+# Uses ChatNVIDIA from llm_config.py, no Hugging Face
 
 import os
 import csv
-from dotenv import load_dotenv
-from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
+from llm_config import get_llama_llm
 
-# === 1. Load API key (if needed) ===
-load_dotenv("nvidia_key_3b.env")
-NVIDIA_KEY = os.getenv("NVIDIA_KEY_3B")  # not used here but can be used if needed
-
-# === 2. Model initialization ===
-model_name = "meta/llama-3.2-3b-instruct"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name)
-
-llm = pipeline(
-    "text-generation",
-    model=model,
-    tokenizer=tokenizer,
-    max_new_tokens=1024,
-    temperature=0.0,
-    repetition_penalty=1.1
-)
-
-# === 3. Parameters: change ROLE for each run ===
-ROLE = "holmes"  # e.g., "holmes", "poirot", "marple"
+# === 1. Parameters ===
+ROLE = "holmes"  # Change to "poirot" or "marple" per run
 INPUT_DIR = f"_novels/{ROLE}"  # folder containing .txt for this role
-OUTPUT_FILE = f"lines/llm_data/{ROLE}_lines.csv"
+OUTPUT_FILE = f"lines/cleaned_{ROLE}_lines.csv"
 
-# === 4. Prompt template ===
+# === 2. Prompt template (English) ===
 PROMPT_TEMPLATE = f"""
 You are a novel text analysis assistant. Please extract dialogue lines spoken by the character {ROLE} from the text below.
 
@@ -46,11 +27,14 @@ Text:
 {{text}}
 """
 
-# === 5. Function: process a single text chunk ===
+# === 3. Initialize NVIDIA LLM ===
+llm = get_llama_llm(model_name="meta/llama-3.2-3b-instruct")
+
+# === 4. Functions ===
 def extract_quotes_from_text(text, chunk_size=1500):
     """
     Split the text into chunks to avoid context overflow.
-    Returns a list of dict: [{'character': ..., 'quote': ...}, ...]
+    Returns a list of dicts: [{'character': ..., 'quote': ...}, ...]
     """
     lines = text.split("\n")
     quotes = []
@@ -60,18 +44,24 @@ def extract_quotes_from_text(text, chunk_size=1500):
         chunk.append(line)
         if len(" ".join(chunk).split()) >= chunk_size:
             prompt = PROMPT_TEMPLATE.format(text="\n".join(chunk))
-            output = llm(prompt)[0]["generated_text"]  # transformers pipeline returns list of dict
+            output = call_nvidia_llm(prompt)
             quotes.extend(parse_llm_output(output))
             chunk = []
 
     if chunk:
         prompt = PROMPT_TEMPLATE.format(text="\n".join(chunk))
-        output = llm(prompt)[0]["generated_text"]
+        output = call_nvidia_llm(prompt)
         quotes.extend(parse_llm_output(output))
 
     return quotes
 
-# === 6. Parse LLaMA output ===
+def call_nvidia_llm(prompt):
+    """
+    Call NVIDIA LLM via ChatNVIDIA
+    """
+    response = llm.chat(messages=[{"role": "user", "content": prompt}])
+    return response.message
+
 def parse_llm_output(text):
     """
     Convert LLaMA output to list of dicts [{'character':..., 'quote':...}]
@@ -87,7 +77,7 @@ def parse_llm_output(text):
         result.append({"character": character.strip(), "quote": quote.strip()})
     return result
 
-# === 7. Process folder ===
+# === 5. Process folder ===
 def process_directory(input_dir, output_file):
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
     all_quotes = []
@@ -102,7 +92,7 @@ def process_directory(input_dir, output_file):
         quotes = extract_quotes_from_text(text)
         all_quotes.extend(quotes)
 
-    # Save all quotes for this role
+    # Save CSV
     with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(["number", "quote"])
@@ -111,5 +101,6 @@ def process_directory(input_dir, output_file):
 
     print(f"Saved {len(all_quotes)} lines for {ROLE} -> {output_file}")
 
+# === 6. Main ===
 if __name__ == "__main__":
     process_directory(INPUT_DIR, OUTPUT_FILE)
