@@ -1,5 +1,6 @@
 # extract_lines.py
 # 通用脚本：提取所有角色的对话
+# archived version
 
 import re
 import csv
