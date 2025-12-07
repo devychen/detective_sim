@@ -52,34 +52,35 @@ def main():
             'input_dir': '_novels/holmes',
             'keywords': ["holmes", "holmes", "holmes holmes", "mr. holmes", "mr holmes"],
             'output_file': 'lines/holmes_lines.csv'
-        },
-        'marple': {
-            'input_dir': '_novels/marple',
-            'keywords': ["marple", "marple", "marple marple", "ms. marple", "ms marple"],
-            'output_file': 'lines/marple_lines.csv'
-        },
-        'poirot': {
-            'input_dir': '_novels/poirot',
-            'keywords': ["poirot", "poirot", "poirot poirot", "mr. poirot", "mr poirot"],
-            'output_file': 'lines/poirot_lines.csv'
-        },
-        'hastings': {
-            'input_dir': '_novels/poirot',
-            'keywords': ["hastings", "arthur hastings", "mr. hastings", "mr hastings", 
-                        "captain arthur hastings", "captain"],
-            'output_file': 'lines/hastings_lines.csv'
-        },
-        'watson': {
-            'input_dir': '_novels/holmes',
-            'keywords': ["watson", "john watson", "john h. watson", "mr. watson", 
-                        "mr watson", "dr. watson"],
-            'output_file': 'lines/watson_lines.csv'
-        },
-        'japp': {
-            'input_dir': '_novels/poirot',
-            'keywords': ["japp", "james japp", "mr. japp", "mr japp", "inspector japp", "inspector"],
-            'output_file': 'lines/japp_lines.csv'
         }
+        # },
+        # 'marple': {
+        #     'input_dir': '_novels/marple',
+        #     'keywords': ["marple", "marple", "marple marple", "ms. marple", "ms marple"],
+        #     'output_file': 'lines/marple_lines.csv'
+        # },
+        # 'poirot': {
+        #     'input_dir': '_novels/poirot',
+        #     'keywords': ["poirot", "poirot", "poirot poirot", "mr. poirot", "mr poirot"],
+        #     'output_file': 'lines/poirot_lines.csv'
+        # },
+        # 'hastings': {
+        #     'input_dir': '_novels/poirot',
+        #     'keywords': ["hastings", "arthur hastings", "mr. hastings", "mr hastings", 
+        #                 "captain arthur hastings", "captain"],
+        #     'output_file': 'lines/hastings_lines.csv'
+        # },
+        # 'watson': {
+        #     'input_dir': '_novels/holmes',
+        #     'keywords': ["watson", "john watson", "john h. watson", "mr. watson", 
+        #                 "mr watson", "dr. watson"],
+        #     'output_file': 'lines/watson_lines.csv'
+        # },
+        # 'japp': {
+        #     'input_dir': '_novels/poirot',
+        #     'keywords': ["japp", "james japp", "mr. japp", "mr japp", "inspector japp", "inspector"],
+        #     'output_file': 'lines/japp_lines.csv'
+        # }
     }
     
     speak_verbs = [

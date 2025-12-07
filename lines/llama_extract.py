@@ -1,6 +1,8 @@
-# llama_extract_single_role_nvidia.py
+# llama_extract.py
 # LLaMA-3.2-3b-instruct (NVIDIA) extract quotes for a single character (English)
 # Uses ChatNVIDIA from llm_config.py, no Hugging Face
+# Per file proceeding, safe resume
+# 12.07
 
 import os
 import csv
@@ -9,9 +11,9 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from llm_config import get_llama_llm
 
 # === 1. Parameters ===
-ROLE = "holmes"  # Change to "poirot" or "marple" per run
-INPUT_DIR = f"_novels/{ROLE}"  # folder containing .txt for this role
-OUTPUT_FILE = f"lines/cleaned_{ROLE}_lines.csv"
+ROLE = "marple" # Change to "poirot" or "marple" or "holmes" per run
+INPUT_DIR = f"_novels/{ROLE}"
+OUTPUT_DIR = f"lines/{ROLE}"  # << change directory structure
 
 # === 2. Prompt template (English) ===
 PROMPT_TEMPLATE = f"""
@@ -58,11 +60,12 @@ def extract_quotes_from_text(text, chunk_size=1500):
     return quotes
 
 def call_nvidia_llm(prompt):
-    """
-    Call NVIDIA LLM via ChatNVIDIA
-    """
-    response = llm.chat(messages=[{"role": "user", "content": prompt}])
-    return response.message
+    msg = llm.invoke(prompt)
+    if hasattr(msg, "content"):
+        return msg.content
+    return str(msg)
+
+
 
 def parse_llm_output(text):
     """
@@ -79,30 +82,48 @@ def parse_llm_output(text):
         result.append({"character": character.strip(), "quote": quote.strip()})
     return result
 
-# === 5. Process folder ===
-def process_directory(input_dir, output_file):
-    os.makedirs(os.path.dirname(output_file), exist_ok=True)
-    all_quotes = []
+# === 5. Per-file processing (resume-safe) ===
+def process_file(input_path, output_path):
+    """
+    Process ONE novel file → one CSV.
+    Skip if already processed.
+    """
 
-    for filename in os.listdir(input_dir):
-        if not filename.lower().endswith(".txt"):
-            continue
-        filepath = os.path.join(input_dir, filename)
-        print(f"Processing {filename} ...")
-        with open(filepath, "r", encoding="utf-8") as f:
-            text = f.read()
-        quotes = extract_quotes_from_text(text)
-        all_quotes.extend(quotes)
+    # if output already exists → skip
+    if os.path.exists(output_path):
+        print(f"[skip] {os.path.basename(input_path)} already processed.")
+        return
 
-    # Save CSV
-    with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
+    print(f"[run] Processing {os.path.basename(input_path)} ...")
+
+    with open(input_path, "r", encoding="utf-8") as f:
+        text = f.read()
+
+    quotes = extract_quotes_from_text(text)
+
+    # Save per-file CSV
+    with open(output_path, "w", newline="", encoding="utf-8") as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(["number", "quote"])
-        for i, q in enumerate(all_quotes, 1):
+        for i, q in enumerate(quotes, 1):
             writer.writerow([i, q["quote"]])
 
-    print(f"Saved {len(all_quotes)} lines for {ROLE} -> {output_file}")
+    print(f"[done] Saved {len(quotes)} lines -> {output_path}")
 
-# === 6. Main ===
+# === 6. Process all txt files ===
+def process_directory(input_dir, output_dir):
+    os.makedirs(output_dir, exist_ok=True)
+
+    for filename in sorted(os.listdir(input_dir)):
+        if not filename.lower().endswith(".txt"):
+            continue
+
+        input_path = os.path.join(input_dir, filename)
+        output_path = os.path.join(output_dir, filename.replace(".txt", ".csv"))
+
+        process_file(input_path, output_path)
+
+
+# === 7. Main ===
 if __name__ == "__main__":
-    process_directory(INPUT_DIR, OUTPUT_FILE)
+    process_directory(INPUT_DIR, OUTPUT_DIR)
