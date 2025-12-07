@@ -109,14 +109,14 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 
 **Step 1** From original books, using regex to extract the quotes.  
 Resources: [sherlock](https://sherlock-holm.es/ascii/), [marple & poirot](https://github.com/oliviachang29/the-complete-works-of-agatha-christie)
-> 🍎 _novels > all the txt files.   
-> 🍎 lines > extract_lines.py, results as 6 characters' csv.
+> 🍎 *_novels* > contains all the novels in txt format.   
+> 🍎 *lines > regex_extract.py*, results as 6 characters' csv in *lines/regex_data* folder.
 
 _**OR**_: From original books, using LLM (`meta/llama-3.2-3b-instruct`) to extract lines.
-> 🍎 lines > llama_extract_lines.py
+> 🍎 lines > llama_extract.py
 
 
-**Step 2** Select 500 for each agents. Make sure the total tokens are not too differentiated.
+**Step 2** Select 500 for each agents. Keep a balanced token size between all three.
 > 🍎 lines > train_lines.csv
 
 
