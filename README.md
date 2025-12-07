@@ -113,7 +113,7 @@ Resources: [sherlock](https://sherlock-holm.es/ascii/), [marple & poirot](https:
 > 🍎 *lines > regex_extract.py*, results as 6 characters' csv in *lines/regex_data* folder.
 
 _**OR**_: From original books, using LLM (`meta/llama-3.2-3b-instruct`) to extract lines.
-> 🍎 lines > llama_extract.py
+> 🍎 *lines > llama_extract.py*
 
 
 **Step 2** Select 500 for each agents. Keep a balanced token size between all three.
