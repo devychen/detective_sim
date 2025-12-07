@@ -13,7 +13,7 @@ from llm_config import get_llama_llm
 # === 1. Parameters ===
 ROLE = "marple" # Change to "poirot" or "marple" or "holmes" per run
 INPUT_DIR = f"_novels/{ROLE}"
-OUTPUT_DIR = f"lines/{ROLE}"  # << change directory structure
+OUTPUT_DIR = f"lines/llm_data/{ROLE}"  # << change directory structure
 
 # === 2. Prompt template (English) ===
 PROMPT_TEMPLATE = f"""
