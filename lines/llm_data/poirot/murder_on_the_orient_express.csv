@@ -1,0 +1,599 @@
+number,quote
+1,quote
+2,"""Today is Sunday,"""
+3,"""That is so,"""
+4,"""And you intend to remain there a few days, I think?"""
+5,"""Mais oui. Stamboul, it is a city I have never visited. It would be a pity to pass through—comme ça."""
+6,"""La Sainte Sophie, it is very fine,"""
+7,"""Magnificent, I believe."""
+8,"""En voiture, Monsieur,"""
+9,"""Merci, Monsieur."""
+10,"""There are not many people travelling, I imagine?"""
+11,"""Merci, Monsieur. I have the tickets of Monsieur. I will also take the passport, please. Monsieur breaks his journey in Stamboul, I understand?"""
+12,"""Monsieur requires anything?"""
+13,"""Merci, Monsieur. I have the tickets of Monsieur. I will also take the passport, please. Monsieur breaks his journey in Stamboul, I understand?"""
+14,"""Monsieur demands a small bottle of Perrier."""
+15,"""Enfin!"""
+16,quote
+17,The colonel from India
+18,”
+19,Only some damned foreigner
+20,"He is susceptible, our Colonel"
+21,"our Colonel,”"
+22,"The train, it is as dangerous as a sea voyage!"
+23,it is as dangerous as a sea voyage!”
+24,What is the matter?
+25,"Does it matter to you very much, Mademoiselle?"
+26,Mademoiselle?”
+27,Voilà ce qui est embêtant
+28,”
+29,Can you get me a sleeper?
+30,I have time to dine?
+31,quote
+32,"""You are full up tonight, I hear?"""
+33,"Monsieur. All the world elects to travel tonight!"""
+34,"you must find room for this gentleman here. He is a friend of mine. He can have the No. 16."""
+35,"Monsieur."""
+36,"Monsieur. As I told you, we are full—full—everywhere."""
+37,"Monsieur. It is only chance. It just happens that many people have elected to travel tonight."""
+38,""" he said, “there will be the slip coach from Athens. There will also be the Bucharest-Paris coach—but we do not reach Belgrade until tomorrow evening. The problem is for tonight. There is no second-class berth free?"""
+39,"Monsieur—"""
+40,"then—"""
+41,"my friend,"" said Poirot. “I must travel in an ordinary carriage.”"
+42,""" said the man, “that there is one passenger who has not yet arrived.”"
+43,"and it is four minutes to nine."""
+44,"” said Poirot. “I read my Dickens. M. Harris, he will not arrive.”"
+45,” said M. Bouc. “If this M. Harris arrives we will tell him that he is too late—that berths cannot be retained so long—we will arrange the matter one way or another. What do I care for a M. Harris?”
+46,” said the conductor.
+47,directing him where to go.
+48,"Monsieur,” he called."
+49,” he said. “I think you’ve made a mistake.”
+50,"my name is MacQueen. I—"""
+51,quote
+52,"“Ah, you agree? It has not been done, I think? And yet—it lends itself to romance, my friend. All around us are people, of all classes, of all nationalities, of all ages. For three days these people, these strangers to one another, are brought together. They sleep and eat under one roof, they cannot get away from each other. At the end of three days they part, they go their several ways, never, perhaps, to see each other again.”"
+53,"“Ah no, my friend—”"
+54,"“From your point of view it would be regrettable, I agree. But nevertheless let us just for one moment suppose it. Then, perhaps, all these here are linked together—by death.”"
+55,"“Some more wine,” said M. Bouc, hastily pouring it out. “You are morbid, mon cher. It is, perhaps, the digestion.”"
+56,"“It is true,” agreed Poirot, “that the food in Syria was not, perhaps, quite suited to my stomach.”"
+57,"“You’ve got to put it over big,” he was saying in a loud nasal voice."
+58,"“Sure,” he said. “That whatta I say alla de time.”"
+59,"“It is an idea, that,”"
+60,"“Ah, you agree? It has not been done, I think? And yet—it lends itself to romance, my friend. All around us are people, of all classes, of all nationalities, of all ages. For three days these people, these strangers to one another, are brought together. They sleep and eat under one roof, they cannot get away from each other. At the end of three days they part, they go their several ways, never, perhaps, to see each other again.”"
+61,"“And yet,” said Poirot, “suppose an accident—”"
+62,"“Ah no, my friend—”"
+63,"“From your point of view it would be regrettable, I agree. But nevertheless let us just for one moment suppose it. Then, perhaps, all these here are linked together—by death.”"
+64,"“Some more wine,” said M. Bouc, hastily pouring it out. “You are morbid, mon cher. It is, perhaps, the digestion.”"
+65,"Monsieur."""
+66,"M.—er—Ratchett?"""
+67,"as you say, enemies, then it does not usually resolve itself into one enemy only."""
+68,"Mr. Poirot. Now, I’m a man who can take pretty good care of himself."""
+69,"Mr. Poirot. And remember—big money."""
+70,"Monsieur. I cannot oblige you."""
+71,"then."""
+72,"Monsieur. I have been very fortunate in my profession. I have made enough money to satisfy both my needs and my caprices. I take now only such cases as—interest me."""
+73,"you won’t get it. I know what a thing’s worth to me."""
+74,"M. Ratchett."""
+75,quote
+76,“Ce n’est rien. Je me suis trompé.”
+77,"“Bien, Monsieur.”"
+78,"“De l’eau minerale, s’il vous plait.”"
+79,“La Dame Americaine—”
+80,"“Là là,”"
+81,"“Vous êtes un directeur de la ligne, je crois, Monsieur. Vous pouvez nous dire—”"
+82,"“No, no,”"
+83,“It is not I. You confound me with my friend M. Bouc.”
+84,“Not at all. It is most natural. I am now in the compartment that he had formerly.”
+85,quote
+86,"""Ah, my good friend, come in. We have need of you."""
+87,"""What has occurred?"""
+88,"""You may well ask that. First this snow—this stoppage. And now—"""
+89,"""And now what?"""
+90,"""You had better let that man sit down. He may faint otherwise."""
+91,"""Brr! This is serious!"""
+92,"""It is a position of great difficulty."""
+93,"""There is worse to come. Dr. Constantine—I forgot, I have not introduced you—Dr. Constantine, M. Poirot."""
+94,"""When was this M. Ratchett last seen alive?"""
+95,"""That is quite correct. I myself heard what passed. That is the last thing known?"""
+96,"""The crime was discovered—when?"""
+97,"""Tell this gentleman exactly what occurred."""
+98,"""The valet of this M. Ratchett, he tapped several times at the door this morning. There was no answer. Then, half an hour ago, the restaurant car attendant came. He wanted to know if Monsieur was taking déjeuner. It was eleven o’clock, you comprehend."
+99,"""The door was locked and chained on the inside,"" ""It was not suicide—eh?"""
+100,"""That is great ferocity,"""
+101,"""It is a woman,"""
+102,"""She must have been a very strong woman,"""
+103,"""It was most unscientific,"""
+104,"""C’est une femme,"""
+105,"""M. Ratchett spoke to me yesterday. He told me, as far as I was able to understand him, that he was in danger of his life."""
+106,"""‘Bumped off’—that is the American expression, is it not?"""
+107,"""It seems to have been done very amateurishly,"""
+108,"""Come, my friend,"""
+109,"""To begin with, I should like a plan of the Istanbul-Calais coach, with a note of the people who occupied the several compartments, and I should also like to see their passports and their tickets."""
+110,quote
+111,“Michel will get you those.”
+112,"“Then it seems, as though we must look for our murderer in the Istanbul-Calais coach.”"
+113,“The murderer is with us—on the train now….”
+114,"“After we have seen young MacQueen, perhaps M. le docteur will come with me to the dead man’s carriage.”"
+115,"“Clear all the people out of the restaurant car,” he said, “and let it be left free for M. Poirot. You will conduct your interviews there, mon cher?”"
+116,"“Pourquoi—?” then, checking himself and relapsing into his own tongue, “What’s up on the train? Has anything happened?”"
+117,"“Exactly. Something has happened. Prepare yourself for a shock. Your employer, M. Ratchett, is dead!”"
+118,"“You are assuming, that M. Ratchett was murdered?”"
+119,"“No, no,” said Poirot. “Your assumption was quite right. Mr. Ratchett was murdered. Stabbed. But I should like to know why you were so sure it was murder, and not just—death.”"
+120,"“If he expected an effect he did not get one. MacQueen said merely, “Oh, yes?” and waited for him to go on.”"
+121,"“You know the name, perhaps.”"
+122,“It is incredible!” he said.
+123,“What’s incredible?”
+124,"“Nothing. Let us advance with the matter in hand. I want you to tell me, M. MacQueen, all that you know about the dead man.”"
+125,“What were you doing there?”
+126,“Did you know that M. Ratchett had applied for help to me?”
+127,"“Mr. MacQueen, will you tell me, quite honestly, exactly how you regarded your employer? Did you like him?”"
+128,“Why?”
+129,"“Thank you,"
+130,quote
+131,“You’ve nothing on me.”
+132,"“This is where I’m supposed to go all goosefleshy down the back. In the words of a best seller, ‘You’ve nothing on me.’ Ratchett and I were on perfectly good terms.”"
+133,"“That is all for the present, M. MacQueen,”"
+134,"“He probably knows already,”"
+135,“If so try to get him to hold his tongue.”
+136,"“That oughtn’t to be difficult. He’s a Britisher, and does what he calls ‘Keeps himself to himself.’ He’s a low opinion of Americans and no opinion at all of any other nationality.”"
+137,"“Me, I suspect everybody till the last minute,”"
+138,"“All the same, I must admit that I cannot see this sober, long-headed MacQueen losing his head and stabbing his victim twelve or fourteen times. It is not in accord with his psychology—not at all.”"
+139,“Which suggests?”
+140,"“Precisément. I see. With the right hand it is exceedingly difficult—almost impossible. One would have to strike backhanded, as it were. But if the blow were struck with the left hand—”"
+141,"“Exactly, M. Poirot. That blow was almost certainly struck with the left hand.”"
+142,"“No, it is more difficult than that, is it not?”"
+143,"“Eh bien,”"
+144,"“We have here a hypothesis of the First and Second Murderer, as the great Shakespeare would put it. The First Murderer stabbed his victim and left the compartment, turning off the light. The Second Murderer came in in the dark, did not see that his or her work had been done and stabbed at least twice at a dead body. Que pensez vous de ça?”"
+145,"“Magnificent,”"
+146,“You think so? I am glad. It sounded to me a little like the nonsense.”
+147,“What other explanation can there be?”
+148,"“That is just what I am asking myself. Have we here a coincidence or what? Are there any other inconsistencies, such as would point to two people being concerned?”"
+149,quote
+150,"“Here is the explanation of the victim’s inertia,”"
+151,"“Those two matches are of a different shape,”"
+152,“You see?”
+153,“Let us see if he had also the flatter kind.”
+154,“Our friend the chef de train was right. There is a woman concerned in this.”
+155,“And most conveniently she leaves her handkerchief behind!”
+156,“Exactly as it happens in the books and on the films—and to make things even easier for us it is marked with an initial.”
+157,“Is it not?”
+158,“Then be quick.”
+159,"“I am not one to rely upon the expert procedure. It is the psychology I seek, not the fingerprint or the cigarette ash. But in this case I would welcome a little scientific assistance. This compartment is full of clues, but can I be sure that those clues are really what they seem to be?”"
+160,"“I do not understand myself,”"
+161,"“I understand nothing at all, and, as you perceive, it worries me.”"
+162,“What I need at this moment is an old-fashioned woman’s hatbox.”
+163,“How many women are there in this coach?”
+164,"“They all have hatboxes, yes?”"
+165,"“Then bring me—let me see—yes, the Swedish lady’s and that of the lady’s maid. Those two are the only hope. You will tell them it is a customs regulation—something—anything that occurs to you.”"
+166,"“Ah, here is what we need. About fifteen years ago hatboxes were made like this. You skewered through the hat with a hatpin on to this hump of wire netting.”"
+167,“—member little Daisy Armstrong.”
+168,“It tells you something?”
+169,"“Yes,”"
+170,“Cassetti.”
+171,“A case in America.”
+172,quote
+173,
+174,
+175,I have discovered the identity of the victim. I know why it was imperative he should leave America.”
+176,
+177,
+178,
+179,
+180,"as his mother was a daughter of W. K. Van der Halt, the Wall Street millionaire. He married the daughter of Linda Arden, the most famous tragic American actress of her day. They lived in America and had one child—a girl—whom they idolized. When she was three years old she was kidnapped, and an impossibly high sum demanded as the price of her return. I will not weary you with all the intricacies that followed. I will come to the moment, when, after having paid over the enormous sum of two hundred thousand dollars, the child’s dead body was discovered, it having been dead at least a fortnight. Public indignation rose to fever point. And there was worse to follow. Mrs. Armstrong was expecting another child. Following the shock of the discovery, she gave birth to a dead child born prematurely, and herself died. Her broken-hearted husband shot himself.”"
+181,
+182,what a tragedy. I remember now.”
+183,
+184,"in a fit of despair, the poor girl threw herself from a window and was killed. It was proved afterwards that she was absolutely innocent of any complicity in the crime.”"
+185,
+186,
+187,"this man Cassetti was arrested as the head of the gang who had kidnapped the child. They had used the same methods in the past. If the police seemed likely to get on their trail, they had killed their prisoner, hidden the body, and continued to extract as much money as possible before the crime was discovered.”"
+188,quote
+189,Did you go back to your seat?
+190,"Good, my friend, I wondered whether you would remember that. By the way, I was awakened by what sounded like something heavy falling against my door. Have you any idea what that could have been?"
+191,Then I must have had the cauchemar.
+192,"Unless, it was something in the compartment next door that you heard."
+193,"Let us pass to another point, supposing that last night an assassin joined the train. It is quite certain that he could not have left it after committing the crime?"
+194,"You have had the evil chance, my friend. Ah! One other point while I remember it. You said that another bell rang just as you were knocking at M. Ratchett’s door. In fact, I heard it myself. Whose was it?"
+195,"That is all, for the moment."
+196,By a fragment of a letter found in his compartment.
+197,"The task before me, is to make sure of the movements of everyone on the train. No offence need be taken, you understand? It is only a matter of routine."
+198,"Now, M. MacQueen, I need hardly ask you the number of your compartment, since I shared it with you for a night. It is the second-class compartment Nos. 6 and 7, and after my departure you had it to yourself."
+199,"Now, M. MacQueen, I want you to describe your movements last night from the time of leaving the dining car."
+200,quote
+201,Is that an important point?
+202,"One more question. Do you smoke a pipe, M. MacQueen?"
+203,I think that is all at present. I should now like to see the valet of M. Ratchett.
+204,"By the way, did both you and he always travel second-class?"
+205,How did you know?
+206,Did you know that your master had enemies?
+207,Have you ever been in America?
+208,"Did you know that your employer, M. Ratchett, was the principal instigator in that affair?"
+209,"Now, to pass to your own movements last night. A matter of routine, you understand. What did you do after leaving your master?"
+210,Is there anyone in with you?
+211,Do you and he talk together much?
+212,"And what, may I ask, are you reading?"
+213,"Well, let us continue. You returned to your compartment and read Love’s Captive till—when?"
+214,And did you not go to sleep at all?
+215,Did you do anything for it?
+216,Did you go to sleep at all?
+217,And your companion?
+218,"Oh, he just snored"
+219,quote
+220,"""Well, I think there is very little more to be said. You cannot throw any light upon the tragedy?"""
+221,"“This button, Madame, may have dropped from the conductor’s uniform, either when he searched your cabin, or when he was making the bed up last night.”"
+222,"“That, Madame, I call evidence.”"
+223,“You have given us most interesting and valuable evidence.”
+224,quote
+225,"He wasn't a nice kind of man, to say a thing like that to a lady. It's not right to laugh at such things."
+226,"He say, “You too old”"
+227,he snored
+228,"Ah! he snored, did he?"
+229,"Why, Mr. Poirot, how could I? He was dead."
+230,"But yes, I do. Ratchett was the man."
+231,You don’t mean—?
+232,"Well! Well, to think of that! I must write and tell my daughter."
+233,"Were you acquainted with any of the Armstrong family, Mrs. Hubbard?"
+234,No. They moved in a very exclusive circle. But I’ve always heard that Mrs. Armstrong was a perfectly lovely woman and that her husband worshipped her.
+235,"Well, Mrs. Hubbard, you have helped us very much—very much indeed. Perhaps you will give me your full name?"
+236,"Why, certainly. Caroline Martha Hubbard."
+237,Will you write your address down here?
+238,"That’s not mine, Mr. Poirot. I’ve got mine right here."
+239,What good is a handkerchief like that to anybody’s nose?
+240,quote
+241,"""Why are you sure if you were asleep?"""
+242,"""I sleep very lightly. I am used to waking at a sound. I am sure if she had come down from the berth above I would have awakened."""
+243,"""Why are you taking this journey? A holiday?"""
+244,"""Why are you harp on your Italian! No, we will start at the top of the tree. Perhaps Madame la Princesse will be so good as to spare us a few moments of her time. Convey that message to her, Michel."""
+245,"""It is not quite so simple as that, my friend. Our friend the doctor here will tell you so."""
+246,"""It is not quite so simple as that, my friend."""
+247,"""Yes, it is annoying, that. Unlucky for your theory, and extremely lucky for our Italian friend that M. Ratchett’s valet should have had the toothache."""
+248,"""No, it is hardly so simple as that,"""
+249,quote
+250,Nothing
+251,"You need not offer apologies, Messieurs. I understand a murder has taken place. Naturally, you must interview all the passengers. I shall be glad to give all the assistance in my power."
+252,"You are most amiable, Madame"
+253,Not at all. It is a duty. What do you wish to know?
+254,"Your full Christian names and address, Madame. Perhaps you would prefer to write them yourself?"
+255,"You can write it. There is nothing difficult—Natalia Dragomiroff, 17 Avenue Kleber, Paris."
+256,"You are travelling home from Constantinople, Madame?"
+257,"Yes, I have been staying at the Austrian Embassy. My maid is with me."
+258,Would you be so good as to give me a brief account of your movements last night from dinner onwards?
+259,"Willingly. I directed the conductor to make up my bed whilst I was in the dining car. I retired to bed immediately after dinner. I read until the hour of eleven, when I turned out my light. I was unable to sleep owing to certain rheumatic pains from which I suffer. At about a quarter to one I rang for my maid. She massaged me and then read aloud till I felt sleepy. I cannot say exactly when she left me. It may have been half an hour, it may have been later."
+260,The train had stopped then?
+261,The train had stopped.
+262,"You heard nothing—nothing unusual during the time, Madame?"
+263,I heard nothing unusual.
+264,What is your maid’s name?
+265,Hildegarde Schmidt.
+266,She has been with you long?
+267,Fifteen years.
+268,You consider her trustworthy?
+269,Absolutely. Her people come from an estate of my late husband’s in Germany.
+270,"You have been in America, I presume, Madame?"
+271,Many times.
+272,Were you at any time acquainted with a family of the name of Armstrong—a family in which a
+273,"quote"""
+274,"""""Doubtless, doubtless"""
+275,"""""But all the same I think I should like to have just one little word with Madame la Comtesse."""
+276,"""""It will be a mere formality, But you understand, it is necessary for my report."""
+277,"""""Be easy, mon vieux, I will be most tactful. A mere formality."""
+278,"""""It is only to ask you if you saw or heard anything last night that may throw light upon this matter."""
+279,"""""Nothing at all, Monsieur. I was asleep."""
+280,"""""You did not hear, for instance, a commotion going on in the compartment next to yours? The American lady who occupies it had quite an attack of hysterics and rang for the conductor."""
+281,"""""Ah! I comprehend. Well, I need not detain you further."""
+282,"""""Just one little minute—these particulars, your maiden name, age and so on, they are correct?"""
+283,"""""Perhaps you will sign this memorandum to that effect, then."""
+284,"""""Did you accompany your husband to America, Madame?"""
+285,"""""By the way, does your husband smoke?"""
+286,"""""A pipe?"""
+287,"""""Yes."""
+288,"""""Are you really a detective, then?"""
+289,"""""At your service, Madame."""
+290,"""""I am not a Yugo-Slavian detective, Madame. I am an international detective."""
+291,"""""I belong to the world, Madame, I work mainly in London. You speak English?"""
+292,"""""I speak a leetle, yes."""
+293,"""""We will not detain you further, Madame. You see, it was not so very terrible."""
+294,"""""Elle est jolie femme,"""
+295,"""""Two people who saw nothing and heard nothing."""
+296,"""""Ah! my dear old friend, You see, I have become what they call the snob! The first-class, I feel it should be attended to before the second-class. Next, I think, we will interview the good looking Colonel Arbuthnot."""
+297,"""""It is that you come home from India on what is called the leave—"
+298,quote
+299,"It is very difficult to please everybody. The English, they open everything—then others, they come along and shut every thing. It is very difficult."
+300,"It is very difficult to please everybody. The English, they open everything—then others, they come along and shut every thing. It is very difficult."
+301,"Now, Monsieur, cast your mind back. It was cold outside. You have returned to the train. You sit down again, you smoke—perhaps a cigarette, perhaps a pipe—”"
+302,"Difficult to say. You see, I wasn’t paying any attention."
+303,"But you have the soldier’s observation for detail. You notice without noticing, so to speak."
+304,"I couldn’t say. I don’t remember anyone passing except the conductor. Wait a minute—and there was a woman, I think."
+305,You saw her? Was she old—young?
+306,Didn’t see her. Wasn’t looking that way. Just a rustle and a sort of smell of scent.
+307,Scent? A good scent?
+308,"Well, rather fruity, if you know what I mean. I mean you’d smell it a hundred yards away. But mind you, this may have been earlier in the evening. You see, as you said just now, it was just one of those things you notice without noticing, so to speak. Some time that evening I said to myself, ‘Woman—scent—got it on pretty thick.’ But when it was I can’t be sure, except that—why, yes, it must have been after Vincovci."
+309,Why?
+310,"Because I remember—sniffing, you know—just when I was talking about the utter washout Stalin’s Five Year Plan was turning out. I know the idea—woman—brought the idea of the position of women in Russia into my mind. And I know we hadn’t got on to Russia until pretty near the end of our talk."
+311,You can’t pin it down more definitely than that?
+312,N-no. It must have been roughly within the last half hour.
+313,It was after the train had stopped?
+314,
+315,quote
+316,"""Excuse me, gentlemen, but just who are you? Put me wise."""
+317,"""It will certainly be advisable for you to tell us all you know,"""
+318,"""That passport's a bit of bluff,"""
+319,"""Now, Mr. Hardman,"""
+320,"""Sure. Things came about this way,"""
+321,"""Eh bien?"""
+322,"""Did he give you any indication of the line you were to take?"""
+323,"""You knew who he really was, of course?"""
+324,"""Ratchett. You recognized him?"""
+325,"""Do you know of anyone connected with the Armstrong case who answers to that description—small, dark, womanish voice?"""
+326,"""Ah, but we have reason to believe that this crime is connected with the Armstrong case."""
+327,"""You are sure of that, M. Hardman?"""
+328,"""A small man, dark, with a womanish kind of voice—that's what the old man said. Said, too, that he didn’t think it would be the first night out. More likely the second or third."""
+329,"""You knew who he really was, of course?"""
+330,"""Ratchett. You recognized him?"""
+331,"""A description which applies to no one on the train"""
+332,"quote"""
+333,"""“And now,”"
+334,"""“we will delight the heart of M. Bouc and see the Italian.”"
+335,"""“Your name is Antonio Foscarelli?”"
+336,"""“You are, I see, a naturalized American subject?”"
+337,"""“You are an agent for Ford motor cars?”"
+338,"""“Yes, you see—”"
+339,"""“During your sojourn in the United States did you ever come across the deceased?”"
+340,"""“Ratchett was Cassetti, the kidnapper.”"
+341,"""“Did you ever come across any members of the Armstrong family?”"
+342,"""“Tell me, if you please, your exact movements last night from dinner onwards.”"
+343,"""“Nos. 4 and 5”"
+344,"""“Exactly—the end compartment.”"
+345,"""“You smoke, you say—a pipe, cigarettes, cigars?”"
+346,"""“Have you ever been in Chicago?”"
+347,"""“If you will sign this, and put your permanent address, please.”"
+348,"""“Ça se voit,”"
+349,"""“Well, it may be that you are right, but I will point out to you, my friend, that there is absolutely no evidence against the man.”"
+350,"""“Assuredly,”"
+351,"""“Let us now,”"
+352,quote
+353,"Do you know who the man Ratchett really was, Mademoiselle?"
+354,And what do you think of the Armstrong affair?
+355,"You are travelling from Baghdad, I believe, Miss Debenham?"
+356,What have you been doing in Baghdad?
+357,Are you returning to your post after your holiday?
+358,Why is that?
+359,Baghdad is rather out of things. I think I should prefer a post in London if I can hear of a suitable one.
+360,"I see. I thought, perhaps, you might be going to be married."
+361,What colour is her dressing gown?
+362,A kind of brownish colour—natural wool.
+363,"Ah! I may mention without indiscretion, I hope, that I noticed the colour of your dressing gown on the way from Aleppo to Stamboul. A pale mauve, I believe."
+364,"Whose, then?"
+365,Somebody else on this train?
+366,Whose is it?
+367,And in build?
+368,"Tallish and slim, I should judge, but it’s difficult to say. The kimono was embroidered with dragons."
+369,"Yes, yes that is right, dragons."
+370,"I need not keep you further, Mademoiselle."
+371,"Oh!” she seemed rather taken aback, but rose promptly. In the doorway, however, she hesitated a minute and then came back."
+372,"is it?—seems rather worried. She says you told her she was the last person to see this man alive. She thinks, I believe, that you suspect her on that account. Can’t I tell her that she has made a mistake? Really, you know, she is the kind of creature who wouldn’t hurt a fly.”"
+373,Mademoiselle.”
+374,you know.
+375,quote
+376,“A small dark man with a womanish voice.”
+377,"“The enemy that this Ratchett spoke of, he was then on the train after all? But where is he now? How can he have vanished into thin air? My head, it whirls. Say something, then, my friend, I implore you. Show me how the impossible can be possible!”"
+378,"“The impossible cannot have happened, therefore the impossible must be possible in spite of appearances.”"
+379,"“Explain to me then, quickly, what actually happened on the train last night.”"
+380,"“I am not a magician, mon cher. I am, like you, a very puzzled man. This affair advances in a very strange manner.”"
+381,“It does not advance at all. It stays where it was.”
+382,"“No, that is not true. We are more advanced. We know certain things. We have heard the evidence of the passengers.”"
+383,“And what has that told us? Nothing at all.”
+384,"“I would not say that, my friend.”"
+385,"“Speak, then, let us hear the wisdom of Hercule Poirot.”"
+386,"“Did I not tell you that I was, like you, a very puzzled man? But at least we can face our problem. We can arrange such facts as we have with order and method.”"
+387,"“Pray continue, Monsieur.”"
+388,"“Let us review the case as it stands at this moment. First, there are certain indisputable facts. This man Ratchett, or Cassetti, was stabbed in twelve places and died last night. That is fact one.”"
+389,"“I grant it to you—I grant, mon vieux.”"
+390,"“I will pass over for the moment certain rather peculiar appearances which Dr. Constantine and I have already discussed together. I will come to them presently. The next fact of importance, to my mind, is the time of the crime.”"
+391,"“That, again, is one of the few things we do know. The crime was committed at a quarter past one this morning. Everything goes to show that was so.”"
+392,"“Not everything. You exaggerate. There is, certainly, a fair amount of evidence"
+393,quote
+394,"Not at all. You misunderstand me. For all I know, any American detective might have his own private reasons for wishing to murder Ratchett."
+395,"You are in error. You are inclined to put the cart before the horse. Before I ask myself, ‘Where did this man vanish to?’ I ask myself, ‘Did such a man really exist?’"
+396,"Exactly. It is so mad, my friend, that sometimes I am haunted by the sensation that really it must be very simple…"
+397,And having arrived at the fact that there is—eh bien—where is he now?
+398,"The height of the man. It is that you would say? With the exception of M. Ratchett’s valet, all the passengers are big men—the Italian, Colonel Arbuthnot, Hector MacQueen, Count Andrenyi. Well, that leaves us the valet—not a very likely supposition. But there is another possibility. Remember the ‘womanish’ voice. That gives us a choice of alternatives. The man may be disguised as a woman, or, alternatively, he may actually be a woman."
+399,"Listen, my friend, I think that I should now tell you of certain inconsistencies noticed by Dr. Constantine."
+400,"Is it not? It is so mad, my friend, that sometimes I am haunted by the sensation that really it must be very simple…"
+401,"Two murderers,” groaned M. Bouc. “And on the Orient Express.”"
+402,"And now let us make the fantasy more fantastic,” said Poirot cheerfully. “Last night on the train there are two mysterious strangers. There is the Wagon Lit attendant answering to the description given us by M. Hardman, and seen by Hildegarde Schmidt, Colonel Arbuthnot and M. MacQueen. There is also a woman in a red kimono—a tall, slim woman—seen by Pierre Michel, by Miss Debenham, by M. MacQueen and by myself—and smelt, I may say, by Colonel Arbuthnot! Who was she? No one on the train admits to having a scarlet kimono. She, too, has vanished. Was she one and the same with the spurious Wagon Lit attendant? Or was she some quite distinct personality? Where are they, these two"
+403,quote
+404,"“It is in there, Monsieur. I have not touched it.”"
+405,"“Yes,” he murmured. “There is no mistake. Here is our missing weapon all right—eh, docteur?”"
+406,"“You need not be so careful,” said Poirot. “There will be no fingerprints on it save those of Mrs. Hubbard.”"
+407,"“As to that, the coincidence is not, perhaps, so great as it seems,” said the doctor. “Thousands of these sham Eastern daggers are made and shipped to the bazaars of Constantinople.”"
+408,"“You console me a little, but only a little,” said Poirot. He looked thoughtfully at the door in front of him, then, lifting off the sponge bag, he tried the handle. The door did not budge."
+409,"“We locked it from the other side, you remember.”"
+410,"“That is true,” said Poirot absently. He seemed to be thinking about something else. His brow was furrowed as though in perplexity."
+411,"“It agrees, does it not?” said M. Bouc. “The man passes through this carriage. As he shuts the communicating door behind him he feels the sponge bag. A thought comes to him and he quickly slips the bloodstained knife inside. Then, all unwitting that he has awakened Mrs. Hubbard, he slips out through the other door into the corridor.”"
+412,"“As you say,” murmured Poirot. “That is how it must have happened.”"
+413,"“But what is it?” demanded M. Bouc. “There is something, is there not, that does not satisfy you?”"
+414,"“The same point does not strike you? No, evidently not. Well, it is a small matter.”"
+415,“The conductor looked into the carriage.”
+416,"“You misunderstand, Madame. Your demand is most reasonable. Your baggage shall be changed at once to another compartment.”"
+417,"“Michel,” called M. Bouc. “Move this baggage into a vacant compartment in the Athens-Paris coach.”"
+418,"“No,” said Poirot before his friend could reply. “I think it would be better for Madame"
+419,quote
+420,"""Whatever for?"""
+421,"""Mercy! Perhaps you'd better! I just couldn't bear to get any more surprises of that kind."""
+422,"""The true Western spirit of hustle,"""
+423,"""Ah!"""
+424,"""Tout de même,"""
+425,"""I think, Madame, that your strength is in your will—not in your arm."""
+426,quote
+427,"“I do not agree with you,”"
+428,"“I feel sure that Count Andrenyi will be reasonable. At any rate, let us make the attempt.”"
+429,"“Pray forgive this intrusion. It is that we are making a search of all the baggage on the train. In most cases a mere formality. But it has to be done. M. Bouc suggests that, as you have a diplomatic passport, you might reasonably claim to be exempt from such a search.”"
+430,"“Thank you,”"
+431,“But I do not think that I care for an exception to be made in my case. I should prefer that our baggage should be examined like that of the other passengers.”
+432,"“Here is a label all wet on your suitcase, Madame,”"
+433,"“You do not object, I hope, Elena?”"
+434,“You wanted to get me alone. Wasn’t that it?”
+435,"“You are putting words into my mouth, Mademoiselle.”"
+436,"“You are imagining things, Mademoiselle.”"
+437,“Do you think I meant—murder?”
+438,"“It is I who am asking you, Mademoiselle.”"
+439,“What do you mean?”
+440,"“Listen, Mademoiselle, I will recall to you another incident. There was a delay to the train on the day we were to reach Stamboul. You were very agitated, Mademoiselle. You, so calm, so self-controlled. You lost that calm.”"
+441,"“Ah, it is like that? There are friends awaiting your arrival? You do not want to cause them inconvenience?”"
+442,“And yet—it is curious—”
+443,“What is curious?”
+444,"“On this train—again we have a delay. And this time a more serious delay, since there is no possibility of sending a telegram to your friends or of getting them on the long—the long—”"
+445,"“And yet, mademoiselle, this time your manner is quite different. You no longer betray"
+446,quote
+447,"“I must remind you that you do not know him very well, Mademoiselle.”"
+448,“You still refuse to tell me the meaning of those words—‘When it’s behind us?’”
+449,"“It does not matter,”"
+450,"“Mon ami, if you wish to catch a rabbit you put a ferret into the hole, and if the rabbit is there he runs. That is all I have done.”"
+451,“Aha!”
+452,“You remember what I said? Look here a little moment!”
+453,"“No, no all is well. We believe you. Do not be agitated. I am as sure you did not hide the uniform there as I am sure that you are a good cook. See. You are a good cook, are you not?”"
+454,"“No, no,”"
+455,"“I assure you all is well. See, I will tell you how this happened. This man, the man you saw in Wagon Lit uniform, comes out of the dead man’s compartment. He collides with you. That is bad luck for him. He has hoped that no one will see him. What to do next? He must get rid of his uniform. It is now not a safeguard, but a danger.”"
+456,"“There is the snow, you see. The snow which confuses all his plans. Where can he hide these clothes? All the compartments are full. No, he passes one where the door is open and shows it to be unoccupied. It must be the one belonging to the woman with whom he has just collided. He slips in, removes the uniform and jams it hurriedly into a suitcase on the rack. It may be some time before it is discovered.”"
+457,“And then?”
+458,"“That we must discuss,”"
+459,"“Here is the explanation of how our man was able to pass through locked doors,”"
+460,“You remember what I said? Look here a little moment!”
+461,“Why
+462,quote
+463,“You mean—?”
+464,"“It is true,”"
+465,"“You are very cautious, mon vieux.”"
+466,"“In one way,”"
+467,"“Not such a famous alibi,”"
+468,"“What, then, does the watch convey to you?”"
+469,"“And, by our former reasoning, it must be one of the passengers,”"
+470,“We come back to where we were. Which of them?”
+471,"“Let us see what we can do,”"
+472,"“The initial H is connected with three people—Mrs. Hubbard, Miss Debenham, whose second name is Hermione, and the maid Hildegarde Schmidt.”"
+473,“Ah! And of those three?”
+474,"“It is difficult to say. But I think I should vote for Miss Debenham. For all one knows, she may be called by her second name and not her first. Also there is already some suspicion attaching to her.”"
+475,quote
+476,"“You reason well,”"
+477,"“In fact,”"
+478,"“She stabbed him in the dark, not realizing that he was dead already, but somehow deduced that he had a watch in his pyjama pocket, took it out, put back the hands blindly and gave it the requisite dent.”"
+479,"“I have not completely neglected that point,”"
+480,"“Princess Dragomiroff, impossible,”"
+481,"“It might be a question of the influence of mind over body,”"
+482,"“No,”"
+483,“It does not make sense. And you think that two murderers do make sense?”
+484,"“That is what I ask myself,”"
+485,"“From now on, it is all here,”"
+486,"“We have thrashed it all out. The facts are all in front of us—neatly arranged with order and method. The passengers have sat here, one by one, giving their evidence. We know all that can be known—from outside.”"
+487,"“It has been a little joke between us, has it not—this business of sitting back and thinking out the truth? Well, I am about to put my theory into practice—here before your eyes. You two must do the same. Let us all three close our eyes and think.”"
+488,“One or more of those passengers killed Ratchett. Which of them?”
+489,quote
+490,“Eh bien. I have thought. And you?”
+491,“Quite right. That is the proper thing to say. You have given me the cue I expected.”
+492,"“My friends, I have reviewed the facts in my mind, and have also gone over to myself the evidence of the passengers—with this result. I see, nebulously as yet, a certain explanation that would cover the facts as we know them. It is a very curious explanation, and I cannot be sure as yet that it is the true one. To find out definitely, I shall have to make certain experiments.”"
+493,"“I would like first to mention certain points which appear to me suggestive. Let us start with a remark made to me by M. Bouc in this very place on the occasion of our first lunch together on the train. He commented on the fact that we were surrounded by people of all classes, of all ages, of all nationalities.”"
+494,"“Then there are some minor points that strike me as suggestive—for instance, the position of Mrs. Hubbard’s sponge bag, the name of Mrs. Armstrong’s mother, the detective methods of M. Hardman, the suggestion of M. MacQueen that Ratchett himself destroyed the charred note we found, Princess Dragomiroff’s Christian name, and a grease spot on a Hungarian passport.”"
+495,"“Do they suggest anything to you, those points?”"
+496,“I am going to approach it from another angle. Let us go back to the handkerchief found at the scene of the crime. As we have stated not long ago—three people are associated with the letter H.”
+497,"“Which of the passengers, apart from the initial, was likely to own such a handkerchief? Not Mrs. Hubbard, a worthy woman with no pretensions to reckless extravagance in dress. Not Miss Debenham; that class of English-woman has a dainty linen handkerchief, but not an expensive wisp of cambric costing perhaps two hundred francs. And certainly not the maid. But there are two women on the train who would be likely to own such a handkerchief. Let us see if we can connect them in any way with the letter H.”"
+498,“The two women I refer to are Princess Drag
+499,quote
+500,"It is of no use denying. That is the truth, is it not?"
+501,"Your statement, Monsieur, is quite true,"
+502,"Do not be angry, Rudolph. M. Poirot puts the fact rather brutally, but what he says is undeniable."
+503,And yet you took it upon yourself to alter the name in the passport?
+504,"I do not say that I disbelieve you, Monsieur, Your family is, I know, a proud and ancient one. It would be bitter indeed for you to have your wife dragged into an unpleasant police case. With that I can sympathize. But how, then, do you explain the presence of your wife’s handkerchief actually in the dead man’s compartment?"
+505,quote
+506,"“You have, M. le Comte, the makings of a very fine criminal.”"
+507,"“A great natural ingenuity, and an apparently remorseless determination to mislead justice.”"
+508,"“If I am to believe you, Madame—and I do not say that I will not believe you—then you must help me.”"
+509,"“The reason for the murder lies in the past—in that tragedy which broke up your home and saddened your young life. Take me back into the past, Mademoiselle, that I may find there the link that explains the whole thing.”"
+510,"“There was another victim, Madame. An indirect victim, you might say.”"
+511,"“She was the nurserymaid, was she not?”"
+512,“Who was the nurse?”
+513,"“Now, Madame, I want you to think carefully before you answer this question. Have you, since you were on this train, seen anyone that you recognized?”"
+514,"“Some years have passed, remember. The person might have altered their appearance.”"
+515,“No—I am sure—there is no one.”
+516,“You yourself—you were a young girl at the time—did you have no one to superintend your studies or to look after you?”
+517,"“Oh, yes, I had a dragon—a sort of governess to me and secretary to Sonia combined. She was English or rather Scotch—a big, red-haired woman.”"
+518,“What was her name?”
+519,"“You see,” he said, “we make progress.”"
+520,"“Excellent work,” said M. Bouc cordially."
+521,"“For my part, I should never have dreamed of suspecting Count and Countess Andrenyi. I will admit I thought them quite hors de combat. I suppose there is no doubt that she committed the crime? It is rather sad. Still, they will not guillotine her. There are extenuating circumstances. A few years’ imprisonment—that will be all.”"
+522,“In fact you are quite certain of her guilt.”
+523,“Mon cher—naturally—what else could he say? He adores his wife. He wants to save her! He tells his lie very well—quite in the grand Seigneur
+524,quote
+525,"""Could she have murdered Ratchett?"""
+526,"""The feebler ones, yes."""
+527,"""I am thinking, of the incident this morning when I said to her that the strength was in her will rather than in her arm. It was in the nature of a trap, that remark. I wanted to see if she would look down at her right or her left arm. She did neither. She looked at them both. But she made a strange reply. She said, 'No, I have no strength in these. I do not know whether to be sorry or glad.' A curious remark that. It confirms me in my belief about the crime."""
+528,"""No. By the way, did you notice that Count Andrenyi keeps his handkerchief in his right-hand breast pocket?"""
+529,"""It has this advantage, If you confront anyone who has lied with the truth, they usually admit it—often out of sheer surprise. It is only necessary to guess right to produce your effect."""
+530,"""That is the only way to conduct this case. I select each passenger in turn, consider their evidence and say to myself, 'If so and so is lying, on what point are they lying and what is the reason for the lie?' And I answer if they are lying—if, you mark—it could only be for such a reason and on such a point. We have done that once very successfully with Countess Andrenyi. We shall now proceed to try the same method on several other persons."""
+531,"""And supposing, my friend, that your guess happens to be wrong?"""
+532,"""Then one person, at any rate, will be completely freed from suspicion."""
+533,"""Ah! A process of elimination."""
+534,"""Exactly."""
+535,"""And who do we tackle next?"""
+536,"""We are going to tackle that pukka sahib, Colonel Arbuthnot."""
+537,"""All my apologies for troubling you a second time, But there is still some information that I think you might be able to give us."""
+538,"""Is it one of yours?"""
+539,"""Are you aware, Colonel Arbuthnot, that you are the only man amongst the passengers in the Stamboul-Calais carriage who smokes a pipe?"""
+540,"""Do you know where it was found"
+541,quote
+542,“You are going to make another of these famous guesses of yours?”
+543,"“If this is what you call natural, mom ami—”"
+544,“I like to see an angry Englishman. They are very amusing. The more emotional they feel the less command they have of language.”
+545,“Ah! so you have had experience of the New York police?”
+546,"“That was in the Armstrong case, was it not? You were the chauffeur?”"
+547,“Since you know—why ask me?”
+548,“Why did you lie this morning?”
+549,“Very good. You can go.”
+550,“You realize that it was not I—that I could have had nothing to do with it?”
+551,“I said that you could go.”
+552,“It is a conspiracy. You are going to frame me? All for a pig of a man who should have gone to the chair! It was an infamy that he did not. If it had been me—if I had been arrested—”
+553,“But it was not you. You had nothing to do with the kidnapping of the child.”
+554,"“What is that you are saying? Why, that little one—she was the delight of the house. Tonio, she called me. And she would sit in the car and pretend to hold the wheel. All the household worshipped her! Even the police came to understand that. Ah, the beautiful little one.”"
+555,"“Pietro,”"
+556,“Another?”
+557,quote
+558,“Is that all you have to say?”
+559,"“That is all, sir.”"
+560,"“Are you quite sure, Mr. Hardman, that you yourself were not the gardener at the Armstrong home?”"
+561,"“If you will be so good, M. Hardman, assemble everyone here. There are two possible solutions of this case. I want to lay them both before you all.”"
+562,"“Now you all know the facts of the case. Mr. Ratchett was found stabbed this morning. He was last known to be alive at 12:37 last night, when he spoke to the Wagon Lit conductor through the door. A watch in his pyjama pocket was found to be badly dented and it had stopped at a quarter past one. Dr. Constantine, who examined the body when found, puts the time of death as having occurred between midnight and two in the morning. At half an hour after midnight, as you all know, the train ran into a snowdrift. After that time it was impossible for anyone to leave the train."
+563,"“That, I will say, was our theory.”"
+564,"“Now I put it to you, ladies and gentlemen, that Mr. Ratchett knew a good deal more than he told. The enemy as Mr. Ratchett expected, joined the train at Belgrade, or possibly at Vincouci, by the door left open by Colonel Arbuthnot and Mr. MacQueen who had just descended to the platform. He was provided with a suit of Wagon Lit uniform, which he wore over his ordinary clothes, and a pass key which enabled him to gain access to Mr. Ratchett’s compartment in spite of the door being locked. Mr. Ratchett was under the influence of a sleeping draught. This man stabbed him with great ferocity and left the compartment through the communicating door leading to Mrs. Hubbard’s compartment—”"
+565,"“He thrust the dagger he had used into Mrs. Hubbard’s sponge bag in passing. Without knowing it, he lost a button of his uniform. Then he slipped out of the compartment and along the corridor. He hastily thrust the uniform into a suitcase in an empty compartment, and a few minutes later, dressed in ordinary clothes, he left the train just before it started off."
+566,quote
+567,"""Very simply, Madame. Your maid recognized the handkerchief I showed her as yours. She somewhat clumsily tried to shield you. She did encounter the man—but earlier—while the train was at Vincovci station. She pretended to have seen him at a later hour with a confused idea of giving you a watertight alibi."""
+568,"""You have thought of everything, Monsieur. I—I admire you."""
+569,"""I see,"" he said, “that I shall have to give my second solution. But do not abandon this one too abruptly. You may agree with it later."""
+570,"""When I had heard all the evidence, I leaned back and shut my eyes and began to think. Certain points presented themselves to me as worthy of attention. I enumerated these points to my two colleagues. Some I have already elucidated—such as a grease spot on a passport, etc. I will run over the points that remain."""
+571,"""I agreed with him, but when this particular point came into my mind, I tried to imagine whether such an assembly were ever likely to be collected under any other conditions. And the answer I made to myself was—only in America. In America there might be a household composed of just such varied nationalities—an Italian chauffeur, and English governess, a Swedish nurse, a French lady’s maid and so on."""
+572,"""Well, that gave me an extremely interesting and satisfactory result."""
+573,"""I had also examined in my own mind each separate person’s evidence with some curious results. Take first the evidence of Mr. MacQueen. My first interview with him was entirely satisfactory. But in my second he made rather a curious remark. I had described to him the finding of a note mentioning the Armstrong case. He said, ‘But surely—’ and then paused and went on, ‘I mean—that was rather careless of the old man.’"""
+574,"""Now I could feel that that was not what he had started out to say. Supposing what he had meant to say was, ‘But surely that was burnt!’ In which case, MacQueen knew of the note and of its destruction—in other words, he was either the murderer or an accomplice of the murderer. Very good."""
+575,"""Then the valet. He said his master was in the habit of taking a sleeping draught when travelling"
+576,quote
+577,“A jury is composed of twelve people—there were twelve passengers—Ratchett was stabbed twelve times.”
+578,“A jury is composed of twelve people—there were twelve passengers—Ratchett was stabbed twelve times.”
+579,“I visualized a self-appointed jury of twelve people who condemned him to death and were forced by exigencies of the case to be their own executioners.”
+580,"“And immediately, on that assumption, the whole case fell into beautiful shining order.”"
+581,"“It was so arranged that if suspicion should fall on any one person, the evidence of one or more of the others would clear the accused person and confuse the issue.”"
+582,“Every minute detail of their evidence was worked out beforehand.”
+583,"“The whole thing was a very cleverly-planned jig-saw puzzle, so arranged that every fresh piece of knowledge that came to light made the solution of the whole more difficult.”"
+584,"“Did this solution explain everything? Yes, it did.”"
+585,“The nature of the wounds—each inflicted by a different person.”
+586,"“The artificial threatening letters—artificial since they were unreal, written only to be produced as evidence.”"
+587,"“Then Hardman’s story of being called in by Ratchett—a lie, of course, from beginning to end.”"
+588,"“The description of the mythical ‘small dark man with a womanish voice,’ a convenient description, since it had the merit of not incriminating any of the actual Wagon Lit conductors and would apply equally well to a man or a woman.”"
+589,"“I fancy, though I may be wrong, that each person in turn entered Ratchett’s darkened compartment through that of Mrs. Hubbard—and struck! They themselves would never know which blow actually killed him.”"
+590,“The final letter which Ratchett had probably found on his pillow was carefully burnt.”
+591,"“With no clue pointing to the Armstrong case, there would be absolutely no reason for suspecting any of the passengers on the train.”"
+592,"“It would be put down as an outside job, and the ‘small dark man with the womanish voice’ would actually have been seen by one or more of the passengers leaving the train at Brod.”"
+593,quote
+594,"“You are a director of the company, M. Bouc,”"
+595,"“In my opinion, M. Poirot,”"
+596,"“the first theory you put forward was the correct one—decidedly so. I suggest that that is the solution we offer to the Yugo-Slavian police when they arrive. You agree, Doctor?”"
+597,"“Certainly I agree,”"
+598,"“Then, having placed my solution before you, I have the honour to retire from the case.”"

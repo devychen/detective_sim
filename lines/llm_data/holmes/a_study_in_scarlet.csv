@@ -1,0 +1,283 @@
+number,quote
+1,quote
+2,"Whatever have you been doing with yourself, Watson?"
+3,You are as thin as a lath and as brown as a nut.
+4,Poor devil! What are you up to now?
+5,"That's a strange thing, you are the second man to-day that has used that expression to me."
+6,And who was the first?
+7,"A fellow who is working at the chemical laboratory up at the hospital. He was bemoaning himself this morning because he could not get someone to go halves with him in some nice rooms which he had found, and which were too much for his purse."
+8,"By Jove! If he really wants someone to share the rooms and the expense, I am the very man for him. I should prefer having a partner to being alone."
+9,"You don't know Sherlock Holmes yet, perhaps you would not care for him as a constant companion."
+10,"Oh, I didn't say there was anything against him. He is a little queer in his ideas--an enthusiast in some branches of science. As far as I know he is a decent fellow enough."
+11,"A medical student, I suppose?"
+12,"No--I have no idea what he intends to go in for. I believe he is well up in anatomy, and he is a first-class chemist; but, as far as I know, he has never taken out any systematic medical classes. His studies are very desultory and eccentric, but he has amassed a lot of out-of-the-way knowledge which would astonish his professors."
+13,Did you never ask him what he was going in for?
+14,"No; he is not a man that it is easy to draw out, though he can be communicative enough when the fancy seizes him."
+15,"I should like to meet him. If I am to lodge with anyone, I should prefer a man of studious and quiet habits. I am not strong enough yet to stand much noise or excitement. How could I meet this friend of yours?"
+16,"He is sure to be at the laboratory. He either avoids the place for weeks, or else he works there from morning to night. If you like, we shall drive round together after luncheon."
+17,"You mustn't blame me if you don't get on with him,"
+18,"quote"""
+19,"Mr. Sherlock Holmes,"" said Stamford, introducing us."
+20,"gripping my hand with a strength for which I should hardly have given him credit. ""You have been in Afghanistan, I perceive."""
+21,""" said he, chuckling to himself. ""The question now is about hoemoglobin. No doubt you see the significance of this discovery of mine?"""
+22,"chemically, no doubt,"" I answered, ""but practically--"""
+23,"man, it is the most practical medico-legal discovery for years. Don't you see that it gives us an infallible test for blood stains. Come over here now!"" He seized me by the coat-sleeve in his eagerness, and drew me over to the table at which he had been working. ""Let us have some fresh blood,"" he said, digging a long bodkin into his finger, and drawing off the resulting drop of blood in a chemical pipette."
+24,"I add this small quantity of blood to a litre of water. You perceive that the resulting mixture has the appearance of pure water. The proportion of blood cannot be more than one in a million. I have no doubt, however, that we shall be able to obtain the characteristic reaction."" As he spoke, he threw into the vessel a few white crystals, and then added some drops of a transparent fluid. In an instant the contents assumed a dull mahogany colour, and a brownish dust was precipitated to the bottom of the glass jar."
+25,"clapping his hands, and looking as delighted as a child with a new toy. ""What do you think of that?"""
+26,""" I remarked."
+27,"this appears to act as well whether the blood is old or new. Had this test been invented, there are hundreds of men now walking the earth who would long ago have paid the penalty of their crimes."""
+28,"and brownish stains discovered upon them. Are they blood stains, or mud stains,"
+29,quote
+30,You appear to be astonished
+31,Now that I do know it I shall do my best to forget it.
+32,What the deuce is it to me?
+33,If we went round the moon it would not make a pennyworth of difference to me or to my work.
+34,quote
+35,"""I have to use this room as a place of business,"""
+36,"""What is it?"""
+37,"""You!"""
+38,"""You!"""
+39,"""You"""
+40,"""Yes, I have a turn both for observation and for deduction."""
+41,"""Well, I have a trade of my own. I suppose I am the only one in the world."""
+42,"""They are mostly sent on by private inquiry agencies."""
+43,"""Without leaving your room you can unravel some knot which other men can make nothing of, although they have seen every detail for themselves."""
+44,"""Now and again a case turns up which is a little more complex."""
+45,"""That trick of his of breaking in on his friends' thoughts with an apropos remark after a quarter of an hour's silence is really very showy and superficial."""
+46,"""Lecoq was a miserable bungler,"""
+47,formatted as CSV:
+48,quote
+49,"""There are no crimes and no criminals in these days,"""
+50,"""You mean the retired sergeant of Marines,"""
+51,"""Brag and bounce!"""
+52,"""For Mr. Sherlock Holmes,"""
+53,"""May I ask, my lad,"""
+54,"""And you were?"""
+55,"""I have no time for trifles,"""
+56,"""Excuse my rudeness. You broke the thread of my thoughts; but perhaps it is as well. So you actually were not able to see that that man was a sergeant of Marines?"""
+57,"""Commonplace,"""
+58,"""Why,"""
+59,"""It does seem to be a little out of the common,"""
+60,"""Would you mind reading it to me aloud?"""
+61,"""You wish me to come?"""
+62,quote
+63,"""To Let"" card had developed like a cataract upon the bleared panes."
+64,"""Except that!"" my friend answered, pointing at the pathway."
+65,"""With two such men as yourself and Lestrade upon the ground, there will not be much for a third party to find out,"" he said."
+66,"""You did not come here in a cab?"""
+67,"""Nor Lestrade?"""
+68,"""Then let us go and look at the room."""
+69,"""There is no clue?"" said Gregson."
+70,"""None at all,"" chimed in Lestrade."
+71,"""You are sure that there is no wound?"""
+72,"""Then, of course, this blood belongs to a second individual--presumably the murderer, if murder has been committed. It reminds me of the circumstances attendant on the death of Van Jansen, in Utrecht, in the year '34. Do you remember the case, Gregson?"""
+73,"""Read it up--you really should. There is nothing new under the sun. It has all been done before."""
+74,"""He has not been moved at all?"""
+75,"""You can take him to the mortuary now,"" he said. ""There is nothing more to be learned."""
+76,"quote"""
+77,""" he said, ""I have just made a discovery of the highest importance, and one which would have been overlooked had I not made a careful examination of the walls."""
+78,triumphantly.
+79,with the air of a showman exhibiting his show.
+80,"it means that the writer was going to put the female name Rachel, but was disturbed before he or she had time to finish. You mark my words, when this case comes to be cleared up you will find that a woman named Rachel has something to do with it. It's all very well for you to laugh, Mr. Sherlock Holmes. You may be very smart and clever, but the old hound is the best, when all is said and done."""
+81,""" remarked my friend. ""You are doing so well now that it would be a pity for anyone to interfere. If you will let me know how your investigations go, I shall be happy to give you any help I can. In the meantime I should like to speak to the constable who found the body. Can you give me his name and address?"""
+82,"and the murderer was a man. He was more than six feet high, was in the prime of life, had small feet for his height, wore coarse, square-toed boots and smoked a Trichinopoly cigar. He came here with his victim in a four-wheeled cab, which was drawn by a horse with three old shoes and one new one on his off fore leg. In all probability the murderer had a florid face, and the finger-nails of his right hand were remarkably long. These are only a few indications, but they may assist you."""
+83,""" said Sherlock Holmes curtly, and strode off. ""One other thing, Lestrade,"" he added, turning round at the door: ""'Rache,' is the German for 'revenge;' so don't lose your time looking for Miss Rachel."""
+84,""" he remarked; ""as a matter of fact, my mind is entirely made up upon the case, but still we may as well learn all that is to be learned."""
+85,"Holmes,"" said I. ""Sure"
+86,quote
+87,"""And his age?"""
+88,"""Well, if a man can stride four and a-half feet without the smallest effort, he can't be quite in the sere and yellow."""
+89,"""That was the breadth of a puddle on the garden walk which he had evidently walked across. Patent-leather boots had gone round, and Square-toes had hopped over."""
+90,"""There is no mystery about it at all. I am simply applying to ordinary life a few of those precepts of observation and deduction which I advocated in that article."""
+91,"""Is there anything else that puzzles you?"""
+92,"""The writing on the wall was done with a man's forefinger dipped in blood."""
+93,"""My glass allowed me to observe that the plaster was slightly scratched in doing it, which would not have been the case if the man's nail had been trimmed."""
+94,"""I gathered up some scattered ash from the floor. It was dark in colour and flakey--such an ash as is only made by a Trichinopoly."""
+95,"""I have made a special study of cigar ashes--in fact, I have written a monograph upon the subject. I flatter myself that I can distinguish at a glance the ash of any known brand, either of cigar or of tobacco."""
+96,"""Ah, that was a more daring shot, though I have no doubt that I was right."""
+97,"""You must not ask me that at the present state of the affair."""
+98,"""My head is in a whirl,"""
+99,"""the more one thinks of it the more mysterious it grows. How came these two men--if there were two men--into an empty house?"""
+100,"""What has become of the cabman who drove them?"""
+101,"""How could one man compel another to take poison?"""
+102,"""Where did the blood come from?"""
+103,"""What was the object of the murderer, since robbery had no part in it?"""
+104,"""How came the woman's ring there?"""
+105,"""Above all, why should the second man write up the German word RACHE before decamping?"""
+106,"""You sum up the difficulties of the situation succinctly and well,"""
+107,"""There is much that is still obscure, though I have quite made up my mind on the main facts."""
+108,"""As to poor"
+109,quote
+110,"""Don't get arresting me for the murder,"""
+111,"""I am one of the hounds and not the wolf; Mr. Gregson or Mr. Lestrade will answer for that."""
+112,"""Go on, though. What did you do next?"""
+113,"""What do you mean?"""
+114,"""What sort of a man was he?"""
+115,"""That will do,"""
+116,"""What became of him?"""
+117,"""How was he dressed?"""
+118,"""Had he a whip in his hand?"""
+119,"""He must have left it behind,"""
+120,"""You didn't happen to see or hear a cab after that?"""
+121,"""There's a half-sovereign for you,"""
+122,"""I am afraid, Rance, that you will never rise in the force. That head of yours should be for use as well as ornament."""
+123,"""The man whom you held in your hands is the man who holds the clue of this mystery, and whom we are seeking."""
+124,"""The ring, man, the ring: that was what he came back for."""
+125,"""I shall have him, Doctor--I'll lay you two to one that I have him."""
+126,"""Why shouldn't we use a little art jargon."""
+127,"""There's the scarlet thread of murder running through the colourless skein of life, and our duty is to unravel it, and isolate it, and expose every inch of it."""
+128,"""And now for lunch, and then for Norman Neruda."""
+129,"""What's that little thing of Chopin's she plays so magnificently: Tra-la-la-lira-lira-lay."""
+130,"""One's ideas must be as broad as Nature if they are to interpret Nature."""
+131,"""What's the matter? You're not looking quite yourself. This Brixton Road affair has upset you."""
+132,"""I can understand. There is a mystery about this which stimulates the imagination; where there is no imagination there is no horror."""
+133,"""Have you seen the evening paper?"""
+134,"""It gives a fairly good account of the affair. It does not mention the fact that when the man was raised up, a woman's wedding ring fell upon the floor."""
+135,"""Why?"""
+136,"""Look at this advertisement,"""
+137,"""If I used my own some of"
+138,quote
+139,"""And then?"""
+140,"""Oh, you can leave me to deal with him then. Have you any arms?"""
+141,"""You had better clean it and load it. He will be a desperate man, and though I shall take him unawares, it is as well to be ready for anything."""
+142,"""The plot thickens,"" he said, as I entered; ""I have just had an answer to my American telegram. My view of the case is the correct one."""
+143,"""My fiddle would be the better for new strings,"" he remarked. ""Put your pistol in your pocket. When the fellow comes speak to him in an ordinary way. Leave the rest to me. Don't frighten him by looking at him too hard."""
+144,"""Yes. He will probably be here in a few minutes. Open the door slightly. That will do. Now put the key on the inside. Thank you!"
+145,"""This is a queer old book I picked up at a stall yesterday--De Jure inter Gentes--published in Latin at Liege in the Lowlands, in 1642."""
+146,"""Philippe de Croy, whoever he may have been. On the fly-leaf, in very faded ink, is written 'Ex libris Guliolmi Whyte.' I wonder who William Whyte was. Some pragmatical seventeenth century lawyer, I suppose."""
+147,"""Here comes our man, I think."""
+148,"""Does Dr. Watson live here?"" asked a clear but rather harsh voice."
+149,"""And your name is--?"""
+150,"""Here is your ring, Mrs. Sawyer,"" I interrupted, in obedience to a sign from my companion; ""it clearly belongs to your daughter, and I am glad to be able to restore it to the rightful owner."""
+151,"""I'll follow her,"" he said, hurriedly; ""she must be an accomplice, and will lead me to him. Wait up for me."""
+152,"""Either his whole theory is incorrect,"" or else he will be led now to the heart of the mystery."""
+153,"""I wouldn't have the Scotland Yarders know it for the world,"" he cried, dropping into his chair; ""I have chaffed them so much that they would never have let me hear the end of it. I can afford to laugh, because I know that I will be even with them"
+154,quote
+155,"""Old woman be damned!"""
+156,"""We were the old women to be so taken in. It must have been a young man, and an active one, too, besides being an incomparable actor. The get-up was inimitable. He saw that he was followed, no doubt, and used this means of giving me the slip. It shows that the man we are after is not as lonely as I imagined he was, but has friends who are ready to risk something for him. Now, Doctor, you are looking done-up. Take my advice and turn in."""
+157,"""There's more work to be got out of one of those little beggars than out of a dozen of the force."""
+158,"""I told you that, whatever happened, Lestrade and Gregson would be sure to score."""
+159,"""It's heads I win and tails you lose. Whatever they do, they will have followers. 'Un sot trouve toujours un plus sot qui l'admire.'"""
+160,"""Take a seat, and try one of these cigars. We are anxious to know how you managed it. Will you have some whiskey and water?"""
+161,"""You do me too much honour."""
+162,"""The fun of it is, that that fool Lestrade, who thinks himself so smart, has gone off upon the wrong track altogether. He is after the secretary Stangerson, who had no more to do with the crime than the babe unborn. I have no doubt that he has caught him by this time."""
+163,quote
+164,"""To a great mind, nothing is little,"""
+165,"""Smart--very smart!"""
+166,"""Have you heard of the mysterious death of your late boarder Mr. Enoch J. Drebber, of Cleveland?"""
+167,"""At what o'clock did Mr. Drebber leave your house for the train?"""
+168,"""And was that the last which you saw of him?"""
+169,"""God forgive you!"""
+170,"""You had best tell me all about it now."""
+171,"""Your best way is to make a clean breast of the facts."""
+172,"""It is your wisest course,"""
+173,"""But why did you stand all this?"""
+174,"""It's quite exciting,"""
+175,quote
+176,"""Very"""
+177,"""Well, my theory is that he followed Drebber as far as the Brixton Road. When there, a fresh altercation arose between them, in the course of which Drebber received a blow from the stick, in the pit of the stomach, perhaps, which killed him without leaving any mark. The night was so wet that no one was about, so Charpentier dragged the body of his victim into the empty house. As to the candle, and the blood, and the writing on the wall, and the ring, they may all be so many tricks to throw the police on to the wrong scent."""
+178,"""Well done!"""
+179,"""Really, Gregson, you are getting along. We shall make something of you yet."""
+180,"""Well, my theory is that he followed Drebber as far as the Brixton Road. When there, a fresh altercation arose between them, in the course of which Drebber received a blow from the stick, in the pit of the stomach, perhaps, which killed him without leaving any mark. The night was so wet that no one was about, so Charpentier dragged the body of his victim into the empty house. As to the candle, and the blood, and the writing on the wall, and the ring, they may all be so many tricks to throw the police on to the wrong scent."""
+181,"""Ah, you find it so, Mr. Lestrade!"""
+182,"""The word RACHE, written in letters of blood."""
+183,"""Did you find nothing in the room which could furnish a clue to the murderer?"""
+184,"quote"""
+185,"And there was nothing else?"""
+186,""" he cried, exultantly."
+187,""""
+188,"I should imagine that they are soluble in water,"""
+189,""""
+190,"and which the landlady wanted you to put out of its pain yesterday."""
+191,""""
+192,""""
+193,"my friend, patience! You will find in time that it has everything to do with it. I shall now add a little milk to make the mixture palatable, and on presenting it to the dog we find that he laps it up readily enough."""
+194,"who speedily licked it dry."""
+195,""" he cried, at last springing from his chair and pacing wildly up and down the room;"
+196,"I have it! I have it!"""
+197,"cut the other pill in two, dissolved it, added milk, and presented it to the terrier."""
+198,"and wiped the perspiration from his forehead. 'I should have more faith,' he said; 'I ought to know by this time that when a fact appears to be opposed to a long train of deductions, it invariably proves to be capable of bearing some other interpretation.'"""
+199,""" continued Holmes, ""because you failed at the beginning of the inquiry to grasp the importance of the single real clue which was presented to you. I had the good fortune to seize upon that, and everything which has occurred since then has served to confirm my original supposition, and, indeed, was the logical sequence of it."""
+200,"have served to enlighten me and to strengthen my conclusions."""
+201,quote
+202,"""Good boy"""
+203,"""Why don't you introduce this pattern at Scotland Yard?"""
+204,"""The old pattern is good enough,"""
+205,"""Very good, very good,"""
+206,"""Just give me a help with this buckle, cabman,"""
+207,"""Gentlemen,"""
+208,"""We have his cab,"""
+209,"""And now, gentlemen,"""
+210,"""we have reached the end of our little mystery."""
+211,quote
+212,We are the persecuted children of God--the chosen of the Angel Merona.
+213,Do not jest at that which is sacred.
+214,"We are of those who believe in those sacred writings, drawn in Egyptian letters on plates of beaten gold, which were handed unto the holy Joseph Smith at Palmyra."
+215,"We have come from Nauvoo, in the State of Illinois, where we had founded our temple."
+216,"We have come to seek a refuge from the violent man and from the godless, even though it be the heart of the desert."
+217,You must come before him. He shall say what is to be done with you.
+218,"Brigham Young has said it, and he has spoken with the voice of Joseph Smith, which is the voice of God."
+219,"You shall remain here. In a few days you will have recovered from your fatigues. In the meantime, remember that now and forever you are of our religion."
+220,"and the dialogue lines provided are from his conversation with the two young Mormons, Stangerson and Brother Drebber."
+221,quote
+222,"""I am Jefferson Hope, you remember me."""
+223,"""I don't fear them, or their warrant. You must know something of this matter, Cowper. I conjure you by everything you hold dear to answer a few questions. We have always been friends. For God's sake, don't refuse to answer me."""
+224,"""What has become of Lucy Ferrier?"""
+225,"""Don't mind me. Married, you say?"""
+226,"""Yes, I am off."""
+227,"""Never mind."""
+228,quote
+229,I've got a good deal to say
+230,Then put your hand here
+231,That's what they call it
+232,I went to a Doctor
+233,That's what they call it
+234,I've done my work now
+235,"Do you consider, Doctor, that there is immediate danger?"
+236,Then put your hand here
+237,"This aneurism of mine makes me easily tired, and the tussle we had half an hour ago has not mended matters"
+238,quote
+239,"""It don't much matter to you why I hated these men,"""
+240,"""it's enough that they were guilty of the death of two human beings--a father and a daughter--and that they had, therefore, forfeited their own lives."""
+241,"""After the lapse of time that has passed since their crime, it was impossible for me to secure a conviction against them in any court. I knew of their guilt though, and I determined that I should be judge, jury, and executioner all rolled into one."""
+242,"""You'd have done the same, if you have any manhood in you, if you had been in my place."""
+243,"""That girl that I spoke of was to have married me twenty years ago. She was forced into marrying that same Drebber, and broke her heart over it."""
+244,"""I took the marriage ring from her dead finger, and I vowed that his dying eyes should rest upon that very ring, and that his last thoughts should be of the crime for which he was punished."""
+245,"""I have carried it about with me, and have followed him and his accomplice over two continents until I caught them."""
+246,"""They thought to tire me out, but they could not do it. If I die tomorrow, as is likely enough, I die knowing that my work in this world is done, and well done."""
+247,"""They have perished, and by my hand."""
+248,"""There is nothing left for me to hope for, or to desire."""
+249,"""They were rich and I was poor, so that it was no easy matter for me to follow them."""
+250,"""When I got to London my pocket was about empty, and I found that I must turn my hand to something for my living."""
+251,"""Driving and riding are as natural to me as walking, so I applied at a cabowner's office, and soon got employment."""
+252,"""I was to bring a certain sum a week to the owner, and whatever was over that I might keep for myself."""
+253,"""There was seldom much over, but I managed to scrape along somehow."""
+254,"""The hardest job was to learn my way about, for I reckon that of all the mazes that ever were contrived, this city is the most confusing."""
+255,"""I had a map beside me though, and when once I had spotted the principal"
+256,quote
+257,'Drive me to Halliday's Private Hotel.'
+258,"""When I had him fairly inside my cab, my heart jumped so with joy that I feared lest at this last moment my aneurism might go wrong. I drove along slowly, weighing in my own mind what it was best to do. I might take him right out into the country, and there in some deserted lane have my last interview with him. I had almost decided upon this, when he solved the problem for me. The craze for drink had seized him again, and he ordered me to pull up outside a gin palace. He went in, leaving word that I should wait for him. There he remained until closing time, and when he came out he was so far gone that I knew the game was in my own hands."
+259,"""Don't imagine that I intended to kill him in cold blood. It would only have been rigid justice if I had done so, but I could not bring myself to do it. I had long determined that he should have a show for his life if he chose to take advantage of it. Among the many billets which I have filled in America during my wandering life, I was once janitor and sweeper out of the laboratory at York College. One day the professor was lecturing on poisons, and he showed his students some alkaloid, as he called it, which he had extracted from some South American arrow poison, and which was so powerful that the least grain meant instant death. I spotted the bottle in which this preparation was kept, and when they were all gone, I helped myself to a little of it. I was a fairly good dispenser, so I worked this alkaloid into small, soluble pills, and each pill I put in a box with a similar pill made without the poison. I determined at the time that when I had my chance, my gentlemen should each have a draw out of one of these boxes, while I ate the pill that remained. It would be quite as deadly, and a good deal less noisy than firing across a handkerchief. From that day I had always my pill boxes about with me, and the time had now come when I was to use them."
+260,"""It was nearer one than twelve, and a wild, bleak night, blowing hard and raining in torrents. Dismal as it was outside, I was glad within—so glad that I could have"
+261,quote
+262,That was how Enoch Drebber came to his end. All I had to do then was
+263,and so pay off John Ferrier's debt. I
+264,and I hung
+265,but he never came out. I fancy that he suspected
+266,"was Stangerson, and always on his guard. If he thought he"
+267,and early next
+268,and so made my way into his room in the grey of the
+269,and I gave him the same choice of the
+270,he sprang from his bed and flew at my throat. In
+271,for Providence would never have allowed his guilty hand
+272,"I have little more to say, and it's as well, for I am about done up."
+273,intending to keep at it until I
+274,and said that his cab was wanted by a gentleman at
+275,"Baker Street. I went round, suspecting no harm, and the next"
+276,"this young man here had the bracelets on my wrists, and"
+277,gentlemen. You may consider me to be a murderer; but I hold
+278,There is only one point on
+279,quote
+280,"And now came the great question as to the reason why. Robbery had not been the object of the murder, for nothing was taken. Was it politics, then, or was it a woman? That was the question which confronted me. I was inclined from the first to the latter supposition. Political assassins are only too glad to do their work and to fly. This murder had, on the contrary, been done most deliberately, and the perpetrator had left his tracks all over the room, showing that he had been there all the time. It must have been a private wrong, and not a political one, which called for such a methodical revenge. When the inscription was discovered upon the wall I was more inclined than ever to my opinion. The thing was too evidently a blind. When the ring was found, however, it settled the question. Clearly the murderer had used it to remind his victim of some dead or absent woman. It was at this point that I asked Gregson whether he had enquired in his telegram to Cleveland as to any particular point in Mr. Drebber's former career. He answered, you remember, in the negative."
+281,"I then proceeded to make a careful examination of the room, which confirmed me in my opinion as to the murderer's height, and furnished me with the additional details as to the Trichinopoly cigar and the length of his nails. I had already come to the conclusion, since there were no signs of a struggle, that the blood which covered the floor had burst from the murderer's nose in his excitement. I could perceive that the track of blood coincided with the track of his feet. It is seldom that any man, unless he is very full-blooded, breaks out in this way through emotion, so I hazarded the opinion that the criminal was probably a robust and ruddy-faced man. Events proved that I had judged correctly."
+282,"Having left the house, I proceeded to do what Gregson had neglected. I telegraphed to the head of the police at Cleveland, limiting my enquiry to the circumstances connected with the marriage of Enoch Drebber. The answer was conclusive. It told me that Drebber had already applied for the protection of the law against an old rival in love, named Jefferson Hope, and that this same Hope was at present in Europe. I knew now that I held the clue to the mystery in my hand, and all that remained was to secure the murderer."

@@ -1,0 +1,394 @@
+number,quote
+1,quote
+2,"""Well, Watson, what do you make of it?"""
+3,"""How did you know what I was doing? I believe you have eyes in the back of your head."""
+4,"""I have, at least, a well-polished, silver-plated coffee-pot in front of me,"""
+5,"""But, tell me, Watson, what do you make of our visitor's stick?"""
+6,"""I think that Dr. Mortimer is a successful, elderly medical man, well-esteemed since those who know him give him this mark of their appreciation."""
+7,"""Good!"""
+8,"""I think also that the probability is in favour of his being a country practitioner who does a great deal of his visiting on foot."""
+9,"""Why so?"""
+10,"""Because this stick, though originally a very handsome one has been so knocked about that I can hardly imagine a town practitioner carrying it."""
+11,"""Perfectly sound!"""
+12,"""And then again, there is the 'friends of the C.C.H.' I should guess that to be the Something Hunt, the local hunt to whose members he has possibly given some surgical assistance, and which has made him a small presentation in return."""
+13,"""Really, Watson, you excel yourself,"""
+14,"""I am bound to say that in all the accounts which you have been so good as to give of my own small achievements you have habitually underrated your own abilities."""
+15,"""It may be that you are not yourself luminous, but you are a conductor of light."""
+16,"""Some people without possessing genius have a remarkable power of stimulating it."""
+17,"""I confess, my dear fellow, that I am very much in your debt."""
+18,"""He had never said as much before, and I must admit that his words gave me keen pleasure, for I had often been piqued by his indifference to my admiration and to the attempts which I had made to give publicity to his methods."""
+19,"""I was proud, too, to think that I had so far mastered his system as to apply it in a way which earned his approval."""
+20,"""He now took the stick from my hands and examined it for a few minutes with his naked eyes."""
+21,"""Then with an expression of interest"
+22,"quote"""
+23,""""
+24,"dear, that's bad!"""
+25,"come, we are not so far wrong, after all,"""
+26,"this is my friend Dr. Watson."""
+27,"sir. I have heard your name mentioned in connection with that of your friend."""
+28,"Mr. Holmes."""
+29,"I perceive, sir, as I am in mine,"""
+30,"sir, that it was not merely for the purpose of examining my skull that you have done me the honour to call here last night and again to-day?"""
+31,""""
+32,"Dr. Mortimer, you would do wisely if without more ado you would kindly tell me plainly what the exact nature of the problem is in which you demand my assistance."""
+33,quote
+34,"Those are the public facts, Mr. Holmes, in connection with the death of Sir Charles Baskerville."
+35,"In doing so, I am telling that which I have not confided to anyone."
+36,"For both these reasons I thought that I was justified in telling rather less than I knew, since no practical good could result from it, but with you there is no reason why I should not be perfectly frank."
+37,Within the last few months it became increasingly plain to me that Sir Charles's nervous system was strained to the breaking point.
+38,I can well remember driving up to his house in the evening some three weeks before the fatal event.
+39,It was at my advice that Sir Charles was about to go to London.
+40,"On the night of Sir Charles's death Barrymore the butler, who made the discovery, sent Perkins the groom on horseback to me, and as I was sitting up late I was able to reach Baskerville Hall within an hour of the event."
+41,"I did find some characters speaking about Poirot, such as:"
+42,"Watson, after our own heart."""
+43,"saying ""I assure you that there is a reign of terror in the district, and that it is a hardy man who will cross the moor at night."""
+44,quote
+45,"""You put the matter more flippantly, Mr. Holmes, than you would"
+46,"""I recommend, sir, that you take a cab, call off your spaniel who is"
+47,and proceed to Waterloo to meet Sir
+48,"""And then?"""
+49,"""And then you will say nothing to him at all until I have made up my"
+50,"""How long will it take you to make up your mind?"""
+51,"""Twenty-four hours. At ten o'clock to-morrow, Dr. Mortimer, I will be"
+52,and it will be of
+53,"""Only one more question, Dr. Mortimer. You say that before Sir"
+54,"""Did any see it after?"""
+55,"""The devil's agents may be of flesh and blood, may they not? There"
+56,what is the crime
+57,"""Have you turned the case over in your mind?"""
+58,"""What do you make of it?"""
+59,"""He was running, Watson--running desperately, running for his life,"
+60,"""There lies our problem. There are indications that the man was"
+61,"""I am presuming that the cause of his fears came to him across the"
+62,"and it seems most probable, only a man who had"
+63,quote
+64,How in the world can you say that?
+65,If you examine it carefully you will see that both the pen and the ink have given the writer trouble.
+66,"If you have never worn them, why did you put them out to be cleaned?"
+67,It seems a singularly useless thing to steal.
+68,Your request is a very reasonable one.
+69,"If you have never worn them, why did you put them out to be cleaned?"
+70,It seems to show that someone knows more than we do about what goes on upon the moor.
+71,"And also, that someone is not ill-disposed towards you, since they warn you of danger."
+72,"Well, of course, that is possible also."
+73,There seems to be danger.
+74,"Well, that is what we have to find out."
+75,"Whichever it is, my answer is fixed."
+76,"Meanwhile, I have hardly had time to think over all that you have told me."
+77,"Is that convenient to you, Watson?"
+78,Then you may expect us.
+79,"Then we meet again at two o'clock. Au revoir, and good-morning!"
+80,"Your hat and boots, Watson, quick! Not a moment to lose!"
+81,Shall I run on and stop them?
+82,"Not for the world, my dear Watson. I am perfectly satisfied with your company if you will tolerate mine."
+83,quote
+84,"""And you will report very carefully to me, When a crisis comes, as it will do, I will direct how you shall act. I suppose that by Saturday all might be ready?"""
+85,"""There go two of my threads, Watson. There is nothing more stimulating than a case where everything goes against you. We must cast round for another scent."""
+86,"""We have still the cabman who drove the spy."""
+87,"""Exactly. I have wired to get his name and address from the Official Registry. I should not be surprised if this were an answer to my question."""
+88,"""I have nothing in the world against you, my good man, On the contrary, I have half a sovereign for you if you will give me a clear answer to my questions."""
+89,"""Well, I've had a good day and no mistake, What was it you wanted to ask, sir?"""
+90,"""First of all your name and address, in case I want you again."""
+91,"""John Clayton, 3 Turpey Street, the Borough. My cab is out of Shipley's Yard, near Waterloo Station."""
+92,"""Now, Clayton, tell me all about the fare who came and watched this house at ten o'clock this morning and afterwards followed the two gentlemen down Regent Street."""
+93,"""My good fellow, this is a very serious business, and you may find yourself in a pretty bad position if you try to hide anything from me. You say that your fare told you that he was a detective?"""
+94,"""When did he say this?"""
+95,"""Did he say anything more?"""
+96,"""He mentioned his name."""
+97,"""A touch, Watson--an undeniable touch! I feel a foil as quick and supple as my own. He got home upon me very prettily that time. So his name was Sherlock Holmes, was it?"""
+98,"""Excellent! Tell me where you picked him up and all that occurred."""
+99,"""This very door, said he."""
+100,"""Well, I couldn't be sure of that, but I dare say my fare knew all about it. We pulled up half-way down the street and waited an hour and a half. Then the two gentlemen passed us, walking, and we followed down Baker Street and along—"""
+101,"""I know, Until we got three-quarters down Regent Street."
+102,quote
+103,"""I will not bias your mind by suggesting theories or suspicions,"
+104,""" said he; ""I wish you simply to report facts in the fullest"
+105,"and you can leave me to do the theorizing."""
+106,"""What sort of facts?"" I asked."
+107,"""Anything which may seem to have a bearing however indirect upon the"
+108,and especially the relations between young Baskerville and his
+109,but
+110,"I fear, been negative. One thing only appears to be"
+111,"and that is that Mr. James Desmond, who is the next heir, is"
+112,so that this
+113,"""By no means. You could not make a greater mistake. If they are"
+114,and if they are guilty we
+115,"no,"
+116,if I remember right. There are two moorland
+117,whom I believe to be
+118,"and there is his wife, of whom we know nothing."
+119,"Stapleton, and there is his sister, who is"
+120,of
+121,"who is also an unknown factor, and there are one or two"
+122,"""I will do my best."""
+123,"""You have arms, I suppose?"""
+124,"""Most certainly. Keep your revolver near you night and day, and never"
+125,"""No, we have no news of any kind,"" said Dr. Mortimer in answer to my"
+126,and that is that we
+127,quote
+128,quote
+129,None
+130,quote
+131,None
+132,
+133,"I am sure, excuse my presumption, Dr. Watson,"""
+134,""""
+135,"and he pointed you out to me from the window of his surgery as you passed. As our road lay the same way I thought that I would overtake you and introduce myself. I trust that Sir Henry is none the worse for his journey?"""
+136,"thank you."""
+137,"but I need not tell you that it means a very great deal to the country-side. Sir Henry has, I suppose, no superstitious fears in the matter?"""
+138,"but I seemed to read in his eyes that he took the matter more seriously. ""The story took a great hold upon the imagination of Sir Charles, and I have no doubt that it led to his tragic end."""
+139,"for I was very fond of the old man, and I knew that his heart was weak."""
+140,"then, that some dog pursued Sir Charles, and that he died of fright in consequence?"""
+141,but a glance at the placid face and steadfast eyes of my companion showed that no surprise was intended.
+142,"Dr. Watson,"" said he. ""The records of your detective have reached us here,"
+143,quote
+144,"""You are an educated man. You don't believe such nonsense as that?"""
+145,"""What do you think is the cause of so strange a sound?"""
+146,"""No, no, that was a living voice."""
+147,"""Well, perhaps it was. Did you ever hear a bittern booming?"""
+148,"""No, I never did."""
+149,"""It's the weirdest, strangest thing that ever I heard in my life."""
+150,"""Yes, it's rather an uncanny place altogether. Look at the hill-side yonder. What do you make of those?"""
+151,"""What are they? Sheep-pens?"""
+152,"""No, they are the homes of our worthy ancestors. Prehistoric man lived thickly on the moor, and as no one in particular has lived there since, we find all his little arrangements exactly as he left them. These are his wigwams with the roofs off. You can even see his hearth and his couch if you have the curiosity to go inside."""
+153,"""But it is quite a town. When was it inhabited?"""
+154,"""Neolithic man--no date."""
+155,"""What did he do?"""
+156,"""He grazed his cattle on these slopes, and he learned to dig for tin when the bronze sword began to supersede the stone axe. Look at the great trench in the opposite hill. That is his mark. Yes, you will find some very singular points about the moor, Dr. Watson. Oh, excuse me an instant! It is surely Cyclopides."""
+157,"""A small fly or moth had fluttered across our path, and in an instant Stapleton was rushing with extraordinary energy and speed in pursuit of it. To my dismay the creature flew straight for the great mire, and my acquaintance never paused for an instant, bounding from tuft to tuft behind it, his green net waving in the air. His gray clothes and jerky, zigzag, irregular progress made him not unlike some huge moth himself. I was standing watching his pursuit with a mixture of admiration for his extraordinary activity and fear lest he should lose his footing in the treacherous mire, when I heard the sound of steps, and turning round found a woman near me upon the path. She had come from the direction in which the plume of smoke indicated the position"
+158,actually. Poirot is not present in the provided text. The characters present in the text are:
+159,quote
+160,Did the boy deliver it into your own hands?
+161,"No; I was in the box-room at the time, and my wife brought it up to me."
+162,Did you answer it yourself?
+163,No; I told my wife what to answer and she went down to write it.
+164,"and there is also a character named Sir Henry, but he is not Poirot."
+165,quote
+166,"""He must have been holding it as a signal,"" said I. ""Let us see if there is any answer."" I held it as he had done, and stared out into the darkness of the night. Vaguely I could discern the black bank of the trees and the lighter expanse of the moor, for the moon was behind the clouds. And then I gave a cry of exultation, for a tiny pin-point of yellow light had suddenly transfixed the dark veil, and glowed steadily in the centre of the black square framed by the window."
+167,"""There it is!"" I cried."
+168,"""Move your light across the window, Watson!"" cried the baronet. ""See, the other moves also! Now, you rascal, do you deny that it is a signal? Come, speak up! Who is your confederate out yonder, and what is this conspiracy that is going on?"""
+169,"""quote"""
+170,"""No, no."""
+171,"""How about that hour of darkness in which the power of evil is exalted?"""
+172,"""Yes, Sir Henry. Every word of it."""
+173,"""My husband thought he would be safer on the moor than anywhere else until the hue and cry was over, so he lay in hiding there."""
+174,"""But every second night we made sure if he was still there by putting a light in the window, and if there was an answer my husband took out some bread and meat to him."""
+175,"""Every day we hoped that he was gone, but as long as he was there we could not desert him. That is the whole truth, as I am an honest Christian woman, and you will see that if there is blame in the matter it does not lie with my husband, but with me, for whose sake he has done all that he has."""
+176,"""Is this true, Barrymore?"""
+177,"""Yes, Sir Henry. Every word of it."""
+178,"""Forget what I have said. Go to your room, you two, and we shall talk further about this matter in the morning."""
+179,"""I will come."""
+180,"""Then get your revolver and put on your boots. The sooner we start the better, as the fellow may put out his light and be off."""
+181,"""Are you armed?"""
+182,"""I have a hunting-crop."""
+183,"""We must close in on him rapidly, for he is said to be a desperate fellow. We shall take him by surprise and have him at our mercy before he can resist."""
+184,"""I say, Watson, what would Holmes say to this?"""
+185,"""A hound it was, but it seemed to come from miles away, over yonder, I think."""
+186,"""It rose and fell with the wind. Isn't that the direction of the great Grimpen Mire?"""
+187,"""Well, it was up there. Come now, Watson, didn't you think yourself that it was the cry of a hound?"""
+188,"""Stapleton was with me when I heard it last. He said that it might be the calling of a strange bird."""
+189,"""No, no, it was a hound. My God, can there be"
+190,quote
+191,You'll be all right to-morrow.
+192,I don't think I'll get that cry out of my head. What do you advise that we do now?
+193,Shall we turn back?
+194,"No, by thunder; we have come out to get our man, and we will do it."
+195,"We after the convict, and a hell-hound, as likely as not, after us."
+196,Come on! We'll see it through if all the fiends of the pit were loose upon the moor.
+197,What shall we do now?
+198,Wait here. He must be near his light. Let us see if we can get a glimpse of him.
+199,You'll be all right to-morrow.
+200,I don't think I'll get that cry out of my head.
+201,"A warder, no doubt."
+202,The moor has been thick with them since this fellow escaped.
+203,quote
+204,"""It is true that I have had only the one glance at him, and yet there are some things to which I am ready to swear. He is no one whom I have seen down here, and I have now met all the neighbours. The figure was far taller than that of Stapleton, far thinner than that of Frankland. Barrymore it might possibly have been, but we had left him behind us, and I am certain that he could not have followed us. A stranger then is still dogging us, just as a stranger dogged us in London. We have never shaken him off. If I could lay my hands upon that man, then at last we might find ourselves at the end of all our difficulties. To this one purpose I must now devote all my energies."""
+205,"""My first impulse was to tell Sir Henry all my plans. My second and wisest one is to play my own game and speak as little as possible to anyone. He is silent and distrait. His nerves have been strangely shaken by that sound upon the moor. I will say nothing to add to his anxieties, but I will take my own steps to attain my own end."""
+206,"""I guess we are aiding and abetting a felony, Watson? But, after what we have heard I don't feel as if I could give the man up, so there is an end of it. All right, Barrymore, you can go."""
+207,"""Well, Barrymore--God bless you, sir, and thank you from my heart! It would have killed my poor wife had he been taken again."""
+208,quote
+209,"We were both of us very fond of Sir Charles, as we well might be considering all that he has done for us."
+210,"To rake this up couldn't help our poor master, and it's well to go carefully when there's a lady in the case."
+211,"Well, sir, I thought no good could come of it."
+212,"But now you have been kind to us, and I feel as if it would be treating you unfairly not to tell you all that I know about the matter."
+213,Even the best of us--
+214,You thought it might injure his reputation?
+215,"Well, sir, I thought no good could come of it."
+216,"Now you have been kind to us, and I feel as if it would be treating you unfairly not to tell you all that I know about the matter."
+217,"It's all these goings-on, sir."
+218,quote
+219,"il faut agir vite!"""
+220,quote
+221,"""You acknowledge now that you wrote it?"""
+222,"""Yes, I did write it."""
+223,"""But why at such an hour?"""
+224,"""Do you think a woman could go alone at that hour to a bachelor's house?"""
+225,"""Well, what happened when you did get there?"""
+226,"""I never went."""
+227,"""Mrs. Lyons!"""
+228,"""You acknowledge then that you made an appointment with Sir Charles at the very hour and place at which he met his death, but you deny that you kept the appointment."""
+229,"""That is the truth."""
+230,"""Mrs. Lyons,"" said I, as I rose from this long and inconclusive interview, ""you are taking a very great responsibility and putting yourself in a very false position by not making an absolutely clean breast of all that you know."""
+231,"""Because I feared that some false conclusion might be drawn from it and that I might find myself involved in a scandal."""
+232,"""And why were you so pressing that Sir Charles should destroy your letter?"""
+233,"""The matter is a very private one."""
+234,"""The more reason why you should avoid a public investigation."""
+235,"""I will tell you, then. If you have heard anything of my unhappy history you will know that I made a rash marriage and had reason to regret it."""
+236,"""My life has been one incessant persecution from a husband whom I abhor. The law is upon his side, and every day I am faced by the possibility that he may force me to live with him."""
+237,"""At the time that I wrote this letter to Sir Charles I had learned that there was a prospect of my regaining my freedom if certain expenses could be met."""
+238,"""It meant everything to me--peace of mind, happiness, self-respect--everything."""
+239,"""Because I received help in the interval from another source."""
+240,"""So I should have done had I not seen his death in the paper next morning."""
+241,"""You acknowledge then that you made an appointment with Sir Charles at the very hour and place at which he met his death, but you deny that you kept the appointment."""
+242,"""That is the truth"
+243,"quote"""
+244,"quick, before he passes over the hill!"""
+245,"sir, come! You will see with your own eyes and judge for yourself."""
+246,"instead of my effigy, which these rascals burned at the stake. Surely you are not going! You will help me to empty the decanter in honour of this great occasion!"""
+247,quote
+248,"""It is a lovely evening, my dear Watson,"""
+249,"""Come out,"" said he, ""and please be careful with the revolver."""
+250,"""The surprise was not all on one side, I assure you. I had no idea"
+251,still less that you were
+252,"until I was within twenty paces of the door."""
+253,"""My footprint, I presume?"""
+254,"""No, Watson; I fear that I could not undertake to recognize your"
+255,"Oxford Street, I know that my"
+256,"no doubt, at that supreme moment when"
+257,"""Excellent, Watson! And how did you localize me? You saw me, perhaps,"
+258,when I was so imprudent as to allow
+259,"""And have no doubt searched all the huts until you came to this one?"""
+260,"""The old gentleman with the telescope, no doubt. I could not make it"
+261,"""Ha, I see that Cartwright has brought up some supplies. What's this"
+262,"have you?"""
+263,"""To see Mrs. Laura Lyons?"""
+264,"""Well done! Our researches have evidently been running on parallel"
+265,and when we unite our results I expect we shall have a fairly
+266,"""That was what I wished you to think."""
+267,"""Then you use me, and yet do not trust me!"""
+268,"""My dear fellow, you have been invaluable to me in this as in many"
+269,and I beg that you will forgive me if I have seemed to
+270,it was partly for your own sake that
+271,and it was my appreciation of the danger which you ran
+272,quote
+273,"""That's better,"""
+274,"""And now tell me the result of your visit to Mrs. Laura Lyons--it was not difficult for me to guess that it was to see her that you had gone,"""
+275,"""In fact, if you had not gone to-day it is exceedingly probable that I should have gone to-morrow."""
+276,"""This is most important,"""
+277,"""There can be no doubt about the matter. They meet, they write, there is a complete understanding between them. Now, this puts a very powerful weapon into our hands."""
+278,"""I am giving you some information now, in return for all that you have given me. The lady who has passed here as Miss Stapleton is in reality his wife."""
+279,"""Sir Henry's falling in love could do no harm to anyone except Sir Henry. He took particular care that Sir Henry did not make love to her, as you have yourself observed."""
+280,"""Because he foresaw that she would be very much more useful to him in the character of a free woman."""
+281,"""It is he, then, who is our enemy--it is he who dogged us in London?"""
+282,"""So I read the riddle."""
+283,"""And the warning--it must have come from her!"""
+284,"""Because he so far forgot himself as to tell you a true piece of autobiography upon the occasion when he first met you, and I dare say he has many a time regretted it since."""
+285,"""He was once a schoolmaster in the north of England. Now, there is no one more easy to trace than a schoolmaster. There are scholastic agencies by which one may identify any man who has been in the profession."""
+286,"""A little investigation showed me that a school had come to grief under atrocious circumstances, and that the man who had owned it--the name was different--had disappeared with his wife."""
+287,"""The descriptions agreed. When I learned that the missing man was devoted to entomology the identification was complete."""
+288,"""If this woman is in truth his wife, where does Mrs. Laura Lyons come in?"""
+289,"""That is one of the points upon which your own researches have shed a light. Your interview with the lady has cleared the situation very much."""
+290,"""And when she is undeceived?"""
+291,"""Why"
+292,quote
+293,"and not legends or rumours. It has not been a satisfactory case."""
+294,""" said Holmes as we walked together across the moor. ""What a nerve the fellow has! How he pulled himself together in the face of what must have been a paralyzing shock when he found that the wrong man had fallen a victim to his plot. I told you in London, Watson, and I tell you now again, that we have never had a foeman more worthy of our steel."""
+295,"or it may drive him to desperate measures at once. Like most clever criminals, he may be too confident in his own cleverness and imagine that he has completely deceived us."""
+296,"you were born to be a man of action. Your instinct is always to do something energetic. But supposing, for argument's sake, that we had him arrested to-night, what on earth the better off should we be for that? We could prove nothing against him. There's the devilish cunning of it! If he were acting through a human agent we could get some evidence, but if we were to drag this great dog to the light of day it would not help us in putting a rope round the neck of its master."""
+297,"and we know also what frightened him; but how are we to get twelve stolid jurymen to know it? What signs are there of a hound? Where are the marks of its fangs? Of course we know that a hound does not bite a dead body and that Sir Charles was dead before ever the brute overtook him. But we have to prove all this, and we are not in a position to do it."""
+298,"then, to-night?"""
+299,there
+300,quote
+301,"""Do you see anything there?"""
+302,"""There is something of Sir Henry about the jaw."""
+303,"""Just a suggestion, perhaps. But wait an instant!"""
+304,"""Good heavens! I cried, in amazement."""
+305,"""Ha, you see it now. My eyes have been trained to examine faces and not their trimmings. It is the first quality of a criminal investigator that he should see through a disguise."""
+306,"""But this is marvellous. It might be his portrait."""
+307,"""Yes, it is an interesting instance of a throwback, which appears to be both physical and spiritual. A study of family portraits is enough to convert a man to the doctrine of reincarnation. The fellow is a Baskerville--that is evident."""
+308,"""With designs upon the succession."""
+309,"""Exactly. This chance of the picture has supplied us with one of our most obvious missing links. We have him, Watson, we have him, and I dare swear that before to-morrow night he will be fluttering in our net as helpless as one of his own butterflies. A pin, a cork, and a card, and we add him to the Baker Street collection!"""
+310,"""I have sent a report from Grimpen to Princetown as to the death of Selden. I think I can promise that none of you will be troubled in the matter. And I have also communicated with my faithful Cartwright, who would certainly have pined away at the door of my hut, as a dog does at his master's grave, if I had not set his mind at rest about my safety."""
+311,"""What is the next move?"""
+312,"""To see Sir Henry. Ah, here he is!"""
+313,"""Good morning, Holmes,"" said the baronet. ""You look like a general who is planning a battle with his chief of the staff."""
+314,"""That is the exact situation. Watson was asking for orders."""
+315,"""And so do I."""
+316,"""Very good. You are engaged, as I understand, to dine with our friends the Stapletons to-night."""
+317,"""I hope that you will come also. They are very hospitable people, and I am sure that they would be very glad to see you."""
+318,"""I fear"
+319,but he does not speak in the given passage.
+320,quote
+321,"As long as I have my trousers I have a hip-pocket, and as long as I have my hip-pocket I have something in it."
+322,"You're mighty close about this affair, Mr. Holmes. What's the game now?"
+323,A waiting game.
+324,"My word, it does not seem a very cheerful place,"" said the detective with a shiver, glancing round him at the gloomy slopes of the hill and at the huge lake of fog which lay over the Grimpen Mire. ""I see the lights of a house ahead of us."
+325,That is Merripit House and the end of our journey. I must request you to walk on tiptoe and not to talk above a whisper.
+326,"This will do,"" said he. ""These rocks upon the right make an admirable screen."""
+327,We are to wait here?
+328,"Yes, we shall make our little ambush here. Get into this hollow, Lestrade. You have been inside the house, have you not, Watson? Can you tell the position of the rooms? What are those latticed windows at this end?"
+329,"And the one beyond, which shines so brightly?"
+330,The blinds are up. You know the lie of the land best. Creep forward quietly and see what they are doing--but for heaven's sake don't let them know that they are watched!
+331,"You say, Watson, that the lady is not there?"
+332,"Where can she be, then, since there is no light in any other room except the kitchen?"
+333,"We are going too far,"" said Holmes. ""We dare not take the chance of his being overtaken before he can reach us. At all costs we must hold our ground where we are."
+334,"Thank God, I think that I hear him coming."
+335,"Hist!"" cried Holmes, and I heard the sharp click of a cocking pistol. ""Look out! It's coming!"""
+336,I can extract the dialogue lines spoken by other characters as per the provided output format:
+337,quote
+338,"""We've laid the family ghost once and forever."""
+339,""""
+340,""""
+341,"if you will help me up. What do you propose to do?"""
+342,"and every moment is of importance. We have our case, and now we only want our man."""
+343,""""
+344,"and this fog may have deadened them."""
+345,"no, he's gone by this time! But we'll search the house and make sure."""
+346,""""
+347,"we all three rushed into the room."""
+348,"ill-usage, solitude, a life of deception, everything, as long as I could still cling to the hope that I had his love, but now I know that in this also I have been his dupe and his tool."""
+349,"madam,"""
+350,""""
+351,""""
+352,"but never out,"""
+353,"if I could only have plucked them out to-day. Then indeed you would have had him at your mercy!"""
+354,quote
+355,"Toronto, it is worth a mud bath."
+356,"still clutching it. And he hurled it away at this point of his flight. We know at least that he came so far in safety."""
+357,"though there was much which we might surmise. There was no chance of finding footsteps in the mire, for the rising mud oozed swiftly in upon them, but as we at last reached firmer ground beyond the morass we all looked eagerly for them. But no slightest sign of them ever met our eyes. If the earth told a true story, then Stapleton never reached that island of refuge towards which he struggled through the fog upon that last night. Somewhere in the heart of the great Grimpen Mire, down in the foul slime of the huge morass which had sucked him in, this cold and cruel-hearted man is forever buried."""
+358,"a curly-haired spaniel. Poor Mortimer will never see his pet again. Well, I do not know that this place contains any secret which we have not already fathomed. He could hide his hound, but he could not hush its voice, and hence came those cries which even in daylight were not pleasant to hear. On an emergency he could keep the hound in the out-house at Merripit, but it was always a risk, and it was only on the supreme day, which he regarded as the end of all his efforts, that he dared do it. This paste in the tin is no doubt the luminous mixture with which the creature was daubed. It was suggested, of course, by the story of the family hell-hound, and by the desire to frighten old Sir Charles to death. No wonder the poor devil of a convict ran and screamed, even as our friend did, and as we ourselves might have done, when he saw such a creature bounding through the darkness of the moor upon his track. It was a cunning device, for, apart from the chance of driving your victim to his death, what peasant would venture to inquire too closely into such a creature should he get sight of it, as many have done, upon the moor? I said it in London, Watson, and"
+359,"quote"""
+360,the narrator does refer to Poirot and describes his thoughts and observations. Here is a list of references to Poirot:
+361,"who had conceived a friendship for him, made him the minister of his charity in the case of this unfortunate woman, Mrs. Laura Lyons."""
+362,"and he was told by the latter all details about the arrival of Henry Baskerville."""
+363,"as we know, she adopted the expedient of cutting out the words which would form the message, and addressing the letter in a disguised hand."""
+364,"in case he was driven to use the dog, he"""
+365,"the last line is not a direct quote from Poirot, but rather a statement by the narrator."
+366,"I can provide a list of all the instances where Poirot is mentioned or referenced in the text, but without any direct quotes."
+367,formatted as a CSV output:
+368,"quote"""
+369,"""One moment!"""
+370,"""I have given some attention to this matter and it is undoubtedly of importance. There can be no question that Stapleton had a confidant, though it is unlikely that he ever placed himself in his power by sharing all his plans with him."""
+371,"""I deceived everybody, therefore, yourself included, and I came down secretly when I was supposed to be in London."""
+372,"""My hardships were not so great as you imagined, though such trifling details must never interfere with the investigation of a case."""
+373,"""I stayed for the most part at Coombe Tracey, and only used the hut upon the moor when it was necessary to be near the scene of action."""
+374,"""Cartwright had come down with me, and in his disguise as a country boy he was of great assistance to me."""
+375,"""I was dependent upon him for food and clean linen."""
+376,"""I have already told you that your reports reached me rapidly, being forwarded instantly from Baker Street to Coombe Tracey."""
+377,"""They were of great service to me, and especially that one incidentally truthful piece of biography of Stapleton's."""
+378,"""I was able to establish the identity of the man and the woman and knew at last exactly how I stood."""
+379,"""The case had been considerably complicated through the incident of the escaped convict and the relations between him and the Barrymores."""
+380,"""This also you cleared up in a very effective way, though I had already come to the same conclusions from my own observations."""
+381,"""By the time that you discovered me upon the moor I had a complete knowledge of the whole business, but I had not a case which could go to a jury."""
+382,"""Even Stapleton's attempt upon Sir Henry that night which ended in the death of the unfortunate convict did not help us much in proving murder against our man."""
+383,"""There seemed to be no alternative but to catch him red-handed, and to do so we had to use Sir Henry, alone and"
+384,"""quote"""
+385,"""He could not hope to frighten Sir Henry to death as he had done the old uncle with his bogie hound."""
+386,"""The beast was savage and half-starved. If its appearance did not frighten its victim to death, at least it would paralyze the resistance which might be offered."""
+387,"""No doubt. There only remains one difficulty. If Stapleton came into the succession, how could he explain the fact that he, the heir, had been living unannounced under another name so close to the property?"""
+388,"""It is a formidable difficulty, and I fear that you ask too much when you expect me to solve it. The past and the present are within the field of my inquiry, but what a man may do in the future is a hard question to answer."""
+389,"""Mrs. Stapleton has heard her husband discuss the problem on several occasions. There were three possible courses. He might claim the property from South America, establish his identity before the British authorities there and so obtain the fortune without ever coming to England at all; or he might adopt an elaborate disguise during the short time that he need be in London; or, again, he might furnish an accomplice with the proofs and papers, putting him in as heir, and retaining a claim upon some proportion of his income."""
+390,"""We cannot doubt from what we know of him that he would have found some way out of the difficulty."""
+391,"""And now, my dear Watson, we have had some weeks of severe work, and for one evening, I think, we may turn our thoughts into more pleasant channels."""
+392,"""I have a box for 'Les Huguenots.' Have you heard the De Reszkes?"""
+393,"""Might I trouble you then to be ready in half an hour, and we can stop at Marcini's for a little dinner on the way?"""
