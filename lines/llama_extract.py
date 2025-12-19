@@ -11,7 +11,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from llm_config import get_llama_llm
 
 # === 1. Parameters ===
-ROLE = "marple" # Change to "poirot" or "marple" or "holmes" per run
+ROLE = "japp" # Change to "poirot" or "marple" or "holmes" per run
 INPUT_DIR = f"_novels/{ROLE}"
 OUTPUT_DIR = f"lines/llm_data/{ROLE}"  # << change directory structure
 
