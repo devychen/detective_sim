@@ -11,7 +11,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from llm_config import get_llama_llm
 
 # === 1. Parameters ===
-ROLE = "japp" # Change to "poirot" or "marple" or "holmes" per run
+ROLE = "holmes" # Change to "poirot" or "marple" or "holmes" per run
 INPUT_DIR = f"_novels/{ROLE}"
 OUTPUT_DIR = f"lines/llm_data/{ROLE}"  # << change directory structure
 
@@ -26,9 +26,8 @@ Requirements:
 - Keep the original text exactly as in the novel.
 - Do NOT create or invent quotes.
 - Do NOT output unrelated text.
-- Do NOT guess speaker identity.
+- Do NOT guess speaker identity. If speaker is unclear, do NOT output the quote.
 - Only output quotes that are explicitly spoken.
-- If speaker is unclear, do NOT output the quote.
 
 Text:
 {{text}}

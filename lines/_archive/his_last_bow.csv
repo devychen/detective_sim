@@ -1,0 +1,591 @@
+number,quote
+1,"""Quote"""
+2,"""I suppose, Watson, we must look upon you as a man of letters. How do you define the word 'grotesque'?"""
+3,"""There is surely something more than that,"" said he; ""some underlying suggestion of the tragic and the terrible.  If you cast your mind back to some of those narratives with which you have afflicted a long-suffering public, you will recognize how often the grotesque has deepened into the criminal.  Think of that little affair of the red-headed men.  That was grotesque enough in the outset, and yet it ended in a desperate attempt at robbery.  Or, again, there was that most grotesque affair of the five orange pips, which let straight to a murderous conspiracy. The word puts me on the alert."""
+4,"""Have you it there?"""
+5,"""Man or woman?"" I asked."
+6,"""Oh, man, of course. No woman would ever send a reply-paid telegram. She would have come."""
+7,"""My dear Watson, you know how bored I have been since we locked up Colonel Carruthers. My mind is like a racing engine, tearing itself to pieces because it is not connected up with the work for which it was built. Life is commonplace, the papers are sterile; audacity and romance seem to have passed forever from the criminal world. Can you ask me, then, whether I am ready to look into any new problem, however trivial it may prove? But here, unless I am mistaken, is our client."""
+8,"""Come, come, sir,"" said Holmes, laughing. ""You are like my friend, Dr. Watson, who has a bad habit of telling his stories wrong end foremost. Please arrange your thoughts and let me know, in their due sequence, exactly what those events are which have sent you out unbrushed and unkempt, with dress boots and waistcoat buttoned awry, in search of advice and assistance."""
+9,"""Out come the official notebook."""
+10,"""Wait a bit, Gregson,"" said Sherlock Holmes. ""All you desire is a plain statement, is it not?"""
+11,quote
+12,"""In some way we struck up quite a friendship, this young fellow and I. He seemed to take a fancy to me from the first, and within two days of our meeting he came to see me at Lee. One thing led to another, and it ended in his inviting me out to spend a few days at his house, Wisteria Lodge, between Esher and Oxshott. Yesterday evening I went to Esher to fulfil this engagement."""
+13,"""He had described his household to me before I went there. He lived with a faithful servant, a countryman of his own, who looked after all his needs. This fellow could speak English and did his housekeeping for him. Then there was a wonderful cook, he said, a half-breed whom he had picked up in his travels, who could serve an excellent dinner. I remember that he remarked what a queer household it was to find in the heart of Surrey, and that I agreed with him, though it has proved a good deal queerer than I thought."""
+14,"""I drove to the place--about two miles on the south side of Esher. The house was a fair-sized one, standing back from the road, with a curving drive which was banked with high evergreen shrubs. It was an old, tumbledown building in a crazy state of disrepair. When the trap pulled up on the grass-grown drive in front of the blotched and weather-stained door, I had doubts as to my wisdom in visiting a man whom I knew so slightly. He opened the door himself, however, and greeted me with a great show of cordiality. I was handed over to the manservant, a melancholy, swarthy individual, who led the way, my bag in his hand, to my bedroom. The whole place was depressing. Our dinner was tête-à-tête, and though my host did his best to be entertaining, his thoughts seemed to continually wander, and he talked so vaguely and wildly that I could hardly understand him. He continually drummed his fingers on the table, gnawed his nails, and gave other signs of nervous impatience. The dinner itself was neither well served nor well cooked, and the gloomy presence of the taciturn servant did not help to enliven us. I can assure you that many times in the course of the evening I wished that I could invent some excuse which would take me back to Lee"
+15,quote
+16,"I am glad you found the note, since it corroborates my story"
+17,But I beg to point out that I have not yet heard what has
+18,"As to Garcia, that is easily answered. He was found"
+19,"No, there was no attempt at robbery"
+20,This is very painful--very painful and terrible
+21,"Very simply, sir, The only document found in the"
+22,"Certainly, I will come at once. But I retain your services, Mr."
+23,"I suppose that you have no objection to my collaborating with you,"
+24,"Highly honoured, sir, I am sure"
+25,You appear to have been very prompt and businesslike in all that you
+26,"But that is perfectly impossible, Mr. Baynes"
+27,"On the face of it the case is not a very complex one, though it"
+28,"There were, one or two very remarkable things. Perhaps"
+29,In am entirely at your service
+30,"Well, Watson, what do you make of it?"
+31,I can make nothing of this mystification of Scott Eccles
+32,That is certainly a possible point of view
+33,Then why did they fly
+34,Quite so. Why did they fly? There is a big fact
+35,"Now, my dear Watson, is it beyond the limits of human ingenuity to furnish an"
+36,"You must admit, my dear Watson, that the idea of a joke is"
+37,But what possible connection
+38,Let us take it link by link
+39,"He is the very type of conventional British respectability, and the very man as a witness to"
+40,But what was he to witness
+41,"Nothing, as things turned out, but everything had they gone another"
+42,"Exactly, my dear Watson; he might have proved an alibi"
+43,"We will suppose, for argument's sake, that the household of Wisteria Lodge"
+44,Here was this irreproachable Englishman ready to swear in any court of law that the accused was in the house all the time
+45,"Yes, yes,"
+46,quote
+47,"""We are moving in exalted circles,"""
+48,"""This is a very obvious way of limiting our field of operations,"""
+49,"""I don't quite understand."""
+50,"""Well, my dear fellow, we have already arrived at the conclusion that"
+51,"""Now, if the obvious reading of it is correct, and in order to keep the"
+52,"it is perfectly clear that the house is a very large one."""
+53,"""It is equally certain that this house cannot be more than a mile or two from Oxshott, since Garcia was walking in that"
+54,"according to my reading of the facts, to be back"
+55,which would
+56,"""As the number of large houses close to Oxshott must be limited, I adopted"
+57,"""Here they are in this telegram, and the other end of our tangled"
+58,"""It was just about two hours ago."""
+59,"""Tut, tut, Walters."""
+60,"""If I didn't know you were a good man, Walters, I should put a black"
+61,"""Yes,"""
+62,"""A number twelve shoe, I should say."""
+63,"""He seems to have broken through the shrubbery and made for the"
+64,"""Most interesting! It is really a very curious case."""
+65,"""I must congratulate you, Inspector, on handling so distinctive and"
+66,"""Your powers, if I may say so without offence, seem superior to your"
+67,formatted as CSV:
+68,quote
+69,By Jove! You don't mean that Baynes has got him?
+70,"You're very kind, Mr. Holmes."
+71,"Oh, very good; don't blame me."
+72,Let us say no more about it.
+73,You're welcome always to my news.
+74,And you think you have evidence that he murdered his late master?
+75,"Can't make the man out. He seems to be riding for a fall. Well, as he says, we must each try our own way and see what comes of it. But there's something in Inspector Baynes which I can't quite understand."
+76,"Just sit down in that chair, Watson; I want to put you in touch with the situation, as I may need your help to-night."
+77,"Simple as it has been in its leading features, it has none the less presented surprising difficulties in the way of an arrest. There are gaps in that direction which we have still to fill."
+78,We will go back to the note which was handed in to Garcia upon the evening of his death.
+79,"Who, then, is most likely to have taken his life? Surely the person against whom the criminal enterprise was directed."
+80,We can now see a reason for the disappearance of Garcia's household.
+81,quote
+82,"""We can imagine that in the confusion of flight something precious,"
+83,had been left behind.
+84,"would it not?"""
+85,"""The next step is the note received by Garcia at the dinner. It"
+86,where was the other
+87,and that the number of large houses is limited. My first days
+88,"and only one, riveted my attention. It is the"
+89,one mile on the farther
+90,and less than half a mile from the scene of the
+91,of High
+92,was by all accounts a curious man to whom curious adventures
+93,"therefore, upon him and"
+94,"""A singular set of people, Watson--the man himself the most singular"
+95,but I
+96,"deepset, brooding eyes that he was"
+97,"strong,"
+98,"with iron-gray hair, great bunched black eyebrows, the step"
+99,"masterful man, with a"
+100,"for he is yellow and sapless, but"
+101,"Mr. Lucas, is"
+102,"chocolate brown, wily, suave, and catlike,"
+103,"Watson, we have come"
+104,"""These two men, close and confidential friends, are the centre of"
+105,quote
+106,"""Why, sir, you've got me the very evidence I want,"" said the inspector warmly, shaking my friend by the hand."
+107,"""What! You were after Henderson?"""
+108,"""Then why did you arrest the mulatto?"""
+109,"""You will rise high in your profession. You have instinct and intuition,"""
+110,"""Every minute she gets stronger,"" said Holmes, glancing at the governess. ""But tell me, Baynes, who is this man Henderson?"""
+111,"""No doubt,"" said Holmes, ""he was as you say. I have heard that he was atrocious. But how are you affected?"""
+112,"""But how come you into this matter, Miss Burnet?"""
+113,quote
+114,"""All would now have been well for them had it not been for my knowledge of what they had done."""
+115,"""Our difficulties are not over,"""
+116,"""A chaotic case, my dear Watson,"""
+117,"""I spent a morning in the British Museum reading up on that and other points."""
+118,"""So you see our savage friend was very orthodox in his ritual."""
+119,"""but, as I have had occasion to remark, there is but one step from the grotesque to the horrible"""
+120,"and yours are faithful servants."""
+121,"and you looked hard across as if you were studying the character in his features. Then your eyes ceased to pucker, but you continued to look across, and your face was thoughtful. You were recalling the incidents of Beecher's career. I was well aware that you could not do this without thinking of the mission which he undertook on behalf of the North at the time of the Civil War, for I remember your expressing your passionate indignation at the way in which he was received by the more turbulent of our people. You felt so strongly about it that I knew you could not think of Beecher without thinking of that also. When a moment later I saw your eyes wander away from the picture, I suspected that your mind had now turned to the Civil War, and when I observed that your lips set, your eyes sparkled, and your hands clenched I was positive that you were indeed thinking of the gallantry which was shown by both sides in that desperate struggle. But then, again, your face grew sadder, you shook your head. You were dwelling upon the sadness and horror and useless waste of life. Your hand stole towards your own old wound and a smile quivered on your lips, which showed me that the ridiculous side of this method of settling international questions had forced itself upon your mind. At this point I agreed with you that it was preposterous and was glad to find that all my deductions had been correct."""
+122,"my dear Watson, I assure you. I should not have intruded it upon your attention had you not shown some incredulity the other day. But I have in my hands here a little problem which may prove to be more difficult of solution than my small essay in thought reading. Have you observed in the paper a short paragraph referring to the remarkable contents of a packet sent through the post to Miss Cushing, of Cross Street, Croydon?"""
+123,"I saw nothing."""
+124,quote
+125,"So I shall, Miss Cushing. I only kept them here until my friend, Mr. Holmes, should have seen them in your presence."""
+126,"madam,"" said Holmes in his soothing way. ""I have no doubt that you have been annoyed more than enough already over this business."""
+127,"of course,"" said he at last, ""that the ears are not a pair."""
+128,"too. They have been cut off with a blunt instrument, which would hardly happen if a student had done it. Again, carbolic or rectified spirits would be the preservatives which would suggest themselves to the medical mind, certainly not rough salt. I repeat that there is no practical joke here, but that we are investigating a serious crime."""
+129,"no doubt,"" said he, ""but there are much stronger reasons against the other. We know that this woman has led a most quiet and respectable life at Penge and here for the last twenty years. She has hardly been away from her home for a day during that time. Why on earth, then, should any criminal send her the proofs of his guilt, especially as, unless she is a most consummate actress, she understands quite as little of the matter as we do?"""
+130,"Miss Cushing,"" said Holmes, taking a seat beside her. ""I think that it is more than probable--"" He paused, and I was surprised, on glancing round to see that he was staring with singular intentness at the lady's profile."
+131,quote
+132,"""You are very quick at observing."""
+133,"""That is my trade."""
+134,"""Well, you are quite right.  But she was married to Mr. Browner a few"
+135,but he was so fond of her that he couldn't abide to leave her
+136,"and he got into the Liverpool and London boats."""
+137,"""Ah, the Conqueror, perhaps?"""
+138,"""No, the May Day, when last I heard. Jim came down here to see me"
+139,and a little drink would send
+140,staring mad. Ah! it was a bad day that ever he took a
+141,then he quarrelled with
+142,and now that Mary has stopped writing we don't know how things
+143,"""About your second sister, Sarah,"" said he. ""I wonder, since you are"
+144,"that you do not keep house together."""
+145,"""Ah! you don't know Sarah's temper or you would wonder no more. I"
+146,and we kept on until about two
+147,when we had to part. I don't want to say a word against
+148,"but she was always meddlesome and hard to please, was"
+149,"""You say that she quarrelled with your Liverpool relations."""
+150,"""Yes, and they were the best of friends at one time. Why, she went up"
+151,"I suspect, and given her a bit of his mind, and that"
+152,"""Thank you, Miss Cushing,"" said Holmes, rising and bowing. ""Your"
+153,"I think you said, at New Street, Wallington?"
+154,and I am very sorry that you should have been troubled over
+155,"as you say, you have nothing whatever to do."""
+156,""""
+157,quote
+158,"you are aware, that there is no part of the body which varies so much as the human ear. Each ear is as a rule quite distinctive and differs from all other ones. In last year's Anthropological Journal you will find two short monographs from my pen upon the subject. I had, therefore, examined the ears in the box with the eyes of an expert and had carefully noted their anatomical peculiarities. Imagine my surprise, then, when on looking at Miss Cushing I perceived that her ear corresponded exactly with the female ear which I had just inspected. The matter was entirely beyond coincidence. There was the same shortening of the pinna, the same broad curve of the upper lobe, the same convolution of the inner cartilage. In all essentials it was the same ear."
+159,"Watson, is it not?"
+160,"but I don't think it struck him in that light when he first called us in. However, let us see what Jim Browner has to say for himself. This is his statement as made before Inspector Montgomery at the Shadwell Police Station, and it has the advantage of being verbatim."
+161,"I have a deal to say. I have to make a clean breast of it all. You can hang me, or you can leave me alone. I don't care a plug which you do. I tell you I've not shut an eye in sleep since I did it, and I don't believe I ever will again until I get past all waking. Sometimes it's his face, but most generally it's hers. I'm never without one or the other before me. He looks frowning and black-like, but she has a kind o' surprise upon her face. Ay, the white lamb, she might well be surprised when she read death on a face that had seldom looked anything but love upon her before."
+162,"and may the curse of a broken man put a blight on her and set the blood rotting in her veins! It's not that I want to clear myself. I know that I went back to drink, like the beast that I was. But she would have forgiven me; she would have stuck as close to me as a rope to a block if that woman had never darkened our door. For Sarah Cushing loved me—that's the root of the"
+163,in CSV format:
+164,quote
+165,"""Well, Mrs. Warren, I cannot see that you have any particular cause for uneasiness, nor do I understand why I, whose time is of some value, should interfere in the matter. I really have other things to engage me."""
+166,"""Ah, yes--a simple matter."""
+167,"""Well, well, Mrs. Warren, let us hear about it, then. You don't object to tobacco, I take it? Thank you, Watson--the matches! You are uneasy, as I understand, because your new lodger remains in his rooms and you cannot see him. Why, bless you, Mrs. Warren, if I were your lodger you often would not see me for weeks on end."""
+168,"""Nothing wonderful in that, surely?"""
+169,"""But this is out of all reason. He has been there for ten days, and neither Mr. Warren, nor I, nor the girl has once set eyes upon him. We can hear that quick step of his pacing up and down, up and down, night, morning, and noon; but except on that first night he had never once gone out of the house."""
+170,"""Oh, he went out the first night, did he?"""
+171,"""Dear me, Watson,"""
+172,quote
+173,"""That he desired to conceal his handwriting."""
+174,"""But why? What can it matter to him that his landlady should have a word of his writing? Still, it may be as you say. Then, again, why such laconic messages?"""
+175,"""It opens a pleasing field for intelligent speculation. The words are written with a broad-pointed, violet-tinted pencil of a not unusual pattern. You will observe that the paper is torn away at the side here after the printing was done, so that the 's' of 'soap' is partly gone. Suggestive, Watson, is it not?"""
+176,"""Of caution?"""
+177,"""Exactly. There was evidently some mark, some thumbprint, something which might give a clue to the person's identity. Now. Mrs. Warren, you say that the man was of middle size, dark, and bearded. What age would he be?"""
+178,"""Well, can you give me no further indications?"""
+179,"""He spoke good English, sir, and yet I thought he was a foreigner by his accent."""
+180,"""And he was well dressed?"""
+181,"""He gave no name?"""
+182,"""And has had no letters or callers?"""
+183,"""But surely you or the girl enter his room of a morning?"""
+184,"""Dear me! that is certainly remarkable. What about his luggage?"""
+185,"""Well, we don't seem to have much material to help us. Do you say nothing has come out of that room--absolutely nothing?"""
+186,"""There is nothing here,"" said he. ""The matches have, of course, been used to light cigarettes. That is obvious from the shortness of the burnt end. Half the match is consumed in lighting a pipe or cigar. But, dear me! this cigarette stub is certainly remarkable. The gentleman was bearded and moustached, you say?"""
+187,"""I don't understand that. I should say that only a clean-shaven man could have smoked this. Why, Watson, even your modest moustache would have been singed."""
+188,"""No, no; the end is matted. I suppose there could not be two people in your rooms, Mrs. Warren?"""
+189,"""Well, I think we must wait for a little more material. After all, you have nothing to complain of. You have received your rent, and he is not a troublesome lodger, though he is certainly"
+190,quote
+191,"""Wait a bit, Mrs. Warren. Do nothing rash. I begin to think that this"
+192,"lying in wait for him near your door,"
+193,"we can only conjecture."""
+194,"""I have a great fancy to see this lodger of yours, Mrs. Warren."""
+195,"""He has to take the tray in. Surely we could conceal ourselves and"
+196,"""Excellent!"""
+197,"""When does he lunch?"""
+198,"""Then Dr. Watson and I will come round in time. For the present, Mrs."
+199,"good-bye."""
+200,"""See, Watson! 'High red house with stone facings.' There"
+201,and we know the
+202,"Mrs. Warren, what now?"""
+203,"""I will call again in the evening,"" said he to the expectant"
+204,"""My surmise, as you saw, proved to be correct,"" said he, speaking"
+205,and
+206,"Watson."""
+207,"""She saw us."""
+208,"""Well, she saw something to alarm her. That is certain. The general"
+209,is it not? A couple seek refuge
+210,who has some
+211,desires to leave the woman in absolute safety
+212,but he solved it in an
+213,and so effectively that her presence was not even
+214,as
+215,quote
+216,""" said my companion as he shook hands with the Scotland"
+217,"Watson, let us go across"
+218,I am
+219,"Mr. Holmes,"" said he. ""If I can get"
+220,"he has a European fame, has he? Well, we've learned all about"
+221,and yet
+222,"and I've been close to him for a week in London, waiting"
+223,"and there's only one door, so"
+224,but
+225,""" said Gregson. ""I expect, as usual, he"
+226,from that window. They broke off in the middle. We came over to
+227,Mr.
+228,that I was never in a case yet that I didn't feel stronger
+229,
+230,"well, we score over you for once, Mr. Holmes. You must give us"
+231,on
+232,"his whip in his hand, sauntered over from a"
+233,"""One moment, Gregson,"""
+234,quote
+235,"""The rest, gentlemen, you know for yourselves. We were sure that our"
+236,"but in any case we knew how ruthless,"
+237,and untiring he could be. Both Italy and America are full of
+238,he wished to be
+239,or how. All that
+240,"I saw two Italians watching the house, and"
+241,"through the paper, that he would signal to me from a"
+242,but when the signals came they were nothing but
+243,which were suddenly interrupted. It is very clear to me now
+244,"and that, thank God! he"
+245,"gentleman, I would ask you"
+246,or whether any judge
+247,"""Well, Mr. Gregson,"" said the American, looking across at the"
+248,"""I don't know what your British point of view may be, but I"
+249,"""She will have to come with me and see the chief,"" Gregson answered."
+250,"Mr. Holmes, is how on earth you got yourself mixed up in the matter."""
+251,"""Education, Gregson, education.  Still seeking knowledge at the old"
+252,"Watson, you have one more specimen of the tragic"
+253,it is not eight
+254,and a Wagner night at Covent Garden!  If
+255,quote
+256,"""A most annoying business, Sherlock,"""
+257,"""I extremely dislike altering my habits, but the powers that be would take no denial. In the present state of Siam it is most awkward that I should be away from the office. But it is a real crisis. I have never seen the Prime Minister so upset. As to the Admiralty--it is buzzing like an overturned bee-hive. Have you read up the case?"""
+258,"""Ah, there's the point! Fortunately, it has not come out. The press would be furious if it did. The papers which this wretched youth had in his pocket were the plans of the Bruce-Partington submarine."""
+259,"""Surely you have heard of it? I thought everyone had heard of it."""
+260,"""Its importance can hardly be exaggerated. It has been the most jealously guarded of all government secrets. You may take it from me that naval warfare becomes impossible within the radius of a Bruce-Partington's operation. Two years ago a very large sum was smuggled through the Estimates and was expended in acquiring a monopoly of the invention. Every effort has been made to keep the secret. The plans, which are exceedingly intricate, comprising some thirty separate patents, each essential to the working of the whole, are kept in an elaborate safe in a confidential office adjoining the arsenal, with burglar-proof doors and windows. Under no conceivable circumstances were the plans to be taken from the office. If the chief constructor of the Navy desired to consult them, even he was forced to go to the Woolwich office for the purpose. And yet here we find them in the pocket of a dead junior clerk in the heart of London. From an official point of view it's simply awful."""
+261,"""No, Sherlock, no! That's the pinch. We have not. Ten papers were taken from Woolwich. There were seven in the pocket of Cadogan West. The three most essential are gone--stolen, vanished. You must drop everything, Sherlock. Never mind your usual petty puzzles of the police-court. It's a vital international problem that you have to solve. Why did Cadogan West take the papers, where are the missing ones, how did he die, how came his body where it was found, how can the evil be set right? Find an answer to all these questions, and you will have done good service for your"
+262,quote
+263,"""Tell us about Cadogan West."""
+264,"""He has been ten years in the service and has done good work. He has"
+265,"but a straight,"
+266,personal contact
+267,"""Who locked up the plans that night?"""
+268,"""Well, it is surely perfectly clear who took them away. They are"
+269,Cadogan West.
+270,"does it not?"""
+271,"""It does, Sherlock, and yet it leaves so much unexplained. In the"
+272,"why did he take them?"""
+273,"""I presume they were of value?"""
+274,"""He could have got several thousands for them very easily."""
+275,"""Can you suggest any possible motive for taking the papers to London"
+276,"""No, I cannot."""
+277,"""Then we must take that as our working hypothesis. Young West took"
+278,"""Several false keys. He had to open the building and the room."""
+279,"""He had, then, several false keys. He took the papers to London to"
+280,"intending, no doubt, to have the plans themselves"
+281,"""How?"""
+282,"""We will suppose that he was travelling back to Woolwich when he was"
+283,"""Aldgate, where the body was found, is considerably past the station"
+284,"which would be his route to Woolwich."""
+285,"""Many circumstances could be imagined under which he would pass"
+286,"for example, with"
+287,"fell out on the line, and so met his end. The other"
+288,"and nothing could be seen."""
+289,"""No better explanation can be"
+290,quote
+291,"perhaps, perhaps,"""
+292,""""
+293,"Watson,"""
+294,"but our inquiries make it blacker,"""
+295,"very bad! Have you heard of the death of the chief?"""
+296,quote
+297,"Yes, he was. I know that so far as those three keys are concerned he kept them on the same ring. I have often seen them there."
+298,And that ring went with him to London?
+299,"No doubt we had, but I beg you won't try to drag me into the matter, Mr. Holmes. What is the use of our speculating in this way when the original plans were actually found on West?"
+300,"Well, it is certainly singular that he should run the risk of taking originals if he could safely have taken copies, which would have equally served his turn."
+301,"Every inquiry in this case reveals something inexplicable. Now there are three papers still missing. They are, as I understand, the vital ones."
+302,"Do you mean to say that anyone holding these three papers, and without the seven others, could construct a Bruce-Partington submarine?"
+303,But the three missing drawings are the most important?
+304,Undoubtedly.
+305,"I think, with your permission, I will now take a stroll round the premises. I do not recall any other question which I desired to ask."
+306,"The indications are ruined by three days' delay. They may mean something or nothing. Well, Watson, I do not think that Woolwich can help us further. It is a small crop which we have gathered. Let us see if we can do better in London."
+307,"Well, well, said he presently with an exclamation of satisfaction, things are turning a little in our direction at last. Why, Watson, I do honestly believe that we are going to pull it off, after all."
+308,"I am going out now. It is only a reconnaissance. I will do nothing serious without my trusted comrade and biographer at my elbow. Do you stay here, and the odds are that you will see me again in an hour or two. If time hangs heavy get foolscap and a pen, and begin your narrative of how we saved the State."
+309,"Am dining at Goldini's Restaurant, Gloucester Road, Kensington. Please come at once and join me there. Bring with you a jemmy, a dark lantern, a chisel, and a revolver."
+310,quote
+311,
+312,fog-draped streets. I stowed them all discreetly away in my
+313,
+314,
+315,in my overcoat.
+316,
+317,with
+318,"Watson, that this young man's body was placed on the roof of the"
+319,"and not from a carriage, that he had"
+320,
+321,
+322,and there is no railing round
+323,we can say for certain that young Cadogan West was
+324,
+325,
+326,"suppose that a train halted under such a window, would"
+327,
+328,
+329,"whatever remains, however improbable, must be the"
+330,"who had just left London, lived in a"
+331,I was so pleased
+332,
+333,"that was it, was it?"
+334,
+335,that was it.
+336,quote
+337,Stuff awaits you when goods delivered.
+338,Watson! If we could only get at the man at the other end!
+339,tapping his fingers on the table. Finally he sprang to his feet.
+340,"perhaps it won't be so difficult, after all. There is nothing more to be done here, Watson. I think we might drive round to the offices of the Daily Telegraph, and so bring a good day's work to a conclusion."""
+341,"Mr. Holmes,"" said he. ""No wonder you get results that are beyond us. But some of these days you'll go too far, and you'll find yourself and your friend in trouble."""
+342,"home and beauty--eh, Watson? Martyrs on the altar of our country. But what do you think of it, Mycroft?"""
+343,"Sherlock! Admirable! But what use will you make of it?"""
+344,"another one?"""
+345,here it is:
+346,quote
+347,"""Can you not make reparation? It would ease your conscience, and possibly your punishment."""
+348,"""What reparation can I make?"""
+349,"""Where is Oberstein with the papers?"""
+350,"""Did he give you no address?"""
+351,"""Then reparation is still within your power,"" said Sherlock Holmes."
+352,"""I will do anything I can. I owe this fellow no particular good-will. He has been my ruin and my downfall."""
+353,"""Here are paper and pen. Sit at this desk and write to my dictation. Direct the envelope to the address given. That is right. Now the letter:"
+354,"you will no doubt have observed by now that one essential detail is missing. I have a tracing which will make it complete. This has involved me in extra trouble, however, and I must ask you for a further advance of five hundred pounds. I will not trust it to the post, nor will I take anything but gold or notes. I would come to you abroad, but it would excite remark if I left the country at present. Therefore I shall expect to meet you in the smoking-room of the Charing Cross Hotel at noon on Saturday. Remember that only English notes, or gold, will be taken."
+355,"""And your brother?"""
+356,""" said I, ""you are not yourself. A sick man is but a child,"
+357,I will examine
+358,let me at least have
+359,""" said he."
+360,"certainly. But facts are facts, Watson, and,"
+361,you are only a general practitioner with very limited
+362,"but you leave me no choice."""
+363,Holmes. It shows me very clearly
+364,or any of the best men in London. But someone you
+365,and that is final. If you think that I am going to stand
+366,"then you have mistaken your man."""
+367,"Watson,"" said the sick man with something between a"
+368,"pray, of Tapanuli fever? What do you know of the black Formosa"
+369,many strange pathological
+370,"in the East, Watson."" He paused after each sentence to"
+371,the greatest
+372,is now in London. All
+373,"Holmes, I am going this instant to fetch"
+374,"Watson, I've got you, my"
+375,and here you will stay until I will otherwise.
+376,"Holmes."""
+377,Watson. I promise you will go at
+378,I am wondering! Strange how the brain controls the brain!
+379,
+380,"Watson. There is no good feeling between us. His nephew, Watson--I"
+381,Watson.
+382,"pray him, get him here by any means. He can save me--only"
+383,Watson. You won't fail me. You never did
+384,"Watson, we have done our part. Shall the"
+385,"then, be overrun by oysters? No, no; horrible! You'll convey"
+386,and with a happy
+387,"trembling and weeping, in the passage. Behind me as I"
+388,thin voice in some
+389,"as I stood whistling for a cab, a man came on"
+390,sir?
+391,I could have imagined that the gleam of the fanlight showed
+392,and I left him.
+393,its massive
+394,and its shining brasswork. All was in keeping with a
+395,"Mr. Smith?"""
+396,"fortunately, the only man in London who does. Do you know what is the matter with you?"""
+397,""""
+398,"I shouldn't be surprised, Holmes. I shouldn't be surprised if it were the same. A bad lookout for you if it is. Poor Victor was a dead man on the fourth day--a strong, hearty young fellow. It was certainly, as you said, very surprising that he should have contracted and out-of-the-way Asiatic disease in the heart of London--a disease, too, of which I had made such a very special study. Singular coincidence, Holmes. Very smart of you to notice it, but rather uncharitable to suggest that it was cause and effect."""
+399,"you did, did you? Well, you couldn't prove it, anyhow. But what do you think of yourself spreading reports about me like that, and then crawling to me for help the moment you are in trouble? What sort of a game is that--eh?"""
+400,""""
+401,"as you will find to your cost. You fool, you would have it and you have got it. Who asked you to cross my path? If you had left me alone I would not have hurt you."""
+402,"just as you like. I don't see you in the witnessbox. Quite another shaped box, my good Holmes, I assure you. It matters nothing to me that you should know how my nephew died. It's not him we are talking about. It's you."""
+403,"Holmes, are you not? Think yourself smart, don't you? You came across someone who was smarter this time. Now cast your mind back, Holmes. Can you think of no other way you could have got this thing?"""
+404,I will help you. I'll help you to understand just where you are and how you got there. I'd like you to know
+405,quote
+406,"But your appearance, Holmes--your ghastly face?"
+407,"Three days of absolute fast does not improve one's beauty, Watson. For the rest, there is nothing which a sponge may not cure. With vaseline upon one's forehead, belladonna in one's eyes, rouge over the cheek-bones, and crusts of beeswax round one's lips, a very satisfying effect can be produced. Malingering is a subject upon which I have sometimes thought of writing a monograph. A little occasional talk about half-crowns, oysters, or any other extraneous subject produces a pleasing effect of delirium."
+408,"Can you ask, my dear Watson? Do you imagine that I have no respect for your medical talents? Could I fancy that your astute judgment would pass a dying man who, however weak, had no rise of pulse or temperature? At four yards, I could deceive you. If I failed to do so, who would bring my Smith within my grasp? No, Watson, I would not touch that box. You can just see if you look at it sideways where the sharp spring like a viper's tooth emerges as you open it. I dare say it was by some such device that poor Savage, who stood between this monster and a reversion, was done to death. My correspondence, however, is, as you know, a varied one, and I am somewhat upon my guard against any packages which reach me. It was clear to me, however, that by pretending that he had really succeeded in his design I might surprise a confession. That pretence I have carried out with the thoroughness of the true artist. Thank you, Watson, you must help me on with my coat. When we have finished at the police-station I think that something nutritious at Simpson's would not be out of place."
+409,"But why Turkish?"" asked Mr. Sherlock Holmes, gazing fixedly at my boots."
+410,"The bath!"" he said; ""the bath! Why the relaxing and expensive Turkish rather than the invigorating home-made article?"
+411,"The train of reasoning is not very obscure, Watson,"" said Holmes with a mischievous twinkle. ""It belongs to the same elementary class of deduction which I should illustrate if I were to ask you who shared your cab in your drive this morning."""
+412,"Bravo, Watson! A very dignified and logical rem"
+413,quote
+414,"""By the way,"" said the landlord in conclusion, ""you are not the only friend of Lady Frances Carfax who is inquiring after her just now. Only a week or so ago we had a man here upon the same errand."""
+415,"""Did he give a name?"""
+416,"""A savage?"" said I, linking my facts after the fashion of my illustrious friend."
+417,"""Exactly. That describes him very well. He is a bulky, bearded, sunburned fellow, who looks as if he would be more at home in a farmers' inn than in a fashionable hotel. A hard, fierce man, I should think, and one whom I should be sorry to offend."""
+418,"""Where is the Lady Frances Carfax?"""
+419,"""What have you done with her? Why have you pursued her? I insist upon an answer!"""
+420,"quote"""
+421,"""And a singularly consistent investigation you have made, my dear Watson,"""
+422,"""I cannot at the moment recall any possible blunder which you have omitted. The total effect of your proceeding has been to give the alarm everywhere and yet to discover nothing."""
+423,"""There is no 'perhaps' about it. I have done better. Here is the Hon. Philip Green, who is a fellow-lodger with you in this hotel, and we may find him the starting-point for a more successful investigation."""
+424,"""What is this, Mr. Holmes? I had your note and I have come. But what has this man to do with the matter?"""
+425,"""This is my old friend and associate, Dr. Watson, who is helping us in this affair."""
+426,"""I hope I didn't harm you. When you accused me of hurting her I lost my grip of myself. Indeed, I'm not responsible in these days. My nerves are like live wires. But this situation is beyond me. What I want to know, in the first place, Mr. Holmes, is, how in the world you came to hear of my existence at all."""
+427,"""I am in touch with Miss Dobney, Lady Frances's governess."""
+428,"""Old Susan Dobney with the mob cap! I remember her well."""
+429,"""And she remembers you. It was in the days before--before you found it better to go to South Africa."""
+430,"""Ah, I see you know my whole story. I need hide nothing from you. I swear to you, Mr. Holmes, that there never was in this world a man who loved a woman with a more wholehearted love than I had for Frances. I was a wild youngster, I know--not worse than others of my class. But her mind was pure as snow. She could not bear a shadow of coarseness. So, when she came to hear of things that I had done, she would have no more to say to me. And yet she loved me--that is the wonder of it!--loved me well enough to remain single all her sainted days just for my sake alone. When the years had passed and I had made my money at Barberton I thought perhaps I could seek her out and soften her. I had heard that she was still unmarried, I found her"
+431,quote
+432,"""It is late,"""
+433,"""You did excellently well. What happened next?"""
+434,"""For an instant I was on the point of rushing in. The door had been opened to admit the men and their burden. It was the woman who had opened it. But as I stood there she caught a glimpse of me, and I think that she recognized me. I saw her start, and she hastily closed the door. I remembered my promise to you, and here I am."""
+435,"""You have done excellent work,"""
+436,"""We can do nothing legal without a warrant, and you can serve the cause best by taking this note down to the authorities and getting one. There may be some difficulty, but I should think that the sale of the jewellery should be sufficient. Lestrade will see to all details."""
+437,"""We will do all that can be done, Mr. Green. Not a moment will be lost. Leave it in our hands. Now Watson,"""
+438,"""These villains have coaxed this unhappy lady to London, after first alienating her from her faithful maid. If she has written any letters they have been intercepted. Through some confederate they have engaged a furnished house. Once inside it, they have made her a prisoner, and they have become possessed of the valuable jewellery which has been their object from the first. Already they have begun to sell part of it, which seems safe enough to them, since they have no reason to think that anyone is interested in the lady's fate. When she is released she will, of course, denounce them. Therefore, she must not be released. But they cannot keep her under lock and key forever. So murder is their only solution."""
+439,"""That seems very clear."""
+440,"""Now we will take another line of reasoning. When you follow two separate chains of thought, Watson, you will find some point of intersection which should approximate to the truth. We will start now, not from the lady but from the coffin and argue backward. That incident proves, I fear, beyond all doubt that the lady is dead. It points also to an orthodox burial with proper accompaniment of medical certificate and official sanction. Had the lady been obviously murdered, they would have buried her in a hole in the back garden. But here all is open and regular. What does this mean? Surely that they have done her to death in some way which has deceived the"
+441,quote
+442,"""Why, you're a common burglar."""
+443,"""So you might describe me,"" said Holmes cheerfully. ""My companion is also a dangerous ruffian. And together we are going through your house."""
+444,"""Our time is limited, Watson,"" said Holmes. ""If you try to stop us, Peters, you will most certainly get hurt. Where is that coffin which was brought into your house?"""
+445,"""What do you want with the coffin? It is in use. There is a body in it."""
+446,"""I must see the body."""
+447,"""Never with my consent."""
+448,"""Then without it."" With a quick movement Holmes pushed the fellow to one side and passed into the hall."
+449,"""Thank God!"" he muttered. ""It's someone else."""
+450,"""Ah, you've blundered badly for once, Mr. Sherlock Holmes,"" said Peters, who had followed us into the room."
+451,"""Who is the dead woman?"""
+452,"""Well, if you really must know, she is an old nurse of my wife's, Rose Spender by name, whom we found in the Brixton Workhouse Infirmary. We brought her round here, called in Dr. Horsom, of 13 Firbank Villas--mind you take the address, Mr. Holmes--and had her carefully tended, as Christian folk should. On the third day she died--certificate says senile decay--but that's only the doctor's opinion, and of course you know better. We ordered her funeral to be carried out by Stimson and Co., of the Kennington Road, who will bury her at eight o'clock to-morrow morning. Can you pick any hole in that, Mr. Holmes? You've made a silly blunder, and you may as well own up to it. I'd give something for a photograph of your gaping, staring face when you pulled aside that lid expecting to see the Lady Frances Carfax and only found a poor old woman of ninety."""
+453,"""I am going through your house,"" said he."
+454,"""Are you, though!"" cried Peters as a woman's voice and heavy steps sounded in the passage. ""We'll soon see about that. This way, officers, if you please. These men have forced their way into my house"
+455,""" said he. ""He will find that his birds have flown. And here,"" he added as a heavy step hurried along the passage, ""is someone who has a better right to nurse this lady than we have. Good morning, Mr. Green; I think that the sooner we can move the Lady Frances the better. Meanwhile, the funeral may proceed, and the poor old woman who still lies in that coffin may go to her last resting-place alone."""
+456,"my dear Watson,"" said Holmes that evening, ""it can only be as an example of that temporary eclipse to which even the best-balanced mind may be exposed. Such slips are common to all mortals, and the greatest is he who can recognize and repair them. To this modified credit I may, perhaps, make some claim. My night was haunted by the thought that somewhere a clue, a strange sentence, a curious observation, had come under my notice and had been too easily dismissed. Then, suddenly, in the gray of the morning, the words came back to me. It was the remark of the undertaker's wife, as reported by Philip Green. She had said, 'It should be there before now. It took longer, being out of the ordinary.' It was the coffin of which she spoke. It had been out of the ordinary. That could only mean that it had been made to some special measurement. But why? Why? Then in an instant I remembered the deep sides, and the little wasted figure at the bottom. Why so large a coffin for so small a body? To leave room for another body. Both would be buried under the one certificate. It had all been so clear, if only my own sight had not been dimmed. At eight the Lady Frances would be buried. Our one chance was to stop the coffin before it left the house."
+457,"but it was a chance, as the result showed. These people had never, to my knowledge, done a murder. They might shrink from actual violence at the last. The could bury her with no sign of how she met her end, and even if she were exhumed there was a chance for them. I hoped that such considerations might prevail with them. You can reconstruct the scene well enough. You saw the horrible den upstairs, where the poor lady had been kept"
+458,""" said the vicar in an agitated voice, ""the most"
+459,for in all
+460,
+461,""" said the vicar, ""and then"
+462,
+463,"then, that our friend here spent"
+464,"Owen and George, and"
+465,"at their house of Tredannick Wartha, which is"
+466,"playing cards round the dining-room table, in excellent"
+467,"being an early riser, he walked in"
+468,who explained that he had just been sent for on a most
+469,the cards still
+470,while the two brothers
+471,"shouting, and singing, the senses"
+472,the dead woman and the
+473,retained upon their faces
+474,quote
+475,"remarkable--most remarkable!"",""I think, perhaps, we had better go down to Tredannick Wartha without further delay. I confess that I have seldom known a case which at first sight presented a more singular problem."""
+476,"rising and taking his hat. ""I think, perhaps, we had better go down to Tredannick Wartha without further delay. I confess that I have seldom known a case which at first sight presented a more singular problem."""
+477,"Watson!"" said he with a laugh. ""Let us walk along the cliffs together and search for flint arrows. We are more likely to find them than clues to this problem. To let the brain work without sufficient material is like racing an engine. It racks itself to pieces. The sea air, sunshine, and patience, Watson--all else will come."""
+478,"let us calmly define our position, Watson,"" he continued as we skirted the cliffs together. ""Let us get a firm grip of the very little which we do know, so that when fresh facts arise we may be ready to fit them into their places. I take it, in the first place, that neither of us is prepared to admit diabolical intrusions into the affairs of men. Let us begin by ruling that entirely out of our minds. Very good. There remain three persons who have been grievously stricken by some conscious or unconscious human agency. That is firm ground. Now, when did this occur? Evidently, assuming his narrative to be true, it was immediately after Mr. Mortimer Tregennis had left the room. That is a very important point. The presumption is that it was within a few minutes afterwards. The cards still lay upon the table. It was already past their usual hour for bed. Yet they had not changed their position or pushed back their chairs. I repeat, then, that the occurrence was immediately after his departure, and not later than eleven o'clock last night."""
+479,quote
+480,"""They are only too clear,"""
+481,"""And yet, with a little more material, we may prove that they are not insurmountable,"""
+482,"""I fancy that among your extensive archives, Watson, you may find some which were nearly as obscure."""
+483,"""Meanwhile, we shall put the case aside until more accurate data are available, and devote the rest of our morning to the pursuit of neolithic man."""
+484,"""I may have commented upon my friend's power of mental detachment, but never have I wondered at it more than upon that spring morning in Cornwall when for two hours he discoursed upon celts, arrowheads, and shards, as lightly as if no sinister mystery were waiting for his solution."""
+485,"""It was not until we had returned in the afternoon to our cottage that we found a visitor awaiting us, who soon brought our minds back to the matter in hand."""
+486,"""Neither of us needed to be told who that visitor was. The huge body, the craggy and deeply seamed face with the fierce eyes and hawk-like nose, the grizzled hair which nearly brushed our cottage ceiling, the beard--golden at the fringes and white near the lips, save for the nicotine stain from his perpetual cigar--all these were as well known in London as in Africa, and could only be associated with the tremendous personality of Dr. Leon Sterndale, the great lion-hunter and explorer."""
+487,"""We had heard of his presence in the district and had once or twice caught sight of his tall figure upon the moorland paths."""
+488,"""He made no advances to us, however, nor would we have dreamed of doing so to him, as it was well known that it was his love of seclusion which caused him to spend the greater part of the intervals between his journeys in a small bungalow buried in the lonely wood of Beauchamp Arriance."""
+489,"""Here, amid his books and his maps, he lived an absolutely lonely life, attending to his own simple wants and paying little apparent heed to the affairs of his neighbours."""
+490,"""It was a surprise to me, therefore, to hear him asking Holmes in an eager voice whether he had made any advance in his reconstruction of this mysterious episode."""
+491,"""The county police are utterly at fault,"""
+492,"""but perhaps your"
+493,quote
+494,"""I am glad to say that my investigation has not been entirely barren,"""
+495,"""I cannot remain to discuss the matter with the police, but I should be exceedingly obliged, Mr. Roundhay, if you would give the inspector my compliments and direct his attention to the bedroom window and to the sitting-room lamp."""
+496,"""You will remember, Watson,""that there is a single common point of resemblance in the varying reports which have reached us."""
+497,"""You will recollect that Mortimer Tregennis, in describing the episode of his last visit to his brother's house, remarked that the doctor on entering the room fell into a chair?"""
+498,"""You had forgotten? Well I can answer for it that it was so."""
+499,"""Now, you will remember also that Mrs. Porter, the housekeeper, told us that she herself fainted upon entering the room and had afterwards opened the window."""
+500,"""That servant, I found upon inquiry, was so ill that she had gone to her bed."""
+501,"""You will admit, Watson, that these facts are very suggestive."""
+502,"""The fire was needed, but the lamp was lit--as a comparison of the oil consumed will show--long after it was broad daylight."""
+503,"""Why? Surely because there is some connection between three things--the burning, the stuffy atmosphere, and, finally, the madness or death of those unfortunate people."""
+504,"""At least we may accept it as a working hypothesis."""
+505,"""Very good. In the first instance--that of the Tregennis family--this substance was placed in the fire."""
+506,"""Now the window was shut, but the fire would naturally carry fumes to some extent up the chimney."""
+507,"""The result seems to indicate that it was so, since in the first case only the woman, who had presumably the more sensitive organism, was killed, the others exhibiting that temporary or permanent lunacy which is evidently the first effect of the drug."""
+508,"""In the second case the result was complete."""
+509,"""With this train of reasoning in my head I naturally looked about in Mortimer Tregennis's room to find some remains of this substance."""
+510,"""The obvious place to look was the talc shelf or smoke-guard of the lamp."""
+511,"""Half of this I took, as you saw, and I placed it in an envelope."""
+512,"""It is not for me, my dear Watson,"
+513,quote
+514,"Mortimer Tregennis, having been the"
+515,though he was the victim in the second
+516,"in the first place, that there is some story"
+517,followed by a reconciliation. How bitter that
+518,or how hollow the reconciliation we cannot
+519,with the foxy face and the
+520,"beady eyes behind the spectacles, he is not a man whom"
+521,
+522,you will remember that this idea of someone moving
+523,which took our attention for a moment from the real
+524,emanated from him. He had a motive in
+525,if he did not throw the substance into the
+526,who did do so? The affair
+527,
+528,in
+529,visitors did not arrive after ten o'clock at
+530,"then, that all the evidence points to Mortimer"
+531,"Watson, it is on the face of it a not impossible supposition."
+532,"however, some cogent reasons against it."
+533,"there is one man in England who knows all about it, and"
+534,Dr. Leon Sterndale. We have
+535,and now the majestic figure
+536,""""
+537,"sir?"""
+538,""""
+539,"at least, am not prepared to prevent you."""
+540,""""
+541,"Watson, but if I did and if the woman I loved had met such an end, I might act even as our lawless lion-hunter has done. Who knows? Well, Watson, I will not offend your intelligence by explaining what is obvious. The gravel upon the window-sill was, of course, the starting-point of my research. It was unlike anything in the vicarage garden. Only when my attention had been drawn to Dr. Sterndale and his cottage did I find its counterpart. The lamp shining in broad daylight and the remains of powder upon the shield were successive links in a fairly obvious chain. And now, my dear Watson, I think we may dismiss the matter from our mind and go back with a clear conscience to the study of those Chaldean roots which are surely to be traced in the Cornish branch of the great Celtic speech."""
+542,quote
+543,"""So far as I can judge the trend of events, you will probably be back in Berlin within the week,"""
+544,"""When you get there, my dear Von Bork, I think you will be surprised at the welcome you will receive. I happen to know what is thought in the highest quarters of your work in this country."""
+545,"""They are not very hard to deceive,"""
+546,"""I don't know about that,"""
+547,"""They have strange limits and one must learn to observe them. It is that surface simplicity of theirs which makes a trap for the stranger. One's first impression is that they are entirely soft. Then one comes suddenly upon something very hard, and you know that you have reached the limit and must adapt yourself to the fact. They have, for example, their insular conventions which simply must be observed."""
+548,"""Meaning 'good form' and that sort of thing?"""
+549,"""Meaning British prejudice in all its queer manifestations. As an example I may quote one of my own worst blunders--I can afford to talk of my blunders, for you know my work well enough to be aware of my successes. It was on my first arrival. I was invited to a week-end gathering at the country house of a cabinet minister. The conversation was amazingly indiscreet."""
+550,"""I've been there,"""
+551,"""Exactly. Well, I naturally sent a resume of the information to Berlin. Unfortunately our good chancellor is a little heavy-handed in these matters, and he transmitted a remark which showed that he was aware of what had been said. This, of course, took the trail straight up to me. You've no idea the harm that it did me. There was nothing soft about our British hosts on that occasion, I can assure you. I was two years living it down. Now you, with this sporting pose of yours--"""
+552,"""No, no, don't call it a pose. A pose is an artificial thing. This is quite natural. I am a born sportsman. I enjoy it."""
+553,"""Well, that makes it the more effective. You yacht against them, you hunt with them, you play polo, you match them in every game, your four-in-hand takes the prize at Olympia. I have even heard that you go"
+554,quote
+555,It was James's own fault. You know that yourself. He was too self-willed for the job.
+556,James was a bonehead--I give you that. Then there was Hollis.
+557,The man was mad.
+558,"Well, he went a bit woozy towards the end. It's enough to make a man bug-house when he has to play a part from morning to night with a hundred guys all ready to set the coppers wise to him. But now there is Steiner--"
+559,What about Steiner?
+560,"Well, they've got him, that's all. They raided his store last night, and he and his papers are all in Portsmouth jail. You'll go off and he, poor devil, will have to stand the racket, and lucky if he gets off with his life. That's why I want to get over the water as soon as you do."
+561,How could they have got on to Steiner? That's the worst blow yet.
+562,"Well, you nearly had a worse one, for I believe they are not far off me."
+563,You don't mean that!
+564,"Sure thing. My landlady down Fratton way had some inquiries, and when I heard of it I guessed it was time for me to hustle. But what I want to know, mister, is how the coppers know these things? Steiner is the fifth man you've lost since I signed on with you, and I know the name of the sixth if I don't get a move on. How do you explain it, and ain't you ashamed to see your men go down like this?"
+565,How dare you speak in such a way!
+566,"If I didn't dare things, mister, I wouldn't be in your service. But I'll tell you straight what is in my mind. I've heard that with you German politicians when an agent has done his work you are not sorry to see him put away."
+567,Do you dare to suggest that I have given away my own agents!
+568,"I don't stand for that, mister, but there's a stool pigeon or a cross somewhere, and it's up to you to find out where it is. Anyhow I am taking no more"
+569,quote
+570,"""Alone I did it. Behold the fruit of pensive nights and laborious days when I watched the little working gangs as once I watched the criminal world of London."""
+571,"""The Foreign Minister alone I could have withstood, but when the Premier also deigned to visit my humble roof--! The fact is, Watson, that this gentleman upon the sofa was a bit too good for our people."""
+572,"""It was absolutely necessary to expose it. Strong pressure was brought upon me to look into the matter. It has cost me two years, Watson, but they have not been devoid of excitement."""
+573,"""When I say that I started my pilgrimage at Chicago, graduated in an Irish secret society at Buffalo, gave serious trouble to the constabulary at Skibbereen, and so eventually caught the eye of a subordinate agent of Von Bork, you will realize that the matter was complex."""
+574,"""I watched them, Watson, and I picked them as they ripened. Well, sir, I hope that you are none the worse!"""
+575,"""Though unmusical, German is the most expressive of all languages,"""
+576,"""Hullo! Hullo!"""
+577,"""This should put another bird in the cage. I had no idea that the paymaster was such a rascal, though I have long had an eye upon him."""
+578,"""Mister Von Bork, you have a great deal to answer for."""
+579,"""The old sweet song,"""
+580,"""Curse you, you double traitor!"""
+581,"""No, no, it is not so bad as that,"""
+582,"""Then who are you?"""
+583,"""It is really immaterial who I am, but since the matter seems to interest you, Mr. Von Bork, I may say that this is not my first acquaintance with the members of your family."""
+584,"""I was I who brought about the separation between Irene Adler and the late King of Bohemia when your cousin Heinrich was the Imperial Envoy."""
+585,"""It was I also who saved from murder, by the Nihilist Klopman, Count Von und Zu Grafenstein, who was your mother's elder brother."""
+586,"""There is only one man,"""
+587,"""Exactly,"""
+588,"""And most of that information came through you,"""
+589,the output will be empty.
+590,I'll be happy to help you extract the dialogue lines spoken by Holmes.
