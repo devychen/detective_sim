@@ -1,0 +1,167 @@
+RESULTS 12/22
+
+I have re-extracted the dialogue using an LLM-based pipeline and 
+conducted a systematic data diagnostics step before training.
+
+The resulting dataset contains ~28k utterances (~630k tokens).
+Each of three main character has around ~120k–150k tokens.
+The classifier had access to sufficient data to learn stylistic signals, if present.
+
+Fewer than 2% of utterances exceed 128 tokens, suggesting minimal truncation-induced information loss.
+While some noise and duplication remain (10–13%), these are consistent with known LLM extraction artefacts and can be addressed via lightweight preprocessing.
+And Japp esp. has noise around 18-20%, given that he has the fewest tokens (60k) and 
+there already is another main sidekick from Agatha Christie's work (Hastings), I'd like to delete his data.
+
+
+===============================
+DATASET SIZE & BALANCE
+===============================
+
+Character: hastings
+  Utterances: 2979
+  Total tokens: 59,027
+  Avg tokens / utterance: 19.81
+
+Character: holmes
+  Utterances: 5509
+  Total tokens: 129,893
+  Avg tokens / utterance: 23.58
+
+Character: japp
+  Utterances: 1584
+  Total tokens: 32,740
+  Avg tokens / utterance: 20.67
+
+Character: marple
+  Utterances: 6551
+  Total tokens: 148,602
+  Avg tokens / utterance: 22.68
+
+Character: poirot
+  Utterances: 6758
+  Total tokens: 145,881
+  Avg tokens / utterance: 21.59
+
+Character: watson
+  Utterances: 5186
+  Total tokens: 118,378
+  Avg tokens / utterance: 22.83
+
+===============================
+LENGTH DISTRIBUTION & TRUNCATION RISK
+===============================
+
+[OVERALL]
+  Mean tokens: 22.21
+  Median tokens: 13.00
+  90th percentile: 51.00
+  Max tokens: 1224
+  > 128 tokens: 1.55%
+  > 256 tokens: 0.17%
+  > 512 tokens: 0.01%
+
+[hastings]
+  Mean tokens: 19.81
+  Median tokens: 12.00
+  90th percentile: 44.00
+  Max tokens: 389
+  > 128 tokens: 0.91%
+  > 256 tokens: 0.20%
+  > 512 tokens: 0.00%
+
+[holmes]
+  Mean tokens: 23.58
+  Median tokens: 13.00
+  90th percentile: 55.00
+  Max tokens: 587
+  > 128 tokens: 1.92%
+  > 256 tokens: 0.36%
+  > 512 tokens: 0.05%
+
+[japp]
+  Mean tokens: 20.67
+  Median tokens: 12.50
+  90th percentile: 48.00
+  Max tokens: 252
+  > 128 tokens: 1.58%
+  > 256 tokens: 0.00%
+  > 512 tokens: 0.00%
+
+[marple]
+  Mean tokens: 22.68
+  Median tokens: 13.00
+  90th percentile: 54.00
+  Max tokens: 385
+  > 128 tokens: 1.66%
+  > 256 tokens: 0.08%
+  > 512 tokens: 0.00%
+
+[poirot]
+  Mean tokens: 21.59
+  Median tokens: 14.00
+  90th percentile: 47.00
+  Max tokens: 278
+  > 128 tokens: 1.08%
+  > 256 tokens: 0.03%
+  > 512 tokens: 0.00%
+
+[watson]
+  Mean tokens: 22.83
+  Median tokens: 13.00
+  90th percentile: 53.00
+  Max tokens: 1224
+  > 128 tokens: 1.97%
+  > 256 tokens: 0.31%
+  > 512 tokens: 0.02%
+
+===============================
+NOISE & DATA QUALITY CHECK
+===============================
+
+Character: hastings
+  Empty / noise utterances: 11.58%
+  Very short (<3 tokens): 13.29%
+
+Character: holmes
+  Empty / noise utterances: 10.35%
+  Very short (<3 tokens): 12.36%
+
+Character: japp
+  Empty / noise utterances: 18.56%
+  Very short (<3 tokens): 20.14%
+
+Character: marple
+  Empty / noise utterances: 11.16%
+  Very short (<3 tokens): 13.05%
+
+Character: poirot
+  Empty / noise utterances: 8.27%
+  Very short (<3 tokens): 9.32%
+
+Character: watson
+  Empty / noise utterances: 10.16%
+  Very short (<3 tokens): 12.36%
+
+===============================
+DUPLICATION CHECK
+===============================
+
+Character: hastings
+  Duplicate utterances: 555 (18.63%)
+
+Character: holmes
+  Duplicate utterances: 788 (14.30%)
+
+Character: japp
+  Duplicate utterances: 381 (24.05%)
+
+Character: marple
+  Duplicate utterances: 1198 (18.29%)
+
+Character: poirot
+  Duplicate utterances: 1063 (15.73%)
+
+Character: watson
+  Duplicate utterances: 837 (16.14%)
+
+Diagnostics complete.
