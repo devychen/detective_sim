@@ -103,36 +103,44 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 
 **Summary**:
 - Establish baseline with a small BERT classification model
-- supervised classifier.
-- Four classes: sh, mm, hp, others. (Others: `watson` from Conan Doyle, `japp` and `hastings` from Agatha Christie)
-- Datasize: SH, MM, HP each has around 14000 tokens, OTHERS use full tokens.
+- Supervised classifier.
+- Four classes: sh, mm, hp, others. (Others: `watson` from Conan Doyle, `japp` and `hastings` from Agatha Christie) **OR** three classes: sh, mm, hp. Whether to include others or not is discussed in *baselin/others_or_not.md*.
+- Datasize: holmes ≈ 130k tokens, marple ≈ 148k tokens, poirot ≈ 146k tokens, watson ≈ 118k tokens, hastings ≈ 59k tokens, Japp = 32k.
 
 **Step 1** From original books, using regex to extract the quotes.  
 Resources: [sherlock](https://sherlock-holm.es/ascii/), [marple & poirot](https://github.com/oliviachang29/the-complete-works-of-agatha-christie)
 > 🍎 *_novels* > contains all the novels in txt format.   
 > 🍎 *lines > regex_extract.py*, results as 6 characters' csv in *lines/regex_data* folder.
 
-_**OR**_: From original books, using LLM (`meta/llama-3.2-3b-instruct`) to extract lines.
-> 🍎 *lines > llama_extract.py*
+_**OR [CURRENT]**_: From original books, using LLM (`meta/llama-3.2-3b-instruct`) to extract lines.
+> 🍎 *lines > llama_extract.py*.  
+> 🍎 *lines > llm_data > each character has a folder containing its lines in csv format, named by source book title.*
 
+**Step 1.5** Performs systematic diagnostics on LLM-extracted dialogue data before any classifier training is attempted.   
+- Japp is noisy, delete from the data. Only using the other five.
 
-**Step 2** Select 500 for each agents. Keep a balanced token size between all three.
-> 🍎 lines > train_lines.csv
+> 🍎 *baseline > data_diagnosis.py*
+
+**Step 2** Prepare the dataset, preprocessing with cleaning and balancing. It is parameterised to adapt two situation: including "others" or not.
+
+> 🍎 *baseline > prepare_dataset.py*
+
+**Step 3** Train the baseline. Parameterised too for two situation accordingly.
+> 🍎 *baselines > train.csv*
 
 
 **Step 3** Use [BERT-cased](https://huggingface.co/google-bert/bert-base-cased). 
 
-**`=== STAGE CLOSE. -- 10 Dec 2025 ===`**
+**`=== STAGE CLOSE. -- 31 Dec 2025 ===`**
 
 ## Workflow - Data Analysis, Metrics.
 
 
 ## Timeline
-
-12.15 Baseline.  
-12.31 Eval.  
-1.31 Writing.  
-2.28 Finalise.   
+ 
+12.31 Baseline.  
+1.31 Eval.  
+2.28 Writing.   
 3.30 Oral.  
 
 

@@ -1,6 +1,8 @@
 """
 train.py
 
+DISMISSED. 需要增加断点续传
+
 Train a character identification classifier on prepared dialogue data.
 
 This script defines the TASK (classification setup), not the data cleaning.
@@ -79,6 +81,13 @@ def parse_args():
         type=str,
         default="google-bert/bert-base-cased"
     )
+
+    parser.add_argument(
+    "--resume",
+    action="store_true",
+    help="Resume training from latest checkpoint if available"
+    )
+
 
     parser.add_argument("--epochs", type=int, default=3)
     parser.add_argument("--batch_size", type=int, default=8)
@@ -219,8 +228,11 @@ def main():
 
     training_args = TrainingArguments(
         output_dir=f"./models/{args.setup}",
-        eval_strategy="epoch",
-        save_strategy="epoch",
+        eval_strategy="steps",
+        eval_steps=200,
+        save_strategy="steps",
+        save_steps=200,
+        save_total_limit=2, # 只保留最近两个 checkpoint
         learning_rate=2e-5,
         per_device_train_batch_size=args.batch_size,
         per_device_eval_batch_size=args.batch_size,
@@ -229,6 +241,7 @@ def main():
         logging_steps=50,
         report_to="none",
     )
+
 
     trainer = Trainer(
         model=model,

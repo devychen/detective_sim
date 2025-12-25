@@ -1,6 +1,8 @@
 """
 train.py
 
+DISMISSED. 需要增加diagnosis
+
 Train a character identification classifier on prepared dialogue data.
 
 This script defines the TASK (classification setup), not the data cleaning.
