@@ -9,28 +9,17 @@ The classifier had access to sufficient data to learn stylistic signals, if pres
 
 Fewer than 2% of utterances exceed 128 tokens, suggesting minimal truncation-induced information loss.
 While some noise and duplication remain (10–13%), these are consistent with known LLM extraction artefacts and can be addressed via lightweight preprocessing.
-And Japp esp. has noise around 18-20%, given that he has the fewest tokens (60k) and 
-there already is another main sidekick from Agatha Christie's work (Hastings), I'd like to delete his data.
-
-
-===============================
+And Japp esp. has noise around 18-20%, given that he has the significantly fewest tokens (30k) and 
+there already is another main sidekick from Agatha Christie's work (Hastings, 60k tokens), I'd like to delete his data if reasonable?
 DATASET SIZE & BALANCE
 ===============================
 
-Character: hastings
-  Utterances: 2979
-  Total tokens: 59,027
-  Avg tokens / utterance: 19.81
+
 
 Character: holmes
   Utterances: 5509
   Total tokens: 129,893
   Avg tokens / utterance: 23.58
-
-Character: japp
-  Utterances: 1584
-  Total tokens: 32,740
-  Avg tokens / utterance: 20.67
 
 Character: marple
   Utterances: 6551
@@ -42,10 +31,20 @@ Character: poirot
   Total tokens: 145,881
   Avg tokens / utterance: 21.59
 
+Character: hastings
+  Utterances: 2979
+  Total tokens: 59,027
+  Avg tokens / utterance: 19.81
+
 Character: watson
   Utterances: 5186
   Total tokens: 118,378
   Avg tokens / utterance: 22.83
+
+Character: japp
+  Utterances: 1584
+  Total tokens: 32,740
+  Avg tokens / utterance: 20.67
 
 ===============================
 LENGTH DISTRIBUTION & TRUNCATION RISK

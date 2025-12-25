@@ -1,52 +1,100 @@
 """
 prepare_dataset.py
 
-This script takes LLM-extracted dialogue CSVs and prepares a clean dataset
-for classifier training.
+This script prepares a clean, balanced dataset for training character
+identification classifiers based on LLM-extracted dialogue.
 
-Main steps:
+IMPORTANT DESIGN PRINCIPLE
+--------------------------
+This script performs ONLY data-level preprocessing.
 
-1. Load all CSV files for all characters and merge into a master dataframe.
-2. Add metadata columns: 'character' and 'source_book'.
-3. Clean the data:
-    - Remove empty or placeholder quotes
-    - Remove extremely short quotes (<3 tokens)
-4. Optionally mark duplicate quotes
-5. Split dataset into train / val / test sets (stratified by character)
-6. Save the cleaned datasets for later use in model training.
+It does NOT:
+- merge characters into task-specific labels (e.g., "others")
+- assume a particular classification setup
+
+All label collapsing (e.g., watson + hastings -> others) should be done
+at TRAINING time, not here.
+
+SUPPORTED MODES
+---------------
+--classes 3 : keep only the three main detectives
+--classes 4 : keep main detectives + secondary characters
+              (to be merged into "others" later during training)
+
+TO RUN
+---------------
+python prepare_dataset.py --classes 3
+python prepare_dataset.py --classes 4
 
 """
 
 import os
 import glob
+import argparse
+import random
+import string
 import pandas as pd
-import numpy as np
-from sklearn.model_selection import train_test_split
+from transformers import AutoTokenizer
+
 
 # =========================
-# Configuration
+# Argument Parsing
 # =========================
 
-DATA_ROOT = "lines/llm_data"  # Root folder containing character subfolders
-MIN_TOKENS = 3           # Minimum number of tokens to keep a quote
-TEST_SIZE = 0.1          # Fraction for test set
-VAL_SIZE = 0.1           # Fraction for validation set
-
-OUTPUT_DIR = "processed_data"
-os.makedirs(OUTPUT_DIR, exist_ok=True)
-
-# =========================
-# Helper functions
-# =========================
-
-def is_empty_or_noise(text):
+def parse_args():
     """
-    Check if a quote is empty or placeholder/noise.
-    
-    Includes:
-        - empty strings
-        - placeholder text like "Quote" or '""'
-        - strings consisting only of punctuation
+    Parse command-line arguments.
+
+    --classes determines which characters are INCLUDED
+    in the prepared dataset.
+
+    Note:
+    - This does NOT define the final classification labels.
+    - It only controls which utterances are kept.
+    """
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--classes",
+        type=int,
+        choices=[3, 4],
+        required=True,
+        help="3 = main detectives only; 4 = include secondary characters (for 'others')"
+    )
+    return parser.parse_args()
+
+
+# =========================
+# Configuration (DO NOT HARD-CODE TASK LOGIC HERE)
+# =========================
+
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_ROOT = os.path.join(PROJECT_ROOT, "lines", "llm_data")
+
+TOKENIZER_NAME = "google-bert/bert-base-cased"
+MIN_TOKENS = 3
+RANDOM_SEED = 42
+
+
+# Token budgets per character
+TOKEN_BUDGET_3CLASS = 120_000
+TOKEN_BUDGET_4CLASS = 50_000
+
+
+# =========================
+# Utility Functions
+# =========================
+
+def is_noise(text: str) -> bool:
+    """
+    Determine whether a quote is likely to contain no useful linguistic signal.
+
+    Conservative definition:
+    - empty or missing
+    - placeholder tokens ("Quote")
+    - punctuation-only strings
+
+    We intentionally avoid aggressive normalization so as not to
+    remove stylistic information.
     """
     if not isinstance(text, str):
         return True
@@ -59,118 +107,177 @@ def is_empty_or_noise(text):
     if stripped.lower() in {"quote", "\"quote\"", "''", "\"\""}:
         return True
 
-    # Remove punctuation and check if anything remains
-    import string
     no_punct = stripped.translate(str.maketrans("", "", string.punctuation))
     if no_punct.strip() == "":
         return True
 
     return False
 
-def load_llm_data(root_dir):
-    """
-    Traverse the directory structure and load all CSVs.
 
-    Expected structure:
+def load_all_llm_data(data_root: str, allowed_characters: list) -> pd.DataFrame:
+    """
+    Load all LLM-extracted dialogue CSV files into a single DataFrame.
+
+    Expected directory structure:
         llm_data/
-          ├── holmes/
+          ├── character_name/
           │     ├── book1.csv
           │     ├── book2.csv
-          ├── marple/
-          ├── poirot/
-          ├── others/
 
-    Returns a single dataframe with columns:
-        - quote: the dialogue line
-        - character: character name
-        - source_book: which novel
+    Output columns:
+        - quote
+        - character
+        - source_book
     """
-    all_rows = []
+    rows = []
 
-    # Loop through character folders
-    for character in sorted(os.listdir(root_dir)):
-        char_dir = os.path.join(root_dir, character)
+    for character in allowed_characters:
+        char_dir = os.path.join(data_root, character)
+
         if not os.path.isdir(char_dir):
+            print(f"WARNING: directory not found for '{character}', skipping.")
             continue
 
-        # Loop through all CSVs in the folder
         csv_files = glob.glob(os.path.join(char_dir, "*.csv"))
+
         for csv_path in csv_files:
             book_name = os.path.splitext(os.path.basename(csv_path))[0]
             df = pd.read_csv(csv_path)
 
             for _, row in df.iterrows():
-                all_rows.append({
+                rows.append({
                     "quote": row.get("quote", ""),
                     "character": character,
-                    "source_book": book_name
+                    "source_book": book_name,
                 })
 
-    master_df = pd.DataFrame(all_rows)
-    return master_df
+    return pd.DataFrame(rows)
 
-def clean_data(df):
+
+def add_token_counts(df: pd.DataFrame, tokenizer) -> pd.DataFrame:
     """
-    Clean the dataset by removing noisy and extremely short quotes.
-    Also adds a boolean column 'is_duplicate' to mark duplicate quotes.
+    Compute token counts for each utterance.
+
+    Token counts are used ONLY for:
+    - removing very short utterances
+    - balancing data by token exposure
+
+    They are NOT used for model training here.
     """
-    # Remove empty / placeholder quotes
-    df = df[~df["quote"].apply(is_empty_or_noise)].copy()
-
-    # Remove extremely short quotes (fewer than MIN_TOKENS words)
-    df["n_words"] = df["quote"].apply(lambda x: len(str(x).split()))
-    df = df[df["n_words"] >= MIN_TOKENS]
-
-    # Mark duplicates
-    df["is_duplicate"] = df.duplicated(subset=["quote", "character"])
-
+    df["n_tokens"] = df["quote"].apply(
+        lambda x: len(tokenizer.tokenize(x)) if isinstance(x, str) else 0
+    )
     return df
 
-def split_dataset(df, test_size=0.1, val_size=0.1, random_state=42):
-    """
-    Split the cleaned dataset into train / val / test sets.
-
-    Stratification is done based on 'character' to ensure all sets
-    have proportional representation of each class.
-    """
-    # First, split off test set
-    train_val_df, test_df = train_test_split(
-        df, test_size=test_size, stratify=df["character"], random_state=random_state
-    )
-
-    # Then split train_val into train and val
-    val_relative = val_size / (1 - test_size)  # Adjust fraction
-    train_df, val_df = train_test_split(
-        train_val_df, test_size=val_relative, stratify=train_val_df["character"], random_state=random_state
-    )
-
-    return train_df.reset_index(drop=True), val_df.reset_index(drop=True), test_df.reset_index(drop=True)
 
 # =========================
-# Main execution
+# Cleaning Steps
+# =========================
+
+def clean_dataset(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Apply conservative cleaning:
+
+    1. Remove noise / placeholders
+    2. Remove very short utterances
+    3. Remove exact duplicates per character
+
+    No stylistic normalization is applied.
+    """
+    original_size = len(df)
+
+    df = df[~df["quote"].apply(is_noise)]
+    df = df[df["n_tokens"] >= MIN_TOKENS]
+    df = df.drop_duplicates(subset=["character", "quote"])
+
+    print(f"Cleaning reduced dataset from {original_size} to {len(df)} utterances.")
+    return df
+
+
+# =========================
+# Balancing Step
+# =========================
+
+def balance_by_token_budget(df: pd.DataFrame, token_budget: int) -> pd.DataFrame:
+    """
+    Balance the dataset across characters using a token-based budget.
+
+    For each character:
+    - shuffle utterances
+    - accumulate utterances until token budget is reached
+
+    This avoids dominance by characters with more dialogue or longer turns.
+    """
+    balanced_parts = []
+
+    for character, part in df.groupby("character"):
+        part = part.sample(frac=1, random_state=RANDOM_SEED)
+
+        total_tokens = 0
+        selected = []
+
+        for _, row in part.iterrows():
+            if total_tokens + row["n_tokens"] > token_budget:
+                break
+            selected.append(row)
+            total_tokens += row["n_tokens"]
+
+        print(
+            f"Character '{character}': "
+            f"{len(selected)} utterances, {total_tokens} tokens"
+        )
+
+        balanced_parts.append(pd.DataFrame(selected))
+
+    return pd.concat(balanced_parts).reset_index(drop=True)
+
+
+# =========================
+# Main Pipeline
 # =========================
 
 def main():
-    print("Loading LLM-extracted dialogue data...")
-    df = load_llm_data(DATA_ROOT)
-    print(f"Total quotes loaded: {len(df)}")
+    args = parse_args()
+    random.seed(RANDOM_SEED)
 
-    print("Cleaning data (removing noise, very short quotes, marking duplicates)...")
-    df = clean_data(df)
-    print(f"Total quotes after cleaning: {len(df)}")
+    # Define which characters are INCLUDED (not merged!)
+    if args.classes == 3:
+        included_characters = ["holmes", "poirot", "marple"]
+        token_budget = TOKEN_BUDGET_3CLASS
+        output_name = "train_lines_clean_balanced_3class.csv"
 
-    print("Splitting dataset into train / val / test...")
-    train_df, val_df, test_df = split_dataset(df, test_size=TEST_SIZE, val_size=VAL_SIZE)
-    print(f"Train set: {len(train_df)}")
-    print(f"Validation set: {len(val_df)}")
-    print(f"Test set: {len(test_df)}")
+    else:  # args.classes == 4
+        included_characters = ["holmes", "poirot", "marple", "watson", "hastings"]
+        token_budget = TOKEN_BUDGET_4CLASS
+        output_name = "train_lines_clean_balanced_4class.csv"
 
-    # Save cleaned datasets
-    train_df.to_csv(os.path.join(OUTPUT_DIR, "train.csv"), index=False)
-    val_df.to_csv(os.path.join(OUTPUT_DIR, "val.csv"), index=False)
-    test_df.to_csv(os.path.join(OUTPUT_DIR, "test.csv"), index=False)
+    output_path = os.path.join(PROJECT_ROOT, "baseline", output_name)
 
-    print(f"Cleaned datasets saved in {OUTPUT_DIR}")
+    print("Loading tokenizer...")
+    tokenizer = AutoTokenizer.from_pretrained(TOKENIZER_NAME)
+
+    print("Loading LLM-extracted data...")
+    df = load_all_llm_data(DATA_ROOT, included_characters)
+    print(f"Loaded {len(df)} utterances.")
+
+    print("Computing token counts...")
+    df = add_token_counts(df, tokenizer)
+
+    print("Cleaning dataset...")
+    df = clean_dataset(df)
+
+    print("Balancing dataset by token budget...")
+    df = balance_by_token_budget(df, token_budget)
+
+    final_df = df[["quote", "character"]]
+
+    print(f"Saving final dataset to: {output_path}")
+    final_df.to_csv(output_path, index=False)
+
+    print("Dataset preparation complete.")
+    print("NOTE: No character merging was performed.")
+    print("      Label collapsing should be done during training.")
+
 
 if __name__ == "__main__":
     main()
