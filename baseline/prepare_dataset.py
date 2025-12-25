@@ -1,8 +1,12 @@
 """
 prepare_dataset.py
 
+CURRENT
+
 This script prepares a clean, balanced dataset for training character
 identification classifiers based on LLM-extracted dialogue.
+
+Parameterised version（--classes 3|4）
 
 IMPORTANT DESIGN PRINCIPLE
 --------------------------

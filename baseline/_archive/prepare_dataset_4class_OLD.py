@@ -1,7 +1,7 @@
 """
 prepare_dataset.py
 
-5 characters. 该.py暂时遗弃。
+5 characters. 该.py暂时遗弃。DISMISSED.
 
 This script prepares a clean, balanced dataset for training a character
 identification classifier based on LLM-extracted dialogue.

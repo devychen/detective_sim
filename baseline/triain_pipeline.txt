@@ -1,0 +1,18 @@
+parse args
+↓
+load CSV
+↓
+apply label mapping (task-specific!)
+↓
+filter rows (if needed)
+↓
+encode labels → ids
+↓
+train / val / test split
+↓
+train model
+↓
+evaluate + diagnostics
+
+
+注意：label mapping 在 split 之前完成（避免 label leakage / stratify 问题）。

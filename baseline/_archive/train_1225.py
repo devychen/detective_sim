@@ -1,6 +1,8 @@
 """
 train.py
 
+DISMISSED. 该版本为包含others这个class的training code.
+
 This script trains a supervised character identification classifier
 on LLM-extracted dialogue data.
 
