@@ -3,21 +3,24 @@ train.py
 
 Train a character identification classifier on prepared dialogue data.
 
+This script defines the TASK (classification setup), not the data cleaning.
+Character collapsing (e.g., Watson + Hastings -> Others) is done HERE.
+
 Supported setups:
 - 3class: Holmes / Poirot / Marple
 - 4class: Holmes / Poirot / Marple / Others
 
-Features:
-- Stratified train / val / test split
-- Macro-F1 evaluation
-- Step-based checkpointing
-- Resume training from latest checkpoint (--resume)
+This script outputs:
+- Train accuracy (diagnostic)
+- Validation accuracy & macro-F1 (during training)
+- Test accuracy & macro-F1
+- Confusion matrix
+- Per-class precision / recall / F1
 
-Example:
-python baseline/train.py \
-    --setup 4class \
-    --data_path baseline/train_lines_clean_balanced_4class.csv \
-    --resume
+IMPORTANT:
+- Training data is SHUFFLED (no character-order bias)
+- Test set is strictly held-out
+
 
 ---------- 
 TO RUN: 
@@ -28,7 +31,6 @@ python baseline/train.py --setup 4class --data_path baseline/train_lines_clean_b
 """
 
 import argparse
-import os
 import random
 import numpy as np
 import pandas as pd
@@ -48,7 +50,6 @@ from transformers import (
     TrainingArguments,
     Trainer,
 )
-from transformers.trainer_utils import get_last_checkpoint
 
 
 # =========================
@@ -83,20 +84,24 @@ def parse_args():
     parser.add_argument("--batch_size", type=int, default=8)
     parser.add_argument("--seed", type=int, default=42)
 
-    parser.add_argument(
-        "--resume",
-        action="store_true",
-        help="Resume training from latest checkpoint if available"
-    )
-
     return parser.parse_args()
 
 
 # =========================
-# Task definition
+# Task definition (LABEL LOGIC)
 # =========================
 
 def apply_label_mapping(df: pd.DataFrame, setup: str) -> pd.DataFrame:
+    """
+    Define what the classifier is asked to predict.
+
+    3class:
+        holmes / poirot / marple
+
+    4class:
+        holmes / poirot / marple / others
+        (others includes Watson, Hastings, etc.)
+    """
     if setup == "3class":
         df = df[df["character"].isin(["holmes", "poirot", "marple"])]
         df["label"] = df["character"]
@@ -127,7 +132,7 @@ def tokenize(batch, tokenizer):
 
 
 # =========================
-# Metrics
+# Metrics (used during training)
 # =========================
 
 def compute_metrics(eval_pred):
@@ -157,6 +162,7 @@ def main():
     print("Applying task-specific label mapping...")
     df = apply_label_mapping(df, args.setup)
 
+    # Explicit shuffle to avoid any ordering artefacts
     df = df.sample(frac=1, random_state=args.seed).reset_index(drop=True)
 
     labels = sorted(df["label"].unique())
@@ -211,17 +217,10 @@ def main():
         label2id=label2id
     )
 
-    # =========================
-    # Training arguments
-    # =========================
-
     training_args = TrainingArguments(
         output_dir=f"./models/{args.setup}",
-        eval_strategy="steps",
-        eval_steps=200,
-        save_strategy="steps",
-        save_steps=200,
-        save_total_limit=2,
+        eval_strategy="epoch",
+        save_strategy="epoch",
         learning_rate=2e-5,
         per_device_train_batch_size=args.batch_size,
         per_device_eval_batch_size=args.batch_size,
@@ -229,10 +228,6 @@ def main():
         weight_decay=0.01,
         logging_steps=50,
         report_to="none",
-        # 如果想要想让训练 自动保存最佳 checkpoint，根据 validation macro-F1 决定，而不是简单按照 step/epoch 保存
-        # load_best_model_at_end=True,      # ✅ 自动加载最佳模型
-        # metric_for_best_model="macro_f1", # ✅ 用 macro-F1 作为指标
-        # greater_is_better=True,           # ✅ F1 越大越好
     )
 
     trainer = Trainer(
@@ -244,26 +239,11 @@ def main():
         compute_metrics=compute_metrics,
     )
 
-    # =========================
-    # Resume logic
-    # =========================
-
-    last_checkpoint = None
-    if args.resume:
-        last_checkpoint = get_last_checkpoint(training_args.output_dir)
-        if last_checkpoint is not None:
-            print(f"Resuming training from checkpoint: {last_checkpoint}")
-        else:
-            print("No checkpoint found. Starting from scratch.")
-
     print("\nTraining model...")
-    if args.resume and last_checkpoint is not None:
-        trainer.train(resume_from_checkpoint=last_checkpoint)
-    else:
-        trainer.train()
+    trainer.train()
 
     # =========================
-    # Evaluation
+    # Diagnostics
     # =========================
 
     print("\nEvaluating on TRAIN set (diagnostic)...")

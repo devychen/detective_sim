@@ -3,53 +3,39 @@ train.py
 
 Train a character identification classifier on prepared dialogue data.
 
+This script defines the TASK (classification setup), not the data cleaning.
+Character collapsing (e.g., Watson + Hastings -> Others) is done HERE.
+
 Supported setups:
 - 3class: Holmes / Poirot / Marple
 - 4class: Holmes / Poirot / Marple / Others
 
-Features:
-- Stratified train / val / test split
-- Macro-F1 evaluation
-- Step-based checkpointing
-- Resume training from latest checkpoint (--resume)
+----------
+TO RUN:
 
-Example:
-python baseline/train.py \
-    --setup 4class \
-    --data_path baseline/train_lines_clean_balanced_4class.csv \
-    --resume
+python train.py --setup 3class --data_path baseline/train_lines_clean_balanced_3class.csv
+python train.py --setup 4class --data_path baseline/train_lines_clean_balanced_4class.csv
 
----------- 
-TO RUN: 
 
-python baseline/train.py --setup 3class --data_path baseline/train_lines_clean_balanced_3class.csv 
-python baseline/train.py --setup 4class --data_path baseline/train_lines_clean_balanced_4class.csv
 
 """
 
 import argparse
 import os
 import random
-import numpy as np
 import pandas as pd
+import numpy as np
 
 from datasets import Dataset
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import (
-    accuracy_score,
-    f1_score,
-    confusion_matrix,
-    classification_report,
-)
+from sklearn.metrics import accuracy_score, f1_score, confusion_matrix
 
 from transformers import (
     AutoTokenizer,
     AutoModelForSequenceClassification,
     TrainingArguments,
-    Trainer,
+    Trainer
 )
-from transformers.trainer_utils import get_last_checkpoint
-
 
 # =========================
 # Argument parsing
@@ -83,20 +69,19 @@ def parse_args():
     parser.add_argument("--batch_size", type=int, default=8)
     parser.add_argument("--seed", type=int, default=42)
 
-    parser.add_argument(
-        "--resume",
-        action="store_true",
-        help="Resume training from latest checkpoint if available"
-    )
-
     return parser.parse_args()
 
 
 # =========================
-# Task definition
+# Label mapping (TASK LOGIC)
 # =========================
 
 def apply_label_mapping(df: pd.DataFrame, setup: str) -> pd.DataFrame:
+    """
+    Apply task-specific label mapping.
+
+    This is where we define what the classifier is asked to do.
+    """
     if setup == "3class":
         df = df[df["character"].isin(["holmes", "poirot", "marple"])]
         df["label"] = df["character"]
@@ -136,7 +121,7 @@ def compute_metrics(eval_pred):
 
     return {
         "accuracy": accuracy_score(labels, preds),
-        "macro_f1": f1_score(labels, preds, average="macro"),
+        "macro_f1": f1_score(labels, preds, average="macro")
     }
 
 
@@ -146,26 +131,18 @@ def compute_metrics(eval_pred):
 
 def main():
     args = parse_args()
-
-    # Reproducibility
     random.seed(args.seed)
     np.random.seed(args.seed)
 
-    print("Loading dataset...")
+    print("Loading data...")
     df = pd.read_csv(args.data_path)
 
-    print("Applying task-specific label mapping...")
+    print("Applying label mapping...")
     df = apply_label_mapping(df, args.setup)
-
-    df = df.sample(frac=1, random_state=args.seed).reset_index(drop=True)
 
     labels = sorted(df["label"].unique())
     label2id = {l: i for i, l in enumerate(labels)}
     id2label = {i: l for l, i in label2id.items()}
-
-    print("Label mapping:")
-    for k, v in label2id.items():
-        print(f"  {k} -> {v}")
 
     df["labels"] = df["label"].map(label2id)
 
@@ -187,8 +164,8 @@ def main():
         random_state=args.seed
     )
 
-    def to_dataset(frame):
-        return Dataset.from_pandas(frame[["quote", "labels"]])
+    def to_dataset(df):
+        return Dataset.from_pandas(df[["quote", "labels"]])
 
     train_ds = to_dataset(train_df)
     val_ds = to_dataset(val_df)
@@ -211,28 +188,16 @@ def main():
         label2id=label2id
     )
 
-    # =========================
-    # Training arguments
-    # =========================
-
     training_args = TrainingArguments(
         output_dir=f"./models/{args.setup}",
-        eval_strategy="steps",
-        eval_steps=200,
-        save_strategy="steps",
-        save_steps=200,
-        save_total_limit=2,
+        evaluation_strategy="epoch",
+        save_strategy="epoch",
         learning_rate=2e-5,
         per_device_train_batch_size=args.batch_size,
         per_device_eval_batch_size=args.batch_size,
         num_train_epochs=args.epochs,
         weight_decay=0.01,
-        logging_steps=50,
-        report_to="none",
-        # 如果想要想让训练 自动保存最佳 checkpoint，根据 validation macro-F1 决定，而不是简单按照 step/epoch 保存
-        # load_best_model_at_end=True,      # ✅ 自动加载最佳模型
-        # metric_for_best_model="macro_f1", # ✅ 用 macro-F1 作为指标
-        # greater_is_better=True,           # ✅ F1 越大越好
+        logging_steps=50
     )
 
     trainer = Trainer(
@@ -241,54 +206,15 @@ def main():
         train_dataset=train_ds,
         eval_dataset=val_ds,
         tokenizer=tokenizer,
-        compute_metrics=compute_metrics,
+        compute_metrics=compute_metrics
     )
 
-    # =========================
-    # Resume logic
-    # =========================
+    print("Training...")
+    trainer.train()
 
-    last_checkpoint = None
-    if args.resume:
-        last_checkpoint = get_last_checkpoint(training_args.output_dir)
-        if last_checkpoint is not None:
-            print(f"Resuming training from checkpoint: {last_checkpoint}")
-        else:
-            print("No checkpoint found. Starting from scratch.")
-
-    print("\nTraining model...")
-    if args.resume and last_checkpoint is not None:
-        trainer.train(resume_from_checkpoint=last_checkpoint)
-    else:
-        trainer.train()
-
-    # =========================
-    # Evaluation
-    # =========================
-
-    print("\nEvaluating on TRAIN set (diagnostic)...")
-    train_preds = trainer.predict(train_ds)
-    train_y_true = train_preds.label_ids
-    train_y_pred = train_preds.predictions.argmax(axis=1)
-    print(f"Train accuracy: {accuracy_score(train_y_true, train_y_pred):.4f}")
-
-    print("\nEvaluating on TEST set...")
-    test_preds = trainer.predict(test_ds)
-    y_true = test_preds.label_ids
-    y_pred = test_preds.predictions.argmax(axis=1)
-
-    print(f"Test accuracy: {accuracy_score(y_true, y_pred):.4f}")
-    print(f"Test macro-F1: {f1_score(y_true, y_pred, average='macro'):.4f}")
-
-    print("\nConfusion Matrix:")
-    print(confusion_matrix(y_true, y_pred))
-
-    print("\nPer-class report:")
-    print(classification_report(
-        y_true,
-        y_pred,
-        target_names=[id2label[i] for i in sorted(id2label)]
-    ))
+    print("Evaluating on test set...")
+    results = trainer.evaluate(test_ds)
+    print(results)
 
 
 if __name__ == "__main__":
