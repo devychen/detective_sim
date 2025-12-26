@@ -3,32 +3,34 @@ train.py
 
 Train a character identification classifier on prepared dialogue data.
 
+This script defines the TASK (classification setup), not the data cleaning.
+Character collapsing (e.g., Watson + Hastings -> Others) is done HERE.
 
-【新增功能说明（重要）】
---------------------------------------------------
-1. 自动 checkpoint 保存（每个 epoch 保存一次）
-2. 自动查找最新 checkpoint，支持中断后恢复训练
-3. 支持“增量训练”：
-   - --epochs 表示“本次额外训练多少轮”
-   - 如果已有 checkpoint，会在原基础上继续
-4. 轻量级保存：
-   - 只保留最近 N 个 checkpoint（默认 3 个）
-   - 避免频繁 I/O，不影响训练速度
---------------------------------------------------
+Supported setups:
+- 3class: Holmes / Poirot / Marple
+- 4class: Holmes / Poirot / Marple / Others
 
-TO RUN:
+This script outputs:
+- Train accuracy (diagnostic)
+- Validation accuracy & macro-F1 (during training)
+- Test accuracy & macro-F1
+- Confusion matrix
+- Per-class precision / recall / F1
 
-# 第一次训练（从零开始）
-python baseline/train.py --setup 3class --data_path baseline/train_lines_clean_balanced_3class.csv --epochs 3
+IMPORTANT:
+- Training data is SHUFFLED (no character-order bias)
+- Test set is strictly held-out
 
-# 中断后继续训练（自动从最新 checkpoint 继续，再训练 2 个 epoch）
-python baseline/train.py --setup 3class --data_path baseline/train_lines_clean_balanced_3class.csv  --epochs 2
+---------- 
+TO RUN: 
+
+python baseline/train.py --setup 3class --data_path baseline/train_lines_clean_balanced_3class.csv 
+python baseline/train.py --setup 4class --data_path baseline/train_lines_clean_balanced_4class.csv
 
 
 """
 
 import argparse
-import os
 import random
 import numpy as np
 import pandas as pd
@@ -78,7 +80,6 @@ def parse_args():
         default="google-bert/bert-base-cased"
     )
 
-    # epochs = 本次要“再训练”多少轮（支持增量）
     parser.add_argument("--epochs", type=int, default=3)
     parser.add_argument("--batch_size", type=int, default=8)
     parser.add_argument("--seed", type=int, default=42)
@@ -92,13 +93,14 @@ def parse_args():
 
 def apply_label_mapping(df: pd.DataFrame, setup: str) -> pd.DataFrame:
     """
-    定义模型要学的分类任务。
+    Define what the classifier is asked to predict.
 
     3class:
         holmes / poirot / marple
 
     4class:
         holmes / poirot / marple / others
+        (others includes Watson, Hastings, etc.)
     """
     if setup == "3class":
         df = df[df["character"].isin(["holmes", "poirot", "marple"])]
@@ -121,9 +123,6 @@ def apply_label_mapping(df: pd.DataFrame, setup: str) -> pd.DataFrame:
 # =========================
 
 def tokenize(batch, tokenizer):
-    """
-    将文本转成 BERT 可以接受的 token 格式
-    """
     return tokenizer(
         batch["quote"],
         truncation=True,
@@ -133,13 +132,10 @@ def tokenize(batch, tokenizer):
 
 
 # =========================
-# Metrics (during training)
+# Metrics (used during training)
 # =========================
 
 def compute_metrics(eval_pred):
-    """
-    训练/验证阶段实时监控的指标
-    """
     logits, labels = eval_pred
     preds = logits.argmax(-1)
 
@@ -150,47 +146,13 @@ def compute_metrics(eval_pred):
 
 
 # =========================
-# Helper: 自动寻找最新 checkpoint
-# =========================
-
-def find_latest_checkpoint(output_dir):
-    """
-    在 output_dir 中查找最新的 checkpoint
-
-    checkpoint 命名形如：
-        checkpoint-500
-        checkpoint-1000
-
-    返回：
-        - 最新 checkpoint 路径
-        - 如果不存在，返回 None
-    """
-    if not os.path.isdir(output_dir):
-        return None
-
-    checkpoints = [
-        os.path.join(output_dir, d)
-        for d in os.listdir(output_dir)
-        if d.startswith("checkpoint")
-    ]
-
-    if not checkpoints:
-        return None
-
-    # 按修改时间排序，取最新的
-    return max(checkpoints, key=os.path.getmtime)
-
-
-# =========================
 # Main
 # =========================
 
 def main():
     args = parse_args()
 
-    # -------------------------
     # Reproducibility
-    # -------------------------
     random.seed(args.seed)
     np.random.seed(args.seed)
 
@@ -200,10 +162,9 @@ def main():
     print("Applying task-specific label mapping...")
     df = apply_label_mapping(df, args.setup)
 
-    # 明确打乱，防止顺序偏差
+    # Explicit shuffle to avoid any ordering artefacts
     df = df.sample(frac=1, random_state=args.seed).reset_index(drop=True)
 
-    # Label 映射
     labels = sorted(df["label"].unique())
     label2id = {l: i for i, l in enumerate(labels)}
     id2label = {i: l for l, i in label2id.items()}
@@ -214,9 +175,10 @@ def main():
 
     df["labels"] = df["label"].map(label2id)
 
-    # -------------------------
+    # =========================
     # Train / Val / Test split
-    # -------------------------
+    # =========================
+
     train_df, temp_df = train_test_split(
         df,
         test_size=0.2,
@@ -255,31 +217,14 @@ def main():
         label2id=label2id
     )
 
-    # -------------------------
-    # TrainingArguments（关键修改部分）
-    # -------------------------
-    output_dir = f"./models/{args.setup}"
-    os.makedirs(output_dir, exist_ok=True)
-
     training_args = TrainingArguments(
-        output_dir=output_dir,
-
-        # 每个 epoch 做一次验证
+        output_dir=f"./models/{args.setup}",
         eval_strategy="epoch",
-
-        # 每个 epoch 保存一次 checkpoint（避免频繁 I/O）
         save_strategy="epoch",
-
-        # 最多保留 3 个 checkpoint（轻量级）
-        save_total_limit=3,
-
         learning_rate=2e-5,
         per_device_train_batch_size=args.batch_size,
         per_device_eval_batch_size=args.batch_size,
-
-        # 注意：这是“本次”要训练的 epoch 数
         num_train_epochs=args.epochs,
-
         weight_decay=0.01,
         logging_steps=50,
         report_to="none",
@@ -294,24 +239,8 @@ def main():
         compute_metrics=compute_metrics,
     )
 
-    # -------------------------
-    # 自动断点续训
-    # -------------------------
-    latest_checkpoint = find_latest_checkpoint(output_dir)
-
-    if latest_checkpoint:
-        print(f"Loading model weights from {latest_checkpoint}")
-        model = AutoModelForSequenceClassification.from_pretrained(
-        latest_checkpoint,
-        num_labels=len(label2id),
-        id2label=id2label,
-        label2id=label2id
-        )
-    else:
-        print("\nNo checkpoint found, training from scratch")
-
     print("\nTraining model...")
-    trainer.train(resume_from_checkpoint=None)
+    trainer.train()
 
     # =========================
     # Diagnostics

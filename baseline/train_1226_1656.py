@@ -3,6 +3,7 @@ train.py
 
 Train a character identification classifier on prepared dialogue data.
 
+DISMISS. 这个版本需要我升级pytorch>=2.6，但我怕影响其它.py
 
 【新增功能说明（重要）】
 --------------------------------------------------
@@ -300,18 +301,12 @@ def main():
     latest_checkpoint = find_latest_checkpoint(output_dir)
 
     if latest_checkpoint:
-        print(f"Loading model weights from {latest_checkpoint}")
-        model = AutoModelForSequenceClassification.from_pretrained(
-        latest_checkpoint,
-        num_labels=len(label2id),
-        id2label=id2label,
-        label2id=label2id
-        )
+        print(f"\nFound checkpoint, resuming from: {latest_checkpoint}")
     else:
         print("\nNo checkpoint found, training from scratch")
 
     print("\nTraining model...")
-    trainer.train(resume_from_checkpoint=None)
+    trainer.train(resume_from_checkpoint=latest_checkpoint)
 
     # =========================
     # Diagnostics
