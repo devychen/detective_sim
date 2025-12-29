@@ -125,11 +125,12 @@ _**OR [CURRENT]**_: From original books, using LLM (`meta/llama-3.2-3b-instruct`
 
 > 🍎 *baseline > prepare_dataset.py*
 
-**Step 3** Train the baseline. Parameterised too for two situation accordingly.
-> 🍎 *baselines > train.csv*
+**Step 3** Use [BERT-cased](https://huggingface.co/google-bert/bert-base-cased). Train the baseline. Parameterised too for two situation accordingly.  
+> 🍎 *baselines > train.csv*.  
+> 🍎 *baselines > terminal_3class.txt, terminal_4class.txt*.   
+> 🍎 Baseline models saved to *models*.  
 
 
-**Step 3** Use [BERT-cased](https://huggingface.co/google-bert/bert-base-cased). 
 
 **`=== STAGE CLOSE. -- 31 Dec 2025 ===`**
 

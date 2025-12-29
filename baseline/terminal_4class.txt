@@ -1,5 +1,7 @@
-(venv) ychen@Ys-MacBook-Pro detective_sim % source venv/bin/activate
+
 (venv) ychen@Ys-MacBook-Pro detective_sim % python baseline/train.py --setup 4class --data_path baseline/train_lines_clean_balanced_4class.csv 
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 2874/2874 [2:50:01<00:00,  3.55s/it]
 
 Loading dataset...
 Applying task-specific label mapping...
