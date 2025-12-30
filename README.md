@@ -84,7 +84,7 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 > 🍎 *prompts > rule_collab.yaml*.
 
 **Step 4** Run the simulations and get the results, each time stamped. Meanwhile, print out the system prompt, make sure it's not too chaotic.
-> 🍎 Output dialogue each turn saved to *data > case1, case2, case3*.
+> 🍎 Output dialogue each turn saved to *data > case1, case2, case3*, within each run a *dialogue.csv* and each agent's prompt output are saved.
 
 ~~**======For Debate Task======**~~
 ~~Step 1: Write a more detailed description on their investigation methods. Use the summarised investigative traits from Lima et al (2025) directly (but rephrased to imperative sentences).~~  
