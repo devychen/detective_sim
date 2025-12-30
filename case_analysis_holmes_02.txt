@@ -1,0 +1,94 @@
+(venv) bytedance@L9QM6PVX13 detective_sim % pip install yaml
+ERROR: Could not find a version that satisfies the requirement yaml (from versions: none)
+ERROR: No matching distribution found for yaml
+WARNING: You are using pip version 21.2.4; however, version 25.3 is available.
+You should consider upgrading via the '/Users/bytedance/Documents/GitHub/detective_sim/venv/bin/python3 -m pip install --upgrade pip' command.
+(venv) bytedance@L9QM6PVX13 detective_sim % /Users/bytedance/Documents/GitHub/detective_sim/venv/bin/python3 -m pip install --upgrade pip
+Requirement already satisfied: pip in ./venv/lib/python3.9/site-packages (21.2.4)
+Collecting pip
+  Using cached pip-25.3-py3-none-any.whl (1.8 MB)
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 21.2.4
+    Uninstalling pip-21.2.4:
+      Successfully uninstalled pip-21.2.4
+Successfully installed pip-25.3
+(venv) bytedance@L9QM6PVX13 detective_sim % pip install yaml
+ERROR: Could not find a version that satisfies the requirement yaml (from versions: none)
+ERROR: No matching distribution found for yaml
+(venv) bytedance@L9QM6PVX13 detective_sim % /Users/bytedance/Documents/GitHub/detective_sim/venv/bin/python /Users/bytedance/Documents/GitHub/detective_sim/tests/test_allcases_character_controlled.py
+Traceback (most recent call last):
+  File "/Users/bytedance/Documents/GitHub/detective_sim/tests/test_allcases_character_controlled.py", line 33, in <module>
+    import yaml
+ModuleNotFoundError: No module named 'yaml'
+(venv) bytedance@L9QM6PVX13 detective_sim % /Users/bytedance/Documents/GitHub/detective_sim/venv/bin/python3 -m pip install yaml                                                                       
+ERROR: Could not find a version that satisfies the requirement yaml (from versions: none)
+ERROR: No matching distribution found for yaml
+(venv) bytedance@L9QM6PVX13 detective_sim % /Users/bytedance/Documents/GitHub/detective_sim/venv/bin/python3 -m pip install pyyaml
+Collecting pyyaml
+  Downloading pyyaml-6.0.3-cp39-cp39-macosx_11_0_arm64.whl.metadata (2.4 kB)
+Downloading pyyaml-6.0.3-cp39-cp39-macosx_11_0_arm64.whl (174 kB)
+Installing collected packages: pyyaml
+Successfully installed pyyaml-6.0.3
+(venv) bytedance@L9QM6PVX13 detective_sim % /Users/bytedance/Documents/GitHub/detective_sim/venv/bin/python /Users/bytedance/Documents/GitHub/detective_sim/tests/test_allcases_character_controlled.py
+Traceback (most recent call last):
+  File "/Users/bytedance/Documents/GitHub/detective_sim/tests/test_allcases_character_controlled.py", line 40, in <module>
+    client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+  File "/Users/bytedance/Documents/GitHub/detective_sim/venv/lib/python3.9/site-packages/openai/_client.py", line 137, in __init__
+    raise OpenAIError(
+openai.OpenAIError: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+(venv) bytedance@L9QM6PVX13 detective_sim % /Users/bytedance/Documents/GitHub/detective_sim/venv/bin/python /Users/bytedance/Documents/GitHub/detective_sim/tests/test_allcases_character_controlled.py
+
+========================================
+Analysing Case 1 with Holmes...
+Case 1 Analysis (Character: Holmes):
+Ah, a most intriguing case indeed. Let us begin by dissecting the evidence and evaluating each suspect in turn.
+
+1. Zack: His motive is ostensibly strong, as he is involved in a drug deal with Yosef. He had the opportunity to replace Yosef's drugs with poisoned ones and was seen inspecting Yosef's belongings. He was also seen disposing of the poisoned drugs later. His behaviour, however, is somewhat contradictory; he appears sorrowful upon disposing of the drugs, which is not typical of a cold-blooded killer. Could this be a ruse, or genuine remorse?
+
+2. Wilson: His motive is less clear, but he was given a bottle of 'X Poison' by Lynn, providing him with the means to commit the crime. However, he was with Yosef at the time of the poisoning and claimed Yosef had no intention of killing Lynn. His behaviour does not suggest guilt, but rather confusion and concern for Lynn.
+
+3. Lynn: Her motive is strong; she believes Yosef wants to kill her. She had access to 'X Poison' and was seen near the ventilation ducts around the time of the murder. However, she also seems genuinely afraid and seeks help from Wilson. Could she have used the poison in self-defence, or is she manipulating the situation?
+
+4. Wendy: Her motive is unclear, but she was seen near the medical room and asking about the ventilation ducts, suggesting she had the opportunity to commit the crime. She was also seen handing something resembling a medicine bottle and syringe to an accomplice. Her behaviour is suspicious, but without a clear motive, it is difficult to conclusively link her to the crime.
+
+Now, let us employ deductive reasoning to ascertain the most likely killer. Zack's sorrowful behaviour suggests remorse, but it could also be a clever ruse to divert suspicion. However, his actions are more consistent with those of a drug dealer caught in an unfortunate situation, rather than a premeditated murderer. Wilson's actions suggest he is more a pawn in this game, manipulated by Lynn's fear and paranoia. Wendy's actions are suspicious, but without a clear motive, it is difficult to conclusively link her to the crime.
+
+Lynn, on the other hand, presents a compelling case. She has a strong motive, believing Yosef wants to kill her. She has access to 'X Poison' and is seen near the ventilation ducts around the time of the murder. She manipulates Wilson into meeting Yosef, providing her with an alibi. Her behaviour suggests fear and paranoia, but could also be a clever ruse to divert suspicion. 
+
+Given the evidence at hand, I would posit that Lynn is the most likely perpetrator. Her actions suggest a calculated plan to murder Yosef, using the fear of her own death as a smokescreen. Her access to 'X Poison', her presence near the ventilation ducts, and her manipulation of Wilson all point towards her guilt. However, as always, further evidence is required to confirm this deduction beyond a reasonable doubt.
+
+
+========================================
+Analysing Case 2 with Holmes...
+Case 2 Analysis (Character: Holmes):
+Ah, a most intriguing case indeed. Let us proceed with the analysis, employing the principles of deductive reasoning and meticulous observation.
+
+Firstly, we must consider the motive strength of each suspect. Jim's actions suggest a desire to uncover something hidden within Charlie's residence, yet there is no clear indication of a motive for murder. Raymond, armed with a firearm, clearly intended harm, yet his departure upon Charlie's flight suggests his intent was not necessarily murder. Hook, armed with a knife, also intended harm, but his failure to locate Charlie suggests a lack of premeditation. William, however, met with Charlie and subsequently, Charlie was found poisoned. The motive here, while not explicitly stated, is implied by the lethal outcome.
+
+The opportunity for each suspect is also of paramount importance. Jim, Raymond, and Hook all had access to Charlie's residence, yet their alibis are weak due to their presence at the crime scene. William, however, met with Charlie at 21:30, providing him with the opportunity to administer the poison. His alibi is also weak, as he was the last person seen with Charlie before his death.
+
+Physical evidence linking the suspects to the crime is also crucial. Jim was found unconscious at the scene, yet there is no evidence linking him to the poisoning. Raymond's firearm and Hook's knife are irrelevant, as the cause of death was poisoning. William, however, is the only suspect associated with the method of murder - poisoning.
+
+Behavioural clues also provide valuable insight. Jim's actions suggest curiosity rather than malice. Raymond and Hook's aggressive behaviour indicates intent to harm, yet their actions do not align with the method of murder. William's actions, however, are consistent with the method of murder - he met with Charlie, and shortly thereafter, Charlie was found poisoned.
+
+In conclusion, based on the strength of motive, opportunity, physical evidence, and behavioural clues, the most probable killer is William. His actions align most closely with the method of murder, and he was the last person seen with Charlie before his death. His motive, while not explicitly stated, is implied by the lethal outcome. This conclusion, however, is subject to further evidence and should not be considered definitive until all possible avenues of investigation have been exhausted.
+
+
+========================================
+Analysing Case 3 with Holmes...
+Case 3 Analysis (Character: Holmes):
+Ah, a most intriguing case indeed. Let us dissect it meticulously, employing our faculties of deduction and logical reasoning.
+
+Firstly, we must consider the motive. The will fragment clutched in the victim's hand suggests a potential motive of inheritance, implicating Jeremy and Shirley Lambert. However, one must not hastily jump to conclusions, as this could also be a clever ruse to misdirect suspicion.
+
+As for opportunity, we must scrutinize the timeline. The blackout at 21:50 provides an ideal opportunity for the murder, as it would allow the perpetrator to act unseen. However, it is noteworthy that John Saar was seen entering the kitchen at 17:30, where he could have potentially procured a surgical blade. Charles Stewart's delivery of coffee to the study at 18:00 also places him at the scene, while Jeremy Lambert's entrance through the study window at 20:00 is suspicious. Mel Gibson's setting of the dry ice device in the power room at 21:20 could have been a premeditated act to cause the blackout, facilitating the murder. The arrival of Yosef Gibson and Jamie Collins at 17:00, however, does not provide them with a clear opportunity for the crime.
+
+Physical evidence is scant, but the surgical blade suspected in the fatal wound implicates John Saar, given his profession. The defensive wounds suggest a struggle, which could potentially link to Charles Stewart, who had direct access to the victim. The will fragment, as previously discussed, implicates Jeremy and Shirley Lambert.
+
+Behavioural clues are elusive in this case, but one must consider the unusual actions of Mel Gibson in setting the dry ice device, and Jeremy Lambert's unorthodox entrance through the study window.
+
+After a thorough analysis of these factors, I deduce that the most probable killer is John Saar. His motive could be to secure the inheritance for his fiancée, Shirley Lambert. His profession provides him with knowledge of the human anatomy and access to a surgical blade, which is suspected to be the murder weapon. His presence in the kitchen at 17:30 could have allowed him to procure such a blade. The blackout, potentially orchestrated by Mel Gibson, provided him with the opportunity to commit the murder unseen. However, this is merely the most probable scenario based on the available evidence and circumstances. Further investigation would be required to confirm this hypothesis.
+
+
+Analysis complete. Results saved to: case_analysis_holmes.txt

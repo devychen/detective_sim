@@ -295,9 +295,11 @@ def main():
         all_results += case_analysis + "\n" + "=" * 40 + "\n\n"
 
     # Save all results to file
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+
     output_file = save_results_to_file(
         all_results,
-        filename=f"case_analysis_{character_name}.txt"
+        filename=f"case_analysis_{character_name}_{timestamp}.txt"
     )
 
     print(f"\nAnalysis complete. Results saved to: {output_file}")
