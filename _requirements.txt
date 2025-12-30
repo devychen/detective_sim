@@ -1,0 +1,14 @@
+langchain_nvidia_ai_endpoints
+python-dotenv
+openai
+langchain
+pyyaml
+tiktoken
+huggingface-hub
+pandas
+numpy
+pyarrow
+transformer
+datasets
+scikit-learn 
+accelerate
