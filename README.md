@@ -69,7 +69,7 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 
 > 🍎 dialogue.py + base_agent.py + three agent.py +  llm_config.py + main.py
 
-【No need】Undecided - for collaboration task, should or not including `ReAct` to allow questions between each other? if so, how many questions allowed? 2 each turn?
+[No need】]~~Undecided - for collaboration task, should or not including `ReAct` to allow questions between each other? if so, how many questions allowed? 2 each turn?~~
 
 **`=== STAGE CLOSE. 15 JUL 2025 ===`**
 
@@ -131,10 +131,10 @@ _**OR [CURRENT]**_: From original books, using LLM (`meta/llama-3.2-3b-instruct`
 > 🍎 Baseline models saved to *models*.  
 
 
-
 **`=== STAGE CLOSE. -- 31 Dec 2025 ===`**
 
 ## Workflow - Data Analysis, Metrics.
+
 
 
 ## Timeline
