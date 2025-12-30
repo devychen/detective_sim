@@ -1,5 +1,4 @@
-# Case Results
-**True Murderer** 
+True Murderer
 - Case 1 - Zack (张大副)
 - Case 2 - William  
 - Case 2 - John Saar (苏阳)
