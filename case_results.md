@@ -1,6 +1,6 @@
 True Murderer
 - Case 1 - Zack (张大副)
-- Case 2 - William  
+- Case 2 - William (王村长)
 - Case 2 - John Saar (苏阳)
 
 |Turns|Result|Turns|Result|Turns|Result|
