@@ -81,7 +81,7 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 > 🍎 *tests > test_allcases.py*. the results shows it is not only solvable but also murders are correctly identified.
 
 **Step 3**: Based on inspiring works ([Player](https://github.com/alickzhu/PLAYER/tree/main)), build the rule prompt. It contains the common intro and common rules which is to be shared across agents.
-> 🍎 *prompts > rule_collab.yaml*.
+>  🍎 *prompts > rule_collab.yaml*.
 
 **Step 4** Run the simulations and get the results, each time stamped. Meanwhile, print out the system prompt, make sure it's not too chaotic.
 > 🍎 Output dialogue each turn saved to *data > case1, case2, case3*, within each run a *dialogue.csv* and each agent's prompt output are saved.
@@ -131,6 +131,8 @@ _**OR [CURRENT]**_: From original books, using LLM (`meta/llama-3.2-3b-instruct`
 
 ## Workflow - Data Analysis, Metrics.
 
+**Step 1** Walk-through of the metrics, confirm its rationale.
+> _metrics.md
 
 
 ## Timeline
