@@ -36,24 +36,26 @@ For both aotomated generation process using remote API, the temperature  is set 
 Then using an open-source LLM (llama) to do a _Validation Via Reverse identification_, to validate these profiles and prompts are valid representation of the respective character. (The LLM can tell who is who from the input)
 
 
-✅ **Step 1**: confirm brew up-to-date: 
+✅ **Step 1**: Create `venv`. Confirm brew up-to-date: 
 `brew update` and install necessary pkgs in terminal:`pip install -r requirements.txt`  
 
-✅ **Step 2**: Run [gen_profile] for profile generation. Profile generation done. 
+> 🍎 *requirements.txt, _build_venv.txt*.
 
-> 🍎 FOLDER 'profiles', incl. three character profile yaml files
+✅ **Step 2**: Run *prep > gen_profile.py* for character profile generation. Profile generation done. 
 
-✅ **Step 3**: Run [gen_agent_prompt.py] to generate the prompts for agents role-playing. 
+> 🍎 Output saved to *profiles* > three character profile yaml files.
 
-> 🍎 FOLDER 'prompts', incl. three character prompts yaml files
+✅ **Step 3**: Run *prep > gen_agent_prompt.py* to generate the prompts for agents role-playing. 
 
-✅ **Step 4**: Run [reverse_id.py] to do the reverse identification check, model used llama-3.3-70b-Instruct. 
+> 🍎 Output saved to *prompts > holmes.yaml, marple.yaml, poirot.yaml*.
+
+✅ **Step 4**: Run *prep > reverse_id.py* to do the reverse identification check, model used llama-3.3-70b-Instruct. 
 
 > 🍎 Identity proved. 
 
-✅  **Step 5** Get examples. Tried extract examples from original works. Run the series of [gen_examples.py]. But API not working well, so mannual extraction in the end.
+✅  **Step 5** Get example lines. Tried using LLM to extract example lines from original works (the series of *gen_examples.py*). But API not working well - duplicate lines and only extremely famous quote. So in the end I mannual read the books and extracted some example lines.
 
-> 🍎 in the prompt, examples included.
+> 🍎 Mannually added example lines into the three prompts at *prompts*.
 
 **`=== STAGE CLOSE. 1 JUL 2025 ===`**
 
@@ -61,15 +63,11 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 
 > LLM-based Assistants [Course Webbook](https://maxschmaltz.github.io/Course-LLM-based-Assistants/) might be helpful, especially the [Multi-agent Environment](https://maxschmaltz.github.io/Course-LLM-based-Assistants/sessions/block2_core_topics/pt1_business/2705/2705.html) part.
 
-✅ **Step 1**: Build the foundation. The struction, do a trial simuation to make sure the basics work.   
-**agents** -> base_agent, individual_agents * 3.   
-**prompts** -> individual prompts files * 3.   
-**tools** (if any) -> ask_other_questions.   
-**tasks** task description files.  
+✅ **Step 1**: Build the base agent (*agents > base_agent.py*) and the basic construction, do a trial simuation to make sure the basics work.   
+> 🍎 *agents > base_agent.py*, output saved as *holmes_agent.py, marple_agent.py, poirot_agent.py*   
+> 🍎 ~~*tools* (if any).~~  
 
-> 🍎 dialogue.py + base_agent.py + three agent.py +  llm_config.py + main.py
-
-[No need】]~~Undecided - for collaboration task, should or not including `ReAct` to allow questions between each other? if so, how many questions allowed? 2 each turn?~~
+[No need]~~Undecided - for collaboration task, should or not including `ReAct` to allow questions between each other? if so, how many questions allowed? 2 each turn?~~
 
 **`=== STAGE CLOSE. 15 JUL 2025 ===`**
 
@@ -77,25 +75,21 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 
 **Step 1**: Use the script from a previous work - [Player](https://github.com/alickzhu/PLAYER/tree/main) - which has mystery game scripts. And mannually extract the information based on my case template.   
 选取的三个案件：绝命阳光号（凶手张大副-Zack），罪恶（凶手王村长-William），未完结的爱（凶手苏阳-John Saar）
-> 🍎 cases > case1.yaml, case2.yaml, case3.yaml
+> 🍎 *cases > case1.yaml, case2.yaml, case3.yaml*
 
 **Step 2**: use GPT/llama to prove that the case extracted works - namely it could be solved.
-> 🍎 tests > test_case_gpt.yaml, test_case_llama.yaml, test_allcases.py
+> 🍎 *tests > test_case_gpt.yaml, test_case_llama.yaml, test_allcases.py*
 
 **Step 3**: Based on inspiring works ([Player](https://github.com/alickzhu/PLAYER/tree/main)), modify the task prompt.  
-> 🍎 rules > rule.yaml
+> 🍎 *prompts > rule_collab.yaml*
 
-**======For Debate Task======**
-
-**Step 1**: Write a more detailed description on their investigation methods. Use the summarised _investigative traits_ from Lima et al (2025) directly (but rephrased to imperative sentences). 
-> 🍎 prompts > holmes_methods.yaml, poirot_methods.yaml, marple_methods.yaml
-
-**Step 2**: Complete task prompt
-> 🍎 rules > rule_debate.yaml
-
-**Step ZZZ** Print out the system prompt, make sure it's not too chaotic.
-
-**Step Final**: Run the simulations and get the results.
+~~**======For Debate Task======**~~
+~~Step 1: Write a more detailed description on their investigation methods. Use the summarised investigative traits from Lima et al (2025) directly (but rephrased to imperative sentences).~~  
+~~> 🍎 prompts > holmes_methods.yaml, poirot_methods.yaml, marple_methods.yaml~~
+~~**Step 2**: Complete task prompt~~
+~~> 🍎 rules > rule_debate.yaml~~
+~~**Step ZZZ** Print out the system prompt, make sure it's not too chaotic.~~
+~~**Step Final**: Run the simulations and get the results.~~
 
 **`=== (Estimated) STAGE CLOSE. 05 AUG 2025 ===`**
 

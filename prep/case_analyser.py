@@ -1,3 +1,7 @@
+"""
+直接使用LLM完成用于合作任务的案件信息。
+"""
+
 import os
 import json
 import yaml

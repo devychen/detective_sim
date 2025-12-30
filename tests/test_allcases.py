@@ -1,3 +1,29 @@
+"""
+test_allcases.py
+
+Purpose
+-------
+This script performs a *zero-shot solvability verification* for all murder cases
+used in the multi-agent experiment.
+
+Specifically, it uses a single, non-role-based Large Language Model (LLM)
+to analyse each case independently, without:
+- character role-play,
+- multi-agent interaction,
+- dialogue history,
+- information asymmetry.
+
+The goal is NOT to optimise performance, but to verify that:
+1. Each case is internally coherent.
+2. The provided evidence is sufficient to support a reasoned inference.
+3. A competent, general-purpose LLM can arrive at a plausible conclusion
+   using only the case materials.
+
+In the broader research design, this script serves as a *baseline sanity check*
+and supports the claim that failures in the multi-agent setting are not caused
+by ill-posed or unsolvable cases.
+"""
+
 import os
 import openai
 from dotenv import load_dotenv
@@ -18,7 +44,7 @@ def load_case_files():
             cases.append(case_data['case'])  # Access the nested 'case' data
     return cases
 
-def analyse_case(case_data, case_number):  # British spelling
+def analyse_case(case_data, case_number):  
     """Analyse a single case using the OpenAI API"""
     case_name = case_data.get('setting', 'Unknown Case').split('\n')[0]
     
