@@ -81,15 +81,17 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 > 🍎 *tests > test_allcases.py*. the results shows it is not only solvable but also murders are correctly identified.
 
 **Step 3**: Based on inspiring works ([Player](https://github.com/alickzhu/PLAYER/tree/main)), build the rule prompt. It contains the common intro and common rules which is to be shared across agents.
-> 🍎 *prompts > rule_collab.yaml*
+> 🍎 *prompts > rule_collab.yaml*.
+
+**Step 4** Run the simulations and get the results, each time stamped. Meanwhile, print out the system prompt, make sure it's not too chaotic.
+> 🍎 Output dialogue each turn saved to *data > case1, case2, case3*.
 
 ~~**======For Debate Task======**~~
 ~~Step 1: Write a more detailed description on their investigation methods. Use the summarised investigative traits from Lima et al (2025) directly (but rephrased to imperative sentences).~~  
 ~~> 🍎 prompts > holmes_methods.yaml, poirot_methods.yaml, marple_methods.yaml~~
 ~~**Step 2**: Complete task prompt~~
 ~~> 🍎 rules > rule_debate.yaml~~
-~~**Step ZZZ** Print out the system prompt, make sure it's not too chaotic.~~
-~~**Step Final**: Run the simulations and get the results.~~
+
 
 **`=== (Estimated) STAGE CLOSE. 05 AUG 2025 ===`**
 
