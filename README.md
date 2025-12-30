@@ -139,12 +139,10 @@ _**OR [CURRENT]**_: From original books, using LLM (`meta/llama-3.2-3b-instruct`
 
 ## Timeline
  
-12.31 Baseline.  
-1.31 Eval.  
-2.28 Writing.   
-3.30 Oral.  
-
-
+31 Dec - Baseline.  
+31 Jan - Eval.  
+28 Feb - Writing.   
+30 Mar - Oral.  
 
 
 # Notes
