@@ -77,7 +77,10 @@ weighted avg       0.76      0.76      0.76      1374
 
 |Dimension|Metrics|
 |--|--|
-Desciptive|Average task accuracy
+Desciptive|Average task accuracy & CI
+Model|Predicted probability & CI; Average Brier Score & its Linear Regression
+Lexical|
+
 
 
 
@@ -102,4 +105,5 @@ Desciptive|Average task accuracy
 
 哪个score? brier?
 
-# Lexical
+# 3. Lexical
+3.1 
