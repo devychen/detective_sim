@@ -132,7 +132,7 @@ _**OR [CURRENT]**_: From original books, using LLM (`meta/llama-3.2-3b-instruct`
 ## Workflow - Data Analysis, Metrics.
 
 **Step 1** Walk-through of the metrics, confirm its rationale.
-> _metrics.md
+> metrics.md
 
 
 ## Timeline

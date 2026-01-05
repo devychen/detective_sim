@@ -11,17 +11,9 @@ This script implements the three evaluation measures suggested by the advisor:
 2. Brier score over dialogue turns
 3. Linear regression analysis to detect systematic drift over time
 
-The classifier is treated as an external reference model that estimates
-how closely each utterance matches the canonical literary style of
-Holmes, Marple, or Poirot.
-
-默认：id2label = {
-    0: "holmes",
-    1: "marple",
-    2: "poirot"
-}
+Extended version:
+- Automatically evaluates multiple cases (case1, case2, case3) in one run.
 """
-
 
 # =================================================
 # Imports
@@ -32,6 +24,8 @@ import glob
 import numpy as np
 import pandas as pd
 
+from datetime import datetime
+
 from typing import Dict, List
 
 import torch
@@ -41,15 +35,16 @@ from sklearn.linear_model import LinearRegression
 from scipy.stats import ttest_1samp
 
 # =================================================
-# Configuration (EDIT IF NEEDED)
+# Configuration
 # =================================================
 
 MODEL_DIR = "./models/3class"
-DIALOGUE_LOG_GLOB = "./data/case3/run_*/dialogue_log.csv"
+
+CASES = ["case1", "case2", "case3"]
+DATA_ROOT = "./data"
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
-# Must match training-time label mapping
 ID2LABEL = {
     0: "holmes",
     1: "marple",
@@ -63,17 +58,12 @@ LABEL2ID = {v: k for k, v in ID2LABEL.items()}
 # =================================================
 
 def load_latest_checkpoint(model_dir: str):
-    """
-    Load the most recent checkpoint from a HuggingFace Trainer output directory.
-    """
     checkpoints = sorted(
         glob.glob(os.path.join(model_dir, "checkpoint-*")),
         key=os.path.getmtime
     )
-
     if not checkpoints:
         raise FileNotFoundError("No checkpoint found in model directory.")
-
     return checkpoints[-1]
 
 
@@ -82,9 +72,6 @@ def load_latest_checkpoint(model_dir: str):
 # =================================================
 
 def load_classifier():
-    """
-    Load tokenizer and classifier model for inference only.
-    """
     checkpoint = load_latest_checkpoint(MODEL_DIR)
 
     tokenizer = AutoTokenizer.from_pretrained(checkpoint)
@@ -96,22 +83,10 @@ def load_classifier():
 
 
 # =================================================
-# Core prediction function
+# Prediction
 # =================================================
 
-def predict_probabilities(
-    texts: List[str],
-    tokenizer,
-    model
-) -> np.ndarray:
-    """
-    Predict class probabilities for a list of utterances.
-
-    Returns
-    -------
-    probs : np.ndarray
-        Shape (N, num_classes), softmax probabilities.
-    """
+def predict_probabilities(texts, tokenizer, model):
     enc = tokenizer(
         texts,
         truncation=True,
@@ -119,7 +94,6 @@ def predict_probabilities(
         max_length=128,
         return_tensors="pt"
     )
-
     enc = {k: v.to(DEVICE) for k, v in enc.items()}
 
     with torch.no_grad():
@@ -129,39 +103,20 @@ def predict_probabilities(
     return probs.cpu().numpy()
 
 
-# =================================================
-# Metric computations
-# =================================================
-
 def compute_brier_score(prob_correct: float) -> float:
-    """
-    Brier score for a single prediction.
-
-    Brier = (p_correct - 1)^2
-    """
     return (prob_correct - 1.0) ** 2
 
 
 # =================================================
-# Main evaluation logic
+# Per-run evaluation
 # =================================================
 
-def evaluate_simulation(dialogue_path: str, tokenizer, model):
-    """
-    Evaluate one full simulation run.
-
-    Returns
-    -------
-    results : dict
-        {agent_name: DataFrame with per-turn metrics}
-    """
+def evaluate_simulation(dialogue_path, tokenizer, model):
     df = pd.read_csv(dialogue_path)
-
     results = {}
 
     for agent in ["Holmes", "Marple", "Poirot"]:
         agent_df = df[df["speaker"] == agent].copy()
-
         if agent_df.empty:
             continue
 
@@ -170,11 +125,9 @@ def evaluate_simulation(dialogue_path: str, tokenizer, model):
 
         probs = predict_probabilities(texts, tokenizer, model)
 
-        correct_label = agent.lower()
-        correct_id = LABEL2ID[correct_label]
-
+        correct_id = LABEL2ID[agent.lower()]
         prob_correct = probs[:, correct_id]
-        brier = [compute_brier_score(p) for p in prob_correct]
+        brier = [(p - 1.0) ** 2 for p in prob_correct]
 
         results[agent] = pd.DataFrame({
             "turn": turns,
@@ -185,61 +138,65 @@ def evaluate_simulation(dialogue_path: str, tokenizer, model):
     return results
 
 
-# =================================================
-# Aggregate over simulations
-# =================================================
-
-def aggregate_over_runs(all_runs: List[Dict[str, pd.DataFrame]]):
-    """
-    Combine multiple simulation runs into per-agent matrices.
-    """
+def aggregate_over_runs(all_runs):
     aggregated = {a: [] for a in ["Holmes", "Marple", "Poirot"]}
-
     for run in all_runs:
         for agent, df in run.items():
             aggregated[agent].append(df)
-
     return aggregated
 
 
 # =================================================
-# Regression analysis
+# Regression
 # =================================================
 
-def regression_slope_test(dfs: List[pd.DataFrame], metric: str):
-    """
-    Fit per-run linear regressions and test slope significance.
-
-    Parameters
-    ----------
-    dfs : list of DataFrames
-    metric : "prob_correct" or "brier"
-
-    Returns
-    -------
-    slopes : list of float
-    p_value : float (one-sample t-test against zero)
-    """
+def regression_slope_test(dfs, metric):
     slopes = []
 
     for df in dfs:
         X = df["turn"].values.reshape(-1, 1)
         y = df[metric].values
-
         if len(np.unique(X)) < 2:
             continue
-
         reg = LinearRegression().fit(X, y)
         slopes.append(reg.coef_[0])
 
     slopes = np.array(slopes)
-
     if len(slopes) == 0:
         return slopes, np.nan
 
     _, p_value = ttest_1samp(slopes, 0.0)
-
     return slopes, p_value
+
+
+# =================================================
+# Case-level evaluation
+# =================================================
+
+def evaluate_case(case_name, tokenizer, model, f):
+    pattern = os.path.join(DATA_ROOT, case_name, "run_*", "dialogue_log.csv")
+    dialogue_logs = sorted(glob.glob(pattern))
+
+    print(f"\n=== {case_name.upper()} ===", file=f)
+    print(f"Found {len(dialogue_logs)} simulation runs.", file=f)
+
+    all_runs = []
+    for path in dialogue_logs:
+        all_runs.append(evaluate_simulation(path, tokenizer, model))
+
+    aggregated = aggregate_over_runs(all_runs)
+
+    for agent, dfs in aggregated.items():
+        print(f"\n--- {agent} ---", file=f)
+
+        slopes_p, p_p = regression_slope_test(dfs, "prob_correct")
+        slopes_b, p_b = regression_slope_test(dfs, "brier")
+
+        print(f"Probability slope mean: {np.mean(slopes_p):.4f}", file=f)
+        print(f"Probability slope p-value: {p_p:.4g}", file=f)
+
+        print(f"Brier slope mean: {np.mean(slopes_b):.4f}", file=f)
+        print(f"Brier slope p-value: {p_b:.4g}", file=f)
 
 
 # =================================================
@@ -249,32 +206,22 @@ def regression_slope_test(dfs: List[pd.DataFrame], metric: str):
 def main():
     tokenizer, model = load_classifier()
 
-    dialogue_logs = sorted(glob.glob(DIALOGUE_LOG_GLOB))
-    print(f"Found {len(dialogue_logs)} simulation runs.")
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-    all_runs = []
+    output_dir = "./evaluation"
+    os.makedirs(output_dir, exist_ok=True)
 
-    for path in dialogue_logs:
-        run_result = evaluate_simulation(path, tokenizer, model)
-        all_runs.append(run_result)
+    output_path = os.path.join(
+        output_dir,
+        f"results_model_{timestamp}.txt"
+    )
 
-    aggregated = aggregate_over_runs(all_runs)
+    with open(output_path, "w", encoding="utf-8") as f:
+        for case_name in CASES:
+            evaluate_case(case_name, tokenizer, model, f)
 
-    # -------------------------
-    # Report results
-    # -------------------------
+    print(f"\nResults saved to {output_path}")
 
-    for agent, dfs in aggregated.items():
-        print(f"\n=== {agent} ===")
-
-        slopes_p, p_p = regression_slope_test(dfs, "prob_correct")
-        slopes_b, p_b = regression_slope_test(dfs, "brier")
-
-        print(f"Probability slope mean: {np.mean(slopes_p):.4f}")
-        print(f"Probability slope p-value: {p_p:.4g}")
-
-        print(f"Brier slope mean: {np.mean(slopes_b):.4f}")
-        print(f"Brier slope p-value: {p_b:.4g}")
 
 
 if __name__ == "__main__":
