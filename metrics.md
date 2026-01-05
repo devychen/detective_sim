@@ -44,17 +44,20 @@ Case solving task with character prompts but without collaboration, to verify WH
 ```
 ===CURRENT RESULTS===
 Evaluating on TRAIN set (diagnostic)...
-Train accuracy: 0.8908
+Train accuracy: 0.8908 第二次 0.9400
 
 Evaluating on TEST set...
-Test accuracy: 0.7598
-Test macro-F1: 0.7612
+Test accuracy: 0.7598 第二次 0.7620
+Test macro-F1: 0.7612 第二次 0.7633
 
 Confusion Matrix:
 [[374  27  37]
  [ 26 325  94]
  [ 52  94 345]]
-
+第二次:
+[[379  24  35]
+ [ 27 331  87]
+ [ 48 106 337]]
 
 Per-class report:
               precision    recall  f1-score   support
