@@ -19,7 +19,7 @@ RQ4. TBC <br>
 Case solving task with default zero-shot LLM prompt, to verify if cases are solvable. 
 > *tests > test_allcases.py*
 
-> Before running the multi-agent collaborative experiments, we conducted a zero-shot solvability verification using a single, non-role-based LLM. The model was provided with the complete case description and a minimal analytical instruction, without examples or interaction. The purpose of this step was to ensure that each case admitted a coherent, reasoned solution independent of character constraints or dialogue dynamics.
+- Before running the multi-agent collaborative experiments, we conducted a zero-shot solvability verification using a single, non-role-based LLM. The model was provided with the complete case description and a minimal analytical instruction, without examples or interaction. The purpose of this step was to ensure that each case admitted a coherent, reasoned solution independent of character constraints or dialogue dynamics.
 
 目前不是百分百的正确率.(需要能100%正确解决吗？还是证明有一定正确率即可？是的话多少正确率？)
 而且这里用的是gpt，collab用的是llama，说实话llama正确率是要比gpt低一点
@@ -39,7 +39,7 @@ Case solving task with character prompts but without collaboration, to verify WH
 **Legitimacy**: 
 1. Original texts comes from orginal books, also extraction method (LLM prompt)
 2. Accuracy/Macro-F1 results 
-- *The classifier achieves moderate but reliable performance (accuracy = 0.76, macro-F1 = 0.76), which is sufficient for its role as a reference model rather than an oracle. The classifier performance is sufficient to establish legitimacy as a baseline. It clearly outperforms chance, shows balanced per-class performance, and produces interpretable confusions consistent with literary similarity, which is appropriate for measuring probabilistic character drift rather than perfect identification.*.
+    - *The classifier achieves moderate but reliable performance (accuracy = 0.76, macro-F1 = 0.76), which is sufficient for its role as a reference model rather than an oracle. The classifier performance is sufficient to establish legitimacy as a baseline. It clearly outperforms chance, shows balanced per-class performance, and produces interpretable confusions consistent with literary similarity, which is appropriate for measuring probabilistic character drift rather than perfect identification.*.
 
 ```
 ===CURRENT RESULTS===
@@ -96,12 +96,12 @@ Lexical|
 
 # 2. Classifier model
 
-2.1 Extract the **predicted probability** of the correct class and plot mean (over simulations) over turns
+2.1 Extract the **predicted probability** of the correct class and **plot mean** over turns over simulations.
 
 - CIs over simulations
 
-2.2 Calculate average **Brier score** (mean squared error of predicted probabilities) over turns (in order to estimate whether there is a significant increase or decrease trend)
-- Fit **linear regressions** to the scores over turns
+2.2 Calculate average **Brier score** (mean squared error of predicted probabilities) over turns (in order to estimate whether there is a significant increase or decrease trend).
+- Fit **linear regressions** to the scores over turns.
 
 哪个score? brier?
 
