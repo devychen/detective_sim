@@ -14,53 +14,78 @@ This script implements the three evaluation measures suggested by the advisor:
 The classifier is treated as an external reference model that estimates
 how closely each utterance matches the canonical literary style of
 Holmes, Marple, or Poirot.
+
+默认：id2label = {
+    0: "holmes",
+    1: "marple",
+    2: "poirot"
+}
 """
+
+
+# =================================================
+# Imports
+# =================================================
 
 import os
 import glob
-import pandas as pd
 import numpy as np
-from typing import List
+import pandas as pd
+
+from typing import Dict, List
 
 import torch
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
-from scipy.special import softmax
-from scipy.stats import linregress
 
+from sklearn.linear_model import LinearRegression
+from scipy.stats import ttest_1samp
 
 # =================================================
-# Configuration
+# Configuration (EDIT IF NEEDED)
 # =================================================
 
-MODEL_DIR = "models/3class"   # trained baseline classifier
-DATA_ROOT = "data/case3"      # where simulation runs are stored
+MODEL_DIR = "./models/3class"
+DIALOGUE_LOG_GLOB = "./data/case3/run_*/dialogue_log.csv"
+
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
+# Must match training-time label mapping
+ID2LABEL = {
+    0: "holmes",
+    1: "marple",
+    2: "poirot"
+}
+
+LABEL2ID = {v: k for k, v in ID2LABEL.items()}
 
 # =================================================
-# Helper functions
+# Helper: load latest checkpoint
 # =================================================
 
 def load_latest_checkpoint(model_dir: str):
     """
-    Load the most recent checkpoint from a HuggingFace Trainer directory.
-
-    This mirrors the logic used during training and ensures we always
-    evaluate with the latest available model.
+    Load the most recent checkpoint from a HuggingFace Trainer output directory.
     """
-    checkpoints = glob.glob(os.path.join(model_dir, "checkpoint-*"))
+    checkpoints = sorted(
+        glob.glob(os.path.join(model_dir, "checkpoint-*")),
+        key=os.path.getmtime
+    )
+
     if not checkpoints:
         raise FileNotFoundError("No checkpoint found in model directory.")
 
-    latest_ckpt = max(checkpoints, key=os.path.getmtime)
-    return latest_ckpt
+    return checkpoints[-1]
 
 
-def load_classifier(model_dir: str):
+# =================================================
+# Load classifier
+# =================================================
+
+def load_classifier():
     """
-    Load tokenizer and classifier model.
+    Load tokenizer and classifier model for inference only.
     """
-    checkpoint = load_latest_checkpoint(model_dir)
+    checkpoint = load_latest_checkpoint(MODEL_DIR)
 
     tokenizer = AutoTokenizer.from_pretrained(checkpoint)
     model = AutoModelForSequenceClassification.from_pretrained(checkpoint)
@@ -69,6 +94,10 @@ def load_classifier(model_dir: str):
 
     return tokenizer, model
 
+
+# =================================================
+# Core prediction function
+# =================================================
 
 def predict_probabilities(
     texts: List[str],
@@ -80,8 +109,8 @@ def predict_probabilities(
 
     Returns
     -------
-    np.ndarray
-        Shape: (n_samples, n_classes)
+    probs : np.ndarray
+        Shape (N, num_classes), softmax probabilities.
     """
     enc = tokenizer(
         texts,
@@ -95,131 +124,158 @@ def predict_probabilities(
 
     with torch.no_grad():
         outputs = model(**enc)
-        logits = outputs.logits.cpu().numpy()
+        probs = torch.softmax(outputs.logits, dim=-1)
 
-    return softmax(logits, axis=1)
+    return probs.cpu().numpy()
 
 
-def compute_brier_score(p_correct: float) -> float:
+# =================================================
+# Metric computations
+# =================================================
+
+def compute_brier_score(prob_correct: float) -> float:
     """
-    Compute Brier score for a single prediction.
+    Brier score for a single prediction.
 
-    Since the true label is known and binary (correct class vs others),
-    the Brier score reduces to:
-
-        (p_correct - 1)^2
+    Brier = (p_correct - 1)^2
     """
-    return (p_correct - 1.0) ** 2
+    return (prob_correct - 1.0) ** 2
 
 
 # =================================================
 # Main evaluation logic
 # =================================================
 
-def evaluate_all_runs():
+def evaluate_simulation(dialogue_path: str, tokenizer, model):
     """
-    Evaluate OOC metrics across all simulation runs.
+    Evaluate one full simulation run.
 
     Returns
     -------
-    pd.DataFrame
-        One row per utterance, with probability and Brier score.
+    results : dict
+        {agent_name: DataFrame with per-turn metrics}
     """
-    tokenizer, model = load_classifier(MODEL_DIR)
+    df = pd.read_csv(dialogue_path)
 
-    all_rows = []
+    results = {}
 
-    run_dirs = sorted(
-        d for d in glob.glob(os.path.join(DATA_ROOT, "run_*"))
-        if os.path.isdir(d)
-    )
+    for agent in ["Holmes", "Marple", "Poirot"]:
+        agent_df = df[df["speaker"] == agent].copy()
 
-    for run_dir in run_dirs:
-        dialogue_path = os.path.join(run_dir, "dialogue_log.csv")
-        df = pd.read_csv(dialogue_path)
+        if agent_df.empty:
+            continue
 
-        texts = df["utterance"].tolist()
-        speakers = df["speaker"].tolist()
-        turns = df["turn"].tolist()
+        texts = agent_df["utterance"].tolist()
+        turns = agent_df["turn"].tolist()
 
         probs = predict_probabilities(texts, tokenizer, model)
 
-        id2label = model.config.id2label
-        label2id = {v: k for k, v in id2label.items()}
+        correct_label = agent.lower()
+        correct_id = LABEL2ID[correct_label]
 
-        for i in range(len(df)):
-            speaker = speakers[i].lower()
-            true_label_id = label2id[speaker]
+        prob_correct = probs[:, correct_id]
+        brier = [compute_brier_score(p) for p in prob_correct]
 
-            p_correct = probs[i, true_label_id]
-            brier = compute_brier_score(p_correct)
-
-            all_rows.append({
-                "run": os.path.basename(run_dir),
-                "turn": turns[i],
-                "speaker": speaker,
-                "p_correct": p_correct,
-                "brier": brier
-            })
-
-    return pd.DataFrame(all_rows)
-
-
-# =================================================
-# Turn-level aggregation & regression
-# =================================================
-
-def analyze_trends(df: pd.DataFrame):
-    """
-    Analyze probability and Brier score trends over turns
-    using linear regression.
-    """
-    results = []
-
-    for speaker in df["speaker"].unique():
-        sub = df[df["speaker"] == speaker]
-
-        # aggregate over runs
-        grouped = sub.groupby("turn").agg(
-            mean_p=("p_correct", "mean"),
-            mean_brier=("brier", "mean")
-        ).reset_index()
-
-        # linear regression
-        p_reg = linregress(grouped["turn"], grouped["mean_p"])
-        brier_reg = linregress(grouped["turn"], grouped["mean_brier"])
-
-        results.append({
-            "speaker": speaker,
-            "p_slope": p_reg.slope,
-            "p_pvalue": p_reg.pvalue,
-            "brier_slope": brier_reg.slope,
-            "brier_pvalue": brier_reg.pvalue
+        results[agent] = pd.DataFrame({
+            "turn": turns,
+            "prob_correct": prob_correct,
+            "brier": brier
         })
 
-        print("\n====================================")
-        print(f"Speaker: {speaker.upper()}")
-        print("Probability trend:")
-        print(f"  slope = {p_reg.slope:.4f}, p = {p_reg.pvalue:.4f}")
-        print("Brier score trend:")
-        print(f"  slope = {brier_reg.slope:.4f}, p = {brier_reg.pvalue:.4f}")
+    return results
 
-    return pd.DataFrame(results)
+
+# =================================================
+# Aggregate over simulations
+# =================================================
+
+def aggregate_over_runs(all_runs: List[Dict[str, pd.DataFrame]]):
+    """
+    Combine multiple simulation runs into per-agent matrices.
+    """
+    aggregated = {a: [] for a in ["Holmes", "Marple", "Poirot"]}
+
+    for run in all_runs:
+        for agent, df in run.items():
+            aggregated[agent].append(df)
+
+    return aggregated
+
+
+# =================================================
+# Regression analysis
+# =================================================
+
+def regression_slope_test(dfs: List[pd.DataFrame], metric: str):
+    """
+    Fit per-run linear regressions and test slope significance.
+
+    Parameters
+    ----------
+    dfs : list of DataFrames
+    metric : "prob_correct" or "brier"
+
+    Returns
+    -------
+    slopes : list of float
+    p_value : float (one-sample t-test against zero)
+    """
+    slopes = []
+
+    for df in dfs:
+        X = df["turn"].values.reshape(-1, 1)
+        y = df[metric].values
+
+        if len(np.unique(X)) < 2:
+            continue
+
+        reg = LinearRegression().fit(X, y)
+        slopes.append(reg.coef_[0])
+
+    slopes = np.array(slopes)
+
+    if len(slopes) == 0:
+        return slopes, np.nan
+
+    _, p_value = ttest_1samp(slopes, 0.0)
+
+    return slopes, p_value
 
 
 # =================================================
 # Entry point
 # =================================================
 
+def main():
+    tokenizer, model = load_classifier()
+
+    dialogue_logs = sorted(glob.glob(DIALOGUE_LOG_GLOB))
+    print(f"Found {len(dialogue_logs)} simulation runs.")
+
+    all_runs = []
+
+    for path in dialogue_logs:
+        run_result = evaluate_simulation(path, tokenizer, model)
+        all_runs.append(run_result)
+
+    aggregated = aggregate_over_runs(all_runs)
+
+    # -------------------------
+    # Report results
+    # -------------------------
+
+    for agent, dfs in aggregated.items():
+        print(f"\n=== {agent} ===")
+
+        slopes_p, p_p = regression_slope_test(dfs, "prob_correct")
+        slopes_b, p_b = regression_slope_test(dfs, "brier")
+
+        print(f"Probability slope mean: {np.mean(slopes_p):.4f}")
+        print(f"Probability slope p-value: {p_p:.4g}")
+
+        print(f"Brier slope mean: {np.mean(slopes_b):.4f}")
+        print(f"Brier slope p-value: {p_b:.4g}")
+
+
 if __name__ == "__main__":
-    print("Evaluating character consistency (OOC)...")
-
-    df = evaluate_all_runs()
-    df.to_csv("baseline_ooc_scores.csv", index=False)
-
-    print("\nSaved per-utterance scores to baseline_ooc_scores.csv")
-
-    trend_df = analyze_trends(df)
-    trend_df.to_csv("baseline_ooc_trends.csv", index=False)
-
-    print("\nSaved trend analysis to baseline_ooc_trends.csv")
+    main()
