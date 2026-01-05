@@ -1,6 +1,8 @@
 """
 train.py
 
+前序版本，本版本只有一个epoch
+
 Train a character identification classifier on prepared dialogue data.
 
 This script defines the TASK (classification setup), not the data cleaning.
