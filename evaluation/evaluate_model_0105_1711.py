@@ -5,15 +5,14 @@ Purely analysis, no model training.
 
 Evaluate character consistency (OOC) using a trained baseline classifier.
 
-Implements advisor-suggested analyses:
+This script implements the three evaluation measures suggested by the advisor:
 
-1. Turn-level classification confidence (mean + CI over simulations)
-2. Turn-level Brier score (mean + CI over simulations)
-3. Linear regression on aggregated trajectories to detect drift
+1. Classification confidence over dialogue turns
+2. Brier score over dialogue turns
+3. Linear regression analysis to detect systematic drift over time
 
-Extended:
-- Automatically evaluates multiple cases (case1, case2, case3)
-- Outputs detailed turn-level tables + regression summaries
+Extended version:
+- Automatically evaluates multiple cases (case1, case2, case3) in one run.
 """
 
 # =================================================
@@ -24,15 +23,16 @@ import os
 import glob
 import numpy as np
 import pandas as pd
-import torch
 
 from datetime import datetime
-from typing import List, Dict
-from scipy.stats import t
 
+from typing import Dict, List
+
+import torch
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
 from sklearn.linear_model import LinearRegression
+from scipy.stats import ttest_1samp
 
 # =================================================
 # Configuration
@@ -53,8 +53,6 @@ ID2LABEL = {
 
 LABEL2ID = {v: k for k, v in ID2LABEL.items()}
 
-AGENTS = ["Holmes", "Marple", "Poirot"]
-
 # =================================================
 # Helper: load latest checkpoint
 # =================================================
@@ -67,6 +65,7 @@ def load_latest_checkpoint(model_dir: str):
     if not checkpoints:
         raise FileNotFoundError("No checkpoint found in model directory.")
     return checkpoints[-1]
+
 
 # =================================================
 # Load classifier
@@ -81,6 +80,7 @@ def load_classifier():
     model.eval()
 
     return tokenizer, model
+
 
 # =================================================
 # Prediction
@@ -102,18 +102,20 @@ def predict_probabilities(texts, tokenizer, model):
 
     return probs.cpu().numpy()
 
+
+def compute_brier_score(prob_correct: float) -> float:
+    return (prob_correct - 1.0) ** 2
+
+
 # =================================================
-# Per-simulation evaluation
+# Per-run evaluation
 # =================================================
 
-def evaluate_simulation(dialogue_path, tokenizer, model) -> Dict[str, pd.DataFrame]:
-    """
-    Returns per-agent turn-level metrics for one simulation.
-    """
+def evaluate_simulation(dialogue_path, tokenizer, model):
     df = pd.read_csv(dialogue_path)
     results = {}
 
-    for agent in AGENTS:
+    for agent in ["Holmes", "Marple", "Poirot"]:
         agent_df = df[df["speaker"] == agent].copy()
         if agent_df.empty:
             continue
@@ -122,9 +124,10 @@ def evaluate_simulation(dialogue_path, tokenizer, model) -> Dict[str, pd.DataFra
         turns = agent_df["turn"].tolist()
 
         probs = predict_probabilities(texts, tokenizer, model)
+
         correct_id = LABEL2ID[agent.lower()]
         prob_correct = probs[:, correct_id]
-        brier = (prob_correct - 1.0) ** 2
+        brier = [(p - 1.0) ** 2 for p in prob_correct]
 
         results[agent] = pd.DataFrame({
             "turn": turns,
@@ -134,103 +137,37 @@ def evaluate_simulation(dialogue_path, tokenizer, model) -> Dict[str, pd.DataFra
 
     return results
 
-# =================================================
-# Aggregate simulations (agent-wise)
-# =================================================
 
-def aggregate_over_runs(all_runs: List[Dict[str, pd.DataFrame]]):
-    aggregated = {agent: [] for agent in AGENTS}
+def aggregate_over_runs(all_runs):
+    aggregated = {a: [] for a in ["Holmes", "Marple", "Poirot"]}
     for run in all_runs:
         for agent, df in run.items():
             aggregated[agent].append(df)
     return aggregated
 
-# =================================================
-# Turn-level aggregation (mean + CI)
-# =================================================
-
-def aggregate_turn_level(dfs: List[pd.DataFrame]) -> pd.DataFrame:
-    """
-    Align turns across simulations and compute mean + 95% CI
-    for prob_correct and brier score.
-    """
-    all_data = pd.concat(dfs, ignore_index=True)
-
-    counts = (
-        all_data
-        .groupby("turn")
-        .size()
-        .rename("n_runs")
-    )
-
-    def mean_ci(x):
-        mean = x.mean()
-        sem = x.std(ddof=1) / np.sqrt(len(x))
-        ci_low = mean - 1.96 * sem
-        ci_high = mean + 1.96 * sem
-        return pd.Series({
-            "mean": mean,
-            "ci_low": ci_low,
-            "ci_high": ci_high
-        })
-
-    prob_stats = (
-        all_data
-        .groupby("turn")["prob_correct"]
-        .apply(mean_ci)
-        .unstack()
-        .add_prefix("prob_")
-    )
-
-    brier_stats = (
-        all_data
-        .groupby("turn")["brier"]
-        .apply(mean_ci)
-        .unstack()
-        .add_prefix("brier_")
-    )
-
-    aggregated = (
-        pd.concat([prob_stats, brier_stats], axis=1)
-        .join(counts)          # 把 n_runs 加进来
-        .reset_index()
-        .sort_values("turn")
-    )
-
-    return aggregated
 
 # =================================================
-# Regression on aggregated trajectories
+# Regression
 # =================================================
 
-def regression_on_aggregated(df: pd.DataFrame, metric_prefix: str):
-    X = df["turn"].values.reshape(-1, 1)
-    y = df[f"{metric_prefix}_mean"].values
+def regression_slope_test(dfs, metric):
+    slopes = []
 
-    if len(np.unique(X)) < 2:
-        return np.nan, np.nan
+    for df in dfs:
+        X = df["turn"].values.reshape(-1, 1)
+        y = df[metric].values
+        if len(np.unique(X)) < 2:
+            continue
+        reg = LinearRegression().fit(X, y)
+        slopes.append(reg.coef_[0])
 
-    reg = LinearRegression().fit(X, y)
-    slope = reg.coef_[0]
+    slopes = np.array(slopes)
+    if len(slopes) == 0:
+        return slopes, np.nan
 
-    y_pred = reg.predict(X)
-    residuals = y - y_pred
-    n = len(y)
+    _, p_value = ttest_1samp(slopes, 0.0)
+    return slopes, p_value
 
-    if n < 3:
-        return slope, np.nan
-
-    s_err = np.sqrt(np.sum(residuals ** 2) / (n - 2))
-    x_var = np.sum((X - X.mean()) ** 2)
-    se_slope = s_err / np.sqrt(x_var)
-
-    t_stat = slope / se_slope
-    dfree = n - 2
-
-    # two-sided p-value
-    p_value = 2 * (1 - t.cdf(abs(t_stat), df=dfree))
-
-    return slope, p_value
 
 # =================================================
 # Case-level evaluation
@@ -250,37 +187,17 @@ def evaluate_case(case_name, tokenizer, model, f):
     aggregated = aggregate_over_runs(all_runs)
 
     for agent, dfs in aggregated.items():
-        if len(dfs) == 0:
-            continue
-
         print(f"\n--- {agent} ---", file=f)
 
-        turn_df = aggregate_turn_level(dfs)
+        slopes_p, p_p = regression_slope_test(dfs, "prob_correct")
+        slopes_b, p_b = regression_slope_test(dfs, "brier")
 
-        # 新增：只用至少 3 个 run 的 turn 做 regression
-        # Turn-level trajectories were aggregated across simulations. 
-        # Linear regression analyses were restricted to dialogue turns observed in 
-        # at least three simulation runs in order to reduce instability 
-        # caused by sparse late-stage turns.
-        turn_df_reg = turn_df[turn_df["n_runs"] >= 3]
+        print(f"Probability slope mean: {np.mean(slopes_p):.4f}", file=f)
+        print(f"Probability slope p-value: {p_p:.4g}", file=f)
 
-        print("\nTurn-level aggregated metrics (mean ± 95% CI):", file=f)
-        print(
-            turn_df.to_string(
-                index=False,
-                float_format="%.4f"
-            ),
-            file=f
-        )
+        print(f"Brier slope mean: {np.mean(slopes_b):.4f}", file=f)
+        print(f"Brier slope p-value: {p_b:.4g}", file=f)
 
-        prob_slope, prob_p = regression_on_aggregated(turn_df, "prob")
-        brier_slope, brier_p = regression_on_aggregated(turn_df, "brier")
-
-        print("\nRegression on aggregated trajectories:", file=f)
-        print(f"Probability slope: {prob_slope:.4f}", file=f)
-        print(f"Probability p-value: {prob_p:.4g}", file=f)
-        print(f"Brier slope: {brier_slope:.4f}", file=f)
-        print(f"Brier p-value: {brier_p:.4g}", file=f)
 
 # =================================================
 # Entry point
@@ -304,6 +221,8 @@ def main():
             evaluate_case(case_name, tokenizer, model, f)
 
     print(f"\nResults saved to {output_path}")
+
+
 
 if __name__ == "__main__":
     main()

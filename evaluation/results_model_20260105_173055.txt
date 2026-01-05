@@ -1,0 +1,225 @@
+
+=== CASE1 ===
+Found 10 simulation runs.
+
+--- Holmes ---
+
+Turn-level aggregated metrics (mean ± 95% CI):
+ turn  prob_mean  prob_ci_low  prob_ci_high  brier_mean  brier_ci_low  brier_ci_high  n_runs
+    1     0.5669       0.2779        0.8559      0.3832        0.0982         0.6681      10
+    2     0.3236       0.0825        0.5647      0.5937        0.3240         0.8635      10
+    3     0.5280       0.1424        0.9136      0.4163        0.0311         0.8015       6
+    4     0.4733       0.1296        0.8170      0.4312        0.0961         0.7662       6
+    5     0.6948       0.3884        1.0012      0.1420       -0.0270         0.3110       3
+    6     0.0018          NaN           NaN      0.9965           NaN            NaN       1
+
+Regression on aggregated trajectories:
+Probability slope: -0.0505
+Probability p-value: 0.4462
+Brier slope: 0.0493
+Brier p-value: 0.5326
+
+--- Marple ---
+
+Turn-level aggregated metrics (mean ± 95% CI):
+ turn  prob_mean  prob_ci_low  prob_ci_high  brier_mean  brier_ci_low  brier_ci_high  n_runs
+    1     0.2098      -0.0482        0.4679      0.7803        0.5236         1.0370      10
+    2     0.1110      -0.0499        0.2719      0.8510        0.6595         1.0425      10
+    3     0.0433       0.0044        0.0822      0.9173        0.8435         0.9910       6
+    4     0.0161      -0.0088        0.0411      0.9688        0.9210         1.0166       6
+    5     0.0294      -0.0250        0.0837      0.9437        0.8396         1.0477       3
+    6     0.0071          NaN           NaN      0.9859           NaN            NaN       1
+
+Regression on aggregated trajectories:
+Probability slope: -0.0367
+Probability p-value: 0.02054
+Brier slope: 0.0388
+Brier p-value: 0.007939
+
+--- Poirot ---
+
+Turn-level aggregated metrics (mean ± 95% CI):
+ turn  prob_mean  prob_ci_low  prob_ci_high  brier_mean  brier_ci_low  brier_ci_high  n_runs
+    1     0.9131       0.7531        1.0730      0.0675       -0.0647         0.1998      10
+    2     0.6905       0.4130        0.9681      0.2762        0.0039         0.5485      10
+    3     0.8070       0.4910        1.1230      0.1672       -0.1567         0.4911       6
+    4     0.9038       0.7671        1.0404      0.0336       -0.0294         0.0965       6
+    5     0.9868       0.9698        1.0038      0.0003       -0.0003         0.0009       3
+    6     0.3490          NaN           NaN      0.4237           NaN            NaN       1
+
+Regression on aggregated trajectories:
+Probability slope: -0.0524
+Probability p-value: 0.4047
+Brier slope: 0.0234
+Brier p-value: 0.6068
+
+=== CASE2 ===
+Found 10 simulation runs.
+
+--- Holmes ---
+
+Turn-level aggregated metrics (mean ± 95% CI):
+ turn  prob_mean  prob_ci_low  prob_ci_high  brier_mean  brier_ci_low  brier_ci_high  n_runs
+    1     0.2963       0.0064        0.5861      0.6921        0.3962         0.9880      10
+    2     0.4954       0.1868        0.8040      0.4530        0.1158         0.7901       9
+    3     0.3813       0.0054        0.7571      0.5299        0.1043         0.9556       5
+    4     0.3772      -0.1592        0.9136      0.5376       -0.0170         1.0922       3
+    5     0.4264      -0.4061        1.2588      0.5094       -0.4456         1.4644       2
+    6     0.0028      -0.0008        0.0064      0.9943        0.9871         1.0015       2
+    7     0.0047          NaN           NaN      0.9907           NaN            NaN       1
+    8     0.7865          NaN           NaN      0.0456           NaN            NaN       1
+    9     0.7526          NaN           NaN      0.0612           NaN            NaN       1
+
+Regression on aggregated trajectories:
+Probability slope: 0.0262
+Probability p-value: 0.4992
+Brier slope: -0.0395
+Brier p-value: 0.4019
+
+--- Marple ---
+
+Turn-level aggregated metrics (mean ± 95% CI):
+ turn  prob_mean  prob_ci_low  prob_ci_high  brier_mean  brier_ci_low  brier_ci_high  n_runs
+    1     0.4960       0.1882        0.8039      0.4760        0.1674         0.7847      10
+    2     0.0012       0.0004        0.0020      0.9976        0.9960         0.9993       9
+    3     0.0196      -0.0097        0.0489      0.9620        0.9058         1.0183       5
+    4     0.0015       0.0006        0.0025      0.9970        0.9950         0.9989       3
+    5     0.0060      -0.0020        0.0140      0.9880        0.9721         1.0039       2
+    6     0.0384      -0.0241        0.1010      0.9256        0.8053         1.0459       2
+    7     0.0005          NaN           NaN      0.9989           NaN            NaN       1
+    8     0.0141          NaN           NaN      0.9721           NaN            NaN       1
+    9     0.0005          NaN           NaN      0.9989           NaN            NaN       1
+
+Regression on aggregated trajectories:
+Probability slope: -0.0324
+Probability p-value: 0.1279
+Brier slope: 0.0336
+Brier p-value: 0.1313
+
+--- Poirot ---
+
+Turn-level aggregated metrics (mean ± 95% CI):
+ turn  prob_mean  prob_ci_low  prob_ci_high  brier_mean  brier_ci_low  brier_ci_high  n_runs
+    1     0.7026       0.4085        0.9968      0.2911        0.0003         0.5820      10
+    2     0.6281       0.3277        0.9285      0.3262        0.0199         0.6325       9
+    3     0.5998       0.1323        1.0673      0.3877       -0.0773         0.8528       5
+    4     0.7289       0.5086        0.9493      0.0988       -0.0038         0.2013       3
+    5     0.0115       0.0082        0.0148      0.9771        0.9706         0.9836       2
+    6     0.0230       0.0105        0.0355      0.9545        0.9302         0.9789       2
+    7     0.0329          NaN           NaN      0.9352           NaN            NaN       1
+    8     0.9724          NaN           NaN      0.0008           NaN            NaN       1
+    9     0.0311          NaN           NaN      0.9388           NaN            NaN       1
+
+Regression on aggregated trajectories:
+Probability slope: -0.0582
+Probability p-value: 0.2668
+Brier slope: 0.0594
+Brier p-value: 0.2801
+
+=== CASE3 ===
+Found 11 simulation runs.
+
+--- Holmes ---
+
+Turn-level aggregated metrics (mean ± 95% CI):
+ turn  prob_mean  prob_ci_low  prob_ci_high  brier_mean  brier_ci_low  brier_ci_high  n_runs
+    1     0.6377       0.3882        0.8872      0.2933        0.0292         0.5573      11
+    2     0.5689       0.2770        0.8608      0.3855        0.0893         0.6817      10
+    3     0.4444       0.1612        0.7277      0.4966        0.1871         0.8061      10
+    4     0.5943       0.2964        0.8921      0.3493        0.0306         0.6681       9
+    5     0.1968      -0.1704        0.5641      0.7855        0.4016         1.1694       5
+    6     0.4830      -0.0614        1.0273      0.4987       -0.0641         1.0616       4
+    7     0.6016       0.0094        1.1938      0.3413       -0.3018         0.9845       3
+    8     0.3150          NaN           NaN      0.4693           NaN            NaN       1
+    9     0.9699          NaN           NaN      0.0009           NaN            NaN       1
+
+Regression on aggregated trajectories:
+Probability slope: 0.0128
+Probability p-value: 0.6795
+Brier slope: -0.0180
+Brier p-value: 0.5414
+
+--- Marple ---
+
+Turn-level aggregated metrics (mean ± 95% CI):
+ turn  prob_mean  prob_ci_low  prob_ci_high  brier_mean  brier_ci_low  brier_ci_high  n_runs
+    1     0.3637       0.0663        0.6610      0.6350        0.3375         0.9326      11
+    2     0.0023       0.0001        0.0045      0.9954        0.9911         0.9997      10
+    3     0.0202      -0.0128        0.0533      0.9625        0.9022         1.0229      10
+    4     0.0534      -0.0392        0.1460      0.9139        0.7690         1.0587       9
+    5     0.0072      -0.0008        0.0151      0.9858        0.9700         1.0015       5
+    6     0.0376      -0.0334        0.1086      0.9301        0.7985         1.0616       4
+    7     0.0016      -0.0002        0.0033      0.9969        0.9934         1.0004       3
+    8     0.0024          NaN           NaN      0.9952           NaN            NaN       1
+    9     0.0037          NaN           NaN      0.9926           NaN            NaN       1
+
+Regression on aggregated trajectories:
+Probability slope: -0.0249
+Probability p-value: 0.101
+Brier slope: 0.0252
+Brier p-value: 0.09135
+
+--- Poirot ---
+
+Turn-level aggregated metrics (mean ± 95% CI):
+ turn  prob_mean  prob_ci_low  prob_ci_high  brier_mean  brier_ci_low  brier_ci_high  n_runs
+    1     0.8246       0.6026        1.0466      0.1590       -0.0524         0.3705      11
+    2     0.6054       0.3409        0.8699      0.3196        0.0534         0.5857      10
+    3     0.6157       0.3440        0.8874      0.3206        0.0562         0.5850      10
+    4     0.6544       0.3516        0.9572      0.3104        0.0109         0.6099       9
+    5     0.4198      -0.0214        0.8610      0.5393        0.1058         0.9727       5
+    6     0.7035       0.2862        1.1209      0.2239       -0.1727         0.6205       4
+    7     0.5999       0.0723        1.1274      0.3050       -0.2287         0.8387       3
+    8     0.0378          NaN           NaN      0.9259           NaN            NaN       1
+    9     0.9285          NaN           NaN      0.0051           NaN            NaN       1
+
+Regression on aggregated trajectories:
+Probability slope: -0.0212
+Probability p-value: 0.5566
+Brier slope: 0.0181
+Brier p-value: 0.6244
+
+
+
+# CASE 1 MARPLE has siginifcant drift.
+This suggests that character drift, when observed, is case- and character-specific rather than a general phenomenon.?
+
+# 出现 prob_ci_low < 0 或 prob_ci_high > 1
+
+例如：
+
+prob_mean = 0.4960
+prob_ci_low = -0.0482
+prob_ci_high = 0.4679
+
+不是错误，原因是：
+
+你用的是 normal-based CI (mean ± 1.96·SEM)
+
+prob 是 bounded [0,1]，但 CI 没 enforce bound
+
+👉 在论文中你可以写一句：
+
+Confidence intervals were estimated using normal approximation and are therefore not constrained to the [0, 1] range.
+
+如果你愿意，我可以教你 beta CI / bootstrap CI，但现在这套已经完全可 defend。
+
+# ⚠️ 2️⃣ regression p-value 的计算是「近似的」
+
+你现在用的是：
+
+t_stat = slope / se_slope
+p_value = 2 * (1 - abs(t_stat))
+
+
+严格来说这是：
+
+近似正态
+
+没有用 t-distribution CDF
+
+👉 这不算 bug，但在论文中应当称为：
+
+approximate p-values
+
+如果你想，我可以帮你换成 scipy.stats.t.sf 的严格版本（可选）。

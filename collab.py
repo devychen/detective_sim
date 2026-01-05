@@ -428,6 +428,20 @@ IMPORTANT:
 # Script Entry Point
 # =================================================
 
+# if __name__ == "__main__":
+#     sim = DetectiveDialogue()
+#     sim.simulate()
+
 if __name__ == "__main__":
-    sim = DetectiveDialogue()
-    sim.simulate()
+    NUM_RUNS = 10   # ← 一次跑 10 轮
+
+    for run_id in range(1, NUM_RUNS + 1):
+        print(f"\n{'='*20} EXPERIMENT RUN {run_id} / {NUM_RUNS} {'='*20}\n")
+
+        sim = DetectiveDialogue(
+            rule_path="prompts/rule_collab.yaml",
+            case_path="cases/case3.yaml",
+            turns=10
+        )
+        sim.simulate()
+
