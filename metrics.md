@@ -101,12 +101,18 @@ Lexical|
 
 2.1 Extract the **predicted probability** of the correct class and **plot mean** over turns over simulations.
 
-- CIs over simulations
+- Also, CIs over simulations
 
 2.2 Calculate average **Brier score** (mean squared error of predicted probabilities) over turns (in order to estimate whether there is a significant increase or decrease trend).
-- Fit **linear regressions** to the scores over turns.
+- Also Fit **linear regressions** to the scores over turns.
 
 哪个score? brier?
 
 # 3. Lexical
-3.1 
+3.1 Character-specific vocabulary rate
+
+- Extract TF-IDF vectors from the gold standard dialogues of each character (avg) and the single turns of each character, and calculate cosine similarity between the tf-idf vectors
+GOLD STANDARD DIALOGUE是什么意思
+
+3.2 Intra-agent cosine distance
+- 

@@ -180,11 +180,23 @@ Brier slope: 0.0181
 Brier p-value: 0.6244
 
 
+##############
+##############
 
-# CASE 1 MARPLE has siginifcant drift.
+调整了linear regression的数据源，3轮一下的simulation不包含在linear regression analysis中。
+
+Turn-level trajectories were aggregated across simulations. 
+Linear regression analyses were restricted to dialogue turns observed in 
+at least three simulation runs in order to reduce instability caused by sparse late-stage turns.
+
+##############
+##############
+ CASE 1 MARPLE has siginifcant drift.
 This suggests that character drift, when observed, is case- and character-specific rather than a general phenomenon.?
 
-# 出现 prob_ci_low < 0 或 prob_ci_high > 1
+##############
+##############
+ 出现 prob_ci_low < 0 或 prob_ci_high > 1
 
 例如：
 
@@ -204,7 +216,9 @@ Confidence intervals were estimated using normal approximation and are therefore
 
 如果你愿意，我可以教你 beta CI / bootstrap CI，但现在这套已经完全可 defend。
 
-# ⚠️ 2️⃣ regression p-value 的计算是「近似的」
+##############
+##############
+ ⚠️ 2️⃣ regression p-value 的计算是「近似的」
 
 你现在用的是：
 
@@ -222,4 +236,4 @@ p_value = 2 * (1 - abs(t_stat))
 
 approximate p-values
 
-如果你想，我可以帮你换成 scipy.stats.t.sf 的严格版本（可选）。
+换成 scipy.stats.t.sf 的严格版本？
