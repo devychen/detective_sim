@@ -82,7 +82,7 @@ weighted avg       0.76      0.76      0.76      1374
 ||Dimension|Evaluation|Metrics|Output|
 |--|--|--|--|--|
 |1.0|Descriptive|基本任务表现描述（非主要分析）|-|每个case一个折线图(accuracy over turns) + 每个case一个summary table (avg accuracy ± CI)
-|2.0|Classifier eval|评估 classifier 的信心、校准和趋势|Classifier_P(True), Brier, Brier_Slope|
+|2.0|Classifier eval|用 classifier 的概率输出作为代理信号，测量 LLM 三个侦探角色在整段对话过程中风格的动态一致性趋势。|Classifier_P(True), Brier, Brier_Slope|
 |3.1|Lexical|Character-specific vocab rate, TF_IDF|Lexical_Cosine
 |3.2|Lexical|Intra-agent cosine distance|IntraAgent_Dist
 |4.0|Syntactic| (Syntactic complexity) i.e. Maximum dependency tree depth|Syntax_DepthDiff|syntactic drift 随 turn 漂移的回归图
@@ -112,9 +112,17 @@ x
 - Also, CIs over simulations
 
 2.2 Calculate average **Brier score** (mean squared error of predicted probabilities) over turns (in order to estimate whether there is a significant increase or decrease trend).
-- Also Fit **linear regressions** to the scores over turns.
+- Also Fit **linear regressions** to the scores over turns.‼️ 哪个score? brier?
 
-‼️ 哪个score? brier?
+‼️ prob ↑ = 越像角色， brier ↓ = 越像角色，对吧？
+
+‼️ 我是把 10–14 个 simulation 的同一个 turn 的结果聚合起来（average + CI）。这样对吗？
+
+‼️ 我没有画linear regression，而是对每个 simulation run 单独做了 linear regression，然后收集所有 runs 的 slope，做 one-sample t-test，用于验证：slope 是否显著非零（趋势是否存在），slope 平均值（总体趋势方向）。这样可以吗？
+
+‼️ 实验结果说明 OOC drift 不是线性的、不是稳定的趋势，而是 agent-dependent 和 case-dependent 的离散跳变（non-linear, non-monotonic）。
+
+
 
 # 3. Lexical
 3.1 Character-specific vocabulary rate
@@ -126,7 +134,7 @@ x
 Holmes 的原作文本切成固定长度的 chunks，例如每 200–300 字一段。对所有 chunk 计算 TF-IDF → 得 Matrix M (#chunks × vocab)。取 M 的均值向量作为 Holmes 词汇风格向量 holmes_style
 
 3.2 Intra-agent cosine distance: character distance = (cosine similarity between turns) - (cosine similarity between current turn & turn at same index from a different character)
-- 解决的问题：一个角色说话风格相似，到底是因为角色一致性（in-character），还是因为他们刚好在讨论同一个话题？
+- ‼️ 解决的问题是这个吗？：一个角色说话风格相似，到底是因为角色一致性（in-character），还是因为他们刚好在讨论同一个话题？
 
 # 4. Syntactic
 
