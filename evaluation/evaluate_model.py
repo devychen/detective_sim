@@ -1,5 +1,5 @@
 """
-evaluate_model.py
+evaluate_classifier.py
 
 Purely analysis, no model training.
 
@@ -25,6 +25,11 @@ import glob
 import numpy as np
 import pandas as pd
 import torch
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set(style="whitegrid")
+
 
 from datetime import datetime
 from typing import List, Dict
@@ -144,6 +149,7 @@ def aggregate_over_runs(all_runs: List[Dict[str, pd.DataFrame]]):
         for agent, df in run.items():
             aggregated[agent].append(df)
     return aggregated
+    
 
 # =================================================
 # Turn-level aggregation (mean + CI)
@@ -249,6 +255,13 @@ def evaluate_case(case_name, tokenizer, model, f):
 
     aggregated = aggregate_over_runs(all_runs)
 
+    turn_csv_dir = "./evaluation/turn_csv"
+    reg_csv_dir = "./evaluation/regression_csv"
+    plots_dir = "./evaluation/plots"
+    os.makedirs(turn_csv_dir, exist_ok=True)
+    os.makedirs(reg_csv_dir, exist_ok=True)
+    os.makedirs(plots_dir, exist_ok=True)
+
     for agent, dfs in aggregated.items():
         if len(dfs) == 0:
             continue
@@ -257,13 +270,10 @@ def evaluate_case(case_name, tokenizer, model, f):
 
         turn_df = aggregate_turn_level(dfs)
 
-        # 新增：只用至少 3 个 run 的 turn 做 regression
-        # Turn-level trajectories were aggregated across simulations. 
-        # Linear regression analyses were restricted to dialogue turns observed in 
-        # at least three simulation runs in order to reduce instability 
-        # caused by sparse late-stage turns.
+        # only turns with >= 3 runs for regression
         turn_df_reg = turn_df[turn_df["n_runs"] >= 3]
 
+        # print turn table
         print("\nTurn-level aggregated metrics (mean ± 95% CI):", file=f)
         print(
             turn_df.to_string(
@@ -273,14 +283,66 @@ def evaluate_case(case_name, tokenizer, model, f):
             file=f
         )
 
-        prob_slope, prob_p = regression_on_aggregated(turn_df, "prob")
-        brier_slope, brier_p = regression_on_aggregated(turn_df, "brier")
+        # save turn-level CSV
+        turn_df.to_csv(
+            os.path.join(turn_csv_dir, f"{case_name}_{agent}_turn_stats.csv"),
+            index=False
+        )
 
+        # regression analysis
+        prob_slope, prob_p = regression_on_aggregated(turn_df_reg, "prob")
+        brier_slope, brier_p = regression_on_aggregated(turn_df_reg, "brier")
+
+        # print regression
         print("\nRegression on aggregated trajectories:", file=f)
         print(f"Probability slope: {prob_slope:.4f}", file=f)
         print(f"Probability p-value: {prob_p:.4g}", file=f)
         print(f"Brier slope: {brier_slope:.4f}", file=f)
         print(f"Brier p-value: {brier_p:.4g}", file=f)
+
+        # save regression CSV
+        reg_summary = pd.DataFrame({
+            "metric": ["prob", "brier"],
+            "slope": [prob_slope, brier_slope],
+            "p_value": [prob_p, brier_p]
+        })
+        reg_summary.to_csv(
+            os.path.join(reg_csv_dir, f"{case_name}_{agent}_regression.csv"),
+            index=False
+        )
+
+        # plots
+        plot_with_ci(turn_df, "prob", case_name, agent, plots_dir)
+        plot_with_ci(turn_df, "brier", case_name, agent, plots_dir)
+
+# =================================================
+# Picture drawing
+# =================================================
+
+
+def plot_with_ci(df, metric_prefix, case_name, agent, output_dir):
+    """
+    Draws mean ± CI trend plots for prob_correct and brier over turns.
+    """
+    plt.figure(figsize=(8, 5))
+
+    mean = df[f"{metric_prefix}_mean"]
+    low  = df[f"{metric_prefix}_ci_low"]
+    high = df[f"{metric_prefix}_ci_high"]
+
+    plt.plot(df["turn"], mean, marker="o", label=f"{metric_prefix} mean")
+    plt.fill_between(df["turn"], low, high, alpha=0.3, label="95% CI")
+
+    plt.xlabel("Turn")
+    plt.ylabel(metric_prefix)
+    plt.title(f"{case_name} - {agent} - {metric_prefix} over turns")
+    plt.legend()
+
+    save_path = os.path.join(output_dir, f"{case_name}_{agent}_{metric_prefix}.png")
+    plt.savefig(save_path, dpi=300, bbox_inches="tight")
+    plt.close()
+
+
 
 # =================================================
 # Entry point

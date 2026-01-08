@@ -21,14 +21,15 @@ Case solving task with default zero-shot LLM prompt, to verify if cases are solv
 
 - Before running the multi-agent collaborative experiments, we conducted a zero-shot solvability verification using a single, non-role-based LLM. The model was provided with the complete case description and a minimal analytical instruction, without examples or interaction. The purpose of this step was to ensure that each case admitted a coherent, reasoned solution independent of character constraints or dialogue dynamics.
 
-目前不是百分百的正确率.(需要能100%正确解决吗？还是证明有一定正确率即可？是的话多少正确率？)
+‼️ 我们做几个case？每个case多少次simulation？  
+‼️ 目前不是百分百的正确率.(需要能100%正确解决吗？还是证明有一定正确率即可？是的话多少正确率？)
 而且这里用的是gpt，collab用的是llama，说实话llama正确率是要比gpt低一点
 
 ### Baseline 2 - Zero Collaboration
-Case solving task with character prompts but without collaboration, to verify WHAT???
+Case solving task with character prompts but without collaboration, to ‼️ verify WHAT???
 > *tests > test_allcases_character_controlled.py*
 
-同样，不是百分百的正确率。
+‼️ 同样，不是百分百的正确率。
 
 
 
@@ -78,24 +79,31 @@ weighted avg       0.76      0.76      0.76      1374
 
 # List of OOC Indicators (RQ1, RQ2)
 
-|Dimension|Metrics|
-|--|--|
-Desciptive|Average task accuracy & CI
-Model|Predicted probability & CI; Average Brier Score & its Linear Regression
-Lexical|
+|Dimension|Evaluation|Metrics|Output|
+|--|--|--|--|
+|Descriptive|基本任务表现描述（非主要分析）|-|每个case一个折线图(accuracy over turns) + 每个case一个summary table (avg accuracy ± CI)
+|Classifier eval|评估 classifier 的信心、校准和趋势|Classifier_P(True), Brier, Brier_Slope|
+|Lexical|Character-specific vocab rate, TF_IDF|Lexical_Cosine
+|Lexical|Intra-agent cosine distance|IntraAgent_Dist
+|Syntactic| (Syntactic complexity) i.e. Maximum dependency tree depth|Syntax_DepthDiff|syntactic drift 随 turn 漂移的回归图
+|Discourse| Discourse function / Dialogue Act|DialogueAct_KL|随 turn 漂移的回归图
+|Discourse| Sentiment trajectory|Sentiment_Dist|sentiment drift 随 turn 漂移的回归图
+|Validation (Master table)| Probability aligned turn wise w/ Crr. & ECE | 展示重要性排序的排名图，master table
+|Validation| Clustering for contamination||
+
 
 
 
 
 # 1. Descriptive
-
+x
 1.1 Average task accuracy.（我需要跑case多少次？我记得我们说需要调整）
 - Compare baseline 1 to baseline 2 - if it is lower, role-playing has negative impact.
 - Compare to baseline 1 - if it is lower, ~above
 - Compare to baseline 2 - if it is lower, collaboration has negative impact.
 
 1.2 Its Confidence Interval (CI)
-- Use for ...?
+- ‼️ Use for ...?
 
 # 2. Classifier model
 
@@ -106,13 +114,54 @@ Lexical|
 2.2 Calculate average **Brier score** (mean squared error of predicted probabilities) over turns (in order to estimate whether there is a significant increase or decrease trend).
 - Also Fit **linear regressions** to the scores over turns.
 
-哪个score? brier?
+‼️ 哪个score? brier?
 
 # 3. Lexical
 3.1 Character-specific vocabulary rate
 
 - Extract TF-IDF vectors from the gold standard dialogues of each character (avg) and the single turns of each character, and calculate cosine similarity between the tf-idf vectors
-GOLD STANDARD DIALOGUE是什么意思
 
-3.2 Intra-agent cosine distance
-- 
+‼️ GOLD STANDARD DIALOGUE是什么意思  
+‼️ 原作太长，simulation 太短，TF-IDF 会失衡。这样做如何？  
+Holmes 的原作文本切成固定长度的 chunks，例如每 200–300 字一段。对所有 chunk 计算 TF-IDF → 得 Matrix M (#chunks × vocab)。取 M 的均值向量作为 Holmes 词汇风格向量 holmes_style
+
+3.2 Intra-agent cosine distance: character distance = (cosine similarity between turns) - (cosine similarity between current turn & turn at same index from a different character)
+- 解决的问题：一个角色说话风格相似，到底是因为角色一致性（in-character），还是因为他们刚好在讨论同一个话题？
+
+# 4. Syntactic
+
+4.1 Maximum dependency tree depth
+
+# 5. Discourse
+
+5.1 Discourse function / Diaglogue act
+
+5.2 Sentiment trajectory
+
+# 6. Validation (Master table)
+
+
+Master table (example)
+
+| Turn | Classifier_P(True) | Lexical_Cosine | IntraAgent_Dist | Syntax_DepthDiff | DialogueAct_KL | Sentiment_Dist | Topic_Entropy | ... |
+| ---- | ------------------ | -------------- | --------------- | ---------------- | -------------- | -------------- | ------------- | --- |
+| 1    | 0.92               | 0.88           | 0.10            | 0.02             | 0.05           | 0.04           | 0.34          | …   |
+| 2    | 0.89               | 0.82           | 0.21            | 0.05             | 0.06           | 0.03           | 0.30          | …   |
+| 3    | 0.60               | 0.60           | 0.45            | 0.20             | 0.11           | 0.08           | 0.40          | …   |
+| ...  | ...                | ...            | ...             | ...              | ...            | ...            | ...           | ... |
+
+每一行 = 一个 turn，每一列 = 一个测量维度。进行分析：
+- 对每个指标和 classifier 的 P(true) 进行相关性计算：corr(metric_x, P(true))。然后就能排序指标的重要性。数值越大越有用/可靠。
+- 对每个指标计算 ECE (calibration error)：ECE(metric_x, P(true))。ECE 越小越好 → 表示该指标和 classifier 的信号“对齐度”高。
+得到一个表（例子）：
+
+| Metric           | Corr  | ECE  |
+| ---------------- | ----- | ---- |
+| Lexical_Cosine   | -0.82 | 0.08 |
+| Syntax_DepthDiff | -0.60 | 0.10 |
+| Sentiment_Dist   | -0.45 | 0.18 |
+| DialogueAct_KL   | -0.10 | 0.29 |
+
+- Regression for drift detection
+# 7. Clustering
+
