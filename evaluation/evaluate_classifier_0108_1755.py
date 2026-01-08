@@ -358,7 +358,7 @@ def main():
 
     output_path = os.path.join(
         output_dir,
-        f"results_model_{timestamp}.txt"
+        f"results_2.1_{timestamp}.txt"
     )
 
     with open(output_path, "w", encoding="utf-8") as f:
