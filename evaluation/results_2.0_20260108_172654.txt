@@ -186,11 +186,7 @@ Brier p-value: 0.5283
 ##############
 ##############
 
-调整了linear regression的数据源，3轮一下的simulation不包含在linear regression analysis中。
-
-Turn-level trajectories were aggregated across simulations. 
-Linear regression analyses were restricted to dialogue turns observed in 
-at least three simulation runs in order to reduce instability caused by sparse late-stage turns.
+调整了linear regression的数据源，只要这个 run 里的回合数少于 2，就跳过这个 run，不做回归。
 
 ##############
 ##############
@@ -217,7 +213,7 @@ prob 是 bounded [0,1]，但 CI 没 enforce bound
 
 Confidence intervals were estimated using normal approximation and are therefore not constrained to the [0, 1] range.
 
-如果你愿意，我可以教你 beta CI / bootstrap CI，但现在这套已经完全可 defend。
+需要改用bootstrap CI吗？
 
 ##############
 ##############

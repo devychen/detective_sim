@@ -79,17 +79,17 @@ weighted avg       0.76      0.76      0.76      1374
 
 # List of OOC Indicators (RQ1, RQ2)
 
-|Dimension|Evaluation|Metrics|Output|
-|--|--|--|--|
-|Descriptive|基本任务表现描述（非主要分析）|-|每个case一个折线图(accuracy over turns) + 每个case一个summary table (avg accuracy ± CI)
-|Classifier eval|评估 classifier 的信心、校准和趋势|Classifier_P(True), Brier, Brier_Slope|
-|Lexical|Character-specific vocab rate, TF_IDF|Lexical_Cosine
-|Lexical|Intra-agent cosine distance|IntraAgent_Dist
-|Syntactic| (Syntactic complexity) i.e. Maximum dependency tree depth|Syntax_DepthDiff|syntactic drift 随 turn 漂移的回归图
-|Discourse| Discourse function / Dialogue Act|DialogueAct_KL|随 turn 漂移的回归图
-|Discourse| Sentiment trajectory|Sentiment_Dist|sentiment drift 随 turn 漂移的回归图
-|Validation (Master table)| Probability aligned turn wise w/ Crr. & ECE | 展示重要性排序的排名图，master table
-|Validation| Clustering for contamination||
+||Dimension|Evaluation|Metrics|Output|
+|--|--|--|--|--|
+|1.0|Descriptive|基本任务表现描述（非主要分析）|-|每个case一个折线图(accuracy over turns) + 每个case一个summary table (avg accuracy ± CI)
+|2.0|Classifier eval|评估 classifier 的信心、校准和趋势|Classifier_P(True), Brier, Brier_Slope|
+|3.1|Lexical|Character-specific vocab rate, TF_IDF|Lexical_Cosine
+|3.2|Lexical|Intra-agent cosine distance|IntraAgent_Dist
+|4.0|Syntactic| (Syntactic complexity) i.e. Maximum dependency tree depth|Syntax_DepthDiff|syntactic drift 随 turn 漂移的回归图
+|5.1|Discourse| Discourse function / Dialogue Act|DialogueAct_KL|随 turn 漂移的回归图
+|5.2|Discourse| Sentiment trajectory|Sentiment_Dist|sentiment drift 随 turn 漂移的回归图
+|6.1|Validation (Master table)| Probability aligned turn wise w/ Crr. & ECE | 展示重要性排序的排名图，master table
+|6.2|Validation| Clustering for contamination||
 
 
 
