@@ -134,11 +134,15 @@ x
 Holmes 的原作文本切成固定长度的 chunks，例如每 200–300 字一段。对所有 chunk 计算 TF-IDF → 得 Matrix M (#chunks × vocab)。取 M 的均值向量作为 Holmes 词汇风格向量 holmes_style
 
 3.2 Intra-agent cosine distance: character distance = (cosine similarity between turns) - (cosine similarity between current turn & turn at same index from a different character)
+
 - ‼️ 解决的问题是这个吗？：一个角色说话风格相似，到底是因为角色一致性（in-character），还是因为他们刚好在讨论同一个话题？
 
 # 4. Syntactic
 
 4.1 Maximum dependency tree depth
+
+- its avg and SD
+- the differences, fit linear regression model over turns (to see if significant trend of in/de-creasing difference.)
 
 # 5. Discourse
 
