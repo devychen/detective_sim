@@ -22,15 +22,14 @@ Case solving task with default zero-shot LLM prompt, to verify if cases are solv
 - Before running the multi-agent collaborative experiments, we conducted a zero-shot solvability verification using a single, non-role-based LLM. The model was provided with the complete case description and a minimal analytical instruction, without examples or interaction. The purpose of this step was to ensure that each case admitted a coherent, reasoned solution independent of character constraints or dialogue dynamics.
 
 ‼️ 我们做几个case？每个case多少次simulation？  
-‼️ 目前不是百分百的正确率.(需要能100%正确解决吗？还是证明有一定正确率即可？是的话多少正确率？)
+‼️ 目前不是百分百的正确率.(需要能100%正确解决吗？还是证明有一定正确率即可？是的话多少正确率？)--- 【跑50次，用llama和gpt同时，llama的用于和后面simulation后的任务成功率做对比】.  
 而且这里用的是gpt，collab用的是llama，说实话llama正确率是要比gpt低一点
 
 ### Baseline 2 - Zero Collaboration
 Case solving task with character prompts but without collaboration, to ‼️ verify WHAT???
 > *tests > test_allcases_character_controlled.py*
 
-‼️ 同样，不是百分百的正确率。
-
+‼️ 同样，不是百分百的正确率。【ok，不需要100%正确，只需要用于做比较，正确率的差别。不是用于rq，只是用于一种完整的验证】
 
 
 ### Model-Based Baseline - BERT Classifier Model
@@ -135,7 +134,7 @@ Holmes 的原作文本切成固定长度的 chunks，例如每 200–300 字一�
 
 3.2 Intra-agent cosine distance: character distance = (cosine similarity between turns) - (cosine similarity between current turn & turn at same index from a different character)
 
-- ‼️ 解决的问题是这个吗？：一个角色说话风格相似，到底是因为角色一致性（in-character），还是因为他们刚好在讨论同一个话题？
+- tf-idf是为了单词上的，intra-agent cosine是embedding上的, embedding similarity between and within characters. 只能说明一定的相似性，不能说明是因为什么（同风格or同话题）
 
 # 4. Syntactic
 

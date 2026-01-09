@@ -10,6 +10,7 @@ Implements advisor-recommended improvements:
    - Each run provides an independent slope estimate (turn → metric)
    - A one-sample t-test is performed over all slopes
    This ensures statistical validity (independent samples).
+   X-turn numbers, Y-accuracy
 
 Bootstrap CI, Per-run slope + one-sample t-test
 
