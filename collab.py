@@ -14,7 +14,6 @@ The purpose of this script is:
 3. To support research on character consistency (OOC: out-of-character behavior)
    and its impact on collaborative task performance.
 
-
 """
 
 
@@ -298,35 +297,32 @@ class DetectiveDialogue:
         task_text = task_template.format(**partial_clues)
 
         system_prompt = f"""
-        You are {agent_name}.
+    
+    === Background ===
+    {self.rules.get('common_intro', '').format(agent_name=agent_name)}
 
-        === Background ===
-        {self.rules.get('common_intro', '').format(agent_name=agent_name)}
+    === Collaboration Rules ===
+    {self.rules.get('common_rules', '')}
 
-        === Collaboration Rules ===
-        {self.rules.get('common_rules', '')}
+    === Role Play Guidelines ===
+    {role_play}
 
-        === Role Play Guidelines ===
-        {role_play}
+    === Protective Guidelines ===
+    {protective}
 
-        === Protective Guidelines ===
-        {protective}
+    === Task ===
+    {task_text}
 
-        === Task ===
-        {task_text}
-
-        IMPORTANT:
-        - Begin with self-introductions because you don’t know each other.
-        - Shared your full exclusive clues to help others.
-        - Always speak in coherent, self-contained paragraphs, not fragments.
-        - Ensure each response has a clear beginning, middle, and end.
-        - Ideally do not exceed 5 sentences. 
-        - Do not repeat your phrases ever.
-        - Be a listener and interact with each other. Do not lost in your world. When the speaker before you identify different murderer, reflect your disagreement when you speak.
-        - Strictly stay in character, strictly follow your investigation style.
-        - End your reply with this exact format and you must name one and only one suspect:
-        I believe the murderer is XXX
-        """
+    IMPORTANT:
+    - Begin with self-introductions because you don’t know each other.
+    - Share your full exclusive clues.
+    - Speak in coherent, self-contained paragraphs with a clear beginning, middle, and end.
+    - Keep responses ideally under 5 sentences and never repeat phrases ever.
+    - Listen and interact; do not drift into your own world. If the previous speaker identifies a different murderer, clearly express your disagreement and thoughts.
+    - Strictly follow Role Play Guidelines and your investigation style, and strictly avoid behaviours in Protective Guidelines.
+    - End every reply with exactly this format, naming one and only one suspect: I believe the murderer is XXX
+    """
+    
         return system_prompt
 
     def build_prompt_for_agent(self, agent_name, agent_prompt):
@@ -438,7 +434,7 @@ class DetectiveDialogue:
 #     sim.simulate()
 
 if __name__ == "__main__":
-    NUM_RUNS = 10   # ← 一次跑 ~  轮
+    NUM_RUNS = 1   # ← 一次跑 ~ 轮
 
     for run_id in range(1, NUM_RUNS + 1):
         print(f"\n{'='*20} EXPERIMENT RUN {run_id} / {NUM_RUNS} {'='*20}\n")

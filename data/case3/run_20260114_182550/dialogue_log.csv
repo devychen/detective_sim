@@ -1,0 +1,122 @@
+turn,speaker,utterance,believed_murderer
+1,Holmes,"An intriguing case, indeed. I am Sherlock Holmes, a consulting detective of singular reputation and unwavering dedication to the pursuit of truth. It is a pleasure to make your acquaintance, gentlemen. I trust that your expertise and unique perspectives will prove invaluable in unraveling the tangled threads of this most complex enigma. 
+
+Upon arriving at the crime scene, I conducted a thorough examination of the environment and collected the provided clues. Notably, the forensic evidence suggests a rare surgeon-level angle of the cardiac stab wound, while the cyanide injection was administered, rather than ingested. Furthermore, the brief struggle and the presence of John Saar's skin under the victim's nails imply a violent and calculated confrontation.
+
+Now, I shall share the full exclusive clues with my esteemed colleagues, in the hopes that our combined expertise will shed light upon the perpetrator's identity. I present to you the following: {'body_state': ""Cardiac stab wound with rare surgeon-level angle. \nCyanide injected, not swallowed. \nBrief struggle confirmed. \nSkin under victim's nails matches John Saar.\n"", 'environment': ""Window unlocked but no soil transfer. \nSafe opened but only William's prints found. \nBlackout timing conflicts with most suspects' movements.\n"", 'suspicious_items': 'Bloodied piano wire (not linked to wounds). \nSynthetic black hair (from Mel’s wig). \nScalpel sheath missing one blade.\n'}
+
+I must confess, my curiosity is piqued by the presence of the bloodied piano wire and the synthetic black hair. I shall await your thoughts and insights, gentlemen, as we embark upon this most intriguing investigation.
+
+I believe the murderer is William",William
+1,Poirot,"Zut alors, monsieur Holmes, your deductions are as precise as a Swiss watch. However, I must respectfully disagree with your assessment, n'est-ce pas? The presence of the bloodied piano wire and synthetic black hair does pique our interest, but I believe these clues point more towards Mel's involvement. We must consider the fact that Mel was seen near the study at 21:30, and the synthetic black hair suggests a connection to Mel's wig. Furthermore, the piano wire's unexplained presence in the environment warrants further investigation. We must not jump to conclusions just yet, mes amis.
+
+I believe the murderer is Mel",Mel
+1,Marple,"Oh my goodness, gentlemen, it's such a pleasure to meet you both, and I must say, I'm intrigued by the information you've shared. Mr. Holmes, your observations about the rare surgeon-level angle and the brief struggle do seem quite compelling, and I do agree that the presence of the bloodied piano wire and synthetic black hair is indeed puzzling. However, I must say that I'm not entirely convinced by your assessment just yet, and I'd love to hear more about Mr. Poirot's thoughts on the matter.
+
+Mr. Poirot, you mentioned that the synthetic black hair suggests a connection to Mel's wig. That's a most interesting point, and I do recall seeing a wig in the study earlier. But, if I may ask, how do you propose we account for the presence of the piano wire and the cyanide in the environment? It does seem to point to a rather calculated and deliberate act, don't you think?
+
+I believe the murderer is Mel",Mel
+2,Marple,"The plot thickens, indeed, and I must say, I'm rather enjoying the spirited discussion among our esteemed colleagues. Mr. Poirot's observation about the synthetic black hair and its connection to Mel's wig is most astute, and I do believe we're onto something there. However, I must express my reservations regarding the idea that Mel is the sole perpetrator, as I've noticed a rather curious inconsistency in her alibi and the timing of her movements.
+
+Furthermore, I've been pondering the role of the duplicate key and the unlabeled pill bottle, which seem to point to a rather clever ruse. It's almost as if our culprit is trying to mislead us with red herrings, but I'm not convinced that Mel is the one pulling the strings.
+
+I must confess, my curiosity is piqued by the possibility that we're looking at a more complex scenario than initially meets the eye. I believe the murderer is Jeremy Lambert",Jeremy
+2,Holmes,"An astute observation, Miss Marple, that the duplicate key and the unlabeled pill bottle do suggest a deliberate attempt to mislead us. However, I must caution that we must not jump to conclusions without concrete evidence. Mr. Poirot's theory regarding the synthetic black hair and its connection to Mel's wig is intriguing, but I must respectfully disagree with your assessment, Miss Marple, as I believe the presence of the bloodied piano wire and the synthetic black hair point more towards Mel's involvement.
+
+I propose that we re-examine the timeline of events and consider the possibility that Mel's alibi may be flawed. The fact that the blackout timing conflicts with most suspects' movements suggests a calculated attempt to cover one's tracks. Furthermore, the rare surgeon-level angle of the cardiac stab wound and the brief struggle imply a violent confrontation, which may be more consistent with Mel's involvement.
+
+I believe the murderer is Mel",Mel
+2,Poirot,"Zee gentlemen, we are indeed embroiled in a most complex and intriguing enigma, n'est-ce pas? I must say, I am impressed by the astute observations of my esteemed colleagues, Sherlock Holmes and Miss Jane Marple. However, I must respectfully disagree with their assessments, as we must not rush to conclusions without thorough consideration of the evidence.
+
+As we examine the timeline of events, I would like to propose a different perspective. The presence of the synthetic black hair, which suggests a connection to Mel's wig, is indeed intriguing. However, I believe this clue points more towards Mel's involvement, but not as the sole perpetrator. We must consider the possibility that Mel may have been an accomplice or even a pawn in a more complex game.
+
+Furthermore, I must express my concerns regarding the duplicate key and the unlabeled pill bottle, which seem to point to a deliberate attempt to mislead us. We must not overlook the fact that the blackout timing conflicts with most suspects' movements, suggesting a calculated attempt to cover one's tracks.
+
+I believe the murderer is Mel, but not as the sole perpetrator. I propose that we re-examine the timeline of events and consider the possibility that Mel was an accomplice or a pawn in a more complex game.
+
+I believe the murderer is William",Mel
+3,Marple,"As I sit here, sipping my tea, I must say I'm rather fascinated by the diverse perspectives presented by our esteemed colleagues, Mr. Holmes and Monsieur Poirot. While I agree that the synthetic black hair does seem to point towards Mel's involvement, I must express my reservations regarding the idea that she is the sole perpetrator.
+
+In my experience, the presence of red herrings and misdirection is quite common in human nature, and I believe our culprit may be attempting to lead us astray. The duplicate key and the unlabeled pill bottle, for instance, seem to suggest a rather clever ruse, but I'm not convinced that Mel is the one pulling the strings.
+
+Furthermore, I've been pondering the role of Jeremy Lambert, who, in my humble opinion, seems to be hiding something. His scratches on the study window and the duplicate key in his possession do raise some intriguing questions. I propose that we pay a visit to Mr. Lambert and see if we can uncover any further clues.
+
+I believe the murderer is Jeremy Lambert",Jeremy
+3,Poirot,"Zee gentlemen, I must say I am delighted to see the fervent discussion among our esteemed colleagues. We are indeed embroiled in a most complex and intriguing enigma, n'est-ce pas? As we continue to examine the evidence, I must express my reservations regarding the idea that Mel or Jeremy Lambert are the sole perpetrators.
+
+While the synthetic black hair does seem to point towards Mel's involvement, I believe this clue is merely a red herring, meant to mislead us. The duplicate key and the unlabeled pill bottle, on the other hand, suggest a rather clever ruse, but I am not convinced that Mel or Jeremy are the ones pulling the strings.
+
+I propose that we re-examine the timeline of events, focusing on the inconsistencies and contradictions that have arisen throughout our investigation. We must consider the possibility that our culprit is attempting to create a complex web of deceit, with multiple players involved.
+
+Furthermore, I must express my concerns regarding the forensic evidence, particularly the rare surgeon-level angle of the cardiac stab wound and the brief struggle. These details suggest a violent confrontation, which may be more consistent with the actions of a person who is not Mel or Jeremy, but rather someone who has been manipulating them from behind the scenes.
+
+I believe the murderer is Charles",Charles
+3,Holmes,"The plot thickens, indeed, as our esteemed colleagues continue to weave a complex tapestry of theories and hypotheses. While I appreciate the fervent discussion, I must respectfully disagree with Monsieur Poirot's assertion that the synthetic black hair is merely a red herring. The presence of this hair, coupled with the synthetic wig found at the scene, does suggest a deliberate attempt to mislead us, but I believe it is more indicative of Mel's involvement in the crime.
+
+Furthermore, I must express my skepticism regarding the idea that Mel or Jeremy are the sole perpetrators. The duplicate key and the unlabeled pill bottle, as well as the blackout timing conflicts, suggest a calculated attempt to cover one's tracks. These inconsistencies imply that our culprit is attempting to create a complex web of deceit, with multiple players involved.
+
+As we re-examine the timeline of events, I propose that we focus on the inconsistencies and contradictions that have arisen throughout our investigation. We must consider the possibility that our culprit is manipulating Mel and Jeremy, using them as pawns in a larger game.
+
+I believe the murderer is Mel, but not as the sole perpetrator. I propose that we continue to investigate the role of Jeremy Lambert, as his scratches on the study window and the duplicate key in his possession do raise some intriguing questions.
+
+I believe the murderer is Jeremy Lambert
+
+---
+
+[ Format: I believe the murderer is XXX ]",Mel
+4,Poirot,"Zee gentlemen, I must say I am impressed by the vast array of theories and hypotheses presented by our esteemed colleagues. However, as we continue to examine the evidence, I must express my reservations regarding the idea that Mel or Jeremy are the sole perpetrators.
+
+While the synthetic black hair does seem to point towards Mel's involvement, I believe this clue is merely a red herring, meant to mislead us. The duplicate key and the unlabeled pill bottle, on the other hand, suggest a rather clever ruse, but I am not convinced that Mel or Jeremy are the ones pulling the strings.
+
+I propose that we re-examine the timeline of events, focusing on the inconsistencies and contradictions that have arisen throughout our investigation. We must consider the possibility that our culprit is attempting to create a complex web of deceit, with multiple players involved.
+
+Furthermore, I must express my concerns regarding the forensic evidence, particularly the rare surgeon-level angle of the cardiac stab wound and the brief struggle. These details suggest a violent confrontation, which may be more consistent with the actions of a person who is not Mel or Jeremy, but rather someone who has been manipulating them from behind the scenes.
+
+I believe the murderer is Charles
+
+(Note: Poirot is suggesting that Charles may be the mastermind behind the crime, manipulating Mel and Jeremy to carry out the act.)",Charles
+4,Holmes,"The game, as they say, is afoot. As we continue to unravel the tangled threads of this complex enigma, I must express my reservations regarding the idea that Mel or Jeremy are the sole perpetrators. While the synthetic black hair does seem to point towards Mel's involvement, I believe this clue is merely a red herring, meant to mislead us.
+
+Furthermore, I must express my concerns regarding the duplicate key and the unlabeled pill bottle, which seem to suggest a rather clever ruse. However, I am not convinced that Mel or Jeremy are the ones pulling the strings. The rare surgeon-level angle of the cardiac stab wound and the brief struggle imply a violent confrontation, which may be more consistent with the actions of a person who has been manipulating them from behind the scenes.
+
+I propose that we re-examine the timeline of events, focusing on the inconsistencies and contradictions that have arisen throughout our investigation. It is imperative that we consider the possibility that our culprit is attempting to create a complex web of deceit, with multiple players involved.
+
+As I ponder the evidence, I am led to the conclusion that our culprit is not Mel or Jeremy, but rather a more cunning and calculating individual. The mastermind behind this complex scheme is none other than William.
+
+I believe the murderer is William",William
+4,Marple,"The threads of this intricate case have indeed become increasingly complex, n'est-ce pas, gentlemen? As we delve deeper into the investigation, I must say that I am intrigued by the various theories and hypotheses presented by our esteemed colleagues. While I share your reservations regarding the idea that Mel or Jeremy are the sole perpetrators, I must express my concerns regarding the lack of concrete evidence pointing directly to either of them.
+
+As I ponder the forensic evidence, I am led to wonder about the significance of the duplicate key and the unlabeled pill bottle. These seemingly innocuous items may, in fact, hold the key to unraveling the mystery. Furthermore, the rare surgeon-level angle of the cardiac stab wound and the brief struggle do imply a violent confrontation, but I am not convinced that this is solely the work of Mel or Jeremy.
+
+I must confess that my mind is drawn to the enigmatic figure of Charles Stewart. The presence of the cyanide containers near his room, the chemical formula not matching the toxin found in the victim, and the soil on his shoes not matching the study exterior do raise some intriguing questions. It is possible that Charles may be hiding something, perhaps even manipulating Mel and Jeremy to carry out the act.
+
+I believe the murderer is Charles",Charles
+5,Marple,"The plot thickens, indeed, and I must say, I'm rather fascinated by the diverse perspectives presented by our esteemed colleagues, Mr. Holmes and Monsieur Poirot. While I agree that the synthetic black hair does seem to point towards Mel's involvement, I must express my reservations regarding the idea that she is the sole perpetrator.
+
+In my experience, the presence of red herrings and misdirection is quite common in human nature, and I believe our culprit may be attempting to lead us astray. The duplicate key and the unlabeled pill bottle, for instance, seem to suggest a rather clever ruse, but I'm not convinced that Mel is the one pulling the strings.
+
+Furthermore, I've been pondering the role of Jeremy Lambert, who, in my humble opinion, seems to be hiding something. His scratches on the study window and the duplicate key in his possession do raise some intriguing questions. I propose that we pay a visit to Mr. Lambert and see if we can uncover any further clues.
+
+However, as I reflect on the clues provided, I must confess that my mind is drawn to a different suspect. The inconsistencies in the timeline, the presence of the synthetic black hair, and the duplicate key all seem to point towards a more complex scheme.
+
+I believe the murderer is Charles
+
+(Note: Miss Marple suggests that Charles Stewart may be the mastermind behind the crime, manipulating Mel and Jeremy to carry out the act.)",Charles
+5,Poirot,"Zee gentlemen, I must say I am delighted to see the fervent discussion among our esteemed colleagues. As we continue to examine the evidence, I must express my reservations regarding the idea that Mel or Jeremy are the sole perpetrators.
+
+While the synthetic black hair does seem to point towards Mel's involvement, I believe this clue is merely a red herring, meant to mislead us. The duplicate key and the unlabeled pill bottle, on the other hand, suggest a rather clever ruse, but I am not convinced that Mel or Jeremy are the ones pulling the strings.
+
+I propose that we re-examine the timeline of events, focusing on the inconsistencies and contradictions that have arisen throughout our investigation. We must consider the possibility that our culprit is attempting to create a complex web of deceit, with multiple players involved.
+
+Furthermore, I must express my concerns regarding the forensic evidence, particularly the rare surgeon-level angle of the cardiac stab wound and the brief struggle. These details suggest a violent confrontation, which may be more consistent with the actions of a person who has been manipulating them from behind the scenes.
+
+I believe the murderer is Charles",Charles
+5,Holmes,"As I reflect upon the intricate web of theories and hypotheses presented by my esteemed colleagues, I must express my reservations regarding the idea that Mel or Jeremy are the sole perpetrators. While the synthetic black hair does seem to point towards Mel's involvement, I believe this clue is merely a red herring, meant to mislead us.
+
+Furthermore, I must express my concerns regarding the duplicate key and the unlabeled pill bottle, which seem to suggest a rather clever ruse. However, I am not convinced that Mel or Jeremy are the ones pulling the strings. The rare surgeon-level angle of the cardiac stab wound and the brief struggle imply a violent confrontation, which may be more consistent with the actions of a person who has been manipulating them from behind the scenes.
+
+I propose that we re-examine the timeline of events, focusing on the inconsistencies and contradictions that have arisen throughout our investigation. It is imperative that we consider the possibility that our culprit is attempting to create a complex web of deceit, with multiple players involved.
+
+As I ponder the evidence, I am led to the conclusion that our culprit is not Mel or Jeremy, but rather a more cunning and calculating individual. The mastermind behind this complex scheme is none other than Charles.
+
+I believe the murderer is Charles",Charles
