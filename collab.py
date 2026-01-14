@@ -318,11 +318,12 @@ class DetectiveDialogue:
         IMPORTANT:
         - Begin with self-introductions because you don’t know each other.
         - Shared your full exclusive clues to help others.
-        - Always write in coherent, self-contained paragraphs, not fragments.
+        - Always speak in coherent, self-contained paragraphs, not fragments.
         - Ensure each response has a clear beginning, middle, and end.
         - Ideally do not exceed 5 sentences. 
         - Do not repeat your phrases ever.
         - Be a listener and interact with each other. Do not lost in your world. When the speaker before you identify different murderer, reflect your disagreement when you speak.
+        - Strictly stay in character, strictly follow your investigation style.
         - End your reply with this exact format and you must name one and only one suspect:
         I believe the murderer is XXX
         """

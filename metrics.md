@@ -19,54 +19,10 @@ RQ4. TBC <br>
 Case solving task with default zero-shot LLM prompt, to verify if cases are solvable. 
 
 
-‼️ 我们做几个case？每个case多少次simulation？  
-‼️ 目前不是百分百的正确率.(需要能100%正确解决吗？还是证明有一定正确率即可？是的话多少正确率？)--- 【跑50次，用llama和gpt同时，llama的用于和后面simulation后的任务成功率做对比】.  
-
-【结果】
-
-```
-Case 1 results: 正确率50%
-1: Wilson
-2: Zack
-3: Wilson
-4: Zack
-5: Zack
-6: Wilson
-7: Zack
-8: Wilson
-9: Wilson
-10: Zack
-
-Case 2 results: 正确率100%
-1: William
-2: William
-3: William
-4: William
-5: William
-6: William
-7: William
-8: William
-9: William
-10: William
-
-Case 3 results: 正确率0%
-1: Jeremy Lambert
-2: Jeremy
-3: Jeremy
-4: Shirley Lambert
-5: Jeremy Lambert
-6: Jeremy Lambert
-7: Jeremy Lambert
-8: Jeremy
-9: Jeremy Lambert
-10: Jeremy Lambert
-```
 
 ### Baseline 2 - Zero Collaboration
-Case solving task with character prompts but without collaboration, to ‼️ verify WHAT???
-> *tests > test_allcases_character_controlled.py*
+Case solving task with character prompts but without collaboration.
 
-‼️ 同样，不是百分百的正确率。【ok，不需要100%正确，只需要用于做比较，正确率的差别。不是用于rq，只是用于一种完整的验证】
 
 
 ### Model-Based Baseline - BERT Classifier Model
@@ -141,6 +97,9 @@ weighted avg       0.76      0.76      0.76      1374
   - Compare baseline 1 to baseline 2 - if it is lower, role-playing has negative impact.
   - Compare to baseline 1 - if it is lower, ~above
   - Compare to baseline 2 - if it is lower, collaboration has negative impact.
+
+- Results:
+  - rate(zero_prompt): case1-100%, case2 - 90%, case3 - 100%.
 
 
 # 2. Classifier model
