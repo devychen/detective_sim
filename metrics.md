@@ -17,13 +17,50 @@ RQ4. TBC <br>
 
 ### Baseline 1 - Zero Prompt
 Case solving task with default zero-shot LLM prompt, to verify if cases are solvable. 
-> *tests > test_allcases.py*
 
-- Before running the multi-agent collaborative experiments, we conducted a zero-shot solvability verification using a single, non-role-based LLM. The model was provided with the complete case description and a minimal analytical instruction, without examples or interaction. The purpose of this step was to ensure that each case admitted a coherent, reasoned solution independent of character constraints or dialogue dynamics.
 
 ‼️ 我们做几个case？每个case多少次simulation？  
 ‼️ 目前不是百分百的正确率.(需要能100%正确解决吗？还是证明有一定正确率即可？是的话多少正确率？)--- 【跑50次，用llama和gpt同时，llama的用于和后面simulation后的任务成功率做对比】.  
-而且这里用的是gpt，collab用的是llama，说实话llama正确率是要比gpt低一点
+
+【结果】
+
+```
+Case 1 results: 正确率50%
+1: Wilson
+2: Zack
+3: Wilson
+4: Zack
+5: Zack
+6: Wilson
+7: Zack
+8: Wilson
+9: Wilson
+10: Zack
+
+Case 2 results: 正确率100%
+1: William
+2: William
+3: William
+4: William
+5: William
+6: William
+7: William
+8: William
+9: William
+10: William
+
+Case 3 results: 正确率0%
+1: Jeremy Lambert
+2: Jeremy
+3: Jeremy
+4: Shirley Lambert
+5: Jeremy Lambert
+6: Jeremy Lambert
+7: Jeremy Lambert
+8: Jeremy
+9: Jeremy Lambert
+10: Jeremy Lambert
+```
 
 ### Baseline 2 - Zero Collaboration
 Case solving task with character prompts but without collaboration, to ‼️ verify WHAT???
@@ -78,31 +115,33 @@ weighted avg       0.76      0.76      0.76      1374
 
 # List of OOC Indicators (RQ1, RQ2)
 
-||Dimension|Evaluation|Metrics|Output|
+||Dimension|Evaluation|Metrics|Output
 |--|--|--|--|--|
-|1.0|Descriptive|基本任务表现描述（非主要分析）|-|每个case一个折线图(accuracy over turns) + 每个case一个summary table (avg accuracy ± CI)
-|2.0|Classifier eval|用 classifier 的概率输出作为代理信号，测量 LLM 三个侦探角色在整段对话过程中风格的动态一致性趋势。|Classifier_P(True), Brier, Brier_Slope|
-|3.1|Lexical|Character-specific vocab rate, TF_IDF|Lexical_Cosine
-|3.2|Lexical|Intra-agent cosine distance|IntraAgent_Dist
-|4.0|Syntactic| (Syntactic complexity) i.e. Maximum dependency tree depth|Syntax_DepthDiff|syntactic drift 随 turn 漂移的回归图
-|5.1|Discourse| Discourse function / Dialogue Act|DialogueAct_KL|随 turn 漂移的回归图
-|5.2|Discourse| Sentiment trajectory|Sentiment_Dist|sentiment drift 随 turn 漂移的回归图
-|6.1|Validation (Master table)| Probability aligned turn wise w/ Crr. & ECE | 展示重要性排序的排名图，master table
-|6.2|Validation| Clustering for contamination||
+|1.0    |Descriptive      |zero-prompt时案件成功率 vs 有角色prompt无合作prompt时的成功率 vs full-setting成功率）|rate(zero_prompt), rate(no_collab), rate(full)| 三个数的对比表 
+|2.0    |Classifier eval  |用 classifier 的概率输出作为代理信号，测量 LLM 三个侦探角色在整段对话过程中风格的动态一致性趋势。|Classifier_P(True), Brier, Brier_Slope|
+|3.1    |Lexical          |Character-specific vocab rate, TF_IDF|Lexical_Cosine
+|3.2    |Lexical          |Intra-agent cosine distance|IntraAgent_Dist
+|4.0    |Syntactic        |(Syntactic complexity) i.e. Maximum dependency tree depth|Syntax_DepthDiff|syntactic drift 随 turn 漂移的回归图
+|5.1    |Discourse        |Discourse function / Dialogue Act|DialogueAct_KL|随 turn 漂移的回归图
+|5.2    |Discourse        |Sentiment trajectory|Sentiment_Dist|sentiment drift 随 turn 漂移的回归图
+|6.1    |Validation (Master table)|Probability aligned turn wise w/ Crr. & ECE | 展示重要性排序的排名图，master table
+|6.2|Validation           |Clustering for contamination||
 
 
 
 
 
 # 1. Descriptive
-x
-1.1 Average task accuracy.（我需要跑case多少次？我记得我们说需要调整）
-- Compare baseline 1 to baseline 2 - if it is lower, role-playing has negative impact.
-- Compare to baseline 1 - if it is lower, ~above
-- Compare to baseline 2 - if it is lower, collaboration has negative impact.
 
-1.2 Its Confidence Interval (CI)
-- ‼️ Use for ...?
+1.0 Average task accuracy.
+- HOW-TO: 
+  - 跑zero prompt和no collab 各10次，计算成功率
+
+- EVAL:
+  - Compare baseline 1 to baseline 2 - if it is lower, role-playing has negative impact.
+  - Compare to baseline 1 - if it is lower, ~above
+  - Compare to baseline 2 - if it is lower, collaboration has negative impact.
+
 
 # 2. Classifier model
 
@@ -174,5 +213,7 @@ Master table (example)
 | DialogueAct_KL   | -0.10 | 0.29 |
 
 - Regression for drift detection
+
+
 # 7. Clustering
 

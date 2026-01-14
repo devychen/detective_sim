@@ -1,0 +1,118 @@
+case:
+  setting: |
+    During the engagement party of Shirley Lambert and cardiac surgeon John Saar, a blackout hits Lambert Manor.
+    Minutes later, William Lambert is found dead in his study. Multiple medical conspiracies, old cover-ups,
+    and forged documents create overlapping motives among all guests. Evidence appears contradictory, and the
+    killer seems to have deliberately mixed real and false clues.
+
+  victim:
+    name: William Lambert
+    description: |
+      Found with a deep cardiac puncture and cyanide traces. Evidence suggests either poisoning first and stabbing later,
+      or a single staged event. A torn page with only “S” remains in his hand, possibly pointing to multiple suspects.
+
+  suspects:
+    - name: John Saar
+      role: Cardiac surgeon, fiancé
+      motive: |
+        1. Victim threatened to reveal unauthorized heart-transplant trials.
+        2. Fear of research funding being terminated.
+        3. Hidden connection to Toni Stewart’s failed surgery.
+      appearance: |
+        Small brownish stain on left cuff initially assumed coffee; later tests reveal traces of cyanide AND anticoagulant.
+        Palm has an oddly shaped cut inconsistent with simple accidents.
+      key_items: |
+        1. Missing surgical scalpel (not confirmed to be murder weapon).
+        2. Experimental drug records with lots of pages torn.
+        3. Lab access logs at unusual hours (but no direct proof of toxin removal).
+
+    - name: Charles Stewart
+      role: Butler (real identity James Stewart)
+      motive: |
+        Believes Lambert family caused deaths of wife and daughter; holds decades of resentment.
+      appearance: |
+        Cyanide *containers* found near his quarters, but chemical composition does not match toxin in victim.
+        His shoes show soil traces but do not match study exterior.
+      key_items: |
+        1. Investigation reports (some genuine, some forged).
+        2. Coffee cup with sedative traces but no cyanide.
+        3. False rumors spread intentionally about will changes.
+
+    - name: Shirley Lambert
+      role: Victim’s daughter
+      motive: |
+        Suspected her father manipulated her treatment and memories.
+      appearance: |
+        Red residue under nails (violin rosin).
+      key_items: |
+        1. Unlabeled pill bottle (non-toxic).
+        2. Diary pages mentioning "S" repeatedly.
+        3. Study key but smudged—no prints recovered.
+
+    - name: Mel Gibson
+      role: Daughter of Millie Gibson
+      motive: |
+        Resentment toward both Lambert and John.
+      appearance: |
+        Vial of plant-based toxin (non-lethal to humans).
+      key_items: |
+        1. Dry ice blackout device set at 21:25 (earlier than murder window).
+        2. Autopsy photos of her mother.
+        3. Wig with synthetic black hair (found at scene).
+
+    - name: Jeremy Lambert
+      role: Adopted son
+      motive: |
+        Believes he was removed from will.
+      appearance: |
+        Scratches from climbing study window earlier.
+      key_items: |
+        1. Duplicate study key (unused).
+        2. Alcohol bottle (partial fingerprints).
+        3. Hypnosis notes referencing “S”, but could mean Shirley, Saar or Stewart.
+
+    - name: Jamie Collins
+      role: Journalist
+      motive: |
+        Anger about medical malpractice killing her mother.
+      appearance: |
+        Empty syringe without needle.
+      key_items: |
+        1. Photos of Gibson-Lambert business conflicts.
+        2. Supplements mixed with harmless additives.
+        3. Duplicate key planted in her bag.
+
+  crime_scene:
+    body_state: |
+      1. Cardiac stab wound at precise angle used in a rare surgical technique.
+      2. Cyanide injected, not ingested.
+      3. Victim fought briefly—skin under nails belongs to John Saar.
+    environment: |
+      1. Window unlocked but no soil transfer.
+      2. Safe appears opened but no fingerprints except William’s.
+      3. Blackout timing inconsistent with most suspects’ movements.
+    suspicious_items: |
+      1. Bloodied piano wire (irrelevant to wounds).
+      2. Synthetic hair strand (from Mel’s wig).
+      3. Scalpel sheath missing one blade.
+
+  forensic:
+    wound_analysis: |
+      The puncture matches a rare two-step rotation technique used by advanced cardiac surgeons.
+      Only one suspect is trained in this exact method.
+    toxin_analysis: |
+      Cyanide formula includes an anticoagulant compound used only in experimental cardiac research.
+      Traces found on John’s cuff match this compound.
+    additional:
+      - Jeremy’s key shows no recent use.
+      - Charles’s cyanide is a different chemical form.
+      - Plant toxin from Mel is non-lethal.
+
+  timeline:
+    - "21:20: Mel sets blackout device (too early to sync with murder)."
+    - "21:30: John last seen entering hallway toward study."
+    - "21:40: Shirley seen arguing with staff, nowhere near study."
+    - "21:45: Charles in kitchen; verified by two witnesses."
+    - "21:50: Blackout triggered."
+    - "21:50–21:55: Cyanide injection + rare surgical puncture performed."
+    - "22:00: Body discovered."

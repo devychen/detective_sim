@@ -1,7 +1,9 @@
 """
-test_allcases.py
+1.0_zeroprompt.py
 
-本版本使用gpt。
+本版本使用llama。gpt版本见test > test_allcases.py
+同时这个版本包含分析的内容，而非直接输出结果
+
 
 Purpose
 -------
@@ -27,14 +29,19 @@ by ill-posed or unsolvable cases.
 """
 
 import os
-import openai
 from dotenv import load_dotenv
 import yaml
 from datetime import datetime
+import requests
 
-# Set OpenAI API key
-load_dotenv('openai_key.env')
-client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+# Set NVIDIA API key
+load_dotenv('nvidia_key_3b.env')
+API_URL = "https://integrate.api.nvidia.com/v1"
+MODEL_NAME = "meta/llama-3.2-3b-instruct"
+API_KEY = os.getenv("NVIDIA_API_KEY")
+
+
+
 
 # =================================================
 # Case Loading
@@ -57,13 +64,30 @@ def load_case_files():
         A list where each element is the structured data
         for one murder case.
     """
+    # read environment variable
+    run_cases_env = os.getenv("RUN_CASES")
+
+    if run_cases_env:
+        # Convert "1,3" -> [1, 3]
+        # RUN_CASES=1,3 python script.py
+        case_ids = [int(x.strip()) for x in run_cases_env.split(",")]
+    else:
+        # default: load all three cases
+        case_ids = [1, 2, 3]
+
     cases = []
-    for i in range(1, 4):
+    for i in case_ids:
         file_path = os.path.join('cases', f'case{i}.yaml')
+        if not os.path.exists(file_path):
+            print(f"WARNING: case file {file_path} does not exist. Skipping.")
+            continue
         with open(file_path, 'r', encoding='utf-8') as file:
             case_data = yaml.safe_load(file)
-            cases.append(case_data['case'])  # Access the nested 'case' data
+            cases.append(case_data['case'])
+
     return cases
+
+
 
 def analyse_case(case_data, case_number):  
     """
@@ -98,26 +122,27 @@ def analyse_case(case_data, case_number):
     # The prompt intentionally follows a minimal, analytical style.
     # It provides structure but no examples, ensuring a zero-shot setup.
 
-    prompt = f"""Analyse the following murder case carefully and determine who is the most likely killer.
-Consider all evidence, motives, opportunities, and forensic findings. Explain your reasoning step-by-step.
+    prompt = f"""
+    Analyse the following murder case carefully and determine who is the most likely killer.
+    Consider all evidence, motives, opportunities, and forensic findings. Explain your reasoning step-by-step.
 
-Case: {case_name}
-Victim: {case_data['victim']['name']}
-Suspects: {', '.join([s['name'] for s in case_data['suspects']])}
+    Case: {case_name}
+    Victim: {case_data['victim']['name']}
+    Suspects: {', '.join([s['name'] for s in case_data['suspects']])}
 
-Key Evidence:
-- Crime Scene: {case_data['crime_scene'].get('body_state', 'N/A')}
-- Forensic Findings: {case_data.get('forensic_evidence', {}).get('cause_of_death', 'N/A')}
-- Timeline: {'; '.join(case_data['timeline'])}
+    Key Evidence:
+    - Crime Scene: {case_data['crime_scene'].get('body_state', 'N/A')}
+    - Forensic Findings: {case_data.get('forensic_evidence', {}).get('cause_of_death', 'N/A')}
+    - Timeline: {'; '.join(case_data['timeline'])}
 
-For each suspect, evaluate:
-1. Motive strength
-2. Opportunity (alibis, access)
-3. Physical evidence linking them
-4. Behavioural clues  # British spelling
+    For each suspect, evaluate:
+    1. Motive strength
+    2. Opportunity (alibis, access)
+    3. Physical evidence linking them
+    4. Behavioural clues  # British spelling
 
-After analysing all factors, conclude with the most probable killer and a brief explanation.
-"""
+    After analysing all factors, conclude with the most probable killer and a brief explanation.
+    """
     
     # -------------------------------------------------
     # LLM call
@@ -125,16 +150,35 @@ After analysing all factors, conclude with the most probable killer and a brief 
     # A low temperature is used to reduce randomness and
     # emphasise analytical consistency over creativity.
     
-    response = client.chat.completions.create(
-        model="gpt-4",
-        messages=[
-            {"role": "system", "content": "You are a world-class detective analysing complex murder cases."},
+
+    url = "https://integrate.api.nvidia.com/v1/chat/completions"
+
+    headers = {
+        "Authorization": f"Bearer {API_KEY}",
+        "Content-Type": "application/json"
+    }
+
+    payload = {
+        "model": MODEL_NAME,
+        "messages": [
             {"role": "user", "content": prompt}
         ],
-        temperature=0.3
-    )
-    
-    return f"Case {case_number} Analysis:\n{response.choices[0].message.content}\n"
+        "temperature": 0.3,
+        "max_tokens": 1024
+    }
+
+    response = requests.post(url, headers=headers, json=payload)
+
+    # print("RAW RESPONSE TEXT:", response.text)
+
+    data = response.json()
+
+    if "choices" not in data:
+        raise RuntimeError(f"NVIDIA API request failed: {data}")
+
+    return data["choices"][0]["message"]["content"]
+
+
 
 # =================================================
 # Result Storage
@@ -162,13 +206,16 @@ def save_results_to_file(results, filename=None):
         The path to the saved file.
     """
     # Ensure output directory exists
-    output_dir = "tests"
+    output_dir = "evaluation"
     os.makedirs(output_dir, exist_ok=True)
 
     if not filename:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"case_analysis_results_{timestamp}.txt"
-    
+        filename = f"1.0_results_{timestamp}.txt"
+
+    # >>> 修改点：将 filename 放入 evaluation 文件夹 <<<
+    output_path = os.path.join(output_dir, filename)
+
     with open(filename, 'w', encoding='utf-8') as file:
         file.write("MURDER CASE ANALYSIS REPORT\n")
         file.write(f"Generated on: {datetime.now().strftime('%d %B %Y at %H:%M')}\n")
@@ -206,5 +253,9 @@ def main():
 # Script Entry Point
 # =================================================
 
+# if __name__ == "__main__":
+#     main()
+
 if __name__ == "__main__":
-    main()
+    for _ in range(10):
+        main()

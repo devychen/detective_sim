@@ -12,7 +12,7 @@ API_KEY = os.getenv("NVIDIA_API_KEY")
 
 def load_case_files():
     """Load and parse only case1.yaml from the cases directory"""
-    file_path = os.path.join('cases', 'CN_case1.yaml')
+    file_path = os.path.join('cases', 'case1.yaml')
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
             case_data = yaml.safe_load(file)

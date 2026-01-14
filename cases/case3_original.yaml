@@ -1,0 +1,155 @@
+case:
+  setting: |
+    As invited detectives, you three are attending the engagement party of violinist Shirley Lambert and cardiac surgeon John Saar at the Lambert Family Manor. 
+    Around 9:50 PM, the venue suddenly lost power. 
+    Minutes later when electricity resumed, butler Charles Stewart frantically announced that 
+    William Lambert (Shirley Lambert's father, director of WL Hospital) was found dead in the study. 
+    All guests present are suspects, with the case connected to a 15-year-old medical malpractice cover-up, 
+    a heart transplant conspiracy, and the unsolved murder of Millie Gibson (CEO of Gibson Medical Equipment).
+
+  victim:
+    name: William Lambert  
+    description: |
+      62 years old, director of WL Hospital, renowned cardiac surgeon. Strong-willed personality, recently opposed his daughter's engagement to John Saar. Found in gray suit with fatal stab wound to chest (weapon missing), body lying prone near study desk. Study safe was opened with documents scattered.
+    identifiers: |
+      1. Estimated time of death during blackout (21:50-22:00)
+      2. Clutched torn paper fragment in left hand (suspected will remnant)
+      3. Cyanotic lips suggesting possible poisoning (awaiting tox report)
+
+  suspects:
+    - name: Shirley Lambert
+      role: Victim's daughter, violinist
+      motive: |
+        1. Long-term unknown medication possibly controlled by father  
+        2. Recent behavioral changes (sudden smoking, spicy food preference)  
+        3. Potential sole inheritance (per Jeremy Lambert's testimony)
+      background: |
+        24 years old, returned from US treatment with amnesia 1.5 years ago. Experiences recurring "heart-removal" nightmares.
+      appearance: |
+        Wears black backless evening gown (gift from John Saar), needle marks on right wrist, red residue under fingernails (pending analysis).
+      key_items: |
+        1. Unlabeled pill bottle (3 white tablets remaining)  
+        2. Diary documenting nightmares ("I saw Tongtong's face")  
+        3. Study key (obtained from Charles Stewart)
+
+    - name: John Saar  
+      role: Victim's protégé, cardiac department head  
+      motive: |
+        1. Blackmailed by William Lambert to leave Shirley Lambert (related to ex-girlfriend Toni Stewart's death)  
+        2. Researching "cellular memory" theory, potentially manipulating Shirley Lambert  
+      background: |
+        24 years old, ex-girlfriend Toni Stewart (Charles Stewart's daughter) died during US treatment.
+      appearance: |
+        Brown stain on left cuff (coffee/blood?), fresh abrasion on right thumb webbing.
+      key_items: |
+        1. Empty sedative bottle (room trash)  
+        2. Handgun (under pillow)  
+        3. Toni Stewart's medical records ("DNA match" notation)
+
+    - name: Charles Stewart  
+      role: Manor butler  
+      motive: |
+        1. Wife Qin Siqin and daughter Toni Stewart allegedly died due to Lambert/Gibson medical cover-ups  
+        2. Spread false "will amendment" rumors to Jeremy Lambert  
+      background: |
+        49 years old, true identity James Stewart, infiltrated Lambert household for 13 years seeking revenge.
+      appearance: |
+        White powder in uniform pocket (identified as potassium cyanide), flower soil on shoe soles matching study windowsill.
+      key_items: |
+        1. 15-year malpractice investigation report (hidden under bed)  
+        2. Toni Stewart's keepsake box (blood-stained surgical consent form)  
+        3. Coffee tray (positive for toxins)
+
+    - name: Jeremy Lambert  
+      role: Victim's adopted son, psychologist  
+      motive: |
+        1. 4 million debt, mistakenly believed disinherited  
+        2. Discovered abnormal memories during Shirley Lambert's hypnosis  
+      background: |
+        28 years old, recently dating Mel Gibson, clinic facing bankruptcy.
+      appearance: |
+        Window frame scratches on right sleeve, missing engagement ring.
+      key_items: |
+        1. Hypnosis records ("John Saar is the killer")  
+        2. Private investigator's report (documents William Lambert-John Saar altercations)  
+        3. Empty liquor bottle (bedroom)
+
+    - name: Mel Gibson  
+      role: Millie Gibson's daughter, cellist  
+      motive: |
+        1. Hates Shirley Lambert for "stealing" John Saar  
+        2. Emotionally unstable after father's murder  
+      background: |
+        25 years old, recently obsessed with autopsy reports.
+      appearance: |
+        Cylindrical bulge under evening gown armpit (later identified as poison vial), wears light-enhancing contact lenses.
+      key_items: |
+        1. Dry ice packaging (found in power room)  
+        2. Father's crime scene photos ("wound matches Toni Stewart's scalpel")  
+        3. Untouched poison vial (concealed in hairpiece)
+
+    - name: Yosef Gibson  
+      role: Millie Gibson's son, medical equipment VP  
+      motive: |
+        1. Secretly funded victim's daughter Jamie Collins (potential blackmail)  
+        2. Still loves Shirley Lambert  
+      background: |
+        24 years old, currently dating pregnant Jamie Collins.
+      appearance: |
+        Violin-shaped tie clip (matching Shirley Lambert's), bloodstain reaction inside jacket pocket.
+      key_items: |
+        1. Bank transfer records (monthly payments to Jamie Collins)  
+        2. Ice bucket (contains melted blood-stained gauze)  
+        3. Incomplete Anna Smith death report
+
+    - name: Jamie Collins  
+      role: Journalist, Yosef Gibson's girlfriend  
+      motive: |
+        Mother Anna Smith died in medical incident, previously planned revenge  
+      background: |
+        22 years old, 2 months pregnant, recently abandoned revenge plans.
+      appearance: |
+        Syringe (no needle) in maternity dress pocket, blood on camera lens.
+      key_items: |
+        1. Secretly photographed Gibson corporate documents  
+        2. Folic acid bottle (mixed with unknown pills)  
+        3. Duplicate study key
+
+  crime_scene:
+    time: 21:50-22:00  
+    location: Second-floor study, Lambert Manor  
+    body_state: |
+      1. Fatal stab wound to heart (surgical blade suspected)  
+      2. Defensive wounds present, office chair overturned  
+      3. Left hand clutching will fragment ("estate divided between Jeremy Lambert/Shirley Lambert")
+    environment: |
+      1. Unlocked window (climbing marks on sill)  
+      2. Overturned coffee cup (sedatives and cyanide detected)  
+      3. Dry ice timing device found in power room (triggered blackout)
+    suspicious_items: |
+      1. Bloodied piano wire (behind bookshelf)  
+      2. Partial fingerprint (safe exterior)  
+      3. Female hair strand (entangled on corpse's button)
+
+  forensi_evidence: 
+    time_of_death: 21:30-22:00 (based on rigor mortis)  
+    cause_of_death: Cardiac puncture with cyanide poisoning  
+    body_observations: |
+      1. Skin tissue under nails (DNA matches John Saar)  
+      2. Blunt force trauma to occiput (non-fatal)  
+    toxicology: |
+      Blood analysis:  
+      1. Diazepam (sedative component)  
+      2. Potassium cyanide (lethal dosage)  
+    other_findings: |
+      1. Chili powder on study carpet (links to Shirley Lambert's diet)  
+      2. Original will burned (only fragments remain)
+
+  timeline:
+    - "17:00: Yosef Gibson and Jamie Collins arrive"  
+    - "17:30: John Saar seen entering kitchen"  
+    - "18:00: Charles Stewart delivers coffee to study"  
+    - "20:00: Jeremy Lambert climbs through study window (blind spot)"  
+    - "21:20: Mel Gibson sets dry ice device in power room"  
+    - "21:50: Blackout occurs, multiple guests leave venue"  
+    - "22:00: Body discovered"

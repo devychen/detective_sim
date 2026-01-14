@@ -49,7 +49,7 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 
 > 🍎 Output saved to *prompts > holmes.yaml, marple.yaml, poirot.yaml*.
 
-✅ **Step 4**: Run *prep > reverse_id.py* to do the reverse identification check, model used llama-3.3-70b-Instruct. 
+✅ **Step 4**: Run *prep > reverse_id.py* to do the reverse identification check, model used llama-3.2-3b-Instruct. 
 
 > 🍎 Identity proved. 
 

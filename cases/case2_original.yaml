@@ -1,0 +1,102 @@
+case:
+  setting: |
+    The case occurred on the evening of May 14, 1910, in a poor village outside London.  
+    The village was isolated, with impoverished and uneducated villagers. Only William could speak Mandarin.  
+    Charlie, a fake philanthropist, exploited the poor and planned to leave the village on May 15.  
+    On the night of the crime, multiple characters crossed paths with Charlie due to their motives, and he was later found dead in his residence.
+
+  victim:
+    name: Charlie  
+    description: |
+      A fake philanthropist who profited from exploiting the poor. Planned to build a factory in the village, which William saw as a threat.  
+      Had conflicts with Hook, William, and Raymond before his death.  
+      Found dead with blood from his mouth, suspected poisoning. The basement entrance under his bed was open, and Jim lay unconscious nearby.  
+    identifiers: |
+      1. Had direct conflicts with multiple characters.  
+      2. Possessed evidence of William's crimes.  
+      3. Met with William before death.  
+
+  suspects:
+    - name: Jim  
+      role: Villager, orphan, hated the wealthy  
+      motive: Hated the wealthy and vowed to kill them, but did not kill Charlie.  
+      background: |
+        Witnessed his father's abuse and death at the hands of the wealthy, leading to psychological trauma. Targeted the wealthy, cutting off their index and middle fingers.  
+        Sneaked into Charlie's residence but was knocked unconscious in the basement. Woke up to find Charlie dead.  
+      appearance: |
+        Ragged clothes, carried a hatchet (unused), no bloodstains. Fierce eyes, reclusive behavior.  
+      key_items: |
+        1. Hatchet (unused).  
+        2. Father's cryptic note.  
+
+    - name: Raymond  
+      role: Police officer investigating a London serial killer case  
+      motive: Revenge for his girlfriend (who committed suicide after being assaulted by Charlie).  
+      background: |
+        Undercover in the village investigating the serial killer. Went to Charlie's residence with a gun but missed his shot and left.  
+      appearance: |
+        Plainclothes, carried a silenced gun, visibly agitated with trembling hands.  
+      key_items: |
+        1. Gun (fired but missed).  
+        2. Girlfriend's keepsake (psychological trigger).  
+
+    - name: William  
+      role: De facto village leader  
+      motive: Charlie threatened to expose his crimes of exploiting villagers through poverty.  
+      background: |
+        Controlled villagers through poverty and gambling, embezzled charity funds. Met and poisoned Charlie on the night of the crime.  
+      appearance: |
+        Neatly dressed, possible pesticide residue on hands, nervous demeanor.  
+      key_items: |
+        1. Pesticide bottle (lethal poison).  
+        2. Gambling records (proof of his control over villagers).  
+
+    - name: Hook  
+      role: Government investigator  
+      motive: To rescue his son, kidnapped by Charlie.  
+      background: |
+        Had recordings of Charlie's exploitation but was blackmailed. Attempted to kidnap Charlie but failed.  
+      appearance: |
+        Anxious, carried a fruit knife (unused), clothes showed signs of struggle.  
+      key_items: |
+        1. Voice recorder (evidence of Charlie's crimes).  
+        2. Fruit knife (unused).  
+
+  crime_scene:
+    time: May 14, 1910, 21:00-22:00  
+    location: Charlie's residence (William's house)  
+    body_state: |
+      Blood from mouth, suspected poisoning. Bed overturned, basement entrance exposed. Jim lay unconscious nearby.  
+    environment: |
+      Candles extinguished, bedroom window open. Signs of struggle, bedroom door kicked open.  
+    suspicious_items: |
+      1. Pesticide cup (poison residue).  
+      2. Wooden club (used to knock out Jim).  
+      3. Bloodstains in basement (likely from Jim).  
+
+  forensic_evidence: 
+    time_of_death: Around 21:30-22:00  
+    cause_of_death: Poisoning (lethal pesticide)  
+    body_observations: |
+      Blood from mouth, dilated pupils, bluish skin.  
+    toxicology: |
+      Lethal pesticide detected in stomach.  
+    other_findings: |
+      Signs of struggle in basement. Jim's DNA found on the wooden club.  
+
+  timeline:
+    - "21:00: Jim sneaks into Charlie's residence, hides outside."  
+    - "21:10: Raymond enters with gun, Charlie flees. Raymond kicks door but leaves."  
+    - "21:15: Jim enters bedroom, discovers basement, jumps in, and is knocked out."  
+    - "21:25: Hook enters with knife, fails to find Charlie, leaves."  
+    - "21:30: William meets Charlie and poisons him."  
+    - "21:40: Hook returns, encounters Jim on the way."  
+    - "22:00: Jim wakes up, finds Charlie dead."  
+
+  investigation_starter:
+    holmes: |
+      Your magnifying glass notes William's fingerprints on the pesticide cup and matches basement bloodstains to Jim's wounds.  
+    poirot: |
+      Your etiquette spots inconsistencies in William's timeline and Hook's anxious demeanor.  
+    marple: |
+      Like spotting irregularities in church donations, you notice William's gambling records and Charlie's conflicts with multiple characters.  
