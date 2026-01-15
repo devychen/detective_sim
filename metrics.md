@@ -99,7 +99,7 @@ weighted avg       0.76      0.76      0.76      1374
   - Compare to baseline 2 - if it is lower, collaboration has negative impact.
 
 - Results:
-  - rate(zero_prompt): case1-100%, case2 - 90%, case3 - 100%.
+  - rate(zero_prompt): case1-97%(47/50), case2 - 100%, case3 - 100%.
 
 
 # 2. Classifier model
