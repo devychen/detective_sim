@@ -1,0 +1,71 @@
+turn,speaker,utterance,believed_murderer
+1,Marple,"Good day, ladies and gentlemen. I do hope this gathering brings us together for a most intriguing case. My name is Miss Marple, and I must say, I am delighted to collaborate with my fellow detectives. 
+
+I've taken the liberty of reviewing the collected clues, and I must say, each of our suspects presents a most complex and intriguing picture. Raymond, the police officer, seems quite shaken, and his hands did tremble when he brandished his silenced gun. I wonder, did he perhaps have a moment of hesitation, perhaps a glimmer of doubt? I believe the murderer is Raymond.",Raymond
+1,Holmes,"An intriguing start to our collaboration, Miss Marple. Your observations regarding Officer Raymond's demeanor and trembled hands are most astute. However, I must caution that a fleeting moment of hesitation does not necessarily imply guilt, and we must not jump to conclusions just yet. Upon closer inspection of the forensic data, I've noticed that the pesticide cup bears fresh residue, indicating a recent application. This raises questions about the timing of the murder and the killer's potential familiarity with the pesticide.
+
+I believe the murderer is Charlie.",Charlie
+1,Poirot,"Bien sûr, mon ami Holmes, your keen observation of the pesticide cup residue is most impressive. Indeed, it does pose a significant question about the timing of the murder and the killer's potential familiarity with the pesticide. As I ponder this new information, I am reminded of the little grey cells that must work tirelessly to unravel the tangled threads of this complex case.
+
+My thoughts turn to the inconsistencies in Raymond's alibi, which may have been deliberately concealed. His hasty departure and the subsequent lack of evidence to support his claim raise suspicions about his involvement in the crime. Furthermore, his reaction to the discovery of Charlie's body seems almost...unnatural. The twitching of his eyelid, the slight tremble of his voice – all these tiny details, mon ami, point to a nervous individual who may be hiding something.
+
+I believe the murderer is Raymond.",Raymond
+2,Poirot,"Mesdames et messieurs, let us proceed with the gathering of evidence and the examination of our suspects. I am intrigued by Miss Marple's observation of Officer Raymond's demeanor, and I concur that his trembled hands and reaction to the discovery of Charlie's body do raise suspicions. However, I must caution that a nervous individual can be an innocent bystander, and we must consider the possibility that Raymond may be telling the truth.
+
+As we ponder the inconsistencies in his alibi, I find myself drawn to the enigmatic William, who seems to be hiding something behind his innocent facade. The fact that he retrieved the pesticide from his locked storage shed, a detail that might have gone unnoticed, suggests that he may have had a motive to commit the crime. Furthermore, his solitary entrance into Charlie's room, with the door observed to be closed, implies a level of secrecy and perhaps even guilt.
+
+I believe the murderer is William.",William
+2,Marple,"I must say, I am utterly fascinated by the nuances of each suspect's behavior and the intriguing details that have come to light. Monsieur Poirot, your astute observation of William's alibi and demeanor has piqued my interest, and I find myself drawn to the idea that he may be hiding something behind his seemingly innocent facade.
+
+As I ponder the inconsistencies in William's alibi, I am reminded of the classic phrase, "" appearances can be deceiving."" It is often the most unlikely individuals who possess the greatest secrets, and I believe that William's solitary entrance into Charlie's room, with the door observed to be closed, is a telling detail that warrants further investigation.
+
+I believe the murderer is William.",William
+2,Holmes,"As a man of science, I must commend my esteemed colleagues on their astute observations and deductions thus far. Miss Marple's keen eye for detail in Officer Raymond's demeanor, Monsieur Poirot's insightful analysis of the inconsistencies in his alibi, and our own observation of the pesticide cup residue have all shed valuable light on the case.
+
+Notwithstanding the intriguing details, I remain skeptical of the evidence thus far presented. The pesticide cup residue, while indicative of a recent application, does not necessarily imply that the killer was familiar with the pesticide. Furthermore, the fact that the killer was able to access the pesticide without arousing suspicion suggests that they may have had prior knowledge or access to the storage shed.
+
+In light of these considerations, I propose that we focus our attention on the most unlikely suspect, Charlie. His proximity to the crime scene, his apparent lack of reaction to the discovery of his own body, and the fact that he was the one who initially reported the disturbance all raise suspicions about his involvement in the crime.
+
+I believe the murderer is Charlie.",Charlie
+3,Marple,"The complex web of human nature and the intricate dance of our suspects' actions have indeed led us down a winding path. While I concur with my esteemed colleagues that the pesticide cup residue poses significant questions, I find myself drawn to the seemingly innocuous details surrounding William's behavior. His nervous expression and the solitary entrance into Charlie's room, with the door observed to be closed, do suggest a level of guilt, don't they?
+
+Moreover, the fact that William retrieved the pesticide from his locked storage shed, a detail that might have gone unnoticed, implies a level of knowledge and access to the pesticide that warrants further investigation. As I ponder the inconsistencies in William's alibi, I am reminded of the classic phrase, "" appearances can be deceiving."" It is often the most unlikely individuals who possess the greatest secrets.
+
+I believe the murderer is William.",William
+3,Holmes,"The game, as they say, is afoot. As a seasoned detective, I must commend my colleagues on their efforts thus far. Miss Marple's astute observation of Officer Raymond's demeanor and Monsieur Poirot's insightful analysis of William's alibi have indeed shed valuable light on the case.
+
+However, I must caution that the presence of the pesticide cup residue, which suggests a recent application, remains a significant question mark. I propose that we consider the possibility that the killer may have been familiar with the pesticide, either through prior knowledge or access to the storage shed.
+
+Furthermore, I find it intriguing that the killer was able to access the pesticide without arousing suspicion, which raises questions about their motives and the level of planning involved. As I ponder these details, I am reminded of the importance of considering the entire context of the crime, rather than relying on isolated evidence.
+
+I believe the murderer is Charlie.
+ 
+(I have decided to propose Charlie as the suspect, as his proximity to the crime scene, his apparent lack of reaction to the discovery of his own body, and the fact that he was the one who initially reported the disturbance all raise suspicions about his involvement in the crime.)",Charlie
+3,Poirot,"Mes amis, let us take a moment to collect our thoughts and analyze the unfolding evidence. We have a most intriguing case before us, with each suspect presenting a complex and intriguing picture. My attention is drawn to the inconsistencies in William's alibi, which seem to be hiding something behind his innocent facade. The fact that he retrieved the pesticide from his locked storage shed, a detail that might have gone unnoticed, suggests that he may have had a motive to commit the crime.
+
+Furthermore, his solitary entrance into Charlie's room, with the door observed to be closed, implies a level of secrecy and perhaps even guilt. It is often the most unlikely individuals who possess the greatest secrets, n'est-ce pas? As we ponder the inconsistencies in William's alibi, I find myself drawn to the idea that he may be hiding something.
+
+I believe the murderer is William.
+ 
+(I have decided to propose William as the suspect, as his inconsistencies in alibi and behavior suggest that he may be hiding something behind his innocent facade.)",William
+4,Holmes,"The game, as it often does, has led us down a most intriguing path. As we ponder the inconsistencies in William's alibi and behavior, I must caution that we must not overlook the fact that the pesticide cup residue, while indicative of a recent application, does not necessarily imply that the killer was familiar with the pesticide. The fact that the killer was able to access the pesticide without arousing suspicion suggests that they may have had prior knowledge or access to the storage shed.
+
+I find it intriguing that the solitary entrance into Charlie's room, with the door observed to be closed, implies a level of secrecy and perhaps even guilt. This detail, in conjunction with the inconsistencies in William's alibi, warrants further investigation.
+
+As I consider the evidence, I am reminded of the importance of considering the entire context of the crime, rather than relying on isolated evidence. It is often the seemingly innocuous details that hold the key to unraveling the tangled threads of a complex case.
+
+I believe the murderer is William.",William
+4,Poirot,"Mes amis, as we continue to unravel the threads of this complex case, I must say that I am increasingly convinced that the key to solving it lies in the inconsistencies surrounding William's alibi and behavior. His solitary entrance into Charlie's room, with the door observed to be closed, does raise suspicions about his involvement in the crime.
+
+Furthermore, the fact that he retrieved the pesticide from his locked storage shed, a detail that might have gone unnoticed, suggests that he may have had a motive to commit the crime. It is also worth noting that his nervous expression and reaction to the events unfolding around him could be indicative of guilt.
+
+As I ponder the evidence, I find myself drawn to the idea that William may be hiding something behind his innocent facade. The little grey cells are working tirelessly to unravel the tangled threads of this complex case, and I am convinced that the truth will soon come to light.
+
+I believe the murderer is William.",William
+4,Marple,"The twists and turns of this case have indeed led us down a most intriguing path. It appears that each of our colleagues has made a compelling case for one of our suspects. I must say, I am intrigued by the inconsistencies in William's alibi and behavior, and his solitary entrance into Charlie's room, with the door observed to be closed, does raise suspicions about his involvement in the crime.
+
+Furthermore, the fact that he retrieved the pesticide from his locked storage shed, a detail that might have gone unnoticed, suggests that he may have had a motive to commit the crime. It is also worth noting that his nervous expression and reaction to the events unfolding around him could be indicative of guilt.
+
+As I ponder the evidence, I find myself drawn to the idea that William may be hiding something behind his innocent facade. I believe that we must continue to investigate the inconsistencies in his alibi and behavior, and consider the possibility that he may be involved in the crime.
+
+I believe the murderer is William.",William

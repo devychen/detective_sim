@@ -1,0 +1,90 @@
+turn,speaker,utterance,believed_murderer
+1,Holmes,"Good day, gentlemen. I am Sherlock Holmes, and I must say it's an intriguing case we find ourselves in. I've been examining the crime scene and I've gathered some initial observations. It appears that the victim, Yosef, met an untimely demise via oral ingestion of X Poison mixed with narcotics, which is a most... distressing development. The toxicology report confirms this, with a high concentration of X Poison mixed with narcotics, a combination that is indeed lethal. The fact that the perpetrator replaced the original poisoned drugs with a fresh batch, however, suggests a level of cunning and deliberateness.
+
+I believe the murderer is Zack.",Zack
+1,Marple,"Good day, gentlemen, and welcome to our little gathering. I am Miss Marple, and I must say I find it quite delightful to be working alongside such esteemed colleagues as yourselves. I've taken a glance at the case, and I must say I find it intriguing, though perhaps not as complex as some of the cases I've encountered in my village days. Mr. Holmes, your observations on the crime scene are quite astute, but I must say I'm more taken with the personal stories and motivations of our suspects. It seems to me that the key to unraveling this mystery lies in understanding the intricate web of relationships and alliances that bind these individuals together.
+
+I believe the murderer is Wendy.",Wendy
+1,Poirot,"Mesdames et messieurs, it is an honor to make your acquaintance. I am Hercule Poirot, and I must say that I am intrigued by the complexities of this case. While Mr. Holmes and Miss Marple have provided valuable insights, I believe that we must not overlook the significance of the timeline and the sequence of events. The fact that Zack replaced the original poisoned drugs with a fresh batch suggests a level of planning, n'est-ce pas? However, it is the fact that Lynn was seen near the duct entrance just before the body was discovered that raises my suspicions. It appears that Lynn's whereabouts were conveniently placed to conceal their actions.
+
+I believe the murderer is Lynn.",Lynn
+2,Holmes,"A most intriguing collaboration, gentlemen. I must commend Miss Marple on her astute observation regarding the importance of personal stories and motivations. Her village experience undoubtedly provides a unique perspective on human behavior, and I daresay, it shall prove invaluable in our investigation. I must, however, take issue with her suspect, Wendy. While it is true that Wendy's proximity to the crime scene may raise suspicions, I have not yet uncovered any concrete evidence linking her to the deed.
+
+Regarding Mr. Poirot's observations, I agree that the timeline and sequence of events are crucial in unraveling this mystery. The fact that Lynn's whereabouts were conveniently placed near the duct entrance does indeed raise suspicions. However, I must caution that we must not jump to conclusions, as we are merely beginning to scratch the surface of this complex case. Furthermore, I must note that the presence of multiple entry traces in the ventilation ducts suggests that the perpetrator was not acting alone, but rather, in tandem with one or more accomplices.
+
+I believe the murderer is Zack.",Zack
+2,Marple,"The threads of motive and opportunity seem to weave a complex tapestry, don't they, gentlemen? I find myself drawn to the tale of Zack's troubled past, where revenge and self-preservation entwined to create a potent cocktail of emotions. The fact that Zack had access to Yosef's luggage and the empty cargo bag from the drug deal suggests a level of familiarity, which, in turn, raises the stakes.
+
+The powder residue on Zack's hands, however, does seem a rather incriminating detail, n'est-ce pas? And what of the tools for moving through ventilation ducts, which might have been used to conceal one's presence? It is a delicate balance of evidence, to be sure, but one that suggests our intrepid Zack may be more than just a suspect.
+
+I believe the murderer is Zack.",Zack
+2,Poirot,"Mes amis, let us not be swayed by the conviction of our colleagues just yet. While Miss Marple's insight into the personal stories and motivations of our suspects is indeed valuable, I fear we must not overlook the significance of the physical evidence. The powder residue on Zack's hands, for instance, does raise suspicions, n'est-ce pas? And the tools for navigating the ventilation ducts? These, too, suggest a level of familiarity and expertise. Furthermore, the fact that Zack was seen near the duct entrance, just before the body was discovered, only adds to the intrigue.
+
+I notice, too, that Mr. Holmes has pointed out the presence of multiple entry traces in the ducts. This, to me, implies that our culprit was not acting alone. Ah, the game, as they say, is afoot!
+
+I believe the murderer is Lynn.",Lynn
+3,Poirot,"Mes amis, as we continue to unravel the tangled threads of this enigmatic case, I must express my admiration for the collective efforts thus far. Mr. Holmes, your astute observations on the crime scene have indeed provided valuable insights, while Miss Marple's village experience has undoubtedly gifted us with a unique perspective on human behavior. However, I must take issue with the notion that Zack is the sole culprit. The powder residue on his hands, though incriminating, does not necessarily implicate him as the primary perpetrator.
+
+Furthermore, the tools for navigating the ventilation ducts, as mentioned by Miss Marple, suggest that our culprit may have had prior knowledge of this hidden passage. This, coupled with the fact that Lynn was seen near the duct entrance, raises my suspicions regarding their involvement.
+
+It is also worth noting that the ventilation ducts, as Mr. Holmes pointed out, feature multiple entry traces. This, to me, implies that our culprit was not acting alone, but rather in tandem with one or more accomplices. Ah, the little grey cells are indeed working overtime in this case!
+
+I believe the murderer is Lynn.",Lynn
+3,Marple,"It's clear that each of us has been presenting our own perspectives, and I must say, I'm rather fascinated by the diverse range of theories we've discussed thus far. While Mr. Holmes and I have focused on the physical evidence and the timeline of events, Miss Marple has skillfully highlighted the intricate web of relationships and motivations that bind our suspects together. Her village experience undoubtedly provides a unique lens through which to view human behavior.
+
+I must confess, however, that I'm intrigued by the notion that Lynn's whereabouts were conveniently placed near the duct entrance. This does raise suspicions, and I think it's worth exploring further. But, I also believe we mustn't overlook the potential for an accomplice. The presence of multiple entry traces in the ducts does suggest that our culprit may not have acted alone.
+
+I'm reminded of the old adage, 'many hands make light work,' and I wonder if our culprit may have had help in their nefarious deed. But, for now, I think I'll stick with my original assessment, and I believe the murderer is Lynn.
+
+I believe the murderer is Lynn.",Lynn
+3,Holmes,"As I take in the diverse perspectives presented thus far, I find myself drawn to the intersection of motive and opportunity, much like Miss Marple has astutely observed. The troubled past of Zack, coupled with his proximity to the crime scene and the tools for navigating the ventilation ducts, does indeed suggest a compelling case. However, I must caution that the presence of multiple entry traces in the ducts implies a level of accomplice involvement, which warrants further exploration.
+
+I notice that Mr. Poirot has pointed out the powder residue on Zack's hands, which does raise suspicions. Nevertheless, I remain inclined to consider Zack as the primary suspect, albeit with the possibility of an accomplice. The proximity of Lynn to the duct entrance and their potential knowledge of the hidden passage also contribute to my suspicions.
+
+Furthermore, the fact that the original poisoned drugs were replaced with a fresh batch suggests a level of planning, which Zack's troubled past and access to Yosef's luggage may have facilitated. I believe the murderer is Zack.",Zack
+4,Marple,"I must say that I find it quite intriguing to see the diverse range of theories we've discussed thus far. While Mr. Holmes has focused on the physical evidence and the timeline of events, Miss Marple has skillfully highlighted the intricate web of relationships and motivations that bind our suspects together. Her village experience undoubtedly provides a unique lens through which to view human behavior.
+
+However, I must take issue with the notion that Wendy is not a prime suspect. Her proximity to the crime scene and the fact that she had access to the cabinet key, which was found on her person, do raise suspicions. The fact that she also had the opportunity to eliminate internal threats and manipulate Yosef's actions also adds to the intrigue.
+
+Furthermore, the presence of multiple entry traces in the ducts does suggest that our culprit may not have acted alone. Ah, the game, as they say, is afoot!
+
+I believe the murderer is Wendy.",Wendy
+4,Poirot,"Mes amis, as we gather the threads of our disparate theories, I am reminded of the importance of maintaining a detached perspective. While Miss Marple's village experience has provided a unique insight into human behavior, and Mr. Holmes's astute observations have shed light on the physical evidence, I believe we must not overlook the significance of the timeline and the sequence of events.
+
+The fact that Zack replaced the original poisoned drugs with a fresh batch suggests a level of planning, n'est-ce pas? However, it is the fact that Lynn was seen near the duct entrance just before the body was discovered that raises my suspicions. It appears that Lynn's whereabouts were conveniently placed to conceal their actions.
+
+Furthermore, I find it intriguing that Mr. Holmes has pointed out the presence of multiple entry traces in the ducts. This, to me, implies that our culprit was not acting alone. Ah, the game, as they say, is afoot!
+
+I believe the murderer is Lynn.",Lynn
+4,Holmes,"As I reflect upon the diverse perspectives presented thus far, I find myself drawn to the intriguing dynamics between our suspects. Mr. Poirot's astute observation regarding the significance of the timeline and the sequence of events has shed valuable light on the case. The fact that Lynn was seen near the duct entrance just before the body was discovered does indeed raise suspicions.
+
+Furthermore, the presence of multiple entry traces in the ducts suggests that our culprit may not have acted alone, but rather in tandem with one or more accomplices. This, coupled with the powder residue on Zack's hands and the tools for navigating the ducts, implies a level of familiarity and expertise.
+
+While Miss Marple's village experience has provided a unique insight into human behavior, I must caution that we must not overlook the potential for an accomplice. The intricate web of relationships and motivations that bind our suspects together does indeed suggest that there may be more to this case than meets the eye.
+
+I notice that Wendy's proximity to the crime scene, her access to the cabinet key, and her potential knowledge of internal threats and manipulated actions do raise suspicions. However, it is the cumulative effect of the evidence, rather than any single piece, that ultimately leads me to my conclusion.
+
+I believe the murderer is Lynn.",Lynn
+5,Holmes,"The game, indeed, has been afoot, and our collective efforts have shed considerable light upon the intricate web of relationships and motivations that bind our suspects together. As I reflect upon the diverse perspectives presented thus far, I am reminded of the significance of the physical evidence and the timeline of events. Mr. Poirot's astute observation regarding the sequence of events has indeed raised my suspicions, particularly with regards to Lynn's whereabouts near the duct entrance just before the body was discovered.
+
+Furthermore, the presence of multiple entry traces in the ducts, coupled with the tools for navigating the ducts and the powder residue on Zack's hands, implies a level of familiarity and expertise. However, it is the cumulative effect of the evidence, rather than any single piece, that ultimately leads me to my conclusion.
+
+I must commend Miss Marple on her astute observation regarding the personal stories and motivations of our suspects. Her village experience has undoubtedly gifted us with a unique perspective on human behavior. I also appreciate Mr. Poirot's emphasis on the significance of the timeline and the sequence of events.
+
+I believe the murderer is Lynn.",Lynn
+5,Marple,"It seems to me that Mr. Holmes and I have converged on the same theory, though perhaps not entirely coincidentally. The threads of motive and opportunity do indeed weave a complex tapestry, don't they? While Mr. Holmes has highlighted the physical evidence and the timeline of events, I believe it's essential to consider the intricate web of relationships and motivations that bind our suspects together.
+
+In particular, I find it intriguing that Lynn's whereabouts were conveniently placed near the duct entrance just before the body was discovered. This does raise suspicions, and I think it's worth exploring further. Furthermore, the presence of multiple entry traces in the ducts does suggest that our culprit may not have acted alone, but rather in tandem with one or more accomplices.
+
+I must say, I'm reminded of the old adage, 'many hands make light work,' and I wonder if our culprit may have had help in their nefarious deed. But, for now, I think I'll stick with my original assessment, and I believe the murderer is Lynn.
+
+I believe the murderer is Lynn.",Lynn
+5,Poirot,"Mes amis, I must say that our little gathering has indeed shed considerable light upon this complex case. While we have all presented our own theories, I believe it is time to consider the cumulative effect of the evidence. Mr. Holmes has astutely observed the physical evidence and the timeline of events, while Miss Marple has skillfully highlighted the intricate web of relationships and motivations that bind our suspects together.
+
+As I reflect upon our discussions, I am reminded of the importance of maintaining a detached perspective. While Zack's troubled past and proximity to the crime scene do raise suspicions, I believe we must not overlook the significance of Lynn's whereabouts near the duct entrance just before the body was discovered.
+
+Furthermore, the presence of multiple entry traces in the ducts, coupled with the tools for navigating the ducts and the powder residue on Zack's hands, implies a level of familiarity and expertise. However, it is the cumulative effect of the evidence, rather than any single piece, that ultimately leads me to my conclusion.
+
+I must say that I am intrigued by the idea that our culprit may have had help in their nefarious deed. The old adage, 'many hands make light work,' does indeed seem to apply in this case. However, I believe that Lynn's convenient placement near the duct entrance, coupled with their potential knowledge of the hidden passage, raises my suspicions.
+
+I believe the murderer is Lynn.",Lynn

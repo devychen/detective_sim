@@ -1,0 +1,33 @@
+turn,speaker,utterance,believed_murderer
+1,Holmes,"Good day, gentlemen. I am Sherlock Holmes, a consulting detective with extensive experience in solving complex cases. I must say, the peculiar circumstances surrounding this crime have already piqued my interest. As the lead investigator, I have begun by examining the crime scene and gathering preliminary evidence. 
+
+The victim's cardiac stab wound, with its unusual angle and cyanide injection, suggests a calculated and deliberate act. The presence of the bloodied piano wire and synthetic black hair from Mel's wig are intriguing, but their connection to the crime remains unclear. Furthermore, the safe's unlocked state and the absence of soil transfer indicate a possible inside job. 
+
+I believe the murderer is William.",William
+1,Marple,"Good day to you, Mr. Holmes, and I do hope you're not too terribly busy solving such complex cases. I am Miss Marple, a humble resident of St. Mary Mead, with a passion for observation and deduction. I've been following your lead in this investigation, and I must say, I'm intrigued by the details you've uncovered.
+
+Your deductions about the calculated nature of the crime and the possible inside job are most astute, Mr. Holmes. However, I must say that I find it quite curious that you've already pinpointed the suspect to be William. I, on the other hand, have been pondering the various motives presented in the collected clues, and I believe that the victim's threats against John Saar's research may hold a crucial key to unraveling the mystery.
+
+I believe the murderer is John Saar.",John
+1,Poirot,"Bien sûr, mes amis, it is an honor to meet you both, Sherlock Holmes and Miss Marple. As I take in the details of this intriguing case, I am reminded of the importance of a meticulous approach in unraveling the tangled threads of human psychology. We must not be swayed by our initial impressions, n'est-ce pas? The presence of the piano wire, for instance, could be nothing more than a red herring.
+
+Miss Marple's observation about the victim's threats against John Saar's research is most astute, and I believe it warrants further exploration. Perhaps we should investigate the nature of their relationship and the potential motives that may have driven the victim to make such threats.
+
+Sherlock Holmes's deductions about the calculated nature of the crime are, as always, impressive, but I must caution that we must not jump to conclusions just yet. We must examine the evidence with a discerning eye and consider all the possibilities before we can begin to piece together the puzzle.
+
+I believe the murderer is Charles.
+ 
+(I will be waiting for your next response)",Charles
+2,Holmes,"The threads of human psychology, so intricately woven, yet so susceptible to the subtle manipulations of the human mind. As I ponder the various motives presented, I am drawn to the peculiar coincidence that the victim's threats against John Saar's research were made on the same day as the murder. It is a tantalizing thread, indeed, one that I propose we further explore in conjunction with the victim's interactions with the other suspects. I notice that Miss Marple has already begun to weave this thread into her theory, and I must say, I am inclined to agree with her assessment.
+
+I believe the murderer is John Saar.",John
+2,Poirot,"Zut, mes amis, let us not be too hasty in our conclusions. While Miss Marple's observation about the victim's threats against John Saar's research is most intriguing, I believe we must also consider the possibility that the victim's threats were nothing more than a clever ruse to deflect attention from the true culprit. The fact that the victim was seen arguing with Shirley, who was far from the study at the time of the murder, suggests that there may be more to this story than meets the eye.
+
+Furthermore, I must say that I find it curious that the blackout device was triggered at 21:50, which is precisely 10 minutes after the victim's threats against John Saar's research were made. This coincidence, I propose, warrants further investigation into the events surrounding the murder.
+
+I believe the murderer is John Saar.",John
+2,Marple,"It appears that we've all converged on the same suspect, John Saar, though for different reasons. I must say, I find it quite fascinating to see how our individual perspectives have led us to this conclusion. However, I do think we must delve deeper into the specifics of the case and examine the potential motives behind the victim's threats.
+
+Miss Marple's observation about the victim's threats against John Saar's research is indeed a crucial one, but I would like to propose that we also consider the possibility that the victim's threats may have been a desperate attempt to deflect attention from their own involvement in the research. The presence of the experimental drug records with torn pages and the missing surgical scalpel suggest that the victim may have been involved in some illicit activities.
+
+I believe the murderer is John Saar.",John

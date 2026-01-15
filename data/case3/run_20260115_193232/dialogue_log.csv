@@ -1,0 +1,73 @@
+turn,speaker,utterance,believed_murderer
+1,Marple,"Good day, ladies. I do hope we can have a most cordial and productive discussion. I am Miss Marple, and I must say, I am intrigued by the complexities of this case. It seems to me that we have a veritable tapestry of motives and alibis to untangle. 
+
+I've had the chance to peruse the collected clues, and I must say, I'm particularly taken with Mr. Saar's suspicious appearance, what with the brownish stain on his cuff and the oddly shaped cut on his palm. It does seem rather...unusual.
+
+I believe the murderer is John Saar.",John
+1,Holmes,"Miss Marple, it is a pleasure to make your acquaintance. I am Sherlock Holmes, and I must say that your keen observation skills are quite impressive. Your theory regarding Mr. Saar does, indeed, warrant further investigation, particularly given the inconsistencies in his alibi and the unusual nature of the wounds on the victim.
+
+As I examined the crime scene, I discovered that the safe was opened using William's prints, which raises questions about his involvement and potential accomplices. Furthermore, the blackout timing conflicts with most suspects' movements, creating a window of opportunity that requires further scrutiny.
+
+I believe the murderer is William.",William
+1,Poirot,"Mesdames et messieurs, I am Hercule Poirot, and I must say that your observations are indeed astute, but let us not rush to conclusions just yet. While Miss Marple and Mr. Holmes bring valuable insights to the table, we must also consider the chronology of events. The blackout device triggered at 21:50, followed by the cyanide injection and surgical puncture, which suggests that the killer had ample time to prepare and execute their plan.
+
+It is also noteworthy that the wounds on the victim were performed with surgical precision, which may indicate that the killer is not only cunning but also experienced in their craft. I find myself drawn to the inconsistencies in Mr. Saar's alibi, particularly the unusual brownish stain on his cuff and the oddly shaped cut on his palm. However, I must also consider the possibility that these marks may be mere coincidences.
+
+I believe the murderer is Charles.
+ 
+(I adjust my gloves and take a moment to collect my thoughts before continuing)",Charles
+2,Marple,"It seems we have quite a few intriguing leads to ponder, n'est-ce pas, mes amis? I must say, Mr. Poirot's observation regarding the blackout timing is quite astute, and it does raise some interesting questions about the killer's abilities and preparation. However, I must take issue with Mr. Poirot's conclusion that the wounds were performed with surgical precision; as an amateur sleuth, I've found that sometimes the most seemingly trivial details can hold the key to unraveling a complex mystery.
+
+I do find myself drawn to the inconsistencies in Mr. Saar's alibi, particularly the brownish stain on his cuff and the oddly shaped cut on his palm. These marks do seem rather... unusual, don't they? And what about the torn pages in Mr. Saar's key items, which could suggest that he was attempting to conceal something?
+
+I believe the murderer is John Saar.",John
+2,Poirot,"Mesdames et messieurs, it appears we have a spirited discussion unfolding before us. I must commend Miss Marple on her keen observations regarding Mr. Saar's suspicious appearance, as well as Mr. Holmes on his astute analysis of the crime scene. However, I must respectfully disagree with both of your conclusions.
+
+While the inconsistencies in Mr. Saar's alibi do warrant further investigation, I find it intriguing that neither of you has considered the possibility that the torn pages in Mr. Saar's key items may be a red herring. The true significance of these torn pages may lie elsewhere, perhaps in Mr. Saar's interactions with the victim or other suspects.
+
+Furthermore, I must take issue with the assumption that the wounds were performed with surgical precision. As a detective who has spent years studying the human mind, I believe it is essential to consider the psychological motivations behind such a crime. The fact that the blackout device triggered at 21:50, followed by the cyanide injection and surgical puncture, suggests that the killer had ample time to prepare and execute their plan. However, this does not necessarily imply that the killer is experienced in their craft.
+
+I believe the murderer is William.",William
+2,Holmes,"As I reflect on the evidence presented, I am struck by the inconsistencies in Mr. Saar's alibi and the unusual nature of the wounds on the victim. However, I must also consider the possibility that these inconsistencies may be mere coincidences. The torn pages in Mr. Saar's key items could indeed be a red herring, and I would like to explore the possibility that the true significance lies elsewhere.
+
+Furthermore, I am intrigued by the fact that the safe was opened using William's prints, which raises questions about his involvement and potential accomplices. The blackout timing conflicts with most suspects' movements, creating a window of opportunity that requires further scrutiny.
+
+I believe the murderer is William.
+ 
+(I make a note to further investigate the relationship between Mr. Saar and the victim, as well as the significance of the torn pages in Mr. Saar's key items.)",William
+3,Poirot,"Mesdames et messieurs, let us not become too entangled in the threads of speculation, n'est-ce pas? While we have indeed woven a complex tapestry of motives and alibis, we must not forget the art of discerning the subtle from the obvious. Miss Marple's keen eye for detail has led her to consider the inconsistencies in Mr. Saar's alibi, and Mr. Holmes's astute analysis of the crime scene has shed light on the possibility of an accomplice. However, I propose that we examine the chronology of events with greater scrutiny.
+
+It is worth noting that the blackout device triggered at 21:50, followed by the cyanide injection and surgical puncture, suggests that the killer had ample time to prepare and execute their plan. This raises questions about the killer's capabilities and potential accomplices. I am drawn to the possibility that Mr. Saar's suspicious appearance, including the brownish stain on his cuff and the oddly shaped cut on his palm, may be more than mere coincidence.
+
+I believe the murderer is John Saar.",John
+3,Holmes,"As I survey the collected clues, I am struck by the peculiarities of the crime scene. The safe was opened using William's prints, which raises intriguing questions about his involvement and potential accomplices. The fact that the safe was opened while the victim was still alive suggests a level of planning and coordination, which may be indicative of a more complex web of relationships.
+
+Furthermore, the blackout timing conflicts with most suspects' movements, creating a window of opportunity that requires further scrutiny. The torn pages in Mr. Saar's key items could indeed be a red herring, and I would like to explore the possibility that the true significance lies elsewhere.
+
+It is also worth noting that the rare surgeon-level angle of the cardiac stab wound, coupled with the cyanide injection, suggests a level of expertise and preparation that may be beyond the capabilities of most suspects. I must consider the possibility that the killer may have been an individual with a background in medicine or surgery.
+
+I believe the murderer is William.",William
+3,Marple,"The threads of this complex tapestry are indeed weaving together in intriguing ways, n'est-ce pas, mes amis? As I ponder the various theories and alibis, I find myself drawn to the inconsistencies in Mr. Saar's story, particularly the brownish stain on his cuff and the oddly shaped cut on his palm. These marks do seem rather... unusual, don't they?
+
+Furthermore, I must say that I find it intriguing that Mr. Saar's alibi appears to be incomplete, with gaps in his schedule that cannot be easily explained. This lack of transparency raises questions about his involvement and potential motives.
+
+I believe the murderer is John Saar.",John
+4,Marple,"The threads of this complex tapestry are indeed weaving together in intriguing ways, n'est-ce pas, mes amis? I must say that I find it quite fascinating how Mr. Poirot has drawn attention to the blackout timing, which does indeed suggest a level of preparation and planning on the part of the killer. However, I must also consider the possibility that Mr. Poirot's emphasis on the blackout timing may be a deliberate attempt to mislead us.
+
+As I ponder the various theories and alibis, I find myself drawn to the inconsistencies in Mr. Saar's story, particularly the brownish stain on his cuff and the oddly shaped cut on his palm. These marks do seem rather... unusual, don't they? And what about the torn pages in Mr. Saar's key items, which could suggest that he was attempting to conceal something?
+
+I believe the murderer is John Saar.",John
+4,Poirot,"Mesdames et messieurs, let us not become too entangled in the threads of speculation, n'est-ce pas? While we have indeed woven a complex tapestry of motives and alibis, we must not forget the art of discerning the subtle from the obvious. Miss Marple's keen eye for detail has led her to consider the inconsistencies in Mr. Saar's alibi, and Mr. Holmes's astute analysis of the crime scene has shed light on the possibility of an accomplice. However, I propose that we examine the chronology of events with greater scrutiny.
+
+It is worth noting that the blackout device triggered at 21:50, followed by the cyanide injection and surgical puncture, suggests that the killer had ample time to prepare and execute their plan. This raises questions about the killer's capabilities and potential accomplices. I am drawn to the possibility that Mr. Saar's suspicious appearance, including the brownish stain on his cuff and the oddly shaped cut on his palm, may be more than mere coincidence.
+
+Furthermore, I must take issue with the assumption that the torn pages in Mr. Saar's key items may be a red herring. The true significance of these torn pages may lie elsewhere, perhaps in Mr. Saar's interactions with the victim or other suspects. This subtle detail warrants further investigation, and I believe it is essential to consider all possible explanations before drawing conclusions.
+
+I believe the murderer is John Saar.",John
+4,Holmes,"The game, as they say, is afoot. I must commend my esteemed colleagues on their astute observations and deductive reasoning. Miss Marple's keen eye for detail has led her to consider the inconsistencies in Mr. Saar's alibi, and Mr. Holmes's analysis of the crime scene has shed light on the possibility of an accomplice.
+
+However, I must take issue with the assumption that the torn pages in Mr. Saar's key items are a red herring. The true significance of these torn pages may indeed lie elsewhere, perhaps in Mr. Saar's interactions with the victim or other suspects. Furthermore, I find it intriguing that the rare surgeon-level angle of the cardiac stab wound, coupled with the cyanide injection, suggests a level of expertise and preparation that may be beyond the capabilities of most suspects.
+
+In light of these observations, I propose that we re-examine the chronology of events with greater scrutiny. The blackout timing conflicts with most suspects' movements, creating a window of opportunity that requires further investigation. I also believe that it is essential to consider the psychological motivations behind the crime, particularly in relation to Mr. Saar's suspicious appearance and the inconsistencies in his alibi.
+
+I believe the murderer is John Saar.",John

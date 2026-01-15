@@ -1,0 +1,84 @@
+turn,speaker,utterance,believed_murderer
+1,Poirot,"Bonjour, mesdames et messieurs. I am Hercule Poirot, and I am delighted to collaborate with you on this intriguing case. As we gather our thoughts and examine the evidence, let us begin by reviewing the timeline. It appears we have a series of events that unfold with a certain... rhythm. The first event, '17:00: Yosef boarded; Zack inspected luggage,' suggests that our investigation begins with a sense of order and routine. Now, milor', will you be so good as to tell me what it is that we have just seen? Will you begin, milor'?",
+1,Marple,"I must say, I'm delighted to collaborate with you both, Monsieur Poirot. As I ponder the events unfolding on our little ship, I find myself recalling the tranquility of our village fairs. Just as the fairground revelers eagerly await the next thrilling event, I believe we're witnessing a sequence of events that might just lead us to the next pivotal moment. It's quite interesting to see how our suspects' actions and interactions with one another are beginning to weave a complex tapestry. I must confess, my mind keeps wandering to the curious case of Zack's suspicious interactions with Yosef's luggage.
+
+I believe the murderer is Zack.",Zack
+1,Holmes,"An intriguing assertion, Miss Marple. Your observations do suggest a level of curiosity surrounding Zack's actions, but let us not jump to conclusions just yet. As a man of science, I find myself drawn to the forensic evidence presented. The presence of multiple entry traces in the ventilation ducts, the poisoned drugs found only in Yosef's bag, and the replacement drugs placed after death all point to a calculated act. Furthermore, the fact that the poison was ingested orally, mixed with drugs, and the dilated pupils, foam at mouth, and rigid posture of the victim all indicate a deliberate attempt to conceal the true cause of death. These findings, in my opinion, suggest a most cunning and meticulous perpetrator.
+
+I believe the murderer is Yosef.",Yosef
+2,Poirot,"Mes amis, let us not be too hasty in our conclusions, n'est-ce pas? While Miss Marple and Monsieur Holmes bring forth compelling arguments, I must interject that we must not overlook the subtle inconsistencies within their theories. Monsieur Holmes, your deductions regarding the forensic evidence are indeed astute, but do they not also point to a calculated and deliberate act, one that may suggest a level of sophistication and cunning? On the other hand, Miss Marple's observations regarding Zack's interactions with Yosef's luggage do seem intriguing, but might they not also be the result of a clever ruse? The game, as they say, is afoot, and we must continue to unravel the threads of this complex tapestry.
+
+I believe the murderer is Wendy.",Wendy
+2,Holmes,"The particulars of our case are indeed intriguing, and I must commend my colleagues on their astute observations. As we ponder the events unfolding on the ship, I find myself drawn to the notion that our suspects' actions and interactions may be more complex than initially meets the eye. The presence of multiple entry traces in the ventilation ducts and the replacement drugs placed after death do suggest a level of calculation on the part of the perpetrator. Furthermore, the toxicology report's mention of a high concentration of X Poison mixed with narcotics does raise questions about the true nature of the poison and its intended effects.
+
+I must say, I am particularly intrigued by the mention of the poisoned powder found at the ship's bow, which appears to be an attempt to dispose of evidence. This, combined with the fact that X Poison is only lethal via injection or ingestion, suggests that our perpetrator may have been attempting to create a false trail or mislead us.
+
+I believe the murderer is Zack.",Zack
+2,Marple,"The threads of this complex tapestry are indeed weaving a fascinating narrative, n'est-ce pas, Monsieur Poirot? I find myself pondering the curious case of Lynn's dilution of the X Poison residue in her pockets, which, as I recall, she claimed was a precautionary measure to avoid detection. However, I must admit that this action seems somewhat out of place, especially given her background as a ship doctor. Her demeanor, though composed, does betray a hint of nervousness, which might be interpreted as a sign of guilt.
+
+I believe the murderer is Lynn.",Lynn
+3,Holmes,"As a man of science and a seasoned detective, I must commend my colleagues on their astute observations thus far. While Miss Marple's theory regarding Zack's interactions with Yosef's luggage does present an intriguing possibility, I must counter with the notion that the presence of multiple entry traces in the ventilation ducts and the replacement drugs placed after death point to a more calculated and deliberate act. Furthermore, the toxicology report's mention of a high concentration of X Poison mixed with narcotics does raise questions about the true nature of the poison and its intended effects.
+
+I must also bring to attention the fact that the poisoned powder found at the ship's bow appears to be an attempt to dispose of evidence, which, combined with the fact that X Poison is only lethal via injection or ingestion, suggests that our perpetrator may have been attempting to create a false trail or mislead us.
+
+I believe the murderer is Lynn.
+ 
+(I will keep track of the conversation, and my next response will be based on the latest information shared by the other detectives.)",Lynn
+3,Poirot,"Mes amis, as we continue to unravel the threads of this complex tapestry, I find myself drawn to the notion that our suspects' actions and interactions may be more complex than initially meets the eye. The presence of multiple entry traces in the ventilation ducts and the replacement drugs placed after death do suggest a level of calculation on the part of the perpetrator. Furthermore, the fact that Wendy was near the medical room at 18:30 and asked the crew about ventilation ducts at 18:40 raises questions about her possible involvement. Was she searching for a means to escape, or was she merely curious about the layout of the ship?
+
+I believe the murderer is Wendy.
+ 
+(I will now share my full exclusive clue with the group, keeping in mind the collaboration rules and guidelines provided.)
+
+My full exclusive clue: A small, torn piece of fabric caught in the cabin door lock, which appears to match the material of Wendy's dress.",Wendy
+3,Marple,"The intriguing threads of our investigation are indeed weaving a complex narrative, n'est-ce pas, mes amis? I find myself pondering the curious case of Wendy's sudden interest in ventilation ducts, which, as I recall, occurred mere hours before the unfortunate events on the ship. Her proximity to the medical room and her inquisitive nature regarding the ship's layout do raise suspicions. The fact that she was near the medical room at 18:30, inquiring about ventilation ducts, seems suspiciously timed, considering the events that unfolded later. Her curiosity about the ducts could be a ruse, but it also raises the possibility that she was searching for a means to escape, which, in turn, might indicate that she was the one responsible for the poisoning.
+
+I believe the murderer is Wendy.
+
+(I will now provide additional insights into Wendy's background, considering the information shared by the other detectives.)
+
+As I ponder Wendy's background, I find myself recalling her ambition and her role as Yosef's secretary. Her manipulation of Yosef and her control over the final stage of the drug chain do raise suspicions about her involvement in the poisoning. Furthermore, her forgeries, including the forged letter in Lynn's handwriting, demonstrate a level of cunning and deceit. Her actions and interactions with the other suspects do suggest a complex web of motives and alliances, which, in turn, might indicate that she was the mastermind behind the poisoning.
+
+I believe the murderer is Wendy.",Wendy
+4,Marple,"Monsieur Poirot, your observation about Wendy's proximity to the medical room at 18:30 is indeed intriguing. It does seem suspiciously timed, considering the events that unfolded later. Her curiosity about the ducts could be a ruse, but it also raises the possibility that she was searching for a means to escape. As I ponder her background, I find myself recalling her ambition and her role as Yosef's secretary. Her manipulation of Yosef and her control over the final stage of the drug chain do raise suspicions about her involvement in the poisoning.
+
+I must say, I'm particularly drawn to the idea that Wendy might have been searching for a means to escape, which, in turn, might indicate that she was the one responsible for the poisoning. Her forgeries, including the forged letter in Lynn's handwriting, demonstrate a level of cunning and deceit. It's almost as if she was trying to create a complex web of motives and alliances to mislead us.
+
+I believe the murderer is Wendy.",Wendy
+4,Holmes,"An intriguing development, my colleagues. The fact that Wendy's torn dress fabric was found caught in the cabin door lock does raise suspicions about her involvement. Her proximity to the medical room at 18:30, inquiring about ventilation ducts, seems suspiciously timed, considering the events that unfolded later. Furthermore, her forgeries, including the forged letter in Lynn's handwriting, demonstrate a level of cunning and deceit. 
+
+I must say, I am beginning to piece together a narrative that suggests Wendy's involvement in the poisoning. Her role as Yosef's secretary, combined with her manipulation of the final stage of the drug chain, do raise suspicions about her motives. The fact that she was near the medical room at 18:30, inquiring about ventilation ducts, seems like a clever ruse to mislead us. However, it also raises the possibility that she was searching for a means to escape, which, in turn, might indicate that she was the one responsible for the poisoning.
+
+I believe the murderer is Wendy.",Wendy
+4,Poirot,"Mes amis, as we continue to unravel the tangled threads of this complex case, I find myself pondering the delicate dance of motives and alliances that unfolded on our little ship. It appears that we have a cast of characters with multiple connections and possible alibis, but it is the subtle inconsistencies and the tiny details that will ultimately reveal the truth. Wendy's proximity to the medical room at 18:30, inquiring about ventilation ducts, does seem suspiciously timed, n'est-ce pas? And the fact that her dress fabric was found caught in the cabin door lock does raise suspicions about her involvement.
+
+Furthermore, I find it intriguing that Lynn, the ship's doctor, seemed overly concerned about the X Poison residue in her pockets, claiming it was a precautionary measure to avoid detection. However, this action does seem somewhat out of place, especially given her background. Her nervous demeanor and her sudden interest in the ducts do raise questions about her possible involvement.
+
+It is also worth noting that Zack's suspicious interactions with Yosef's luggage, as observed by Miss Marple, do seem intriguing. However, I must counter with the notion that the forensic evidence presented suggests a more calculated and deliberate act. The presence of multiple entry traces in the ventilation ducts and the replacement drugs placed after death do point to a cunning and meticulous perpetrator.
+
+In conclusion, the game is indeed afoot, and we must continue to unravel the threads of this complex tapestry. I propose that we gather the remaining suspects and continue our investigation, guided by the little grey cells of our minds.
+
+I believe the murderer is Lynn.",Lynn
+5,Marple,"Monsieur Poirot, I must say that your observations regarding Wendy's proximity to the medical room and the torn fabric caught in the cabin door lock do indeed raise suspicions about her involvement. However, I must also consider the other clues presented in this case. The fact that Lynn, the ship's doctor, seemed overly concerned about the X Poison residue in her pockets, claiming it was a precautionary measure to avoid detection, does seem somewhat out of place, especially given her background.
+
+As I ponder Lynn's background, I find myself recalling her role as a double agent and her motivation to keep her true allegiance hidden. Her nervous demeanor and her sudden interest in the ducts do raise questions about her possible involvement. Furthermore, her close relationship with Yosef and her knowledge of the medical room do suggest that she might have had the opportunity to administer the poison.
+
+I must say, I'm beginning to piece together a narrative that suggests Lynn's involvement in the poisoning. Her forgeries, including the forged letter in Wendy's handwriting, do demonstrate a level of cunning and deceit. And, as a doctor, she would have had the knowledge and the means to administer the poison.
+
+I believe the murderer is Lynn.",Lynn
+5,Poirot,"Mes amis, as we continue to unravel the tangled threads of this complex case, I find myself pondering the delicate dance of motives and alliances that unfolded on our little ship. We have narrowed down our list of suspects, and I believe it is time to bring them together to share our findings. The presence of multiple entry traces in the ventilation ducts and the replacement drugs placed after death do point to a cunning and meticulous perpetrator. Wendy's proximity to the medical room at 18:30, inquiring about ventilation ducts, does seem suspiciously timed, n'est-ce pas? And the fact that her dress fabric was found caught in the cabin door lock does raise suspicions about her involvement.
+
+Furthermore, I find it intriguing that Lynn, the ship's doctor, seemed overly concerned about the X Poison residue in her pockets, claiming it was a precautionary measure to avoid detection. However, this action does seem somewhat out of place, especially given her background. Her nervous demeanor and her sudden interest in the ducts do raise questions about her possible involvement.
+
+As we gather our suspects together, I propose that we examine the timeline of events and look for any inconsistencies. Perhaps, mes amis, we can uncover the truth behind the poisoning, and the cunning mind behind it.
+
+I believe the murderer is Lynn.",Lynn
+5,Holmes,"The tangled web of motives and alliances that has unfolded before us is indeed a complex one. As I ponder the various theories and evidence presented, I find myself drawn to the notion that the key to unraveling this mystery lies in the subtle inconsistencies and tiny details that have been overlooked thus far.
+
+The presence of multiple entry traces in the ventilation ducts, the replacement drugs placed after death, and the fact that X Poison is only lethal via injection or ingestion all point to a cunning and meticulous perpetrator. However, I must also consider the other clues presented in this case. The torn piece of fabric caught in the cabin door lock, which appears to match the material of Wendy's dress, does raise suspicions about her involvement.
+
+Furthermore, the fact that Lynn, the ship's doctor, seemed overly concerned about the X Poison residue in her pockets, claiming it was a precautionary measure to avoid detection, does seem somewhat out of place, especially given her background. Her nervous demeanor and her sudden interest in the ducts do raise questions about her possible involvement.
+
+As we gather our suspects together, I propose that we examine the timeline of events and look for any inconsistencies. Perhaps, mes amis, we can uncover the truth behind the poisoning, and the cunning mind behind it.
+
+I believe the murderer is Lynn.",Lynn

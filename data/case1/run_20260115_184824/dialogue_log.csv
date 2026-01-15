@@ -1,0 +1,81 @@
+turn,speaker,utterance,believed_murderer
+1,Poirot,"Bonjour, mes amis. I am Hercule Poirot, a private investigator of some renown, and I am delighted to collaborate with you both on this intriguing case. As we gather in this room, I must say that I am intrigued by the partial clues provided to us. The fact that Zack inspected the luggage at 17:00, and then replaced the drug package at 18:00, suggests that he may be more involved in this affair than initially meets the eye. It is also worth noting that Lynn was seen outside the cabin at 18:20, which may imply that he had some prior knowledge of the events unfolding. I must say that I find this information quite fascinating, and I believe we must dig deeper.
+
+I believe the murderer is Zack.",Zack
+1,Holmes,"My dear Poirot, I am delighted to collaborate with you both on this most intriguing case. As I have been analyzing the forensic evidence, I have come to some conclusions that I would like to share with you. The fact that the poison was ingested orally, combined with the presence of narcotics, suggests that our culprit is someone who is well-versed in pharmacology. The ventilation duct cover being loose, and the multiple entry traces in the ducts, indicate that the killer may have attempted to flee the scene in a hurry. Furthermore, the presence of Zack's footprints in the room raises suspicions about his involvement in the events leading up to the crime.
+
+I believe the murderer is Lynn.",Lynn
+1,Marple,"I must say that I'm rather intrigued by the contrasting views expressed by our colleagues. Poirot's observation that Zack inspected the luggage and replaced the drug package does indeed raise some suspicions, while Holmes's analysis of the forensic evidence points towards Lynn's involvement. However, I do believe that we must also consider the background of Wendy, the secretary, who seems to have had a rather... complicated relationship with Yosef. Her presence at the scene, combined with her dubious alibis, leaves me wondering if she might be more involved in the events than we initially think.
+
+I believe the murderer is Wendy.",Wendy
+2,Poirot,"Mes amis, I must say that I am delighted by the diverse perspectives presented by my colleagues. However, as I reflect on the timeline provided, I am struck by the fact that Lynn's actions seem to be somewhat out of place. At 18:20, he is seen outside the cabin, yet at 22:50, he is near the duct entrance, hearing the sound of crawling. This inconsistency raises an eyebrow, n'est-ce pas? It is almost as if Lynn was trying to cover his tracks. Furthermore, the fact that Zack was seen near the medical room at 18:30, and that Lynn found the poison missing at 18:50, suggests that they may have been in close proximity to each other at some point.
+
+I believe the murderer is Zack.",Zack
+2,Holmes,"As a seasoned detective, I must say that I find Poirot's observation about Zack's suspicious actions quite intriguing. His inspection of the luggage and replacement of the drug package do raise some suspicions, but I must consider the broader context of the evidence. The presence of Zack's footprints in the room, coupled with the ventilation duct cover being loose, suggests that he may have indeed attempted to flee the scene in a hurry. However, I must also note that the toxicology report indicates that the poison was ingested orally, which raises questions about Zack's involvement in the events leading up to the crime.
+
+The fact that Lynn was seen outside the cabin at 18:20, yet near the duct entrance at 22:50, does seem somewhat suspicious, but I must consider the possibility that he was merely following Zack. Nevertheless, the inconsistency in his alibi does warrant further investigation.
+
+I believe the murderer is Lynn.",Lynn
+2,Marple,"I do hope we're all comfortable in our little room, and I must say, it's quite fascinating to see the various threads of our investigation begin to weave together. As I ponder the various clues and motives presented, I find myself drawn to the rather... unsavory character of Zack. His rather convenient replacement of the drug package, combined with the fact that he had prior knowledge of the events unfolding, does seem rather suspicious. Furthermore, the presence of Zack's footprints in the room does raise some interesting questions.
+
+I believe the murderer is Zack.",Zack
+3,Holmes,"As I survey the crime scene, I notice the faint scent of a tropical spice on the air, suggesting that our culprit may have recently visited a tropical locale. This, coupled with the presence of the Trichinopoly cigar, points towards Zack's involvement in the events leading up to the crime. His inspection of the luggage and replacement of the drug package, as observed by Poirot, raises suspicions about his potential role in the affair. Furthermore, the loose ventilation duct cover and multiple entry traces in the ducts suggest a hasty departure, which may have been facilitated by Zack's knowledge of the duct system.
+
+I believe the murderer is Zack.",Zack
+3,Marple,"I find myself quite intrigued by the differing opinions shared among our colleagues. While Poirot's observation of Zack's suspicious actions is quite compelling, I must say that I'm drawn to the character of Wendy, the secretary. Her dubious alibis, combined with her dubious relationship with Yosef, do raise some suspicions about her involvement in the events. Furthermore, her presence at the scene, combined with the X Poison residue in her pockets, suggests that she may be more involved than initially meets the eye. I'm particularly intrigued by the fact that Wendy was seen outside the cabin at 17:45, which may imply that she had some prior knowledge of the events unfolding.
+
+I believe the murderer is Wendy.",Wendy
+3,Poirot,"Mes amis, as we continue to ponder the evidence, I find myself drawn to the inconsistencies in Lynn's alibi. At 18:20, he is seen outside the cabin, yet at 22:50, he is near the duct entrance, hearing the sound of crawling. This inconsistency raises an eyebrow, n'est-ce pas? Furthermore, Lynn's actions seem to be somewhat out of place, as he is seen near the duct entrance, which is a rather unusual location for someone who is supposed to be hiding.
+
+I believe the murderer is Lynn.",Lynn
+4,Marple,"It seems to me that we're all rather close to the truth, yet each of us has a different perspective on the events unfolding. I think it's essential that we consider the entire tapestry of evidence before drawing any conclusions. Poirot, I found it intriguing that you mentioned Zack's suspicious actions, particularly his inspection of the luggage and replacement of the drug package. However, I must say that I'm drawn to the character of Lynn, who seems to have an unusual alibi.
+
+The inconsistencies in Lynn's alibi, particularly his presence near the duct entrance at 22:50, do raise some suspicions. Furthermore, his diluted X Poison residue in his pockets and the fact that the poison was ingested orally suggest that he may have been involved in the events leading up to the crime.
+
+I believe the murderer is Lynn.",Lynn
+4,Poirot,"As we continue to ponder the evidence, I find myself intrigued by the various threads of our investigation. The fact that Wendy was seen near the medical room at 18:30, and that Lynn found the poison missing at 18:50, does seem somewhat suspicious. Furthermore, Wendy's presence at the scene, combined with her dubious alibis and relationship with Yosef, does raise some interesting questions.
+
+It is also worth noting that the toxicology report indicates that the poison was ingested orally, which raises questions about the potential role of Wendy in the events leading up to the crime. Her actions, such as asking the crew about ventilation ducts at 18:40, do seem somewhat unusual, and her possession of the syringe-shaped item at 23:00 does raise some suspicions.
+
+I believe the murderer is Wendy.",Wendy
+4,Holmes,"As I survey the evidence collected thus far, I find myself drawn to the inconsistencies in Lynn's alibi. At 18:20, he is seen outside the cabin, yet at 22:50, he is near the duct entrance, hearing the sound of crawling. This inconsistency raises an eyebrow, and I must consider the possibility that he was merely following Zack, but also ponder the possibility that he was trying to cover his tracks. Furthermore, Lynn's diluted X Poison residue in his pockets and the fact that the poison was ingested orally suggest that he may have been involved in the events leading up to the crime.
+
+I notice that Wendy's presence at the scene, combined with her dubious alibis and relationship with Yosef, does raise some interesting questions. However, I must consider the broader context of the evidence before drawing any conclusions.
+
+I believe the murderer is Lynn.",Lynn
+5,Holmes,"The game, as they say, is afoot. It's a pleasure to collaborate with my esteemed colleagues, Poirot and Marple. I must say that the sheer complexity of this case is a true test of our mettle. As I ponder the evidence, I am struck by the intriguing inconsistencies in Lynn's alibi, particularly his presence near the duct entrance at 22:50, which seems somewhat out of place.
+
+Furthermore, the toxicology report indicates that the poison was ingested orally, which raises questions about the potential role of Lynn in the events leading up to the crime. His diluted X Poison residue in his pockets and the fact that the poison was ingested orally suggest that he may have been involved in the events leading up to the crime.
+
+I must consider the possibility that Lynn was trying to cover his tracks, and the fact that he was seen near the duct entrance, which is a rather unusual location for someone who is supposed to be hiding. However, I also note that the ventilation duct cover being loose, and the multiple entry traces in the ducts, do suggest that someone was indeed trying to flee the scene in a hurry.
+
+I believe the murderer is Lynn.",Lynn
+5,Poirot,"Mes amis, as we continue to ponder the evidence, I must say that I am becoming increasingly convinced that our culprit is, in fact, Zack. The inconsistencies in his alibi, coupled with his prior knowledge of the events unfolding, do suggest that he was heavily involved in the crime. Furthermore, his inspection of the luggage and replacement of the drug package at 18:00 do raise suspicions about his potential role in the affair.
+
+It is also worth noting that Zack's presence at the medical room at 18:30, and his subsequent disappearance after the crime, do suggest that he was trying to cover his tracks. His tropical spice scent, as observed by Holmes, and his Trichinopoly cigar, do further support the theory that Zack was indeed the culprit.
+
+I believe the murderer is Zack.",Zack
+5,Marple,"As I listen to the differing opinions shared among our colleagues, I find myself pondering the various threads of our investigation. While Poirot's observation of Zack's suspicious actions is quite compelling, I must say that I'm drawn to the character of Wendy, the secretary. Her dubious alibis, combined with her dubious relationship with Yosef, do raise some suspicions about her involvement in the events. Furthermore, her presence at the scene, combined with the X Poison residue in her pockets, suggests that she may be more involved than initially meets the eye.
+
+I find it intriguing that Wendy was seen outside the cabin at 17:45, which may imply that she had some prior knowledge of the events unfolding. This, combined with her relationship with Yosef, does raise some interesting questions. I think it's essential that we consider the entire tapestry of evidence before drawing any conclusions.
+
+I believe the murderer is Wendy.",Wendy
+6,Poirot,"Mes amis, as I continue to ponder the evidence, I find myself drawn to the inconsistencies in Lynn's alibi. At 18:20, he is seen outside the cabin, yet at 22:50, he is near the duct entrance, hearing the sound of crawling. This inconsistency raises an eyebrow, n'est-ce pas? Furthermore, Lynn's actions seem to be somewhat out of place, as he is seen near the duct entrance, which is a rather unusual location for someone who is supposed to be hiding.
+
+Moreover, I find it intriguing that Wendy was seen near the medical room at 18:30, and that Lynn found the poison missing at 18:50. This does seem somewhat suspicious, as it implies that Wendy was in close proximity to the poison at the time it went missing. Her presence at the scene, combined with the X Poison residue in her pockets, suggests that she may be more involved than initially meets the eye.
+
+I must consider the possibility that Wendy was trying to cover her tracks, and the fact that she was seen near the medical room, which is a rather unusual location for someone who is supposed to be hiding. However, I also note that the ventilation duct cover being loose, and the multiple entry traces in the ducts, do suggest that someone was indeed trying to flee the scene in a hurry.
+
+I believe the murderer is Wendy.",Wendy
+6,Marple,"I must say, I find it quite fascinating to see the various threads of our investigation begin to weave together. As I ponder the evidence, I am drawn to the character of Wendy, the secretary. Her dubious alibis, combined with her dubious relationship with Yosef, do raise some suspicions about her involvement in the events. Furthermore, her presence at the scene, combined with the X Poison residue in her pockets, suggests that she may be more involved than initially meets the eye.
+
+I find it intriguing that Wendy was seen outside the cabin at 17:45, which may imply that she had some prior knowledge of the events unfolding. This, combined with her relationship with Yosef, does raise some interesting questions. I think it's essential that we consider the entire tapestry of evidence before drawing any conclusions.
+
+I must say that Wendy's actions seem to be somewhat out of place, as she is seen near the medical room at 18:30, which is a rather unusual location for someone who is supposed to be hiding. Her presence at the scene, combined with the X Poison residue in her pockets, suggests that she may be more involved than initially meets the eye.
+
+I believe the murderer is Wendy.",Wendy
+6,Holmes,"The game, as they say, is indeed afoot. As I listen to the differing opinions shared among our esteemed colleagues, I find myself pondering the various threads of our investigation. While Poirot's observation of Zack's suspicious actions is quite compelling, I must say that I'm drawn to the character of Wendy, the secretary. Her dubious alibis, combined with her dubious relationship with Yosef, do raise some suspicions about her involvement in the events. Furthermore, her presence at the scene, combined with the X Poison residue in her pockets, suggests that she may be more involved than initially meets the eye.
+
+I must consider the possibility that Wendy was trying to cover her tracks, and the fact that she was seen near the medical room at 18:30, which is a rather unusual location for someone who is supposed to be hiding. However, I also note that the ventilation duct cover being loose, and the multiple entry traces in the ducts, do suggest that someone was indeed trying to flee the scene in a hurry.
+
+Given Wendy's background and the inconsistencies in her alibi, I believe the murderer is Wendy.",Wendy

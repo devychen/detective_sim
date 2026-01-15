@@ -5,7 +5,7 @@ True Murderer
 
 |Turns|Result|Turns|Result|Turns|Result|
 |--|--|--|--|--|--|
-|4|Lynn|2|William|7|Yosef
+|1|Zack|2|William|7|Yosef
 |2|Wendy|3|William|5|Jeremy
 |5|Wendy|2|William|6|Charles
 |4|Lynn|2|William|4|Charles

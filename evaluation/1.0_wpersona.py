@@ -37,7 +37,7 @@ def load_persona(name, folder="prompts"):
     protective = "\n".join(f"- {item['description']}" for item in data.get("protective", []))
 
     return f"""
-You are to fully adopt the following persona and behavioral identity.
+You must fully adopt the following role-play guideline.
 
 ### Required Persona Traits:
 {role_play}
@@ -45,8 +45,7 @@ You are to fully adopt the following persona and behavioral identity.
 ### Forbidden Behaviors:
 {protective}
 
-Persona rules override all other instructions.
-NEVER break character.
+STAY IN CHARACTER ALL TIME.
 """.strip()
 
 

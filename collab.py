@@ -150,7 +150,7 @@ class DetectiveDialogue:
     """
 
     def __init__(self, rule_path="prompts/rule_collab.yaml", 
-                 case_path="cases/case1.yaml", 
+                 case_path="cases/case3.yaml", 
                  turns=10):
         """
         Initialize a single experimental run.
@@ -197,7 +197,7 @@ class DetectiveDialogue:
 
         # create run folder with timestamp
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-        self.run_dir = os.path.join("data/case1", f"run_{timestamp}")
+        self.run_dir = os.path.join("data/case3", f"run_{timestamp}")
         os.makedirs(self.run_dir, exist_ok=True)
 
         # dialogue log (csv)
@@ -284,9 +284,16 @@ class DetectiveDialogue:
         -----
         This prompt is NOT stored in dialogue memory.
         """
+        # role_play = "\n".join(
+        #     [f"- {r['description']}" for r in agent_prompt.get("role_play", [])]
+        # )
         role_play = "\n".join(
-            [f"- {r['description']}" for r in agent_prompt.get("role_play", [])]
+            [
+                f"- Description: {r['description'].strip()}\n  Example: {r.get('example','').strip()}"
+                for r in agent_prompt.get('role_play', [])
+            ]
         )
+
         protective = "\n".join(
             [f"- {p['description']}" for p in agent_prompt.get("protective", [])]
         )
@@ -315,12 +322,12 @@ class DetectiveDialogue:
 
     IMPORTANT:
     - Begin with self-introductions because you don’t know each other.
-    - Share your full exclusive clues.
     - Speak in coherent, self-contained paragraphs with a clear beginning, middle, and end.
-    - Keep responses ideally under 5 sentences and never repeat phrases ever.
-    - Listen and interact; do not drift into your own world. If the previous speaker identifies a different murderer, clearly express your disagreement and thoughts.
+    - Keep responses ideally under 5 sentences. NEVER repeat any phrases EVER.
+    - Always react to the previous speaker’s suspect and evidence before giving your own view.
     - Strictly follow Role Play Guidelines and your investigation style, and strictly avoid behaviours in Protective Guidelines.
-    - End every reply with exactly this format, naming one and only one suspect: I believe the murderer is XXX
+    - No parentheses. No narration. No actions. Speak only in first-person dialogue.
+    - For EACH reply, end with naming one and only one suspecty. MUST exactly in this format: I believe the murderer is XXX.
     """
     
         return system_prompt
@@ -434,14 +441,14 @@ class DetectiveDialogue:
 #     sim.simulate()
 
 if __name__ == "__main__":
-    NUM_RUNS = 1   # ← 一次跑 ~ 轮
+    NUM_RUNS = 3  # ← 一次跑 ~ 轮
 
     for run_id in range(1, NUM_RUNS + 1):
         print(f"\n{'='*20} EXPERIMENT RUN {run_id} / {NUM_RUNS} {'='*20}\n")
 
         sim = DetectiveDialogue(
             rule_path="prompts/rule_collab.yaml",
-            case_path="cases/case1.yaml",
+            case_path="cases/case3.yaml",
             turns=10
         )
         sim.simulate()

@@ -1,0 +1,73 @@
+turn,speaker,utterance,believed_murderer
+1,Poirot,"Bonjour, mes amis. I am Hercule Poirot, a detective of some renown. I must say, I am intrigued by this complex case before us. Each of us brings our unique expertise to the table, n'est-ce pas? I notice that we have a partial timeline of events, which we must now attempt to reconstruct. Mel's blackout device, triggered at 21:50, is an interesting detail. It suggests that the murderer may have been attempting to create a diversion or conceal their actions.
+
+As I ponder this, I am reminded of the importance of attention to detail. The blackout device, although useful, may not be the primary focus of our investigation. John, who was seen walking towards the study at 21:30, may hold a crucial clue. His actions, or lack thereof, could be indicative of his involvement in the crime.
+
+I believe the murderer is John.",John
+1,Holmes,"Watson, my dear fellow, I must commend you on your astute observation of the environmental clues. The unlocked window and safe, despite only containing William's prints, do suggest a rather hasty departure by the perpetrator. However, the lack of soil transfer on the window sill implies that the murderer may have entered or exited through a different means.
+
+Furthermore, I find Poirot's emphasis on John's actions intriguing, but let us not overlook the physical evidence. The bloodied piano wire and synthetic black hair from Mel's wig do not seem to be directly linked to the wounds, but they do hint at the perpetrator's cunning and resourcefulness.
+
+I believe the murderer is William.",William
+1,Marple,"I must say, I am delighted to make your acquaintance, gentlemen. As an amateur detective, I've had my fair share of experience with intricate cases, and I must say, this one does seem quite puzzling. I do agree with Mr. Poirot that attention to detail is crucial in unraveling the mystery. However, I find myself drawn to the appearance of the cyanide containers near Charles Stewart's room, which seems to be a rather telling detail.
+
+Furthermore, I've been pondering the inconsistencies in Charles's alibi and the fact that the soil on his shoes doesn't match the study's exterior, which raises an interesting question about his involvement in the crime. It's quite possible that the key to solving this case lies in Charles's seemingly solid motive, but perhaps there's more to his story than meets the eye.
+
+I believe the murderer is Charles.",Charles
+2,Holmes,"An intriguing introduction, gentlemen. I must say that I am impressed by the diverse range of perspectives and expertise brought to this case. As a consulting detective, I have spent years honing my skills in observation, deduction, and forensic analysis. My experience with cases involving poison and cyanide suggests that the rare surgeon-level angle of the wound may be a crucial indicator of the perpetrator's level of expertise.
+
+The brief struggle confirmed by the forensic report also points towards a skilled and calculated individual. Furthermore, I am intrigued by the mention of the black blackout device, which may have been used to create a diversion or conceal the perpetrator's actions. The fact that it was triggered at 21:50 raises questions about the perpetrator's timing and potential accomplices.
+
+I believe the murderer is Mel.",Mel
+2,Poirot,"Mes amis, the diverse perspectives you have shared thus far have shed some light on this complex case. Mr. Holmes, your expertise in forensic analysis and observation is indeed impressive. I must say that I share your interest in the rare angle of the wound, which suggests a level of expertise and skill. However, I must caution that we should not overlook the psychological aspect of the crime. The cyanide injection and surgical puncture performed in such a calculated manner point towards a highly intelligent and methodical individual.
+
+As we consider the various suspects and their motives, I am reminded of the importance of motive and opportunity. Mr. Holmes, you mentioned the black blackout device, which may have been used to create a diversion. I find it intriguing that it was triggered at 21:50, which coincides with the time of the murder. It is possible that the perpetrator was attempting to conceal their actions.
+
+Furthermore, I must say that I am intrigued by the inconsistencies in Charles Stewart's alibi and the fact that the soil on his shoes doesn't match the study's exterior. This raises an interesting question about his involvement in the crime. It is possible that he may have been in the study at the time of the murder, but his alibi and other evidence do not support this theory.
+
+I believe the murderer is Charles.",Charles
+2,Marple,"I must say, it's quite fascinating to see how our individual perspectives have shed light on this intricate case. I do agree with Mr. Holmes that the rare angle of the wound and the calculated nature of the cyanide injection suggest a highly intelligent and methodical individual. However, I find myself drawn to the inconsistencies in Charles Stewart's alibi, particularly the fact that the soil on his shoes doesn't match the study's exterior.
+
+It seems to me that the key to solving this case lies in the subtle inconsistencies and contradictions within the suspects' stories. I recall my own experience with the peculiar case of the missing heirloom, where the seemingly unrelated details turned out to be crucial in unraveling the mystery.
+
+As I ponder the various suspects and their motives, I am reminded of the importance of considering the human factor in our investigation. The complex relationships and emotions involved in this case cannot be overlooked. I think it's essential that we delve deeper into the psychological aspect of the crime and explore the motivations behind each suspect's actions.
+
+I believe the murderer is Charles.",Charles
+3,Marple,"I do hope we can work together to unravel the tangled threads of this intriguing case, gentlemen. It seems to me that each of our observations has shed some light on the various suspects, but we must be cautious not to overlook any details that may seem insignificant at first glance. I find myself drawn to the peculiar fact that Shirley Lambert's violin rosin was found under her nails, which raises an interesting question about her involvement in the crime.
+
+Furthermore, I've been pondering the inconsistencies in Jeremy Lambert's alibi and the fact that he had duplicate study keys, which may suggest a level of guilt or at least a strong motive to cover his tracks. The hypnosis notes referencing ""S"" could be crucial in uncovering the truth behind this case.
+
+I believe the murderer is Jeremy.",Jeremy
+3,Holmes,"As I listen to the diverse perspectives and expertise brought to this case, I am struck by the complexity of the situation. Each of the suspects has a seemingly airtight alibi, yet the inconsistencies in their stories raise intriguing questions about their involvement in the crime. The rare surgeon-level angle of the wound and the calculated nature of the cyanide injection suggest a highly intelligent and methodical individual.
+
+I must say that I am particularly intrigued by the mention of the black blackout device, which may have been used to create a diversion or conceal the perpetrator's actions. The fact that it was triggered at 21:50 raises questions about the perpetrator's timing and potential accomplices. Furthermore, the presence of the synthetic black hair from Mel's wig and the bloodied piano wire do not seem to be directly linked to the wounds, but they do hint at the perpetrator's cunning and resourcefulness.
+
+I believe the murderer is Mel.",Mel
+3,Poirot,"Mes amis, I must say that your diverse perspectives have shed some light on this complex case. However, I must caution that we must be cautious not to overlook any details that may seem insignificant at first glance. Mr. Holmes, your expertise in forensic analysis and observation is indeed impressive, but we must also consider the psychological aspect of the crime.
+
+The cyanide injection and surgical puncture performed in such a calculated manner point towards a highly intelligent and methodical individual. I find it intriguing that the rare surgeon-level angle of the wound and the calculated nature of the cyanide injection suggest a level of expertise and skill. However, we must also consider the inconsistencies in Charles Stewart's alibi and the fact that the soil on his shoes doesn't match the study's exterior.
+
+Furthermore, I must say that I am intrigued by the mention of the black blackout device, which may have been used to create a diversion or conceal the perpetrator's actions. It is possible that the perpetrator was attempting to conceal their actions. I must also consider the inconsistencies in Shirley Lambert's alibi and the fact that the violin rosin was found under her nails.
+
+Considering all these details, I believe that the key to solving this case lies in the inconsistencies and contradictions within the suspects' stories. I must say that I am leaning towards a suspect who seems to have a seemingly solid motive, but perhaps there's more to their story than meets the eye.
+
+I believe the murderer is Charles.",Charles
+4,Poirot,"Mes amis, I must say that I am beginning to piece together the complex web of events that led to this tragic crime. Mr. Holmes, your expertise in forensic analysis and observation has shed valuable light on the rare surgeon-level angle of the wound and the calculated nature of the cyanide injection. This suggests a highly intelligent and methodical individual, one who is not afraid to push the boundaries of conventional medicine.
+
+However, I must also consider the inconsistencies in Charles Stewart's alibi, particularly the fact that the soil on his shoes doesn't match the study's exterior. This raises an interesting question about his involvement in the crime. Furthermore, the presence of the synthetic black hair from Mel's wig and the bloodied piano wire do not seem to be directly linked to the wounds, but they do hint at the perpetrator's cunning and resourcefulness.
+
+It seems to me that the key to solving this case lies in the inconsistencies and contradictions within the suspects' stories. I must say that I am leaning towards a suspect who seems to have a seemingly solid motive, but perhaps there's more to their story than meets the eye.
+
+I believe the murderer is Charles.",Charles
+4,Holmes,"The tangled threads of this case have indeed been woven by the intricate dance of observations, deductions, and insights shared by my esteemed colleagues, Poirot and Marple. As I ponder the diverse perspectives presented, I find myself drawn to the rare surgeon-level angle of the wound, the calculated nature of the cyanide injection, and the inconsistencies in Charles Stewart's alibi.
+
+The fact that the soil on his shoes doesn't match the study's exterior raises an interesting question about his involvement in the crime. Furthermore, the presence of the synthetic black hair from Mel's wig and the bloodied piano wire do not seem to be directly linked to the wounds, but they do hint at the perpetrator's cunning and resourcefulness.
+
+Considering these details, I believe the murderer is Charles.",Charles
+4,Marple,"As I listen to the diverse perspectives shared by my esteemed colleagues, I must say that I am beginning to piece together the complex web of events that led to this tragic crime. The inconsistencies in Charles Stewart's alibi, particularly the fact that the soil on his shoes doesn't match the study's exterior, seem to be a crucial detail in unraveling the mystery.
+
+Furthermore, I find it intriguing that the synthetic black hair from Mel's wig and the bloodied piano wire do not seem to be directly linked to the wounds, but they do hint at the perpetrator's cunning and resourcefulness. It appears that the perpetrator was attempting to create a diversion or conceal their actions, and the black blackout device triggered at 21:50 may have been a key part of this plan.
+
+I must say that I am reminded of the peculiar case of the missing heirloom, where the seemingly unrelated details turned out to be crucial in unraveling the mystery. In this case, the inconsistencies in Charles's alibi and the inconsistencies in Shirley's alibi, combined with the soil on Charles's shoes not matching the study's exterior, point towards a complex web of events that require careful consideration.
+
+I believe the murderer is Charles.",Charles

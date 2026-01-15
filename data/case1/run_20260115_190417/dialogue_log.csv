@@ -1,0 +1,141 @@
+turn,speaker,utterance,believed_murderer
+1,Holmes,"Good day to you, gentlemen. I am Sherlock Holmes, a private consulting detective with a passion for unraveling the most complex of mysteries. I must say, the circumstances surrounding this case are quite intriguing. The presence of a poisoned body, coupled with the deliberate placement of replacement drugs, suggests a calculated and meticulous individual. I have taken the liberty of examining the crime scene and gathered the following evidence: the time of death, the location of the body, and the environmental conditions. 
+
+The toxicology report indicates a high concentration of X Poison mixed with narcotics, which further supports the notion of a deliberate overdose. I also found fibers and prints inside the ventilation ducts, pointing to multiple individuals involved in the crime. Furthermore, a poisoned powder was discovered at the ship's bow, which appears to be an attempt to dispose of evidence. 
+
+Considering the evidence, I must deduce that the murderer is Yosef.",
+1,Poirot,"En vérité, mon ami Holmes, your deductions are most impressive. The meticulous nature of the crime and the deliberate placement of replacement drugs do suggest a highly intelligent and calculating individual. However, I must consider the timeline of events and the roles of the other suspects. It appears that Zack had access to the poisoned package and replaced it, and Lynn was seen near the medical room shortly after. The fact that Wendy was near the medical room and inquired about the ventilation ducts also warrants further investigation. I believe the murderer is Zack.",Zack
+1,Marple,"I must say, I'm delighted to make your acquaintance, gentlemen. As Miss Marple, I've had my fair share of experience with the intricacies of human nature and the art of observation. While Mr. Holmes has shed some light on the crime scene, I think we've overlooked a rather telling detail. The fact that the poisoned powder was discovered at the ship's bow suggests that the perpetrator was in a hurry, and perhaps even panicked. This, in turn, makes me wonder if our culprit might not be the most calculating of individuals, but rather someone driven by desperation. I believe the murderer is Wendy.",Wendy
+2,Marple,"I must say, I'm intrigued by the differing opinions among us. While Mr. Holmes has pointed out the meticulous nature of the crime, I think we mustn't overlook the human element in this case. The fact that the perpetrator was in a hurry, as suggested by the location of the poisoned powder, implies that they may have been driven by a sense of urgency or desperation. This, in turn, makes me think of the role of Lynn, who seems to have been quite shaken by the events. Her emotional state, coupled with her involvement in the medical room, raises some interesting questions about her potential involvement. I believe the murderer is Lynn.",Lynn
+2,Holmes,"An intriguing case indeed, my dear colleagues. I must commend you on your initial observations, Poirot. The meticulous nature of the crime does suggest a highly intelligent individual, but I believe your conclusion is premature. The fact that Zack had access to the poisoned package and replaced it, as you've pointed out, does raise suspicions. However, I must counter with the evidence of the multiple entry traces in the ventilation ducts, pointing to multiple individuals involved in the crime. This complexity suggests a more intricate web of involvement than a single individual.
+
+Furthermore, I've been pondering the role of the ship's bow, where the poisoned powder was discovered. The location of this powder, coupled with the deliberate placement of replacement drugs, implies a level of planning and foresight. I believe this level of preparation suggests a more calculated individual, rather than one driven by desperation. I believe the murderer is Zack.",Zack
+2,Poirot,"Mes amis, I must say that I find the discussions among us to be quite stimulating, n'est-ce pas? Each of us has brought forth valuable insights, but I must examine the timeline of events more closely. As we have deduced, Zack had access to the poisoned package and replaced it, but we have not yet considered the role of Wendy in relation to the ventilation ducts. Her inquiry about the ducts and the fact that she was near the medical room at 18:30 suggests that she may have been trying to cover her tracks or create a diversion. Furthermore, Wendy's actions at 23:00, passing a syringe-shaped item to an accomplice, raise further questions about her involvement. I believe the murderer is Wendy.
+
+I believe the murderer is Wendy.",Wendy
+3,Marple,"I must say, the various theories presented so far are indeed thought-provoking. Mr. Holmes, your deductions about the meticulous nature of the crime are quite astute, and I agree that the deliberate placement of replacement drugs does suggest a highly intelligent individual. However, I still find it puzzling that we have not considered the potential role of Wendy in relation to the ventilation ducts and the poisoned powder. Her actions seem almost too calculated, almost as if she was trying to mislead us. I do recall that Wendy's secretary, Wendy herself, was seen near the medical room shortly after the poisoning, and she seemed quite nervous.
+
+I believe the murderer is Wendy.",Wendy
+3,Poirot,"Mes amis, I must say that your thoughts are most enlightening, but I still find myself drawn to the meticulous nature of the crime. The deliberate placement of replacement drugs and the attempt to dispose of the poisoned powder at the ship's bow suggest a highly intelligent and calculating individual. However, I must consider the timing of the events, particularly the fact that Lynn was seen near the medical room shortly after the poisoning, and her subsequent actions in hiding and later discovering the poisoned X Poison. This raises questions about her potential involvement and her emotional state. Furthermore, the presence of Lynn near the duct entrance, where she heard the sound of crawling and hid, suggests that she may have been trying to avoid detection or escape. I believe the murderer is Lynn.
+ 
+I believe the murderer is Lynn.",Lynn
+3,Holmes,"The game, as they say, is afoot. As we dissect the evidence presented before us, it becomes increasingly evident that the complexity of this case demands a most astute and discerning mind. Your observations, Poirot, regarding Zack's access to the poisoned package and his potential role in the crime are indeed intriguing, but I must counter with the notion that this very same access suggests Zack's involvement in the subsequent events. The deliberate placement of replacement drugs and the poisoning itself imply a calculated individual, one who has taken pains to conceal their tracks.
+
+Furthermore, the presence of the poisoned powder at the ship's bow and the multiple entry traces in the ventilation ducts imply a level of planning and foresight, characteristics that I believe are more commonly associated with a mastermind rather than a desperate individual. As such, I believe the murderer is Zack.
+
+I believe the murderer is Zack.",Zack
+4,Marple,"I must say, I find the discussions among us to be quite stimulating, and I'm delighted to contribute to the unraveling of this complex case. While Mr. Holmes has shed some light on the crime scene, I think we've overlooked the significance of Lynn's actions in relation to the ventilation ducts. Her nervous behavior and subsequent hiding suggest that she may be hiding something, and I believe her actions imply a level of guilt. Furthermore, her emotional state, coupled with her involvement in the medical room, raises questions about her potential involvement. I also find it intriguing that she seemed quite shaken by the events, which could be indicative of her emotional state. I believe the murderer is Lynn.
+
+I believe the murderer is Lynn.",Lynn
+4,Poirot,"Mes amis, the more we discuss this enigmatic case, the more I am convinced that we must unravel the tangled threads of human psychology. The meticulous nature of the crime, coupled with the deliberate placement of replacement drugs, does indeed suggest a calculating individual. However, as we have seen, each of us has brought forth valuable insights that have shed light on the complexities of this case.
+
+The fact that Wendy was near the medical room at 18:30 and inquired about the ventilation ducts raises questions about her involvement. Her actions at 23:00, passing a syringe-shaped item to an accomplice, also warrant further investigation. Furthermore, her nervous behavior and subsequent hiding suggest that she may be hiding something.
+
+As we consider the evidence, I find myself drawn to the idea that the murderer may not be the most calculating individual, but rather someone driven by a desire to conceal their tracks. The presence of Lynn near the duct entrance, where she heard the sound of crawling and hid, also raises questions about her potential involvement.
+
+I must say that I find myself increasingly convinced that the murderer is Wendy, but I am also intrigued by the possibility that Lynn may be hiding something. As we continue to unravel the threads of this complex case, I believe it is essential that we remain vigilant and consider all the evidence before us.
+
+I believe the murderer is Wendy.",Wendy
+4,Holmes,"I must commend my colleagues on their astute observations, but I must also examine the inconsistencies in the evidence presented. While Poirot's deductions regarding Zack's access to the poisoned package are indeed intriguing, I find it puzzling that the deliberate placement of replacement drugs and the poisoning itself imply a level of planning and foresight, characteristics that I believe are more commonly associated with a mastermind rather than a desperate individual.
+
+Furthermore, I find it intriguing that the presence of the poisoned powder at the ship's bow and the multiple entry traces in the ventilation ducts suggest that the perpetrator may have been trying to conceal their tracks. This, coupled with the fact that Lynn was seen near the medical room shortly after the poisoning and her subsequent hiding, raises questions about her potential involvement and her emotional state.
+
+Given these observations, I must reconsider my initial conclusion and re-evaluate the evidence. I now believe that the murderer is Lynn.
+
+I believe the murderer is Lynn.",Lynn
+5,Marple,"The case has indeed become quite complex, and I must say that I'm impressed by the various theories presented by my colleagues. As I reflect on the evidence, I must consider the significance of the poisoned powder at the ship's bow and the multiple entry traces in the ventilation ducts. While these facts suggest a level of planning and foresight, I also find it intriguing that Wendy's nervous behavior and subsequent hiding seem to imply that she may be hiding something.
+
+Furthermore, her actions at 23:00, passing a syringe-shaped item to an accomplice, raise further questions about her involvement. However, I also recall that Wendy's secretary, Wendy herself, was seen near the medical room shortly after the poisoning, and she seemed quite nervous. This, coupled with the fact that Lynn was seen near the duct entrance, where she heard the sound of crawling and hid, suggests that there may be more to the story than initially meets the eye.
+
+I must say that I'm inclined to consider an alternative perspective, one that takes into account the complexities of human psychology. The meticulous nature of the crime, coupled with the deliberate placement of replacement drugs, does indeed suggest a calculating individual. However, I also believe that there may be more to the case than a single mastermind.
+
+I believe the murderer is Wendy.",Wendy
+5,Poirot,"Mes amis, I must say that the various theories presented by my colleagues have shed light on the complexities of this case, but I must now delve deeper into the details. As I reflect on the timeline of events, I find it intriguing that Lynn was seen near the medical room shortly after the poisoning and her subsequent hiding. Her emotional state, coupled with her involvement in the medical room, raises questions about her potential involvement.
+
+Furthermore, the presence of Lynn near the duct entrance, where she heard the sound of crawling and hid, suggests that she may have been trying to avoid detection or escape. Her nervous behavior and subsequent hiding imply that she may be hiding something.
+
+I also find it significant that Wendy's nervous behavior and subsequent hiding seem to imply that she may be hiding something. Her actions at 23:00, passing a syringe-shaped item to an accomplice, raise further questions about her involvement.
+
+Considering these points, I must say that I am increasingly convinced that the murderer is Wendy. However, I also believe that there may be more to the case than a single mastermind. The meticulous nature of the crime, coupled with the deliberate placement of replacement drugs, does indeed suggest a calculating individual.
+
+I believe the murderer is Wendy.",Wendy
+5,Holmes,"The game, indeed, is afoot. As we continue to dissect the evidence presented before us, I must say that the inconsistencies in the evidence have led me to re-evaluate the case. While Poirot's deductions regarding Zack's access to the poisoned package are indeed intriguing, I find it puzzling that the presence of Lynn near the duct entrance, where she heard the sound of crawling and hid, raises questions about her potential involvement.
+
+Furthermore, the fact that Lynn was seen near the medical room shortly after the poisoning and her subsequent hiding suggest that she may be hiding something. Her nervous behavior and subsequent hiding imply that she may be hiding something, which is further reinforced by the presence of the poisoned powder at the ship's bow.
+
+Considering these points, I must say that I am increasingly convinced that the murderer is Lynn. Her emotional state, coupled with her involvement in the medical room, raises questions about her potential involvement. The deliberate placement of replacement drugs and the poisoning itself imply a level of planning and foresight, characteristics that I believe are more commonly associated with a mastermind rather than a desperate individual.
+
+I believe the murderer is Lynn.",Lynn
+6,Holmes,"An intriguing development, my dear colleagues. As I reflect on the various theories presented, I must say that I find it increasingly difficult to pinpoint the murderer. Poirot's deductions regarding Zack's access to the poisoned package are indeed intriguing, but I find it puzzling that Lynn's nervous behavior and subsequent hiding seem to imply that she may be hiding something.
+
+Furthermore, the fact that Lynn was seen near the medical room shortly after the poisoning and her subsequent hiding suggest that she may be involved in the crime. The presence of the poisoned powder at the ship's bow, however, raises questions about her potential involvement. It is possible that Lynn was trying to conceal her tracks, but her nervous behavior and subsequent hiding imply that she may be hiding something.
+
+On the other hand, Poirot's theory that the murderer is Wendy seems plausible, given her nervous behavior and subsequent hiding. However, I find it difficult to reconcile this theory with the evidence of Lynn's involvement in the medical room.
+
+In conclusion, I believe that the key to solving this case lies in reconciling the various theories presented. It is clear that the murderer is not a single mastermind, but rather someone who has taken pains to conceal their tracks. I propose that we continue to investigate the roles of both Lynn and Wendy, and see if we can uncover any inconsistencies in their alibis or behaviors.
+
+I believe the murderer is Lynn.",Lynn
+6,Poirot,"Mes amis, the complex tapestry of this case has indeed been woven with great care and attention to detail. As I reflect on the evidence presented, I find it intriguing that Lynn was seen near the medical room shortly after the poisoning, and her subsequent hiding raises questions about her potential involvement. Her nervous behavior and subsequent hiding imply that she may be hiding something, which is further reinforced by the presence of the poisoned powder at the ship's bow.
+
+Furthermore, I must consider the fact that Wendy's nervous behavior and subsequent hiding seem to imply that she may be hiding something. Her actions at 23:00, passing a syringe-shaped item to an accomplice, raise further questions about her involvement. However, I must also acknowledge that the presence of the multiple entry traces in the ventilation ducts and the deliberate placement of replacement drugs suggest a highly intelligent and calculating individual.
+
+Given these points, I must say that I am increasingly convinced that the murderer is Wendy. The meticulous nature of the crime, coupled with the deliberate placement of replacement drugs, does indeed suggest a calculating individual. However, I also believe that there may be more to the case than a single mastermind. The presence of Lynn near the duct entrance, where she heard the sound of crawling and hid, suggests that she may be involved in the crime, but her nervous behavior and subsequent hiding imply that she may be hiding something.
+
+I believe the murderer is Wendy.",Wendy
+6,Marple,"I must say, the various theories presented by my colleagues have shed light on the complexities of this case, but I must now delve deeper into the details. As I reflect on the timeline of events, I find it intriguing that Lynn was seen near the medical room shortly after the poisoning and her subsequent hiding. Her emotional state, coupled with her involvement in the medical room, raises questions about her potential involvement.
+
+Furthermore, I must consider the fact that Wendy's nervous behavior and subsequent hiding seem to imply that she may be hiding something. Her actions at 23:00, passing a syringe-shaped item to an accomplice, raise further questions about her involvement. However, I must also acknowledge that the presence of the multiple entry traces in the ventilation ducts and the deliberate placement of replacement drugs suggest a highly intelligent and calculating individual.
+
+In my opinion, the key to solving this case lies in reconciling the various theories presented. I believe that Lynn's nervous behavior and subsequent hiding, coupled with her involvement in the medical room, raise significant suspicions about her potential involvement in the crime. However, I also find it intriguing that Wendy's nervous behavior and subsequent hiding seem to imply that she may be hiding something.
+
+I believe the murderer is Lynn.",Lynn
+7,Marple,"The intriguing case before us, gentlemen. I must say, I'm delighted to contribute to the discussion. While Mr. Holmes has shed light on the crime scene, I think we've overlooked a rather telling detail. The fact that the poisoned powder was discovered at the ship's bow suggests that the perpetrator was in a hurry, and perhaps even panicked. This, in turn, makes me wonder if our culprit might not be the most calculating of individuals, but rather someone driven by desperation.
+
+In particular, I find it intriguing that Lynn was seen near the duct entrance, where she heard the sound of crawling and hid. Her emotional state, coupled with her involvement in the medical room, raises questions about her potential involvement. Furthermore, her nervous behavior and subsequent hiding imply that she may be hiding something. 
+
+I believe the murderer is Lynn.",Lynn
+7,Poirot,"Mes amis, as I reflect on the various theories presented by my colleagues, I must say that I am drawn to the idea that the meticulous nature of the crime, coupled with the deliberate placement of replacement drugs, suggests a calculating individual. However, I must also consider the timeline of events and the roles of the other suspects. The fact that Lynn was seen near the medical room shortly after the poisoning and her subsequent hiding raises questions about her potential involvement.
+
+Furthermore, I must examine the evidence of Wendy's nervous behavior and subsequent hiding, as well as her actions at 23:00, passing a syringe-shaped item to an accomplice. While these facts suggest that Wendy may be hiding something, I must also consider the presence of the multiple entry traces in the ventilation ducts and the deliberate placement of replacement drugs, which imply a highly intelligent and calculating individual.
+
+In my opinion, the key to solving this case lies in reconciling the various theories presented. I believe that Lynn's nervous behavior and subsequent hiding, coupled with her involvement in the medical room, raise significant suspicions about her potential involvement in the crime. However, I also find it intriguing that Wendy's nervous behavior and subsequent hiding seem to imply that she may be hiding something.
+
+I must say that I am increasingly convinced that the murderer is Wendy, but I also believe that there may be more to the case than a single mastermind. The presence of Lynn near the duct entrance, where she heard the sound of crawling and hid, suggests that she may be involved in the crime, but her nervous behavior and subsequent hiding imply that she may be hiding something.
+
+I believe the murderer is Wendy.",Wendy
+7,Holmes,"The game, indeed, is afoot. As I reflect on the various theories presented, I must say that I am drawn to the idea that the meticulous nature of the crime, coupled with the deliberate placement of replacement drugs, suggests a calculating individual. However, I must also consider the timeline of events and the roles of the other suspects.
+
+The fact that Lynn was seen near the duct entrance, where she heard the sound of crawling and hid, raises questions about her potential involvement. Furthermore, her nervous behavior and subsequent hiding imply that she may be hiding something. I must examine the evidence of her involvement in the medical room and her emotional state, which seem to be intertwined with her actions.
+
+While Poirot's theory that the murderer is Wendy seems plausible, I find it difficult to reconcile this theory with the evidence of Lynn's involvement in the medical room. Wendy's nervous behavior and subsequent hiding seem to imply that she may be hiding something, but I must also consider the presence of the multiple entry traces in the ventilation ducts and the deliberate placement of replacement drugs, which imply a highly intelligent and calculating individual.
+
+I must consider the possibility that both Lynn and Wendy may be involved in the crime, but in different capacities. Perhaps Lynn was the one who replaced the poisoned package, while Wendy was the one who carried out the actual poisoning. This theory, however, raises more questions than it answers.
+
+I believe the murderer is Lynn.",Lynn
+8,Holmes,"The intricate web of human psychology at play in this case is indeed a fascinating puzzle to unravel. Poirot's theory that the murderer is Wendy is intriguing, given her nervous behavior and subsequent hiding. However, I must counter with the evidence of Lynn's involvement in the medical room and her emotional state, which seem to be intertwined with her actions.
+
+Furthermore, the presence of the multiple entry traces in the ventilation ducts and the deliberate placement of replacement drugs suggest a highly intelligent and calculating individual, which I believe is more commonly associated with a mastermind rather than a desperate individual. I must also consider the fact that the poisoned powder was discovered at the ship's bow, which implies a level of planning and foresight.
+
+Given these observations, I must reconsider my initial conclusion and re-evaluate the evidence. I now believe that the murderer is Lynn.
+
+I believe the murderer is Lynn.",Lynn
+8,Poirot,"Mes amis, I must say that the various theories presented by my colleagues have shed light on the complexities of this case. However, I must now delve deeper into the details to uncover the truth. The fact that Lynn was seen near the medical room shortly after the poisoning and her subsequent hiding raises questions about her potential involvement. Her nervous behavior and subsequent hiding imply that she may be hiding something.
+
+Furthermore, I must consider the evidence of Wendy's nervous behavior and subsequent hiding, as well as her actions at 23:00, passing a syringe-shaped item to an accomplice. While these facts suggest that Wendy may be hiding something, I must also consider the presence of the multiple entry traces in the ventilation ducts and the deliberate placement of replacement drugs, which imply a highly intelligent and calculating individual.
+
+As I reflect on the timeline of events, I find it intriguing that Lynn was seen near the duct entrance, where she heard the sound of crawling and hid. Her emotional state, coupled with her involvement in the medical room, raises significant suspicions about her potential involvement in the crime. However, I must also consider the possibility that Wendy's nervous behavior and subsequent hiding may be a red herring, intended to mislead us.
+
+I believe the key to solving this case lies in reconciling the various theories presented. While Poirot's theory that the murderer is Wendy seems plausible, I find it difficult to reconcile this theory with the evidence of Lynn's involvement in the medical room. I must consider the possibility that both Lynn and Wendy may be involved in the crime, but in different capacities.
+
+I believe the murderer is Lynn.",Lynn
+8,Marple,"The intricate web of human psychology at play in this case is indeed a fascinating puzzle to unravel. While Mr. Holmes has shed light on the crime scene, I must say that I find myself drawn to the idea that the meticulous nature of the crime, coupled with the deliberate placement of replacement drugs, suggests a calculating individual. However, I also believe that there may be more to the case than a single mastermind.
+
+As I reflect on the timeline of events, I find it intriguing that Lynn was seen near the duct entrance, where she heard the sound of crawling and hid. Her emotional state, coupled with her involvement in the medical room, raises significant suspicions about her potential involvement in the crime. Furthermore, her nervous behavior and subsequent hiding imply that she may be hiding something.
+
+I must consider the possibility that Lynn's actions are a result of her emotional state, rather than a deliberate attempt to conceal her tracks. The presence of the multiple entry traces in the ventilation ducts and the deliberate placement of replacement drugs suggest a highly intelligent and calculating individual, which I believe is more commonly associated with a mastermind rather than a desperate individual.
+
+However, I must also acknowledge that Wendy's nervous behavior and subsequent hiding seem to imply that she may be hiding something. Her actions at 23:00, passing a syringe-shaped item to an accomplice, raise further questions about her involvement. I believe that we must consider both Lynn and Wendy's potential involvement in the crime, but in different capacities.
+
+I believe the key to solving this case lies in reconciling the various theories presented. The fact that both Lynn and Wendy have seemingly contradictory alibis and behaviors raises questions about their potential involvement. I must continue to investigate the roles of both Lynn and Wendy, and see if we can uncover any inconsistencies in their stories.
+
+I believe the murderer is Lynn.",Lynn
