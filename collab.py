@@ -441,7 +441,7 @@ class DetectiveDialogue:
 #     sim.simulate()
 
 if __name__ == "__main__":
-    NUM_RUNS = 3  # ← 一次跑 ~ 轮
+    NUM_RUNS = 1  # ← 一次跑 ~ 轮
 
     for run_id in range(1, NUM_RUNS + 1):
         print(f"\n{'='*20} EXPERIMENT RUN {run_id} / {NUM_RUNS} {'='*20}\n")
