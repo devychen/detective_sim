@@ -1,5 +1,5 @@
 """
-evaluate_classifier.py (Revised Version)
+2.0_classifier.py (Revised Version)
 
 Implements advisor-recommended improvements:
 
@@ -14,7 +14,11 @@ Implements advisor-recommended improvements:
 
 Bootstrap CI, Per-run slope + one-sample t-test
 
-Detailed, external-reader-friendly comments are included throughout.
+Output:
+- Compute slopes per-run
+- Do one-sample t-test over slopes
+- Compute aggregated prob means per turn
+- Plot aggregated prob mean + CI
 """
 
 # =================================================
@@ -386,7 +390,7 @@ def main():
     output_dir = "./evaluation"
     os.makedirs(output_dir, exist_ok=True)
 
-    output_path = os.path.join(output_dir, f"results_2.0_{timestamp}.txt")
+    output_path = os.path.join(output_dir, f"2.0_classifier_{timestamp}.txt")
 
     with open(output_path, "w", encoding="utf-8") as f:
         for case in CASES:

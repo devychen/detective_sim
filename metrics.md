@@ -99,26 +99,24 @@ weighted avg       0.76      0.76      0.76      1374
   - Compare to baseline 2 - if it is lower, collaboration has negative impact.
 
 - Results:
-  - rate(zero_prompt): case1-97%(47/50), case2 - 100%, case3 - 100%.
+  - rate(zero_prompt): case1 - 97%(47/50), case2 - 100%, case3 - 100%.
+  - rate(with_persona, no_collab): case1 - 92%, case2 - 35.33%, case3 - 100%.
+  - rate(full_prompt): case1 - 20%, case2 - 50%, case3 - 40%.
+
 
 
 # 2. Classifier model
 
-2.1 Extract the **predicted probability** of the correct class and **plot mean** over turns over simulations.
-
-- Also, CIs over simulations
-
-2.2 Calculate average **Brier score** (mean squared error of predicted probabilities) over turns (in order to estimate whether there is a significant increase or decrease trend).
-- Also Fit **linear regressions** to the scores over turns.‼️ 哪个score? brier?
+- HOW-TO
+  - 2.1 Extract the **predicted probability** of the correct class and **plot mean** over turns over simulations. Also, CIs over simulations
+  - 2.2 Calculate average **Brier score** (mean squared error of predicted probabilities) over turns (in order to estimate whether there is a significant increase or decrease trend).
+    - Also Fit **linear regressions** to the scores over turns.‼️ 哪个score? brier?
 
 ‼️ prob ↑ = 越像角色， brier ↓ = 越像角色，对吧？
 
-‼️ 我是把 10–14 个 simulation 的同一个 turn 的结果聚合起来（average + CI）。这样对吗？
-
-‼️ 我没有画linear regression，而是对每个 simulation run 单独做了 linear regression，然后收集所有 runs 的 slope，做 one-sample t-test，用于验证：slope 是否显著非零（趋势是否存在），slope 平均值（总体趋势方向）。这样可以吗？
-
 ‼️ 实验结果说明 OOC drift 不是线性的、不是稳定的趋势，而是 agent-dependent 和 case-dependent 的离散跳变（non-linear, non-monotonic）。
 
+- Results: 本研究的三个侦探代理（Holmes、Poirot、Marple）依赖于相同的底层语言模型，仅通过角色 prompt 来区分。因此，代理之间的差异并非来源于模型结构或训练，而是来自 prompt 对语言生成过程的影响。在多轮协作推理任务中，模型的概率估计与 Brier 分数呈现出明显波动，各 run 的回归斜率不显著，说明 prompt-based persona 引导无法保证稳定、一致的推理行为模式。模型在不同对话轮次可能产生不一致的信心判断，而非随着线索积累而逐渐收敛。因此，本研究的结果更能解释为：prompt 角色设定的可控性在长对话场景中表现有限，而非 LLM 在角色内部构建了稳定的推理结构。
 
 
 # 3. Lexical
