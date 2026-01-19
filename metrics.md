@@ -91,7 +91,7 @@ weighted avg       0.76      0.76      0.76      1374
 
 1.0 Average task accuracy.
 - HOW-TO: 
-  - 跑zero prompt和no collab 各10次，计算成功率
+  - Run zero_prompt and with_persona each 50 times, calculate the accuracy.
 
 - EVAL:
   - Compare baseline 1 to baseline 2 - if it is lower, role-playing has negative impact.
@@ -107,10 +107,13 @@ weighted avg       0.76      0.76      0.76      1374
 
 # 2. Classifier model
 
+
+- 2.1 Extract the **predicted probability** of the correct class and **plot mean** over turns over simulations. Also, CIs over simulations
+
+- 2.2 Calculate average **Brier score** (mean squared error of predicted probabilities) over turns (in order to estimate whether there is a significant increase or decrease trend).
+  - Also Fit **linear regressions** to the scores over turns.‼️ 哪个score? brier?
+
 - HOW-TO
-  - 2.1 Extract the **predicted probability** of the correct class and **plot mean** over turns over simulations. Also, CIs over simulations
-  - 2.2 Calculate average **Brier score** (mean squared error of predicted probabilities) over turns (in order to estimate whether there is a significant increase or decrease trend).
-    - Also Fit **linear regressions** to the scores over turns.‼️ 哪个score? brier?
 
 ‼️ prob ↑ = 越像角色， brier ↓ = 越像角色，对吧？
 
@@ -123,6 +126,12 @@ weighted avg       0.76      0.76      0.76      1374
 3.1 Character-specific vocabulary rate
 
 - Extract TF-IDF vectors from the gold standard dialogues of each character (avg) and the single turns of each character, and calculate cosine similarity between the tf-idf vectors
+
+- HOW-TO
+  - 用原著文本（gold standard dialogues）提取每个角色（Holmes / Poirot / Marple）的词汇特征（TF-IDF vector）。
+  - 对 LLM 生成的每一句话计算 TF-IDF vector。
+  - 对同一角色：gold standard 角色向量 vs LLM 每一句角色的向量 → 计算 cosine similarity。
+
 
 ‼️ GOLD STANDARD DIALOGUE是什么意思  
 ‼️ 原作太长，simulation 太短，TF-IDF 会失衡。这样做如何？  

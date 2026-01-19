@@ -113,11 +113,11 @@ _**OR [CURRENT]**_: From original books, using LLM (`meta/llama-3.2-3b-instruct`
 > 🍎 *lines > llm_data > each character has a folder containing its lines in csv format, named by source book title.*
 
 **Step 1.5** Performs systematic diagnostics on LLM-extracted dialogue data before any classifier training is attempted.   
-- Japp is noisy, delete from the data. Only using the other five.
+- Japp is noisy, delete from the data. Only using the other five chars.
 
 > 🍎 *baseline > data_diagnosis.py*
 
-**Step 2** Prepare the dataset, preprocessing with cleaning and balancing. It is parameterised to adapt two situation: including "others" or not.
+**Step 2** Prepare the dataset, preprocessing with cleaning and balancing. It is parameterised to adapt two situation: including "others" as a 4th class or not.
 
 > 🍎 *baseline > prepare_dataset.py*
 
