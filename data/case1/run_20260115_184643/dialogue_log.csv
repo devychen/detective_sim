@@ -1,0 +1,80 @@
+turn,speaker,utterance,believed_murderer
+1,Marple,"Good day, ladies and gentlemen. I do hope we can all agree that this case is a most intriguing one. I am Miss Marple, delighted to make your acquaintance. I must say, I am rather intrigued by the array of suspects we have before us. Let us begin by sharing our exclusive clues, shall we? I must say, Zack's background caught my eye - the details of his role as Yosef's supplier and his connection to Wilson's past. It seems to me that Zack's involvement in the case runs rather deep.
+
+I believe the murderer is Zack.",Zack
+1,Holmes,"An astute observation, Miss Marple. While Zack's background does indeed hold considerable significance, I must caution against jumping to conclusions based solely on his connections. My exclusive clue, as I've been perusing the crime scene, revolves around the peculiar ventilation duct cover that appears to be tampered with. The fact that loose ventilation duct covers are often associated with makeshift attempts to conceal evidence warrants further investigation. I believe the murderer is Yosef.",Yosef
+1,Poirot,"Bonjour, mesdames et messieurs. I am Hercule Poirot, at your service. My little grey cells are already whirring with excitement, for we have a most intriguing case before us. Miss Marple's observation about Zack's background is indeed astute, n'est-ce pas? However, I must respectfully disagree with Monsieur Holmes' conclusion that the murderer is Yosef. The tampered ventilation duct cover suggests a more calculated and deliberate act, rather than a hasty attempt to conceal evidence. We must consider the possibility that our culprit is someone who knows the layout of the ship and its ventilation system. I believe the murderer is Lynn.
+
+I must say, however, that I am intrigued by the fact that Lynn seems to have been hiding near the duct entrance just before the discovery of the poisoned powder. The timing of her movements suggests a level of cunning and planning that warrants further scrutiny.",Lynn
+2,Poirot,"Zounds, the game's afoot, mes amis! As we begin our investigation, I am struck by the peculiarity of the events surrounding the tampered ventilation duct cover. Monsieur Holmes, your observation about the duct cover being a makeshift attempt to conceal evidence is indeed astute, but does it not suggest that our culprit may have been in a hurry, perhaps even under duress? I must consider the possibility that our killer was someone who was unaware of the consequences of their actions, rather than a calculated and deliberate individual. The fact that the duct cover was tampered with at 18:20, when Lynn was seen outside the cabin, raises intriguing questions about her involvement.
+
+I believe the murderer is Lynn.",Lynn
+2,Holmes,"The array of suspects before us indeed presents a most intriguing challenge. While Miss Marple's observation about Zack's background holds considerable weight, I must concur with her that it warrants further investigation. As for the tampered ventilation duct cover, it does suggest a level of deliberateness, but not necessarily a calculated one. The fact that the duct cover was tampered with at 18:20, when Lynn was seen outside the cabin, raises a most intriguing question: could she have been trying to conceal evidence, yet inadvertently left a trail of breadcrumbs for us to follow?
+
+I must say, however, that the presence of Zack's footprints in the room does suggest that he may have been involved in the events leading up to the crime. His connection to Wilson's past also warrants further scrutiny. The question remains, how did Zack's involvement intersect with Lynn's movements, and what role did the poisoned powder play in this complex web of events?
+
+I believe the murderer is Zack.",Zack
+2,Marple,"As I reflect on the various clues presented, I must admit that each of you has raised most astute points. Monsieur Holmes' observation about the tampered ventilation duct cover has indeed sparked a most intriguing line of inquiry, while Miss Marple's insight into Zack's background has shed valuable light on the complexities of the case. However, I must also consider the peculiar fact that the duct cover was tampered with at 18:20, when Lynn was seen outside the cabin, raising questions about her possible involvement.
+
+In light of this, I am reminded of a most relevant phrase: ""The devil is in the details."" It is precisely these minute details that can often hold the key to unraveling the most intricate of mysteries. I believe the murderer is Wendy.",Wendy
+3,Poirot,"Mes amis, let us proceed with caution and discernment, n'est-ce pas? As we examine the events surrounding the tampered ventilation duct cover, we must consider the various possibilities and potential motives. Monsieur Holmes' observation about the duct cover being tampered with at 18:20, when Lynn was seen outside the cabin, does indeed suggest that our culprit may have been trying to conceal evidence. However, it also raises questions about Lynn's involvement and potential guilt. Might she have been trying to distract us from her own actions, or perhaps she was indeed trying to conceal evidence?
+
+I must also ponder the peculiar fact that Wendy was near the medical room at 18:30, where she inquired about the ventilation ducts. Her actions seem almost... calculated, n'est-ce pas? And what of the syringe-shaped item that was passed to her accomplice at 23:20? Does this not suggest a level of coordination and planning that warrants further scrutiny? The threads of this mystery are beginning to weave together, and I believe I am getting closer to unraveling the truth.
+
+I believe the murderer is Wendy.",Wendy
+3,Holmes,"The game, as they say, is indeed afoot. As I examine the forensic evidence, I am struck by the peculiar fact that the poisoned powder was found at the ship's bow, which appears to be a deliberate attempt to dispose of evidence. The presence of Zack's footprints in the room, coupled with the tampered ventilation duct cover, suggests a level of coordination and planning that warrants further investigation. The fact that the duct cover was tampered with at 18:20, when Lynn was seen outside the cabin, raises intriguing questions about her involvement.
+
+Furthermore, the poisonous residue found in Yosef's bag, coupled with the replacement drugs placed after death, suggests a level of expertise and knowledge of poisons that is rare. This, combined with Zack's background as Yosef's supplier and his connection to Wilson's past, raises the possibility that Zack may have been involved in the events leading up to the crime.
+
+I must say, however, that the presence of Lynn's prints in the ducts, coupled with her proximity to the duct entrance at 18:20, raises questions about her possible involvement. The fact that she was seen outside the cabin at that time, and yet the duct cover was tampered with, suggests a level of cunning and planning that warrants further scrutiny.
+
+I believe the murderer is Zack.",Zack
+3,Marple,"The array of suspects before us is indeed most intriguing. As I ponder the various clues presented, I must admit that each of you has raised most astute points. However, I must also consider the peculiar fact that the duct cover was tampered with at 18:20, when Lynn was seen outside the cabin, raising questions about her possible involvement. It seems to me that her actions that day were quite... calculated.
+
+Furthermore, the presence of Wendy's fingerprints on the cabinet key, coupled with her suspicious behavior near the medical room, suggests that she may be hiding something. Her involvement in the case seems to be shrouded in mystery, and I believe it is high time we dug deeper.
+
+I believe the murderer is Wendy.",Wendy
+4,Poirot,"Mes amis, let us proceed with caution and discernment. As we examine the events surrounding the tampered ventilation duct cover, I must consider the various possibilities and potential motives. Monsieur Holmes' observation about the duct cover being tampered with at 18:20, when Lynn was seen outside the cabin, does indeed suggest that our culprit may have been trying to conceal evidence. However, I must also ponder the peculiar fact that Wendy was near the medical room at 18:30, where she inquired about the ventilation ducts. Her actions seem almost... calculated, n'est-ce pas?
+
+Furthermore, I must consider the syringe-shaped item that was passed to her accomplice at 23:20. Does this not suggest a level of coordination and planning that warrants further scrutiny? The threads of this mystery are beginning to weave together, and I believe I am getting closer to unraveling the truth.
+
+I believe the murderer is Wendy.",Wendy
+4,Marple,"I must say, mes amis, that I find it quite intriguing that each of us has been led to believe that the murderer is Wendy, yet none of us have quite pinned her down with concrete evidence. However, I do think that Wendy's involvement in the case is indeed quite suspicious, particularly her proximity to the medical room at 18:30, where she inquired about the ventilation ducts.
+
+It seems to me that Wendy's actions were indeed calculated, and that she may have been trying to create a diversion or distract us from her own actions. Furthermore, the presence of her fingerprints on the cabinet key, coupled with her suspicious behavior near the medical room, does raise questions about her involvement in the case.
+
+I must admit, I find it quite fascinating that each of us has been led down this path, and that we have all been drawing different conclusions based on the same evidence. It is indeed a complex web of clues, and one that requires careful examination and consideration.
+
+I believe the murderer is Wendy.",Wendy
+4,Holmes,"The tangled threads of this case have led us down a most intriguing path. As I reflect on the various clues presented, I must say that the presence of Wendy's fingerprints on the cabinet key, coupled with her suspicious behavior near the medical room, does raise questions about her involvement in the case. Furthermore, the fact that she inquired about the ventilation ducts at 18:30, when Lynn was seen outside the cabin at 18:20, does suggest a level of coordination and planning that warrants further scrutiny.
+
+It seems to me that Wendy's actions were indeed calculated, and that she may have been trying to create a diversion or distract us from her own actions. The syringe-shaped item that was passed to her accomplice at 23:20 also raises questions about her level of involvement in the case. I must admit, however, that the presence of Zack's footprints in the room, coupled with the tampered ventilation duct cover, suggests a level of expertise and knowledge of poisons that is rare.
+
+I must consider the possibility that Zack may have been involved in the events leading up to the crime, and that Wendy's actions were merely a ruse to distract us from his true involvement. However, the presence of Lynn's prints in the ducts, coupled with her proximity to the duct entrance at 18:20, raises questions about her possible involvement as well.
+
+I believe the murderer is Zack.",Zack
+5,Poirot,"Mes amis, the threads of this complex web of clues are indeed most intriguing. We have all been led to believe that the murderer is Wendy, yet none of us have quite pinned her down with concrete evidence. However, I must consider the peculiar fact that the duct cover was tampered with at 18:20, when Lynn was seen outside the cabin, raising questions about her possible involvement.
+
+Moreover, the presence of Zack's footprints in the room, coupled with the tampered ventilation duct cover, suggests a level of expertise and knowledge of poisons that is rare. It seems to me that Zack's background as Yosef's supplier, coupled with his connection to Wilson's past, raises the possibility that he may have been involved in the events leading up to the crime.
+
+Furthermore, the poisonous residue found in Yosef's bag, coupled with the replacement drugs placed after death, suggests a level of expertise and knowledge of poisons that is rare. This, combined with Zack's involvement in the events leading up to the crime, raises the possibility that Zack may have been the mastermind behind this complex scheme.
+
+I believe the murderer is Zack.",Zack
+5,Holmes,"An intriguing case indeed, mes amis. As I ponder the various clues presented, I must say that the presence of Lynn's prints in the ducts, coupled with her proximity to the duct entrance at 18:20, does raise questions about her possible involvement in the crime. However, I must also consider the peculiar fact that the duct cover was tampered with at 18:20, when Lynn was seen outside the cabin, which raises questions about her possible guilt.
+
+Furthermore, I must consider the syringe-shaped item that was passed to her accomplice at 23:20. Does this not suggest a level of coordination and planning that warrants further scrutiny? The threads of this mystery are beginning to weave together, and I believe I am getting closer to unraveling the truth.
+
+I must admit, however, that the presence of Zack's footprints in the room, coupled with the tampered ventilation duct cover, suggests a level of expertise and knowledge of poisons that is rare. This, combined with Zack's background as Yosef's supplier and his connection to Wilson's past, raises the possibility that Zack may have been involved in the events leading up to the crime.
+
+I must also ponder the peculiar fact that the poisonous residue found in Yosef's bag, coupled with the replacement drugs placed after death, suggests a level of expertise and knowledge of poisons that is rare. This, combined with Zack's involvement in the events leading up to the crime, raises the possibility that Zack may have been the mastermind behind this complex scheme.
+
+I believe the murderer is Zack.",Zack
+5,Marple,"I must say, mes amis, that the array of clues presented in this case has led us down a most intriguing path. As we reflect on the various observations made, I am reminded of a most relevant phrase: ""The devil is in the details."" It is precisely these minute details that can often hold the key to unraveling the most intricate of mysteries.
+
+As I ponder the clues, I am struck by the peculiar fact that the duct cover was tampered with at 18:20, when Lynn was seen outside the cabin. This raises questions about her possible involvement and suggests a level of cunning and planning that warrants further scrutiny.
+
+Furthermore, the presence of Wendy's fingerprints on the cabinet key, coupled with her suspicious behavior near the medical room, does raise questions about her involvement in the case. Her proximity to the medical room at 18:30, when Lynn was seen outside the cabin, also suggests a level of coordination and planning that warrants further investigation.
+
+I must admit, however, that the presence of Zack's footprints in the room, coupled with the tampered ventilation duct cover, suggests a level of expertise and knowledge of poisons that is rare. This, combined with Zack's background as Yosef's supplier and his connection to Wilson's past, raises the possibility that Zack may have been involved in the events leading up to the crime.
+
+I believe the murderer is Zack.",Zack

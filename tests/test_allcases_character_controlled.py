@@ -247,6 +247,10 @@ def save_results_to_file(results, filename=None):
     str
         The path to the saved output file.
     """
+    # Ensure output directory exists
+    output_dir = "tests"
+    os.makedirs(output_dir, exist_ok=True)
+    
     if not filename:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         filename = f"case_analysis_character_conditioned_{timestamp}.txt"
@@ -273,36 +277,42 @@ def main():
     - with a fixed detective persona,
     - using complete case information.
 
-    No information is shared between cases.
+    The experiment is repeated for multiple personas
+    (e.g. Holmes, Marple, Poirot), with results saved separately.
     """
 
-    # Load all case data
+    # Load all case data once
     cases = load_case_files()
 
-    # Select the detective persona to use
-    # Options depend on available prompt files
-    character_name = "holmes"  # e.g. 'holmes', 'marple', 'poirot'
+    # List of detective personas to evaluate
+    character_list = ["holmes", "marple", "poirot"]
 
-    all_results = ""
+    for character_name in character_list:
+        print(f"\n{'#' * 60}")
+        print(f"Running character-conditioned analysis: {character_name.capitalize()}")
+        print(f"{'#' * 60}\n")
 
-    for i, case_data in enumerate(cases, 1):
-        print(f"\n{'=' * 40}")
-        print(f"Analysing Case {i} with {character_name.capitalize()}...")
+        all_results = ""
 
-        case_analysis = analyse_case(case_data, i, character_name)
+        for i, case_data in enumerate(cases, 1):
+            print(f"\n{'=' * 40}")
+            print(f"Analysing Case {i} with {character_name.capitalize()}...")
 
-        print(case_analysis)
-        all_results += case_analysis + "\n" + "=" * 40 + "\n\n"
+            case_analysis = analyse_case(case_data, i, character_name)
 
-    # Save all results to file
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            print(case_analysis)
+            all_results += case_analysis + "\n" + "=" * 40 + "\n\n"
 
-    output_file = save_results_to_file(
-        all_results,
-        filename=f"case_analysis_{character_name}_{timestamp}.txt"
-    )
+        # Generate timestamp for this character's run
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-    print(f"\nAnalysis complete. Results saved to: {output_file}")
+        # Save results to a character- and time-specific file
+        output_file = save_results_to_file(
+            all_results,
+            filename=f"case_analysis_{character_name}_{timestamp}.txt"
+        )
+
+        print(f"\nResults for {character_name.capitalize()} saved to: {output_file}")
 
 # =================================================
 # Script Entry Point

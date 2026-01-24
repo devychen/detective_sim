@@ -1,0 +1,31 @@
+turn,speaker,utterance,believed_murderer
+1,Poirot,"Bonjour, mes amis. I am Hercule Poirot, the renowned detective. I am delighted to collaborate with my colleagues in this complex case. My first words are to express my gratitude to the esteemed gentlemen and ladies who will share their expertise with me. I must say, I am intrigued by the intriguing timeline we have been provided, and I am eager to begin our discussion.
+
+As we begin, I must express my interest in the exclusive clue provided by Mel, which suggests that the blackout device was activated too early for the murder window. This raises several questions, n'est-ce pas? How did the device come to be activated before the scheduled time, and what does this reveal about the perpetrator's plan?
+
+I believe the murderer is John.",John
+1,Holmes,"An intriguing start, Monsieur Poirot. Your observation on the activation of the blackout device is most astute, and it does pose a significant challenge to our timeline. I concur that the device's activation before the scheduled time implies a level of foresight and planning on the part of the perpetrator. This, coupled with the rare surgeon-level angle of the cardiac stab wound, suggests that our culprit is no ordinary murderer. The fact that the safe was opened but only William's prints were found also raises suspicions about William's involvement.
+
+I believe the murderer is William.",William
+1,Marple,"I must say, I'm delighted to join this collaboration, and I must commend both of you on your astute observations thus far. Monsieur Poirot, your keen eye for detail has indeed raised some fascinating questions, particularly regarding the blackout device's activation. It does seem quite improbable that someone would set it up without being discovered. 
+
+On the other hand, I find the observation that the safe was opened but only William's prints were found to be quite telling. It implies a level of carelessness or perhaps an attempt to mislead us. As I ponder the various motives, I'm reminded of the importance of human nature in these cases. 
+
+The appearance of the red residue under Shirley's nails, for instance, is quite striking, and it does raise some intriguing questions. I wonder if it's merely violin rosin, but I must admit, my mind is drawn to the possibility of something more sinister.
+
+I believe the murderer is Shirley.",Shirley
+2,Poirot,"Mes amis, I am delighted to see the wheels of our little grey cells turning in tandem. The appearance of the red residue under Shirley's nails is indeed a most intriguing detail, n'est-ce pas? The idea that it may not be violin rosin but rather something more sinister sends shivers down my spine. It suggests a level of intimacy and perhaps even a moment of passion between Shirley and the perpetrator. However, it is crucial to note that the residue's presence does not necessarily imply Shirley's involvement, as it could be a red herring. We must remain vigilant and consider all possibilities.
+
+The cyanide injection and surgical puncture performed during the 21:50-21:55 timeframe also raise questions about the perpetrator's expertise and preparation. It is essential to analyze the wounds and the overall scene to determine if they are consistent with a premeditated or impulsive act. I propose that we examine the wound patterns, the condition of the body, and the overall state of the study to shed more light on the events surrounding the crime.
+
+I believe the murderer is Charles.",Charles
+2,Marple,"I must say, I find Monsieur Poirot's observation on the blackout device's activation to be quite insightful. However, I do wonder if we should consider the possibility that the device was not activated by the perpetrator but rather by someone else. The presence of a dry ice blackout device, as well as the wig with synthetic hair found at the scene, suggests that our culprit may have been trying to create a diversion or disguise themselves.
+
+Furthermore, I'm struck by the fact that the safe was opened, but only William's prints were found. This raises the question of whether William was involved in the crime, or if someone else was trying to mislead us. I also find it intriguing that the experimental drug records with torn pages and the mixed investigation reports suggest that our culprit may have been trying to create a false trail.
+
+I believe the murderer is Charles.",Charles
+2,Holmes,"An intriguing collaboration, indeed. It appears we have each formed an initial opinion based on the exclusive clues provided. Monsieur Poirot's observation on the blackout device's activation is indeed astute, but I must caution against jumping to conclusions. The rare surgeon-level angle of the cardiac stab wound suggests a level of expertise, which could indicate that the perpetrator is a medical professional. Furthermore, the fact that the safe was opened but only William's prints were found implies a level of carelessness or attempt to mislead, which could be indicative of a more complex motive.
+
+The presence of the red residue under Shirley's nails is also a most intriguing detail, but as you noted, Monsieur Poirot, it could be a red herring. I propose that we examine the wound patterns, the condition of the body, and the overall state of the study to shed more light on the events surrounding the crime. Perhaps the killer's identity lies in the intersection of these seemingly disparate elements.
+
+I believe the murderer is Charles.",Charles

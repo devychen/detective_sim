@@ -49,7 +49,7 @@ Then using an open-source LLM (llama) to do a _Validation Via Reverse identifica
 
 > 🍎 Output saved to *prompts > holmes.yaml, marple.yaml, poirot.yaml*.
 
-✅ **Step 4**: Run *prep > reverse_id.py* to do the reverse identification check, model used llama-3.3-70b-Instruct. 
+✅ **Step 4**: Run *prep > reverse_id.py* to do the reverse identification check, model used llama-3.2-3b-Instruct. 
 
 > 🍎 Identity proved. 
 
@@ -113,11 +113,11 @@ _**OR [CURRENT]**_: From original books, using LLM (`meta/llama-3.2-3b-instruct`
 > 🍎 *lines > llm_data > each character has a folder containing its lines in csv format, named by source book title.*
 
 **Step 1.5** Performs systematic diagnostics on LLM-extracted dialogue data before any classifier training is attempted.   
-- Japp is noisy, delete from the data. Only using the other five.
+- Japp is noisy, delete from the data. Only using the other five chars.
 
 > 🍎 *baseline > data_diagnosis.py*
 
-**Step 2** Prepare the dataset, preprocessing with cleaning and balancing. It is parameterised to adapt two situation: including "others" or not.
+**Step 2** Prepare the dataset, preprocessing with cleaning and balancing. It is parameterised to adapt two situation: including "others" as a 4th class or not.
 
 > 🍎 *baseline > prepare_dataset.py*
 
@@ -132,7 +132,7 @@ _**OR [CURRENT]**_: From original books, using LLM (`meta/llama-3.2-3b-instruct`
 ## Workflow - Data Analysis, Metrics.
 
 **Step 1** Walk-through of the metrics, confirm its rationale.
-> _metrics.md
+> metrics.md
 
 
 ## Timeline

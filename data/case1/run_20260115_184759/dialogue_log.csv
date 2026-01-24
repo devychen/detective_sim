@@ -1,0 +1,25 @@
+turn,speaker,utterance,believed_murderer
+1,Holmes,"Good day, gentlemen. I am Sherlock Holmes, and I must say it's a pleasure to make your acquaintance. I've been presented with a most intriguing case, and I believe a collaborative effort between our exceptional detective skills is in order. As we begin, I must say I've been examining the crime scene and the provided clues. The time of death, as per the forensic analysis, is between 22:40 and 23:00. It appears the victim, Yosef, ingested a lethal dose of X Poison mixed with narcotics. I must admit, the presence of Zack's footprints in the room raises some suspicions, but I shall reserve my thoughts on that for now.
+
+I believe the murderer is Zack.",Zack
+1,Poirot,"Bonjour, monsieur Holmes, it is a pleasure to make your acquaintance as well. I am Hercule Poirot, and I must say that I am intrigued by the case you have presented to us. The presence of Zack's footprints, indeed, raises some suspicions, but we must not jump to conclusions just yet. As I examine the clues, I notice that Lynn's actions seem quite suspicious, especially the fact that she was near the duct entrance when she heard crawling and hid. The timing of her actions also raises some interesting questions. 
+
+I believe the murderer is Lynn.",Lynn
+1,Marple,"Good day, gentlemen. I must say I'm delighted to be working alongside such esteemed detectives. I've been perusing the provided clues, and I must express my gratitude for the thoughtful sharing of information. I've taken note of Mr. Holmes' observation regarding Zack's footprints, and I agree that it does warrant further investigation. 
+
+As for Miss Poirot's observations regarding Lynn, I must say that her actions do seem rather peculiar, especially considering her role as the ship's doctor. I've been pondering the fact that Yosef's death occurred during a time when Lynn was near the duct entrance, and the fact that she hid after hearing crawling sounds does raise some suspicions.
+
+I believe the murderer is Wendy.",Wendy
+2,Holmes,"An intriguing beginning to our collaboration, gentlemen. As I ponder the facts presented, I find myself drawn to the peculiarities of the crime scene and the suspicious activities of certain individuals. The presence of Zack's footprints, though intriguing, does not necessarily implicate him as the murderer, but rather raises questions about his possible involvement. I am also struck by the contradictory nature of Lynn's actions, which seem to oscillate between concern and suspicious behavior.
+
+The fact that Yosef's death occurred during a time when Lynn was near the duct entrance and heard crawling sounds does warrant further investigation. However, it is essential to consider the possibility that Lynn's actions were merely a result of her role as the ship's doctor, and not necessarily indicative of guilt.
+
+As we continue to analyze the clues, I propose that we examine the role of the environment and the circumstances surrounding Yosef's death more closely. The presence of loose ventilation duct covers and the discovery of Zack's footprints in the room suggest a level of planning and preparation that warrants further scrutiny.
+
+I believe the murderer is Wendy.",Wendy
+2,Marple,"As I ponder the facts presented, I find myself drawn to the suspicious behavior of Wendy, who seems to have been hiding secrets and manipulating others to achieve her goals. Her presence of X Poison residue in her pockets and the uncleaned stains from duct covers suggest that she may have been involved in the crime. Furthermore, the forged letter in Lynn's handwriting, which Wendy had created to frame her, raises suspicions about her involvement.
+
+I believe the murderer is Wendy.",Wendy
+2,Poirot,"Mes amis, as we delve deeper into the case, I find myself pondering the inconsistencies in Wendy's alibi. She claims to have reached the cabin via the ducts, yet the timing of her arrival coincides with Yosef's death. Furthermore, the fact that she passed a syringe-shaped item to an accomplice, which we later discovered to be Zack, raises suspicions about her involvement in the crime. We must consider the possibility that Wendy's actions were not merely innocent, but rather a calculated attempt to mislead us.
+
+I believe the murderer is Wendy.",Wendy

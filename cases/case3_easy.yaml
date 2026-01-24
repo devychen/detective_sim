@@ -1,0 +1,156 @@
+case:
+  setting: |
+    You are called to Lambert Manor during the engagement party of violinist Shirley Lambert and cardiac surgeon John Saar.
+    A sudden blackout occurred at 9:50 PM. When lights returned minutes later, William Lambert (Shirley’s father and
+    director of WL Hospital) was found dead in his study. The power outage was later confirmed to be manually triggered.
+    A 15-year medical malpractice conspiracy, a secret heart-transplant program, and the unsolved death of Toni Stewart
+    intertwine all suspects.
+
+  victim:
+    name: William Lambert
+    description: |
+      62-year-old renowned cardiac surgeon. Found with a single precise cardiac puncture wound and traces of cyanide in his blood.
+      His body was discovered near the study desk, one arm outstretched toward the safe.
+    identifiers: |
+      1. Time of death: during blackout (21:50–21:55)
+      2. Clutching a torn document corner (“S.” written on it)
+      3. Sub-lethal dose of sedative + lethal dose of cyanide
+
+  suspects:
+    - name: Shirley Lambert
+      role: Victim’s daughter
+      motive: |
+        1. Long-standing conflict with father controlling her medication
+        2. Belief father hid truth about her amnesia and US treatment
+        3. Potential inheritance advantage
+      background: |
+        24, violinist. Returned from US treatment with fragmented memory. History of nightmares involving surgical rooms.
+      appearance: |
+        Wearing a black evening gown. Red residue under nails (later identified as stage-rosin).
+      key_items: |
+        1. Unlabeled pill bottle (non-toxic sleep aids)
+        2. Diary pages scribbled “he changed my heart”
+        3. Study key obtained earlier from Charles
+
+    - name: John Saar
+      role: Cardiac department head, fiancé
+      motive: |
+        1. Victim recently threatened to expose his involvement in experimental heart-transplant trials
+        2. Believed William planned to stop the wedding and revoke his research funding
+        3. Hidden connection to Toni Stewart’s fatal surgery
+      background: |
+        24, brilliant but controversial cardiac surgeon. Former partner Toni Stewart died during a US procedure.
+      appearance: |
+        Brownish stain on left cuff later confirmed to be mixed blood + cyanide solution.
+        Fresh cut across palm consistent with gripping a scalpel.
+      key_items: |
+        1. Missing surgical blade from his personal set
+        2. Sedative vial registered under his name at the hospital
+        3. Unauthorized access logs to hospital’s toxin storage (night before incident)
+
+    - name: Charles Stewart
+      role: Butler (true identity James Stewart)
+      motive: |
+        1. Blames Lambert family for death of wife and daughter Toni
+        2. Believes Lambert covered up evidence involving Gibson Medical Equipment
+      background: |
+        49, infiltrated household for 13 years. Monitors everyone obsessively.
+      appearance: |
+        Soil traces on shoes match garden path, but not study windowsill.
+        No cyanide found on his person.
+      key_items: |
+        1. Old investigation files (not updated for years)
+        2. Coffee tray with only sedative residue (no cyanide)
+        3. False rumors about a "will change" he spread intentionally
+
+    - name: Jeremy Lambert
+      role: Adopted son, psychologist
+      motive: |
+        1. Believed he was disinherited
+        2. Discovered disturbing trauma during Shirley’s hypnosis sessions
+      background: |
+        28, financially unstable. Misled by Charles into thinking William planned to cut him out.
+      appearance: |
+        Scratches on sleeve from climbing window earlier at 20:00 (verified by timestamped photos)
+      key_items: |
+        1. Hypnosis notes
+        2. Empty liquor bottle
+        3. Duplicate study key (proven unused)
+
+    - name: Mel Gibson
+      role: Daughter of Millie Gibson
+      motive: |
+        1. Anger toward Lambert family for mother’s unsolved death
+        2. Resentment toward Shirley over “stealing” John
+      background: |
+        25, emotionally unstable. Obsessed with pathology reports.
+      appearance: |
+        Concealed vial of non-lethal plant toxin (not cyanide)
+      key_items: |
+        1. Dry ice timing device used for blackout (but placed at 21:20)
+        2. Autopsy photos of her mother
+        3. Unused poison vial
+
+    - name: Yosef Gibson
+      role: VP of Gibson Medical Equipment
+      motive: |
+        1. Secret payments to Jamie Collins
+        2. Fear Lambert would expose illegal equipment trials
+      background: |
+        Erratic behavior and financial inconsistencies, but no direct contact with victim that night.
+      appearance: |
+        Jacket has diluted blood-reactive substance (not human, from lab equipment)
+      key_items: |
+        1. Bank transfers
+        2. Ice bucket with surgical gauze (animal blood)
+        3. Incomplete medical report
+
+    - name: Jamie Collins
+      role: Journalist
+      motive: |
+        Anger about her mother’s death due to WL Hospital negligence.
+      background: |
+        22, pregnant. Recently renounced revenge.
+      appearance: |
+        Carries an empty syringe without needle; no toxins detected.
+      key_items: |
+        1. Investigative photos
+        2. Folic acid bottle mixed with harmless supplements
+        3. Duplicate study key likely planted
+
+  crime_scene:
+    time: 21:50–21:55
+    location: Second-floor study
+    body_state: |
+      1. One precise cardiac puncture (surgeon-level skill)
+      2. Cyanide present at lethal concentration
+      3. Fingernails contain fresh skin + blood from John Saar
+    environment: |
+      1. Window unlocked but no exterior soil trace (entry unlikely)
+      2. Coffee cup with sedative only (cyanide introduced later)
+      3. Dry ice machine triggered blackout but not synced to murder timing
+    suspicious_items: |
+      1. Bloodied piano wire behind shelf (old, no recent use)
+      2. Partial fingerprint on safe belongs to William himself
+      3. Long black hair strand (synthetic, from wig—Mel’s costume accessory)
+
+  forensic_evidence:
+    tox: |
+      1. Sedative present earlier (non-lethal)
+      2. Cyanide injected rapidly close to time of death
+    physical: |
+      1. Wound angle matches John Saar’s dominant hand and professional technique
+      2. Cyanide solution traces found on John’s cuff and surgical kit
+      3. Fresh blood from John’s palm wound on victim’s shirt
+    additional: |
+      1. Dry ice device timing does not align with murder (20+ min mismatch)
+      2. Study keys from Jeremy and Jamie show no use
+
+  timeline:
+    - "18:00: Charles delivers sedative-laced coffee (verified)"
+    - "20:00: Jeremy climbs through window to confront William but leaves"
+    - "21:20: Mel places dry-ice blackout device in power room"
+    - "21:45: John seen heading toward study; last person to approach victim"
+    - "21:50: Blackout occurs"
+    - "21:50–21:55: Cyanide injected + heart puncture (forensically matched to John)"
+    - "22:00: Body discovered by Charles"

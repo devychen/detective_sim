@@ -1,145 +1,139 @@
-# cases/case1.yaml
-
 case:
   setting: |
-    As invited detectives, the three of you boarded the luxurious cruise ship "Sunshine" to investigate a murder that occurred on board.
-    The victim is Yosef, a famous bar owner from London, who died mysteriously during a drug deal on the ship. The relationships among the people on board are complex, involving motives such as drug trafficking, corporate espionage, and revenge.
-    The time setting is June 19, 1902, and the incident occurred in Yosef's cabin.
+    You are invited detectives on the luxurious cruise ship "Sunshine." 
+    Yosef, a London bar owner involved in drugs and illegal activities, died in his cabin during a drug deal. 
+    Multiple suspects have motives: revenge, power struggles, and betrayal. 
+    The date is June 19, 1902.
 
   victim:
     name: Yosef
     description: |
-      Yosef was the owner of a famous bar in London, with extensive influence and involvement in illegal activities such as prostitution, gambling, and drugs. He had a long-term drug trafficking partnership with Zack from the Sunshine.
-      He himself had a severe drug addiction and would use drugs in his room every night around 22:30. Zack, Wendy, and Lynn were all aware of this habit.
-      He was paranoid and ruthless but not particularly skilled in his methods.
+      A bar owner with deep criminal ties: prostitution, gambling, drugs. 
+      Addicted to narcotics. Used drugs every night at 22:30. 
+      Paranoid but not skillful. Depended on Zack for drug supply.
 
   suspects:
     - name: Zack
-      role: First mate of the Sunshine, Yosef's drug supplier
+      role: First mate; Yosef’s drug supplier
       motive: |
-        1. Revenge: His brother Nick was killed by Yosef. He deeply loved his brother.
-        2. Conflict of interest and self-preservation: He had a long-term drug trafficking partnership with Yosef and feared that his subordinate Wilson might collude with Yosef, rendering him expendable and leading to his murder.
+        1. Revenge: Yosef killed Zack’s brother Nick. 
+        2. Self-preservation: Feared Yosef would replace him with Wilson.
       background: |
-        Graduated from a maritime academy and worked his way up to become the first mate.
-        Had a brother, Nick, who worked for Yosef. At his brother's request, he used his position to help Yosef smuggle drugs, demonstrating skillful methods.
-        Had a subordinate, Wilson, whom he controlled by arranging for Lynn to date and marry Wilson's son, Wilson Jr..
-        To protect his position, he hid Wilson's existence from Yosef. However, his brother, out of loyalty, revealed this to Yosef, leading to his brother's loss of value and subsequent murder by Yosef.
-        Motivated by self-preservation and revenge, he developed murderous intentions.
+        Maritime academy graduate; rose to first mate. 
+        Helped smuggle drugs for Yosef. 
+        Hid Wilson’s existence to protect himself. 
+        Yosef killed Nick after learning the truth. 
+        Zack gained both motive and opportunity.
       appearance: |
-        Middle-aged man, burly, dressed in sailor attire;
-        His room had clothes with traces of dust from ventilation ducts. He claimed to have inspected the ducts in his own room but was evasive when asked if he had entered Yosef's ventilation ducts.
-        His hands had traces of suspicious powder (suspected to be drugs mixed with "X Poison," consistent with what Yosef consumed).
+        Dust from ventilation ducts on clothes. 
+        Powder residue on hands matching drug mixture with X Poison.
       key_items: |
-        1. A duty roster posted in the first mate's office, showing that Zack was responsible for boarding inspections that day, giving him access to Yosef's personal items.
-        2. An empty cargo bag used for the drug deal, indicating the deal was completed.
-        3. No money from the deal was found in the office, only a burnt corner of what appeared to be cash in the fireplace.
-        4. Secret correspondence with Wilson and Lynn.
-        5. Tools for crawling through ventilation ducts.
+        - Duty roster showing Zack inspected Yosef’s luggage.
+        - Empty cargo bag from the drug deal.
+        - Burned cash fragment in office fireplace.
+        - Secret letters to Wilson and Lynn.
+        - Tools for moving through ventilation ducts.
 
     - name: Wilson
-      role: Senior crew member of the Sunshine, Zack's subordinate in drug trafficking
+      role: Senior crew member; Zack’s subordinate
       motive: |
-        1. Revenge: His son Wilson Jr. died from a drug overdose, and he suspected Yosef and Zack of conspiring to kill him.
-        2. Saving someone: His daughter-in-law Lynn claimed Yosef was trying to kill her.
+        1. Revenge for his son Wilson Jr.’s death.
+        2. Believed Yosef planned to kill Lynn.
       background: |
-        Worked on the ship for over a decade. Under Zack's coercion and incentives, he participated in drug trafficking but kept this hidden from his son and daughter-in-law out of love.
-        Was once approached by Wendy's subordinate, who asked if he would replace Zack, but he declined as he did not want to get further involved.
-        His son Wilson Jr. recently died, with the official cause being a drug overdose. Only after his son's death did he learn that his son was also an addict, victimized by Yosef, Zack, and himself, leading to immense guilt.
-        However, due to the unnatural contortion of his son's body at death, he suspected foul play.
-        Had a daughter-in-law, Lynn, whom he treated like his own child. He did not share his suspicions with her.
-        Shortly after his son's death, he overheard Yosef telling Zack, "That kid has been taken care of for you," leading him to suspect they had conspired to kill his son. He developed murderous intentions.
-        Planned to pit them against each other, letting Yosef deal with Zack before he dealt with Yosef.
-        Through Nick, he sent a secret letter to Yosef proposing to replace Zack, offering half the profits in exchange for Yosef eliminating Zack.
+        Critically, Wilson never had access to Yosef’s drug stock. 
+        The drug stock was inside a locked case only Zack could open. 
+        Worked on ship for years. 
+        Hid drug involvement from his family. 
+        Son died from overdose; suspected foul play. 
+        Misheard Yosef’s words and believed Yosef killed his son.
       appearance: |
-        Elderly man, gaunt face; clothes old but clean, no suspicious traces. Depressed mood.
+        Elderly, tired, clean clothing. 
+        No suspicious physical traces.
       key_items: |
-        1. A business card left by Wendy's subordinate.
-        2. A small medicine bottle labeled "Vitamin C" but actually containing "X Poison" provided by Lynn. The accompanying syringe was missing, suspected to have been thrown into the sea.
-        3. Secret correspondence with Yosef, proposing to replace Zack.
-        4. His son Wilson Jr.'s belongings (photos, drug paraphernalia).
+        - Business card from Wendy’s subordinate.
+        - Bottle labeled "Vitamin C" but containing X Poison (unopened).
+        - Letters proposing cooperation with Yosef.
+        - Wilson Jr.’s belongings.
 
     - name: Lynn
-      role: Ship doctor, Wilson's daughter-in-law, double agent (providing intelligence on Yosef and Zack to each other)
+      role: Ship doctor; double agent
       motive: |
-        1. Yosef threatened her life, possibly prompting her to act first.
-        2. Long-term exploitation, possibly leading to anger or self-defense.
+        1. Yosef threatened her.
+        2. Long-term exploitation.
       background: |
-        Orphaned, she only cared about money, which gave her a sense of security. After graduating from medical school, she chose to work as a ship doctor for easier access to wealthy clients.
-        Skilled at deception, she was recruited by Yosef to spy on Zack for substantial rewards. Later, she reported to Wendy instead of Yosef.
-        Was then recruited by Zack to get close to Wilson for surveillance, leading to a relationship with Wilson Jr.. When Wilson proposed, she demanded more money from Zack to marry him and continue spying.
-        Collected intelligence for both Yosef and Zack while married to Wilson Jr. and monitoring Wilson.
-        Recognized that Wilson Jr.'s death was suspicious but did not care.
-        Visited Yosef that day and was questioned about hiding Wilson's existence. Fearing Yosef would kill her, she planned to use Wilson to act.
+        Orphan; motivated by money. 
+        Recruited by Yosef, later by Wendy, later by Zack. 
+        Married Wilson Jr. for operational reasons. 
+        Not emotionally affected by his death. 
+        Feared Yosef would expose her.
       appearance: |
-        Young woman, well-educated appearance.
-        Clothes in her room had traces of dust from ventilation ducts;
-        Pockets had residue of diluted "X Poison."
+        Dust from ventilation ducts on clothes. 
+        Diluted X Poison residue in pockets.
       key_items: |
-        1. Three bottles of medicine were missing from the medical room's cabinet, all suspected to be "X Poison." Three accompanying syringes were also missing.
-        2. The cabinet key was on her person, but she claimed to have lost it. When found, it was on the cabinet, which was open, with one bottle of "X Poison" missing.
-        3. Her clothes had traces of poison residue, but no bottle or syringe was found on her, suggesting they were discarded into the sea.
+        - Three missing bottles of X Poison from medical cabinet.
+        - Cabinet key found on cabinet, not on her person.
+        - Missing syringes (likely discarded).
+        - Clothing with poison residue.
 
     - name: Wendy
-      role: Yosef's secretary, second in command in the criminal organization, the "brain" behind operations
+      role: Yosef’s secretary; criminal strategist
       motive: |
-        1. Planned to replace Yosef and eliminate obstacles.
-        2. Had killed Wilson Jr. and Nick, possibly to cover up crimes.
+        1. Wanted to replace Yosef.
+        2. Eliminated internal threats.
       background: |
-        Eager to rise in society but found it difficult as a woman, so she joined Yosef and became his right-hand woman.
-        Realized Yosef was not particularly skilled and secretly planned to usurp his power. Had largely succeeded, controlling the final link in the drug trafficking chain.
-        Selectively reported Lynn's intelligence, such as hiding Lynn's report about Wilson being Zack's partner in drug shipments. Instead, she privately approached Wilson, asking if he would supply drugs and replace Zack, but Wilson refused.
-        Upon learning of Wilson Jr.'s existence, she lured him into using their drugs and convinced Yosef that Wilson was a threat to drug shipments, leading Yosef to agree to kill him. Her real goal was to use Wilson's death to sow discord between Yosef and Zack.
-        Killed Wilson Jr. with drugs laced with "X Poison," waiting for Wilson to discover the truth and seek revenge on Yosef or Zack, thereby using him as a pawn.
-        Nick was also a threat due to his loyalty to Yosef, so she killed him, declaring war on Yosef.
-        On the day of the incident, she boarded the ship intending to kill Yosef.
+        Ambitious; manipulated Yosef. 
+        Controlled final stage of drug chain. 
+        Lured Wilson Jr. into addiction; killed him using X Poison. 
+        Also killed Nick to undermine Yosef. 
+        Planned to kill Yosef and take over.
       appearance: |
-        Middle-aged woman, sharp eyes, low-key clothing with a cold aura;
-        Clothes in her room had traces of dust from ventilation ducts;
-        Pockets had residue of diluted "X Poison";
-        Sleeves had unwashed stains from ventilation duct covers.
+        Dust from ventilation ducts. 
+        X Poison residue in pockets. 
+        Uncleaned stains from duct covers.
       key_items: |
-        1. A forged letter in Lynn's handwriting.
+        - Forged letter in Lynn’s handwriting.
 
   crime_scene:
-    time: June 19, 1902, 22:40 to 23:00
-    location: Yosef's cabin on the Sunshine
+    time: 22:40–23:00
+    location: Yosef’s cabin
     body_state: |
-      The body was contorted unnaturally, with a pained expression, consistent with "X Poison" poisoning. No obvious external injuries.
-      "X Poison" is medicinal in small doses but lethal in excess.
+      Body contorted painfully. 
+      No external injuries. 
+      Symptoms consistent with X Poison overdose.
     environment: |
-      A small amount of drug residue without "X Poison" was found by the bedside; the ventilation duct cover was loose, with crawling traces inside. Zack's footprints were found in the room.
+      Drug residue without poison on bedside table. 
+      Loose ventilation duct cover. 
+      Zack’s footprints in the room.
     suspicious_items: |
-      1. Abnormal dust distribution in the ventilation ducts, indicating multiple people had entered.
-      2. The drugs by the bedside did not contain "X Poison," but Yosef's consumed drugs did, suggesting the poisoned drugs were replaced after his death.
+      - Multiple entry traces in ventilation ducts.
+      - Poisoned drugs found only in Yosef’s bag.
+      - Replacement drugs placed after death.
 
   forensic_evidence:
-    time_of_death: June 19, 1902, 22:40 to 23:00
-    cause_of_death: Poisoning by "X Poison," ingested through drugs laced with it
+    time_of_death: 22:40–23:00
+    cause_of_death: Oral ingestion of X Poison mixed with drugs
     body_observations: |
-      The body was stiff and contorted, with dilated pupils and white foam at the mouth.
+      Dilated pupils, foam at mouth, rigid posture.
     toxicology: |
-      High concentrations of "X Poison" were detected in the blood, mixed with drugs.
+      High concentration of X Poison mixed with narcotics.
     other_findings: |
-      Multiple fingerprints and fabric fibers were found in the ventilation ducts.
-      Drug powder mixed with "X Poison" was found at the ship's bow, suspected to have been left by someone attempting to scatter it with the wind.
+      Fibers and prints inside ducts (multiple individuals).
+      Poisoned powder found at ship’s bow (Zack trying to dispose).
     other_information: |
-      "X Poison" can only be effective through direct injection or oral ingestion.
+      X Poison is only lethal via injection or ingestion.
 
   timeline:
-    - "17:00: Yosef boarded the ship. Zack inspected his belongings and opened Yosef's bag containing drugs, possibly replacing Yosef's clean drugs with poisoned ones."
-    - "18:00: Zack and Yosef conducted their usual drug deal. Zack found an excuse to confirm the drugs in Yosef's bag were the poisoned ones he had replaced."
-    - "18:10: Wendy went to the medical room to get information from Lynn, noticed the cabinet key was on the cabinet, and told Lynn that Yosef was looking for her, thereby diverting her."
-    - "18:20: Zack and Yosef completed their deal. As Zack left the cabin, he passed Lynn outside."
-    - "18:30: Wendy was spotted near the medical room."
-    - "18:40: A crew member testified that Wendy asked about the ventilation ducts at this time."
-    - "18:50: Lynn noticed the key was missing. When she went to the medical room to retrieve 'X Poison', she found the key on the cabinet and one bottle of 'X Poison' missing."
-    - "19:30: Wilson was about to visit Yosef when Lynn approached him, claiming Yosef was trying to kill her and begging for help. She gave Wilson a bottle of 'X Poison' and a syringe."
-    - "19:40: Wilson met with Yosef to discuss cooperation."
-    - "20:20: Wilson returned and told Lynn that Yosef had no intention of killing her, but Lynn still seemed uneasy."
-    - "22:40: Wendy had just reached Yosef's cabin via the ventilation ducts when she witnessed Yosef's death. She removed the cover, confirmed his death, but left without entering, as someone had acted first."
-    - "22:50: Lynn was spotted near the ventilation duct entrance. She admitted entering the ducts but heard someone else crawling inside and hid until the sound stopped."
-    - "23:00: Wendy was seen handing something to an accomplice, resembling a medicine bottle and syringe."
-    - "23:20: Lynn reached Yosef's cabin via the ducts, found the cover removed, and saw Yosef dead, appearing to have died from 'X Poison'. She left without entering."
-    - "02:10: Zack reached Yosef's cabin via the ducts, found the cover removed, and jumped down to confirm Yosef's death."
-    - "02:15: Zack was spotted near the ventilation duct exit in Yosef's room, possibly retrieving the poisoned drugs he had planted."
-    - "02:20: Zack was seen at the ship's bow, using the wind to dispose of the poisoned drugs, looking sorrowful."
+    - "17:00: Yosef boarded; Zack inspected luggage."
+    - "18:00: Zack confirmed drug package and replaced it."
+    - "18:20: Zack left; Lynn seen outside cabin."
+    - "18:30: Wendy near medical room."
+    - "18:40: Wendy asked crew about ventilation ducts."
+    - "18:50: Lynn found X Poison missing."
+    - "19:30: Lynn gave Wilson a bottle and syringe (unused)."
+    - "19:40: Wilson met Yosef."
+    - "22:40: Wendy reached cabin via ducts; saw Yosef already dead."
+    - "22:50: Lynn near duct entrance; heard crawling and hid."
+    - "23:00: Wendy passed syringe-shaped item to accomplice."
+    - "23:20: Lynn saw body but did not enter."
+    - "02:10: Zack entered via duct to confirm death."
+    - "02:20: Zack disposed of poisoned powder at ship’s bow."

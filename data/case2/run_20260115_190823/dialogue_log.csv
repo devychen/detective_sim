@@ -1,0 +1,96 @@
+turn,speaker,utterance,believed_murderer
+1,Holmes,"The esteemed detective colleagues, I presume? Allow me to introduce myself. I am Sherlock Holmes, a consulting detective of some renown. I have had the pleasure of perusing the collected clues you've shared with me, and I must say, the particulars of this case do pique my interest. The presence of a pesticide cup with fresh residue, a wooden club bearing Jim's DNA, and the chaotic bloodstains in the basement all point to a most intriguing narrative. I notice, however, that the time of death seems somewhat uncertain, with two conflicting time frames provided. This inconsistency does raise a few questions.
+
+I believe the murderer is William.",William
+1,Marple,"A most intriguing opening by the illustrious Mr. Holmes, and I must say I share your interest in unraveling the tangled threads of this case. The inconsistencies in the time of death do pose a challenge, but I think it's essential to consider the various accounts given by our suspects. Mr. Holmes, your observation about the pesticide cup with fresh residue does pique my interest; I've been pondering the significance of William's neat attire, which seems at odds with the chaotic scene in the basement. His nervous expression during the interview was quite telling, wasn't it?
+
+I believe the murderer is Raymond.",Raymond
+1,Poirot,"Mes amis, it is a pleasure to meet you both, and I am delighted to see that we share a passion for unraveling the mysteries of the human mind. Your observations, Mr. Holmes, are most astute, and I concur that the time of death is indeed uncertain. However, I must respectfully disagree with your assessment of William. While his nervous expression was telling, I believe it is more indicative of a man who is trying to cover his tracks, rather than the perpetrator of the crime.
+
+As for Mr. Marple, I agree that her keen eye for detail has picked up on some telling aspects of William's behavior. Nevertheless, I must caution against jumping to conclusions based solely on this evidence. The presence of the pesticide cup with fresh residue does suggest that William may have played a role in the events leading up to the crime, but I propose that we consider the possibility that he may have been coerced or manipulated by the true perpetrator.
+
+I believe the murderer is William.",William
+2,Poirot,"Zee inconsistencies in the time of death, zey are indeed a puzzle, n'est-ce pas? But, mes amis, I must say that I find it intriguing that we have not yet considered the potential role of zee victim, Charlie, in this complex affair. His disappearance and subsequent discovery, coupled with the discovery of the pesticide cup with fresh residue, suggest that he may have been a willing participant in the events leading up to his demise.
+
+Furthermore, I must say that I am struck by zee juxtaposition of William's neat attire and the chaotic scene in the basement. It is almost as if he is trying to present a façade of calmness, while hiding the true nature of his involvement. But, I digress. As we continue to unravel the tangled threads of this case, I propose that we consider the possibility that William may be a pawn in a larger game, rather than the mastermind behind the crime.
+
+I believe the murderer is William.",William
+2,Marple,"It seems we have quite a few theories brewing already, and I must say, I find it quite fascinating. Mr. Holmes, your observation about the pesticide cup with fresh residue does indeed pique my interest, and I must concur that William's nervous expression during the interview was quite telling. However, I must also consider the possibility that Raymond's silenced gun and trembling hands could be indicative of a man who is still reeling from his past trauma.
+
+Furthermore, I must say that I find it intriguing that William's role in the village's pest control seems almost too convenient, considering the circumstances. And, of course, his appearance bears a striking resemblance to a man who would be well-versed in the art of deception.
+
+I believe the murderer is William.",William
+2,Holmes,"The art of deduction is indeed a most thrilling pursuit, and I must say that I am delighted to be collaborating with such astute colleagues as yourselves. Marple's observations on William's nervous expression during the interview are most pertinent, and Poirot's astute remark about the potential role of the victim, Charlie, warrants further consideration.
+
+As we delve deeper into the case, I must say that the presence of the pesticide cup with fresh residue does suggest a most deliberate and calculated act. However, the inconsistencies in the time of death and the chaotic scene in the basement do pose a most intriguing challenge. I propose that we consider the possibility that the killer may have deliberately manipulated the evidence to mislead us.
+
+Furthermore, I must say that I find it intriguing that the forensic evidence points to a most unlikely suspect - Jim, the unconscious individual found nearby. His presence and the bloodstains in the basement seem to suggest that he may have been the intended target, rather than the actual victim.
+
+I believe the murderer is Jim.",Jim
+3,Marple,"The fascinating complexities of this case continue to unfold, and I must say, I am thoroughly enthralled by the diverse perspectives of my esteemed colleagues. Mr. Holmes, your insightful remarks about the pesticide cup with fresh residue have indeed piqued my interest, and I must concur that William's nervous expression during the interview was quite telling.
+
+However, I must also consider the possibility that Raymond's silenced gun and trembling hands could be indicative of a man who is still reeling from his past trauma. His girlfriend's keepsake, which he kept with him, seems to hint at a deeper emotional connection, and his failure to retrieve evidence from the storage shed where William kept toxic chemicals raises questions about his alibi.
+
+As we continue to unravel the tangled threads of this case, I propose that we consider the possibility that Raymond's past trauma may have led him down a path of revenge, albeit an unintended one.
+
+I believe the murderer is Raymond.",Raymond
+3,Poirot,"Mes amis, it appears that our esteemed colleagues have presented a diverse array of theories, each with its own merits and flaws. Mr. Holmes, your observation about the pesticide cup with fresh residue is indeed astute, and I concur that William's nervous expression during the interview was telling. However, I must caution against jumping to conclusions based solely on this evidence, as the human mind is a complex and capricious creature.
+
+As we continue to unravel the tangled threads of this case, I propose that we consider the possibility that the killer may have deliberately manipulated the evidence to mislead us. The inconsistencies in the time of death and the chaotic scene in the basement do pose a most intriguing challenge, and we must be cautious not to overlook the potential role of the victim, Charlie.
+
+Furthermore, I must say that I find it intriguing that William's role in the village's pest control seems almost too convenient, considering the circumstances. His neat attire and nervous expression during the interview do suggest that he may be hiding something, but we must also consider the possibility that he is simply a pawn in a larger game.
+
+I believe the murderer is Raymond.",Raymond
+3,Holmes,"The intriguing dance of deduction that has unfolded before us thus far is indeed a most captivating spectacle. As we navigate the labyrinthine corridors of this case, it appears that we are left with more questions than answers. The inconsistencies in the time of death and the chaotic scene in the basement do pose a significant challenge, and I must say that I am intrigued by the possibility that the killer may have deliberately manipulated the evidence to mislead us.
+
+Furthermore, I must consider the possibility that the forensic evidence points to a most unlikely suspect - Jim, the unconscious individual found nearby. His presence and the bloodstains in the basement seem to suggest that he may have been the intended target, rather than the actual victim. This, in turn, raises questions about the true nature of the crime and the motivations of the perpetrator.
+
+I believe the murderer is Jim.",Jim
+4,Poirot,"Mes amis, I must say that the array of theories presented thus far is indeed fascinating, and I am delighted to see that we are all working together to unravel the tangled threads of this case. As we examine the timeline, I notice that Raymond's entrance at 21:10, followed by his quick departure, raises an intriguing question. Was he merely a witness, or did he play a more active role in the events leading up to the crime?
+
+Furthermore, I find it interesting that William's role in the village's pest control seems almost too convenient, considering the circumstances. His neat attire and nervous expression during the interview do suggest that he may be hiding something, but we must also consider the possibility that he is simply a pawn in a larger game.
+
+As we continue to analyze the evidence, I propose that we consider the possibility that the killer may have deliberately manipulated the evidence to mislead us. The inconsistencies in the time of death and the chaotic scene in the basement do pose a most intriguing challenge.
+
+I believe the murderer is Raymond.",Raymond
+4,Marple,"I must say, I am thoroughly enjoying the stimulating conversation that has unfolded thus far. It is indeed intriguing to consider the diverse perspectives and theories that have been presented. Mr. Holmes, your observation about the pesticide cup with fresh residue is quite astute, and I must concur that William's nervous expression during the interview was quite telling.
+
+However, I must also consider the possibility that Raymond's silenced gun and trembling hands could be indicative of a man who is still reeling from his past trauma. His girlfriend's keepsake, which he kept with him, seems to hint at a deeper emotional connection, and his failure to retrieve evidence from the storage shed where William kept toxic chemicals raises questions about his alibi.
+
+Furthermore, I must say that I find it intriguing that the forensic evidence points to a most unlikely suspect - Jim, the unconscious individual found nearby. His presence and the bloodstains in the basement seem to suggest that he may have been the intended target, rather than the actual victim. This, in turn, raises questions about the true nature of the crime and the motivations of the perpetrator.
+
+I believe the murderer is Raymond.",Raymond
+4,Holmes,"The game, as they say, is afoot. As I peruse the collected clues, I find myself drawn to the inconsistencies in the time of death and the chaotic scene in the basement. It seems that our esteemed colleagues have presented a diverse array of theories, each with its own merits and flaws.
+
+Marple's observations on William's nervous expression during the interview are most pertinent, and Poirot's astute remark about the potential role of the victim, Charlie, warrants further consideration. However, I must caution against jumping to conclusions based solely on this evidence, as the human mind is a complex and capricious creature.
+
+As I ponder the case, I find myself drawn to the presence of the pesticide cup with fresh residue, which suggests a most deliberate and calculated act. Furthermore, I must consider the possibility that the forensic evidence points to a most unlikely suspect - Jim, the unconscious individual found nearby. His presence and the bloodstains in the basement seem to suggest that he may have been the intended target, rather than the actual victim.
+
+This, in turn, raises questions about the true nature of the crime and the motivations of the perpetrator. I propose that we consider the possibility that the killer may have deliberately manipulated the evidence to mislead us.
+
+I believe the murderer is Jim.",Jim
+5,Marple,"The game, as they say, is indeed afoot. I must say, I am thoroughly enthralled by the diverse perspectives and theories that have been presented. Mr. Holmes, your observation about the pesticide cup with fresh residue is quite astute, and I must concur that William's nervous expression during the interview was quite telling.
+
+However, I must also consider the possibility that Raymond's silenced gun and trembling hands could be indicative of a man who is still reeling from his past trauma. His girlfriend's keepsake, which he kept with him, seems to hint at a deeper emotional connection, and his failure to retrieve evidence from the storage shed where William kept toxic chemicals raises questions about his alibi.
+
+Furthermore, I must say that I find it intriguing that the forensic evidence points to a most unlikely suspect - Jim, the unconscious individual found nearby. His presence and the bloodstains in the basement seem to suggest that he may have been the intended target, rather than the actual victim. This, in turn, raises questions about the true nature of the crime and the motivations of the perpetrator.
+
+I must admit, I am drawn to the idea that Raymond's past trauma may have led him down a path of revenge, albeit an unintended one. His actions, though hasty, seem to have been driven by a desire to avenge his girlfriend's death.
+
+I believe the murderer is Raymond.",Raymond
+5,Poirot,"Mes amis, as I reflect on our discussion, I must say that the threads of this complex case are indeed beginning to weave together. Mr. Holmes, your observation about the pesticide cup with fresh residue is indeed astute, and I concur that William's nervous expression during the interview was telling.
+
+However, I must caution against jumping to conclusions based solely on this evidence, as the human mind is a complex and capricious creature. The inconsistencies in the time of death and the chaotic scene in the basement do pose a most intriguing challenge.
+
+As I ponder the case, I find myself drawn to the presence of the pesticide cup with fresh residue, which suggests a most deliberate and calculated act. Furthermore, I must consider the possibility that the forensic evidence points to a most unlikely suspect - Jim, the unconscious individual found nearby. His presence and the bloodstains in the basement seem to suggest that he may have been the intended target, rather than the actual victim.
+
+But, mes amis, I must say that I am beginning to see a pattern. The events that unfolded on the night of the crime seem to have been orchestrated with precision. The presence of the pesticide cup with fresh residue, the chaotic scene in the basement, and the inconsistencies in the time of death all point to a most calculated act.
+
+I believe the murderer is Raymond.",Raymond
+5,Holmes,"The game, as they say, is indeed afoot. As I review the collected clues, I find myself intrigued by the potential connection between the pesticide cup with fresh residue and the presence of Jim's DNA on the wooden club. The fact that the forensic evidence points to a most unlikely suspect - Jim, the unconscious individual found nearby - raises questions about the true nature of the crime and the motivations of the perpetrator.
+
+Furthermore, I must consider the possibility that the chaotic scene in the basement and the inconsistencies in the time of death were deliberate attempts to mislead us. The presence of the pesticide cup with fresh residue, which suggests a most deliberate and calculated act, seems to be the key to unraveling this complex web of deceit.
+
+As I ponder the case, I find myself drawn to the idea that Raymond's past trauma may have led him down a path of revenge, albeit an unintended one. His actions, though hasty, seem to have been driven by a desire to avenge his girlfriend's death.
+
+I believe the murderer is Raymond.",Raymond

@@ -9,12 +9,12 @@ from datetime import datetime
 # Set NVIDIA API key
 load_dotenv('nvidia_key.env')
 API_URL = "https://integrate.api.nvidia.com/v1"
-MODEL_NAME = "meta/llama-3.3-70b-instruct"  
+MODEL_NAME = "meta/llama-3.2-3b-instruct"  
 API_KEY = os.getenv("NVIDIA_API_KEY")
 
 def load_case_files():
     """Load and parse only case1.yaml from the cases directory"""
-    file_path = os.path.join('cases', 'CN_case1.yaml')
+    file_path = os.path.join('cases', 'case1.yaml')
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
             case_data = yaml.safe_load(file)
@@ -29,7 +29,7 @@ def analyse_case(case_data, case_number):
     """Analyse a single case using the Llama API"""
     case_name = case_data.get('setting', 'Unknown case').split('\n')[0]
     
-    prompt = f"""Please carefully analyze the following murder case and determine the most likely perpetrator.
+    prompt = f"""Please carefully analyse the following murder case and determine the most likely perpetrator.
         Consider all evidence, motives, opportunities, and forensic findings. Explain your reasoning step by step.
         All information is correct. Suspects may withhold information but definitely do not lie.
 

@@ -1,6 +1,8 @@
 """
 test_allcases.py
 
+本版本使用gpt。
+
 Purpose
 -------
 This script performs a *zero-shot solvability verification* for all murder cases
@@ -159,6 +161,10 @@ def save_results_to_file(results, filename=None):
     str
         The path to the saved file.
     """
+    # Ensure output directory exists
+    output_dir = "tests"
+    os.makedirs(output_dir, exist_ok=True)
+
     if not filename:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         filename = f"case_analysis_results_{timestamp}.txt"
