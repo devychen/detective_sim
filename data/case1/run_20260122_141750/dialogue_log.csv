@@ -1,0 +1,107 @@
+turn,speaker,utterance,believed_murderer
+1,Holmes,"Good day, I am Sherlock Holmes, a consulting detective of some renown. I must say, I am intrigued by the case at hand, and I am eager to begin our collaboration. The details you have provided thus far paint a most intriguing picture. The presence of X Poison, combined with the symptoms and toxicology reports, suggests a most sinister and calculated crime. The fact that the perpetrator attempted to dispose of the poisoned powder by hiding it in the ventilation ducts and replacing the original drugs with the poisoned ones is a most cunning move.
+
+I must admit, I am particularly drawn to the presence of multiple entry traces in the ventilation ducts, which suggests that we may be dealing with a most cunning and resourceful individual. I also note that the fibers and prints inside the ducts indicate that multiple individuals were involved, which raises the stakes and complexity of the case.
+
+I believe the murderer is Zack.",Zack
+1,Marple,"Good day to you, Mr. Holmes. I must say, I am delighted to collaborate with you on this intriguing case. Your observations are quite astute, as always. The presence of X Poison, combined with the symptoms and toxicology reports, indeed points to a most heinous crime.
+
+I am also intrigued by your interpretation of the ventilation ducts. The presence of multiple entry traces does suggest a most cunning and resourceful individual. However, I must caution that we must not jump to conclusions just yet.
+
+As I ponder the case, I find myself drawn to the inconsistencies in Wilson's alibi. His clean clothing and lack of suspicious physical traces do not entirely align with his background of hiding drug involvement from his family. I believe the murderer is Wilson.",Wilson
+1,Poirot,"Bonjour, mes amis. I am Hercule Poirot, and I must say that I am delighted to collaborate with you both on this most intriguing case. Your observations, Mr. Holmes, are indeed most astute, and your insights on the ventilation ducts are quite enlightening. However, I must respectfully disagree with your conclusion, monsieur.
+
+The presence of X Poison, combined with the symptoms and toxicology reports, does suggest a most sinister crime. Nevertheless, I find myself drawn to the inconsistencies in Lynn's alibi, particularly the fact that she was seen near the duct entrance and heard crawling, yet she did not enter. Her behavior seems rather suspicious, n'est-ce pas? I believe the murderer is Lynn.",Lynn
+2,Marple,"The game, as they say, is afoot. It's fascinating to see the different perspectives on the case thus far. I must say, I find myself intrigued by the subtle inconsistencies in Wendy's alibi, particularly the uncleaned stains from the duct covers, which suggest a rather hasty departure. Her background of manipulation and control also raises some red flags. And, of course, the forged letter in Lynn's handwriting does seem rather suspicious.
+
+As I ponder the case, I find myself drawn to the idea that the true culprit may not be one of the more obvious suspects, but rather someone who has been hiding in plain sight. I believe the murderer is Wendy.",Wendy
+2,Holmes,"An intriguing start to our collaboration, my dear colleagues. The threads of this complex tapestry are indeed beginning to unravel, and I must say that I am most fascinated by the inconsistencies in Wendy's alibi. The uncleaned stains from the duct covers, as you so astutely pointed out, Marple, suggest a most hasty departure, while her background of manipulation and control does raise some rather sinister red flags.
+
+Furthermore, I must say that I am impressed by Poirot's attention to the inconsistencies in Lynn's alibi. The fact that she was seen near the duct entrance and heard crawling, yet she did not enter, does indeed seem rather suspicious. However, I must caution that we must not jump to conclusions just yet, as the game, as you so aptly put it, is indeed afoot.
+
+As for the other suspects, while Wilson's alibi does raise some suspicions, I must say that I find it rather curious that the poisoned powder was found at the ship's bow, and Zack's fingerprints were discovered in the ducts. These inconsistencies do suggest that Zack may be more involved than initially meets the eye.
+
+I believe the murderer is Zack.",Zack
+2,Poirot,"Bien sûr, mes amis, let us continue our investigation with a focus on the timeline of events, n'est-ce pas? It appears that the key to unraveling this complex case lies in the minutes preceding the murder, when Zack confirmed the drug package and replaced it with the poisoned one. This action, mon ami Holmes, raises some intriguing questions about Zack's involvement in the crime. Furthermore, the presence of Lynn near the duct entrance and the sound of crawling suggest that she may have been the one to hide in the ducts. However, her subsequent behavior, hiding and not entering the cabin, does seem somewhat suspicious.
+
+The fact that Wendy passed a syringe-shaped item to an accomplice at 23:20 also raises some red flags, as it seems that Wendy may have been involved in the crime. I must say, I find the inconsistencies in her alibi quite intriguing, particularly the uncleaned stains from the duct covers.
+
+I believe the murderer is Wendy.",Wendy
+3,Poirot,"The game, as you say, is indeed afoot, mes amis. I must say that I am intrigued by the inconsistencies in Wendy's alibi, particularly the uncleaned stains from the duct covers, which suggest a rather hasty departure. Her background of manipulation and control also raises some red flags, as Marple astutely pointed out.
+
+As I ponder the case, I find myself drawn to the fact that Wendy passed a syringe-shaped item to an accomplice at 23:20, which seems to indicate that she may have been involved in the crime. Furthermore, her claim of being near the medical room at 18:30, combined with the presence of Lynn near the duct entrance and the sound of crawling, creates a rather suspicious narrative.
+
+I must say that I am beginning to piece together a most intriguing picture, and I believe that Wendy's alibi is the key to unraveling this complex case. The question, of course, is who was her accomplice? Ah, but that, mes amis, is a question for another time.
+
+I believe the murderer is Wendy.",Wendy
+3,Holmes,"The game, as you say, is indeed afoot, my dear colleagues. Poirot's astute observations about the inconsistencies in Wendy's alibi and her suspicious behavior near the duct entrance are most intriguing. Furthermore, the presence of Lynn near the duct entrance and the sound of crawling, combined with her subsequent behavior of hiding and not entering the cabin, does raise some rather red flags.
+
+It appears that we are dealing with a most cunning and resourceful individual, capable of manipulating the situation to their advantage. I must say that I am impressed by the complexity of this case, and I believe that our combined efforts will be essential in unraveling the truth.
+
+However, I must caution that we must not overlook the other suspects, and their potential involvement in this complex web of deceit. Zack's fingerprints in the ducts, for instance, and the presence of multiple entry traces, suggest that he may be more involved than initially meets the eye.
+
+I believe the murderer is Zack.",Zack
+3,Marple,"The threads of this complex tapestry are indeed beginning to unravel, and I must say that I am most intrigued by the inconsistencies in Wendy's alibi, as Marple so astutely pointed out. The uncleaned stains from the duct covers, which suggest a rather hasty departure, are a most telling detail. Furthermore, the fact that Wendy passed a syringe-shaped item to an accomplice at 23:20 raises some rather red flags, as Poirot astutely observed.
+
+It appears that Wendy's alibi is the key to unraveling this complex case, but I must say that I am beginning to wonder about the true nature of her involvement. Was she the mastermind behind the crime, or merely a pawn in a larger game?
+
+I believe the murderer is Wendy.",Wendy
+4,Poirot,"Mes amis, as we continue to unravel the threads of this complex tapestry, I find myself drawn to the inconsistencies in Lynn's alibi, particularly the fact that she was seen near the duct entrance and heard crawling, yet she did not enter the cabin. Her behavior seems rather suspicious, n'est-ce pas? Furthermore, the presence of Yosef already dead in the cabin at 22:40 raises some intriguing questions about the timeline of events.
+
+It appears that the key to unraveling this complex case lies in the minutes preceding the murder, when Zack confirmed the drug package and replaced it with the poisoned one. This action, mon ami Holmes, raises some intriguing questions about Zack's involvement in the crime. I must say that I am beginning to piece together a most intriguing picture, and I believe that Zack's alibi is the key to unraveling this complex case.
+
+I believe the murderer is Zack.",Zack
+4,Marple,"It's a pleasure to collaborate with such esteemed colleagues. Your observations, Mr. Holmes, are indeed most astute, and your insights on the ventilation ducts are quite enlightening. I must say that I am intrigued by the inconsistencies in Lynn's alibi, particularly the fact that she was seen near the duct entrance and heard crawling, yet she did not enter the cabin. Her behavior seems rather suspicious, and I must admit that I am beginning to piece together a most intriguing picture.
+
+Furthermore, I find myself drawn to the idea that Lynn's alibi may be a ruse, designed to distract from her true involvement in the crime. Her background of manipulation and control, as well as her emotional detachment from the death of Wilson Jr., raises some red flags. I believe the murderer is Lynn.",Lynn
+4,Holmes,"The tangled web of deceit we've woven together is indeed a complex one, my dear colleagues. Poirot's observations on Lynn's suspicious behavior near the duct entrance and her subsequent actions are most astute, and Marple's insights into Wendy's alibi are also well-taken. However, I must caution that we must not overlook the inconsistencies in Zack's alibi and the presence of multiple entry traces in the ventilation ducts, which suggest a most cunning and resourceful individual.
+
+Furthermore, the presence of the poisoned powder at the ship's bow, and the fact that Zack's fingerprints were discovered in the ducts, do raise some red flags about his involvement in the crime. It appears that we are dealing with a mastermind who is capable of manipulating the situation to their advantage.
+
+I must say that I find the inconsistencies in Lynn's alibi particularly intriguing, as she was seen near the duct entrance and heard crawling, yet she did not enter the cabin. Her emotional detachment from the death of Wilson Jr., and her background of manipulation and control, also raise some rather red flags.
+
+I believe the murderer is Lynn.",Lynn
+5,Holmes,"An intriguing development in our collaboration, my dear colleagues. It appears that we have collectively pieced together a complex narrative, replete with inconsistencies and red flags. Poirot's astute observations on Lynn's suspicious behavior near the duct entrance, combined with Marple's insights into Wendy's alibi, have shed valuable light on this case.
+
+However, I must caution that we must not overlook the inconsistencies in Zack's alibi and the presence of multiple entry traces in the ventilation ducts. While his fingerprints were discovered in the ducts, the fact that he was seen near the duct entrance at 22:40, and the presence of the poisoned powder at the ship's bow, do raise some red flags about his involvement in the crime.
+
+Furthermore, I must say that I find the inconsistencies in Lynn's alibi particularly intriguing, as she was seen near the duct entrance and heard crawling, yet she did not enter the cabin. Her emotional detachment from the death of Wilson Jr., and her background of manipulation and control, also raise some rather red flags.
+
+In light of these developments, I must reconsider my previous stance. I believe that Lynn's suspicious behavior, combined with her emotional detachment and background of manipulation, make her a prime suspect. Her alibi, though suspicious, may be a ruse designed to distract from her true involvement in the crime.
+
+I believe the murderer is Lynn.",Lynn
+5,Marple,"The threads of this complex tapestry are indeed beginning to unravel, and I must say that I am most intrigued by the inconsistencies in Wendy's alibi, as Marple so astutely pointed out. The uncleaned stains from the duct covers, which suggest a rather hasty departure, are a most telling detail. Furthermore, the fact that Wendy passed a syringe-shaped item to an accomplice at 23:20 raises some rather red flags, as Poirot astutely observed.
+
+However, I must say that I find myself drawn to the idea that Wendy's actions may be a ruse, designed to distract from her true involvement in the crime. Her background of manipulation and control, as well as her ambitious nature, suggest that she may be a cunning and resourceful individual.
+
+I must admit that I find it quite puzzling that Lynn's alibi seems so suspicious, yet she was not previously considered a prime suspect. It appears that we have overlooked some crucial details in our previous assessments of the case.
+
+I believe the murderer is Wendy.",Wendy
+5,Poirot,"Mes amis, let us continue our investigation with a focus on the inconsistencies in Lynn's alibi, n'est-ce pas? Her suspicious behavior near the duct entrance, combined with the sound of crawling, does raise some intriguing questions about her involvement in the crime. Furthermore, the fact that she was seen near the duct entrance and heard crawling, yet she did not enter the cabin, creates a rather suspicious narrative.
+
+However, I must say that I am beginning to piece together a most intriguing picture, and I believe that Lynn's alibi is the key to unraveling this complex case. Her emotional detachment from the death of Wilson Jr., and her background of manipulation and control, also raise some red flags.
+
+As I ponder the case, I find myself drawn to the idea that Lynn's alibi may be a ruse, designed to distract from her true involvement in the crime. Her background of manipulation and control, combined with her suspicious behavior near the duct entrance, suggests that she may be a cunning and resourceful individual.
+
+I believe the murderer is Lynn.",Lynn
+6,Poirot,"Mes amis, let us take a moment to review the facts of the case thus far. We have established that the murder occurred at some point between 22:40 and 23:00, when Yosef was found dead in the cabin. We have also identified several inconsistencies in the alibis of our suspects, including Lynn, Wendy, and Zack.
+
+Notably, Lynn was seen near the duct entrance and heard crawling, yet she did not enter the cabin. This raises some intriguing questions about her involvement in the crime. Furthermore, the fact that she was seen near the duct entrance at 22:40, and that she had a background of manipulation and control, suggests that she may be a cunning and resourceful individual.
+
+As we consider the various alibis, I am struck by the fact that Lynn's alibi seems suspiciously convenient. Her emotional detachment from the death of Wilson Jr. also raises some red flags. It is clear that she is hiding something, but what?
+
+I must say that I am beginning to piece together a most intriguing picture, and I believe that Lynn's alibi is the key to unraveling this complex case. The question, of course, is what was she hiding, and what was her true role in the crime?
+
+I believe the murderer is Lynn.",Lynn
+6,Holmes,"The game, as you say, is indeed afoot, my dear colleagues. As we continue to unravel the threads of this complex tapestry, I find myself drawn to the inconsistencies in Zack's alibi and the presence of multiple entry traces in the ventilation ducts. While his fingerprints were discovered in the ducts, the fact that he was seen near the duct entrance at 22:40, and the presence of the poisoned powder at the ship's bow, do raise some red flags about his involvement in the crime.
+
+However, I must caution that we must not overlook the inconsistencies in Lynn's alibi, particularly the fact that she was seen near the duct entrance and heard crawling, yet she did not enter the cabin. Her emotional detachment from the death of Wilson Jr., and her background of manipulation and control, also raise some rather red flags.
+
+I must admit that I find it quite puzzling that Lynn's alibi seems so suspicious, yet she was not previously considered a prime suspect. It appears that we have overlooked some crucial details in our previous assessments of the case.
+
+I believe the murderer is Lynn.",Lynn
+6,Marple,"I find it quite intriguing that Wendy's alibi seems to be a ruse, designed to distract from her true involvement in the crime. Her background of manipulation and control, combined with her suspicious behavior near the duct entrance, suggests that she may be a cunning and resourceful individual. However, I must say that I am not entirely convinced that Wendy is the murderer, as her actions seem to be more calculated and deliberate, rather than impulsive and reckless.
+
+Furthermore, I am drawn to the idea that Lynn's alibi may be a ruse, designed to distract from her true involvement in the crime. Her emotional detachment from the death of Wilson Jr., and her background of manipulation and control, also raise some red flags. The fact that she was seen near the duct entrance and heard crawling, yet she did not enter the cabin, creates a rather suspicious narrative.
+
+I believe the murderer is Lynn.",Lynn

@@ -150,7 +150,7 @@ class DetectiveDialogue:
     """
 
     def __init__(self, rule_path="prompts/rule_collab.yaml", 
-                 case_path="cases/case3.yaml", 
+                 case_path="cases/case1.yaml", 
                  turns=10):
         """
         Initialize a single experimental run.
@@ -197,7 +197,7 @@ class DetectiveDialogue:
 
         # create run folder with timestamp
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-        self.run_dir = os.path.join("data/case3", f"run_{timestamp}")
+        self.run_dir = os.path.join("data/case1", f"run_{timestamp}")
         os.makedirs(self.run_dir, exist_ok=True)
 
         # dialogue log (csv)
@@ -448,7 +448,7 @@ if __name__ == "__main__":
 
         sim = DetectiveDialogue(
             rule_path="prompts/rule_collab.yaml",
-            case_path="cases/case3.yaml",
+            case_path="cases/case1.yaml",
             turns=10
         )
         sim.simulate()
