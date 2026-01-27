@@ -1,67 +1,27 @@
 """
-=========================================================
-2.0_classifier.py 
+2.0_classifier.py (Revised Version)
 
-PIPELINE OVERVIEW
------------------
-This script evaluates whether LLM agents remain in-character (IC) 
-by using a trained BERT-based classifier as a baseline.
+PER-RUN REGRESSION
 
-For each dialogue simulation, the classifier predicts the probability 
-that an utterance belongs to the correct character (Holmes, Poirot, Marple).
+Implements advisor-recommended improvements:
 
-We compute two metrics:
-1. prob_correct: predicted probability of the true character class.
-2. brier score: squared error of the probability prediction.
+1. Turn-level confidence intervals now computed using Bootstrap (10,000 samples).
+   This avoids invalid CI bounds (below 0 or above 1) and makes no normality assumption.
 
-The evaluation consists of three main stages:
+2. Regression analysis now performed per-run (per simulation):
+   - Each run provides an independent slope estimate (turn → metric)
+   - A one-sample t-test is performed over all slopes
+   This ensures statistical validity (independent samples).
+   X-turn numbers, Y-accuracy
 
----------------------------------------------------------
-(1) Turn-level descriptive statistics with Bootstrap CIs
----------------------------------------------------------
-- Align turns across simulation runs.
-- Compute mean prob_correct and brier score per turn.
-- Estimate 95% confidence intervals using non-parametric bootstrap.
-- Purpose: visualize temporal trends and uncertainty.
+Bootstrap CI, Per-run slope + one-sample t-test
 
-Methods / Libraries:
-- numpy, pandas
-- bootstrap resampling
-
----------------------------------------------------------
-(2) Pooled regression analysis (turn-level trend inference)
----------------------------------------------------------
-- Fit a single linear regression model across all runs:
-      metric ~ turn
-- Each utterance is treated as one observation.
-- Use Ordinary Least Squares (OLS) from statsmodels.
-- Extract slope, t-statistic, p-value, confidence interval, R².
-- Purpose: test whether character consistency changes over turns.
-
-Methods / Libraries:
-- statsmodels.api.OLS
-
----------------------------------------------------------
-(3) Outputs
----------------------------------------------------------
-- CSV files:
-    * turn-level aggregated statistics with bootstrap CIs
-    * pooled regression results
-- Plots:
-    * turn vs metric curves with bootstrap confidence bands
-
----------------------------------------------------------
-Packages / Libraries Used
----------------------------------------------------------
-- transformers (HuggingFace): BERT classifier
-- torch: GPU inference
-- pandas, numpy: data processing
-- statsmodels: statistical regression
-- matplotlib, seaborn: visualization
-
-=========================================================
+Output:
+- Compute slopes per-run
+- Do one-sample t-test over slopes
+- Compute aggregated prob means per turn
+- Plot aggregated prob mean + CI
 """
-
 
 # =================================================
 # Imports
@@ -79,10 +39,11 @@ sns.set(style="whitegrid")
 
 from datetime import datetime
 from typing import List, Dict
-
-import statsmodels.api as sm  # For pooled OLS regression
+from scipy.stats import ttest_1samp
 
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
+
+from sklearn.linear_model import LinearRegression
 
 
 # =================================================
@@ -138,9 +99,6 @@ def load_classifier():
 # =================================================
 
 def predict_probabilities(texts, tokenizer, model):
-    """
-    Run BERT classifier and return class probabilities.
-    """
     enc = tokenizer(
         texts,
         truncation=True,
@@ -163,12 +121,12 @@ def predict_probabilities(texts, tokenizer, model):
 
 def evaluate_simulation(dialogue_path, tokenizer, model) -> Dict[str, pd.DataFrame]:
     """
-    For one simulation run, compute metrics per agent and per turn.
+    Returns per-agent turn-level metrics for one simulation.
 
-    Output columns:
+    Produces:
         turn
-        prob_correct
-        brier
+        prob_correct (model predicted prob of correct character)
+        brier (squared error for probability)
     """
     df = pd.read_csv(dialogue_path)
     results = {}
@@ -202,7 +160,7 @@ def evaluate_simulation(dialogue_path, tokenizer, model) -> Dict[str, pd.DataFra
 
 def aggregate_over_runs(all_runs: List[Dict[str, pd.DataFrame]]):
     """
-    Collect per-run DataFrames for each agent.
+    Collects a list of (per-run DataFrames) for each agent.
     """
     aggregated = {agent: [] for agent in AGENTS}
     for run in all_runs:
@@ -217,12 +175,20 @@ def aggregate_over_runs(all_runs: List[Dict[str, pd.DataFrame]]):
 
 def bootstrap_ci(values, n_boot=10000, ci=95):
     """
-    Compute bootstrap confidence interval for the mean.
+    Computes bootstrap confidence interval for an array of values.
+
+    values: array-like of numbers
+    n_boot: number of bootstrap samples
+    ci: bootstrap confidence level
+
+    Returns:
+        mean, ci_low, ci_high
     """
 
     values = np.array(values)
     means = []
 
+    # Bootstrap resampling
     for _ in range(n_boot):
         sample = np.random.choice(values, size=len(values), replace=True)
         means.append(sample.mean())
@@ -242,10 +208,16 @@ def bootstrap_ci(values, n_boot=10000, ci=95):
 
 def aggregate_turn_level(dfs: List[pd.DataFrame]) -> pd.DataFrame:
     """
-    Align turns across simulation runs and compute mean + bootstrap CI.
+    Align turns across simulation runs and compute:
+      - mean prob_correct + bootstrap CI
+      - mean brier + bootstrap CI
+
+    Bootstrap is used instead of normal-based CI to ensure bounded intervals
+    and avoid assumptions about the distribution of probabilities.
     """
 
     all_data = pd.concat(dfs, ignore_index=True)
+
     results = []
 
     for turn, group in all_data.groupby("turn"):
@@ -260,45 +232,53 @@ def aggregate_turn_level(dfs: List[pd.DataFrame]) -> pd.DataFrame:
             "brier_mean": brier_mean,
             "brier_ci_low": brier_low,
             "brier_ci_high": brier_high,
-            "n_obs": len(group)
+            "n_runs": len(group)
         })
 
-    return pd.DataFrame(results).sort_values("turn")
+    df_out = pd.DataFrame(results).sort_values("turn")
+    return df_out
 
 
 # =================================================
-# Pooled regression (statsmodels OLS)
+# Per-run regression slopes + one-sample t-test
 # =================================================
 
-def pooled_regression(dfs: List[pd.DataFrame], metric: str):
+def regression_per_run(dfs: List[pd.DataFrame], metric: str):
     """
-    Perform pooled linear regression:
-        metric ~ turn
+    Performs regression per simulation run, then tests whether the mean slope differs from 0.
 
-    All utterances across all runs are treated as observations.
+    Steps:
+      1. For each run's DataFrame:
+           regress: metric ~ turn
+      2. Collect all slopes
+      3. One-sample t-test: H0: mean slope = 0
+
+    Returns:
+      slope_mean, slope_std, n_runs, p_value
     """
 
-    all_data = pd.concat(dfs, ignore_index=True)
+    slopes = []
 
-    X = sm.add_constant(all_data["turn"])  # add intercept
-    y = all_data[metric]
+    for df in dfs:
+        # Need at least 2 points to fit regression
+        if df["turn"].nunique() < 2:
+            continue
 
-    model = sm.OLS(y, X).fit()
+        X = df["turn"].values.reshape(-1, 1)
+        y = df[metric].values
 
-    slope = model.params["turn"]
-    p_value = model.pvalues["turn"]
-    t_value = model.tvalues["turn"]
-    ci_low, ci_high = model.conf_int().loc["turn"]
+        reg = LinearRegression().fit(X, y)
+        slopes.append(reg.coef_[0])
 
-    return {
-        "slope": slope,
-        "p_value": p_value,
-        "t_value": t_value,
-        "ci_low": ci_low,
-        "ci_high": ci_high,
-        "n_obs": len(all_data),
-        "r2": model.rsquared
-    }
+    slopes = np.array(slopes)
+    n = len(slopes)
+
+    if n < 2:
+        return np.nan, np.nan, n, np.nan
+
+    t_stat, p_value = ttest_1samp(slopes, popmean=0)
+
+    return slopes.mean(), slopes.std(ddof=1), n, p_value
 
 
 # =================================================
@@ -358,38 +338,41 @@ def evaluate_case(case_name, tokenizer, model, f):
 
         print(f"\n--- {agent} ---", file=f)
 
-        # Turn-level statistics
+        # Turn-level statistics with bootstrap CIs
         turn_df = aggregate_turn_level(dfs)
 
+        # Print table
         print("\nTurn-level aggregated metrics (Bootstrap 95% CI):", file=f)
-        print(turn_df.to_string(index=False, float_format="%.4f"), file=f)
+        print(
+            turn_df.to_string(index=False, float_format="%.4f"),
+            file=f
+        )
 
+        # Save CSV
         turn_df.to_csv(
             os.path.join(turn_csv_dir, f"{case_name}_{agent}_turn_stats.csv"),
             index=False
         )
 
-        # Pooled regression
-        prob_reg = pooled_regression(dfs, "prob_correct")
-        brier_reg = pooled_regression(dfs, "brier")
+        # Per-run regression (slope distribution)
+        prob_slope_mean, prob_slope_std, n_prob, prob_p = regression_per_run(dfs, "prob_correct")
+        brier_slope_mean, brier_slope_std, n_brier, brier_p = regression_per_run(dfs, "brier")
 
-        print("\nPooled regression results:", file=f)
+        print("\nPer-run regression statistics:", file=f)
+        print(f"Probability slope mean: {prob_slope_mean:.4f}  (std={prob_slope_std:.4f}, n={n_prob})", file=f)
+        print(f"Probability slope p-value: {prob_p:.4g}", file=f)
+        print(f"Brier slope mean: {brier_slope_mean:.4f}  (std={brier_slope_std:.4f}, n={n_brier})", file=f)
+        print(f"Brier slope p-value: {brier_p:.4g}", file=f)
 
-        print(f"prob_correct slope: {prob_reg['slope']:.6f}", file=f)
-        print(f"t-value: {prob_reg['t_value']:.4f}, p-value: {prob_reg['p_value']:.4g}", file=f)
-        print(f"95% CI: [{prob_reg['ci_low']:.6f}, {prob_reg['ci_high']:.6f}]", file=f)
-        print(f"n_obs: {prob_reg['n_obs']}, R2: {prob_reg['r2']:.4f}", file=f)
-
-        print(f"brier slope: {brier_reg['slope']:.6f}", file=f)
-        print(f"t-value: {brier_reg['t_value']:.4f}, p-value: {brier_reg['p_value']:.4g}", file=f)
-        print(f"95% CI: [{brier_reg['ci_low']:.6f}, {brier_reg['ci_high']:.6f}]", file=f)
-        print(f"n_obs: {brier_reg['n_obs']}, R2: {brier_reg['r2']:.4f}", file=f)
-
-        pd.DataFrame([
-            {"metric": "prob_correct", **prob_reg},
-            {"metric": "brier", **brier_reg}
-        ]).to_csv(
-            os.path.join(reg_csv_dir, f"{case_name}_{agent}_pooled_regression.csv"),
+        # Save regression summary CSV
+        pd.DataFrame({
+            "metric": ["prob", "brier"],
+            "slope_mean": [prob_slope_mean, brier_slope_mean],
+            "slope_std": [prob_slope_std, brier_slope_std],
+            "n_runs": [n_prob, n_brier],
+            "p_value": [prob_p, brier_p]
+        }).to_csv(
+            os.path.join(reg_csv_dir, f"{case_name}_{agent}_regression.csv"),
             index=False
         )
 
