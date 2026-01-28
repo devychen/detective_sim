@@ -72,7 +72,7 @@ Overview of Steps:
      across dialogue progression.
 
 8) Regression Reliability Analysis
-   - Compare regression results across turn-length groups (e.g., ≥5 turns vs 3–4 turns).
+   - Compare regression results across turn-length groups (e.g., ≥5 turns vs 3–4 turns). -- because i have done ≤ 3 and found 5 is better.
    - Evaluate stability of slope and explanatory power (R²).
    - Purpose: Assess whether syntactic drift signals are robust or artefacts
      of short dialogue sequences.
