@@ -1,3 +1,85 @@
+'''
+
+PIPELINE OVERVIEW
+-----------------
+This script evaluates intent distribution consistency between baseline (gold) data 
+and LLM-generated dialogue simulations using a transformer-based intent classification model.
+It quantifies how closely simulated dialogues preserve each character’s conversational intent profile 
+compared to the original corpus, based on KL divergence of intent distributions.
+
+The evaluation pipeline consists of six key stages:
+
+---------------------------------------------------------
+(1) Path and output setup
+---------------------------------------------------------
+- Define input paths for baseline and simulated dialogue data.
+- Create output directories for storing intermediate and final results.
+- Purpose: centralize file management and ensure reproducible data organization.
+  Methods / Libraries: os, glob
+
+---------------------------------------------------------
+(2) Intent classification model loading
+---------------------------------------------------------
+- Load a pretrained intent classification model ("Falconsai/intent_classification") 
+  using Hugging Face transformers.
+- Define a helper function to predict intent labels for given text inputs.
+- Purpose: automatically annotate each utterance or line with an intent category.
+  Methods / Libraries: transformers.pipeline
+
+---------------------------------------------------------
+(3) Baseline corpus intent annotation
+---------------------------------------------------------
+- Load the human-authored baseline dataset of character dialogues (Holmes, Poirot, Marple).
+- Apply the intent classifier to each line, computing corresponding intent labels.
+- Save annotated data for downstream comparison.
+  Methods / Libraries: pandas, tqdm
+
+---------------------------------------------------------
+(4) Dialogue simulation intent annotation
+---------------------------------------------------------
+- Load all generated dialogue logs from multiple simulation runs.
+- Predict intents for each utterance.
+- Combine all annotated simulations into a single DataFrame and export to CSV.
+  Methods / Libraries: pandas, glob, transformers, tqdm
+
+---------------------------------------------------------
+(5) Intent distribution computation
+---------------------------------------------------------
+- For each character, compute normalized intent frequency distributions 
+  for both baseline and generated dialogues.
+- Aggregate them into a unified distribution table for comparison.
+  Methods / Libraries: collections.Counter, pandas, numpy
+
+---------------------------------------------------------
+(6) KL divergence analysis
+---------------------------------------------------------
+- Align intent label spaces between the two distributions.
+- Compute Kullback–Leibler (KL) divergence per character to measure 
+  deviation of simulated intent patterns from baseline intent patterns.
+- Save summary results to CSV.
+  Methods / Libraries: numpy, scipy.stats.entropy
+
+---------------------------------------------------------
+(7) Outputs
+---------------------------------------------------------
+- CSV files:
+    * 5.1_baseline_intents.csv — baseline dataset annotated with intent labels
+    * 5.1_dialogue_intents.csv — simulated dialogues annotated with intent labels
+    * 5.1_intent_distribution.csv — intent distribution comparison across characters
+    * 5.1_kl_divergence.csv — character-level KL divergence scores
+- Console logs:
+    * intermediate progress via tqdm
+    * final save paths and confirmation messages
+
+---------------------------------------------------------
+Purpose summary: 
+Quantitatively assess how faithfully generated dialogues preserve 
+original characters’ intent distributions, providing a measure of 
+pragmatic consistency in character-driven LLM dialogue generation.
+---------------------------------------------------------
+
+'''
+
 import os
 import glob
 import pandas as pd
