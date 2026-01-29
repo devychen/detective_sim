@@ -1,216 +1,239 @@
-'''
+"""
+=========================================================
+3.2_intra_agent_distance.py
 
-PIPELINE OVERVIEW
------------------
-This script evaluates intent distribution consistency between baseline (gold) data 
-and LLM-generated dialogue simulations using a transformer-based intent classification model.
-It quantifies how closely simulated dialogues preserve each character’s conversational intent profile 
-compared to the original corpus, based on KL divergence of intent distributions.
+INTRA-AGENT COSINE DISTANCE EVALUATION PIPELINE
+-------------------------------------------------
 
-The evaluation pipeline consists of six key stages:
+This script evaluates whether lexical similarity within the same agent
+reflects character-specific consistency rather than topic-driven similarity.
 
----------------------------------------------------------
-(1) Path and output setup
----------------------------------------------------------
-- Define input paths for baseline and simulated dialogue data.
-- Create output directories for storing intermediate and final results.
-- Purpose: centralize file management and ensure reproducible data organization.
-  Methods / Libraries: os, glob
+We define a corrected intra-agent lexical similarity metric that controls
+for topic overlap across characters within the same dialogue turn.
 
----------------------------------------------------------
-(2) Intent classification model loading
----------------------------------------------------------
-- Load a pretrained intent classification model ("Falconsai/intent_classification") 
-  using Hugging Face transformers.
-- Define a helper function to predict intent labels for given text inputs.
-- Purpose: automatically annotate each utterance or line with an intent category.
-  Methods / Libraries: transformers.pipeline
+Metric Definitions:
 
----------------------------------------------------------
-(3) Baseline corpus intent annotation
----------------------------------------------------------
-- Load the human-authored baseline dataset of character dialogues (Holmes, Poirot, Marple).
-- Apply the intent classifier to each line, computing corresponding intent labels.
-- Save annotated data for downstream comparison.
-  Methods / Libraries: pandas, tqdm
+(1) Intra-agent similarity:
+    Cosine similarity between consecutive utterances produced by the same character.
 
----------------------------------------------------------
-(4) Dialogue simulation intent annotation
----------------------------------------------------------
-- Load all generated dialogue logs from multiple simulation runs.
-- Predict intents for each utterance.
-- Combine all annotated simulations into a single DataFrame and export to CSV.
-  Methods / Libraries: pandas, glob, transformers, tqdm
+(2) Cross-agent similarity:
+    Average cosine similarity between the current utterance of a character and
+    the utterances produced by other characters at the same turn index.
 
----------------------------------------------------------
-(5) Intent distribution computation
----------------------------------------------------------
-- For each character, compute normalized intent frequency distributions 
-  for both baseline and generated dialogues.
-- Aggregate them into a unified distribution table for comparison.
-  Methods / Libraries: collections.Counter, pandas, numpy
+(3) Character distance score (Intra-Agent Distance):
+    character_distance = intra_agent_similarity - cross_agent_similarity
 
----------------------------------------------------------
-(6) KL divergence analysis
----------------------------------------------------------
-- Align intent label spaces between the two distributions.
-- Compute Kullback–Leibler (KL) divergence per character to measure 
-  deviation of simulated intent patterns from baseline intent patterns.
-- Save summary results to CSV.
-  Methods / Libraries: numpy, scipy.stats.entropy
+Interpretation:
+- character_distance > 0:
+    Lexical continuity is more likely attributable to character identity.
+- character_distance ≈ 0:
+    Lexical similarity may be driven by shared conversational topics.
+- character_distance < 0:
+    Lexical similarity across characters exceeds intra-character continuity,
+    indicating potential out-of-character (OOC) behavior.
 
----------------------------------------------------------
-(7) Outputs
----------------------------------------------------------
-- CSV files:
-    * 5.1_baseline_intents.csv — baseline dataset annotated with intent labels
-    * 5.1_dialogue_intents.csv — simulated dialogues annotated with intent labels
-    * 5.1_intent_distribution.csv — intent distribution comparison across characters
-    * 5.1_kl_divergence.csv — character-level KL divergence scores
-- Console logs:
-    * intermediate progress via tqdm
-    * final save paths and confirmation messages
+Important Note:
+This metric is sensitive to the choice of text representation model.
+In this implementation, TF-IDF embeddings are used to maintain consistency
+with other lexical-level evaluation metrics in this study. Results should
+therefore be interpreted with caution, especially when comparing across models.
 
----------------------------------------------------------
-Purpose summary: 
-Quantitatively assess how faithfully generated dialogues preserve 
-original characters’ intent distributions, providing a measure of 
-pragmatic consistency in character-driven LLM dialogue generation.
----------------------------------------------------------
+Pipeline Steps:
+1. Load dialogue logs from multiple simulation runs.
+2. Normalize speaker labels and utterance texts.
+3. Build a global TF-IDF vectorizer over all utterances.
+4. Compute TF-IDF embeddings for each utterance.
+5. For each run, compute:
+   - intra-agent similarity between consecutive turns of the same character,
+   - cross-agent similarity between characters at the same turn index.
+6. Compute character distance scores for each utterance.
+7. Aggregate per-character statistics and export results to CSV files.
+8. Perform sanity checks for extreme similarity values.
 
-'''
+Packages / Libraries:
+- pandas, numpy: data loading and numerical computation
+- scikit-learn: TF-IDF vectorization and cosine similarity computation
+- glob, os: file system operations and batch processing utilities
 
-import os
-import glob
+=========================================================
+"""
+
+
 import pandas as pd
 import numpy as np
-from collections import Counter
-from tqdm import tqdm
-from transformers import pipeline
-from scipy.stats import entropy
+import glob
+import os
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+print("========== Intra-Agent Distance Evaluation ==========")
 
 # ----------------------------------------
 # Step 0. Path settings
 # ----------------------------------------
-BASELINE_FILE = "baseline/train_lines_clean_balanced_3class.csv"
 DATA_GLOB = "data/*/*/dialogue_log.csv"
 OUTPUT_DIR = "evaluation"
+OUTPUT_FILE = os.path.join(OUTPUT_DIR, "3.2_intra_agent_distance.csv")
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-OUT_BASELINE_INTENT = os.path.join(OUTPUT_DIR, "5.1_baseline_intents.csv")
-OUT_DIALOGUE_INTENT = os.path.join(OUTPUT_DIR, "5.1_dialogue_intents.csv")
-OUT_DISTRIBUTION = os.path.join(OUTPUT_DIR, "5.1_intent_distribution.csv")
-OUT_KL = os.path.join(OUTPUT_DIR, "5.1_kl_divergence.csv")
-
 # ----------------------------------------
-# Step 1. Load intent classifier
-# ----------------------------------------
-intent_clf = pipeline(
-    "text-classification",
-    model="Falconsai/intent_classification",
-    top_k=1
-)
-
-def get_intent(text):
-    """Predict intent label for a single sentence."""
-    if not isinstance(text, str) or text.strip() == "":
-        return "EMPTY"
-    result = intent_clf(text)[0]
-    return result["label"]
-
-# ----------------------------------------
-# Step 2. Load baseline corpus
-# ----------------------------------------
-baseline_df = pd.read_csv(BASELINE_FILE)
-
-assert "speaker" in baseline_df.columns
-assert "text" in baseline_df.columns
-
-tqdm.pandas(desc="Baseline intent classification")
-baseline_df["intent"] = baseline_df["text"].progress_apply(get_intent)
-
-baseline_df.to_csv(OUT_BASELINE_INTENT, index=False)
-print(f"[Saved] Baseline intents -> {OUT_BASELINE_INTENT}")
-
-# ----------------------------------------
-# Step 3. Load dialogue simulation data
+# Step 1. Load all dialogues
 # ----------------------------------------
 dialogue_files = glob.glob(DATA_GLOB)
 
-dialogue_data = []
+all_data = []
 
 for file in dialogue_files:
     df = pd.read_csv(file)
-    assert "speaker" in df.columns
-    assert "utterance" in df.columns
 
-    tqdm.pandas(desc=f"Dialogue intent classification: {file}")
-    df["intent"] = df["utterance"].progress_apply(get_intent)
+    # normalize speaker labels
+    df["speaker"] = (
+        df["speaker"]
+        .astype(str)
+        .str.lower()
+        .str.strip()
+    )
 
-    df["source_file"] = file
-    dialogue_data.append(df)
+    # normalize utterances
+    df["utterance"] = (
+        df["utterance"]
+        .astype(str)
+        .str.strip()
+    )
 
-dialogue_df = pd.concat(dialogue_data, ignore_index=True)
+    # add run_id (simulation identifier)
+    df["run_id"] = os.path.basename(os.path.dirname(file))
 
-dialogue_df.to_csv(OUT_DIALOGUE_INTENT, index=False)
-print(f"[Saved] Dialogue intents -> {OUT_DIALOGUE_INTENT}")
+    all_data.append(df)
+
+all_df = pd.concat(all_data, ignore_index=True)
+
+print(f"Total utterances loaded: {len(all_df)}")
+print("Speakers found:", all_df["speaker"].unique())
+
 
 # ----------------------------------------
-# Step 4. Compute intent distributions
+# Step 2. Build global TF-IDF vectorizer
 # ----------------------------------------
-def compute_distribution(df, speaker):
-    sub = df[df["speaker"] == speaker]
-    counter = Counter(sub["intent"])
-    total = sum(counter.values())
-    if total == 0:
-        return {}
-    return {k: v / total for k, v in counter.items()}
+vectorizer = TfidfVectorizer(
+    stop_words="english",
+    ngram_range=(1, 2),
+    min_df=2
+)
 
-speakers = ["Holmes", "Poirot", "Marple"]
+tfidf_matrix = vectorizer.fit_transform(all_df["utterance"].tolist())
 
-baseline_dist = {s: compute_distribution(baseline_df, s) for s in speakers}
-dialogue_dist = {s: compute_distribution(dialogue_df, s) for s in speakers}
+# store embeddings
+embeddings = tfidf_matrix.toarray()
 
-# 转成表格方便分析
-rows = []
-for s in speakers:
-    all_labels = sorted(set(baseline_dist[s].keys()) | set(dialogue_dist[s].keys()))
-    for label in all_labels:
-        rows.append({
-            "speaker": s,
-            "intent": label,
-            "baseline_prob": baseline_dist[s].get(label, 0.0),
-            "dialogue_prob": dialogue_dist[s].get(label, 0.0)
+# ----------------------------------------
+# Step 3. Compute intra-agent and cross-agent similarity
+# ----------------------------------------
+results = []
+
+# group by run (each simulation independently)
+for run_id, run_df in all_df.groupby("run_id"):
+    run_df = run_df.sort_values(by=["turn", "speaker"]).reset_index(drop=True)
+
+    # mapping: (turn, speaker) -> global index in all_df
+    index_map = {}
+    for _, row in run_df.iterrows():
+        global_idx = all_df[
+            (all_df["run_id"] == run_id) &
+            (all_df["turn"] == row["turn"]) &
+            (all_df["speaker"] == row["speaker"])
+        ].index[0]
+
+        index_map[(row["turn"], row["speaker"])] = global_idx
+
+    for _, row in run_df.iterrows():
+        turn = row["turn"]
+        speaker = row["speaker"]
+
+        # skip first turn (no previous utterance)
+        if turn == 1:
+            continue
+
+        prev_key = (turn - 1, speaker)
+        if prev_key not in index_map:
+            continue
+
+        idx_current = index_map[(turn, speaker)]
+        idx_prev = index_map[prev_key]
+
+        vec_current = embeddings[idx_current].reshape(1, -1)
+        vec_prev = embeddings[idx_prev].reshape(1, -1)
+
+        intra_sim = cosine_similarity(vec_current, vec_prev)[0][0]
+
+        # ---- cross-agent similarity (same turn, other characters) ----
+        cross_sims = []
+        for other_speaker in run_df["speaker"].unique():
+            if other_speaker == speaker:
+                continue
+
+            other_key = (turn, other_speaker)
+            if other_key not in index_map:
+                continue
+
+            idx_other = index_map[other_key]
+            vec_other = embeddings[idx_other].reshape(1, -1)
+
+            sim_other = cosine_similarity(vec_current, vec_other)[0][0]
+            cross_sims.append(sim_other)
+
+        if len(cross_sims) == 0:
+            continue
+
+        cross_sim = np.mean(cross_sims)
+
+        char_distance = intra_sim - cross_sim
+
+        results.append({
+            "run_id": run_id,
+            "turn": turn,
+            "character": speaker,
+            "intra_similarity": float(intra_sim),
+            "cross_similarity": float(cross_sim),
+            "character_distance": float(char_distance)
         })
 
-dist_df = pd.DataFrame(rows)
-dist_df.to_csv(OUT_DISTRIBUTION, index=False)
-print(f"[Saved] Intent distribution -> {OUT_DISTRIBUTION}")
 
 # ----------------------------------------
-# Step 5. Align label space
+# Step 4. Save results
 # ----------------------------------------
-def align_distributions(p, q, eps=1e-8):
-    labels = sorted(set(p.keys()) | set(q.keys()))
-    p_vec = np.array([p.get(l, eps) for l in labels])
-    q_vec = np.array([q.get(l, eps) for l in labels])
-    return labels, p_vec, q_vec
+result_df = pd.DataFrame(results)
+result_df.to_csv(OUTPUT_FILE, index=False)
+
+print("\n========== DONE ==========")
+print(f"Saved results to: {OUTPUT_FILE}")
+print(f"Total evaluated turns: {len(result_df)}")
 
 # ----------------------------------------
-# Step 6. Compute KL divergence
+# Step 5. Summary statistics
 # ----------------------------------------
-kl_results = []
+if len(result_df) > 0:
+    print("\n========== Summary Statistics ==========")
 
-for s in speakers:
-    labels, p_vec, q_vec = align_distributions(dialogue_dist[s], baseline_dist[s])
-    kl = entropy(p_vec, q_vec)  # KL(P_dialogue || P_baseline)
+    summary = result_df.groupby("character")[["intra_similarity", "cross_similarity", "character_distance"]].describe()
+    print(summary)
 
-    kl_results.append({
-        "speaker": s,
-        "KL_dialogue_vs_baseline": kl
-    })
+    summary.to_csv(os.path.join(OUTPUT_DIR, "3.2_intra_agent_summary.csv"))
+else:
+    print("⚠️ No valid data for evaluation.")
 
-kl_df = pd.DataFrame(kl_results)
-kl_df.to_csv(OUT_KL, index=False)
-print(f"[Saved] KL divergence -> {OUT_KL}")
+
+# ----------------------------------------
+# Step 6. Sanity check: extremely high similarity
+# ----------------------------------------
+print("\n========== Sanity Check: intra_similarity > 0.99 ==========")
+
+high_sim_df = result_df[result_df["intra_similarity"] > 0.99][["run_id", "character", "turn", "intra_similarity"]]
+
+print(f"Number of extremely high similarity cases: {len(high_sim_df)}")
+
+if len(high_sim_df) > 0:
+    print(high_sim_df.head(20))  # show first 20 cases
+else:
+    print("No extreme similarity cases found.")
