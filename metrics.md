@@ -117,10 +117,6 @@ weighted avg       0.76      0.76      0.76      1374
 
 ‼️ prob ↑ = 越像角色， brier ↓ = 越像角色，对吧？
 
-‼️ 实验结果说明 OOC drift 不是线性的、不是稳定的趋势，而是 agent-dependent 和 case-dependent 的离散跳变（non-linear, non-monotonic）。
-
-- Results: 本研究的三个侦探代理（Holmes、Poirot、Marple）依赖于相同的底层语言模型，仅通过角色 prompt 来区分。因此，代理之间的差异并非来源于模型结构或训练，而是来自 prompt 对语言生成过程的影响。在多轮协作推理任务中，模型的概率估计与 Brier 分数呈现出明显波动，各 run 的回归斜率不显著，说明 prompt-based persona 引导无法保证稳定、一致的推理行为模式。模型在不同对话轮次可能产生不一致的信心判断，而非随着线索积累而逐渐收敛。因此，本研究的结果更能解释为：prompt 角色设定的可控性在长对话场景中表现有限，而非 LLM 在角色内部构建了稳定的推理结构。
-
 
 # 3. Lexical
 3.1 Character-specific vocabulary rate
