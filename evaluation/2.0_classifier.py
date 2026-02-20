@@ -1,68 +1,3 @@
-"""
-=========================================================
-2.0_classifier.py 
-
-PIPELINE OVERVIEW
------------------
-This script evaluates whether LLM agents remain in-character (IC) 
-by using a trained BERT-based classifier as a baseline.
-
-For each dialogue simulation, the classifier predicts the probability 
-that an utterance belongs to the correct character (Holmes, Poirot, Marple).
-
-We compute two metrics:
-1. prob_correct: predicted probability of the true character class.
-2. brier score: squared error of the probability prediction.
-
-The evaluation consists of three main stages:
-
----------------------------------------------------------
-(1) Turn-level descriptive statistics with Bootstrap CIs
----------------------------------------------------------
-- Align turns across simulation runs.
-- Compute mean prob_correct and brier score per turn.
-- Estimate 95% confidence intervals using non-parametric bootstrap.
-- Purpose: visualize temporal trends and uncertainty.
-
-Methods / Libraries:
-- numpy, pandas
-- bootstrap resampling
-
----------------------------------------------------------
-(2) Pooled regression analysis (turn-level trend inference)
----------------------------------------------------------
-- Fit a single linear regression model across all runs:
-      metric ~ turn
-- Each utterance is treated as one observation.
-- Use Ordinary Least Squares (OLS) from statsmodels.
-- Extract slope, t-statistic, p-value, confidence interval, R².
-- Purpose: test whether character consistency changes over turns.
-
-Methods / Libraries:
-- statsmodels.api.OLS
-
----------------------------------------------------------
-(3) Outputs
----------------------------------------------------------
-- CSV files:
-    * turn-level aggregated statistics with bootstrap CIs
-    * pooled regression results
-- Plots:
-    * turn vs metric curves with bootstrap confidence bands
-
----------------------------------------------------------
-Packages / Libraries Used
----------------------------------------------------------
-- transformers (HuggingFace): BERT classifier
-- torch: GPU inference
-- pandas, numpy: data processing
-- statsmodels: statistical regression
-- matplotlib, seaborn: visualization
-
-=========================================================
-"""
-
-
 # =================================================
 # Imports
 # =================================================
@@ -80,8 +15,7 @@ sns.set(style="whitegrid")
 from datetime import datetime
 from typing import List, Dict
 
-import statsmodels.api as sm  # For pooled OLS regression
-
+import statsmodels.api as sm
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
 
@@ -102,8 +36,13 @@ ID2LABEL = {
 }
 
 LABEL2ID = {v: k for k, v in ID2LABEL.items()}
-
 AGENTS = ["Holmes", "Marple", "Poirot"]
+
+AGENT_COLORS = {
+    "Holmes": "#1f77b4",
+    "Marple": "#ff7f0e",
+    "Poirot": "#2ca02c"
+}
 
 
 # =================================================
@@ -138,9 +77,6 @@ def load_classifier():
 # =================================================
 
 def predict_probabilities(texts, tokenizer, model):
-    """
-    Run BERT classifier and return class probabilities.
-    """
     enc = tokenizer(
         texts,
         truncation=True,
@@ -162,14 +98,6 @@ def predict_probabilities(texts, tokenizer, model):
 # =================================================
 
 def evaluate_simulation(dialogue_path, tokenizer, model) -> Dict[str, pd.DataFrame]:
-    """
-    For one simulation run, compute metrics per agent and per turn.
-
-    Output columns:
-        turn
-        prob_correct
-        brier
-    """
     df = pd.read_csv(dialogue_path)
     results = {}
 
@@ -201,9 +129,6 @@ def evaluate_simulation(dialogue_path, tokenizer, model) -> Dict[str, pd.DataFra
 # =================================================
 
 def aggregate_over_runs(all_runs: List[Dict[str, pd.DataFrame]]):
-    """
-    Collect per-run DataFrames for each agent.
-    """
     aggregated = {agent: [] for agent in AGENTS}
     for run in all_runs:
         for agent, df in run.items():
@@ -216,10 +141,6 @@ def aggregate_over_runs(all_runs: List[Dict[str, pd.DataFrame]]):
 # =================================================
 
 def bootstrap_ci(values, n_boot=10000, ci=95):
-    """
-    Compute bootstrap confidence interval for the mean.
-    """
-
     values = np.array(values)
     means = []
 
@@ -237,14 +158,10 @@ def bootstrap_ci(values, n_boot=10000, ci=95):
 
 
 # =================================================
-# Turn-level aggregation with Bootstrap CIs
+# Turn-level aggregation
 # =================================================
 
 def aggregate_turn_level(dfs: List[pd.DataFrame]) -> pd.DataFrame:
-    """
-    Align turns across simulation runs and compute mean + bootstrap CI.
-    """
-
     all_data = pd.concat(dfs, ignore_index=True)
     results = []
 
@@ -267,33 +184,24 @@ def aggregate_turn_level(dfs: List[pd.DataFrame]) -> pd.DataFrame:
 
 
 # =================================================
-# Pooled regression (statsmodels OLS)
+# Pooled regression
 # =================================================
 
 def pooled_regression(dfs: List[pd.DataFrame], metric: str):
-    """
-    Perform pooled linear regression:
-        metric ~ turn
-
-    All utterances across all runs are treated as observations.
-    """
-
     all_data = pd.concat(dfs, ignore_index=True)
 
-    X = sm.add_constant(all_data["turn"])  # add intercept
+    X = sm.add_constant(all_data["turn"])
     y = all_data[metric]
 
     model = sm.OLS(y, X).fit()
 
     slope = model.params["turn"]
     p_value = model.pvalues["turn"]
-    t_value = model.tvalues["turn"]
     ci_low, ci_high = model.conf_int().loc["turn"]
 
     return {
         "slope": slope,
         "p_value": p_value,
-        "t_value": t_value,
         "ci_low": ci_low,
         "ci_high": ci_high,
         "n_obs": len(all_data),
@@ -302,34 +210,24 @@ def pooled_regression(dfs: List[pd.DataFrame], metric: str):
 
 
 # =================================================
-# Plotting
+# Format p-value with stars
 # =================================================
 
-def plot_with_ci(df, metric_prefix, case_name, agent, output_dir):
-    plt.figure(figsize=(8, 5))
-
-    mean = df[f"{metric_prefix}_mean"]
-    low  = df[f"{metric_prefix}_ci_low"]
-    high = df[f"{metric_prefix}_ci_high"]
-
-    plt.plot(df["turn"], mean, marker="o", label=f"{metric_prefix} mean")
-    plt.fill_between(df["turn"], low, high, alpha=0.3, label="Bootstrap CI")
-
-    plt.xlabel("Turn")
-    plt.ylabel(metric_prefix)
-    plt.title(f"{case_name} - {agent} - {metric_prefix} over turns")
-    plt.legend()
-
-    save_path = os.path.join(output_dir, f"{case_name}_{agent}_{metric_prefix}.png")
-    plt.savefig(save_path, dpi=300, bbox_inches="tight")
-    plt.close()
+def format_p_value(p):
+    if p < 0.01:
+        return f"{p:.3f}**"
+    elif p < 0.05:
+        return f"{p:.3f}*"
+    else:
+        return f"{p:.3f}"
 
 
 # =================================================
 # Case-level evaluation
 # =================================================
 
-def evaluate_case(case_name, tokenizer, model, f):
+def evaluate_case(case_name, tokenizer, model, f,
+                  prob_reg_results, brier_reg_results):
 
     pattern = os.path.join(DATA_ROOT, case_name, "run_*", "dialogue_log.csv")
     dialogue_logs = sorted(glob.glob(pattern))
@@ -337,12 +235,10 @@ def evaluate_case(case_name, tokenizer, model, f):
     print(f"\n=== {case_name.upper()} ===", file=f)
     print(f"Found {len(dialogue_logs)} simulation runs.", file=f)
 
-    # Process each simulation run
     all_runs = []
     for path in dialogue_logs:
         all_runs.append(evaluate_simulation(path, tokenizer, model))
 
-    # Aggregate runs per agent
     aggregated = aggregate_over_runs(all_runs)
 
     turn_csv_dir = "./evaluation/turn_csv"
@@ -358,7 +254,6 @@ def evaluate_case(case_name, tokenizer, model, f):
 
         print(f"\n--- {agent} ---", file=f)
 
-        # Turn-level statistics
         turn_df = aggregate_turn_level(dfs)
 
         print("\nTurn-level aggregated metrics (Bootstrap 95% CI):", file=f)
@@ -369,22 +264,10 @@ def evaluate_case(case_name, tokenizer, model, f):
             index=False
         )
 
-        # Pooled regression
         prob_reg = pooled_regression(dfs, "prob_correct")
         brier_reg = pooled_regression(dfs, "brier")
 
-        print("\nPooled regression results:", file=f)
-
-        print(f"prob_correct slope: {prob_reg['slope']:.6f}", file=f)
-        print(f"t-value: {prob_reg['t_value']:.4f}, p-value: {prob_reg['p_value']:.4g}", file=f)
-        print(f"95% CI: [{prob_reg['ci_low']:.6f}, {prob_reg['ci_high']:.6f}]", file=f)
-        print(f"n_obs: {prob_reg['n_obs']}, R2: {prob_reg['r2']:.4f}", file=f)
-
-        print(f"brier slope: {brier_reg['slope']:.6f}", file=f)
-        print(f"t-value: {brier_reg['t_value']:.4f}, p-value: {brier_reg['p_value']:.4g}", file=f)
-        print(f"95% CI: [{brier_reg['ci_low']:.6f}, {brier_reg['ci_high']:.6f}]", file=f)
-        print(f"n_obs: {brier_reg['n_obs']}, R2: {brier_reg['r2']:.4f}", file=f)
-
+        # Save regression CSV (unchanged)
         pd.DataFrame([
             {"metric": "prob_correct", **prob_reg},
             {"metric": "brier", **brier_reg}
@@ -393,9 +276,26 @@ def evaluate_case(case_name, tokenizer, model, f):
             index=False
         )
 
-        # Plots
-        plot_with_ci(turn_df, "prob", case_name, agent, plots_dir)
-        plot_with_ci(turn_df, "brier", case_name, agent, plots_dir)
+        # Store for final integrated table
+        prob_reg_results.append({
+            "Case": case_name,
+            "Character": agent,
+            "Beta": prob_reg["slope"],
+            "CI_low": prob_reg["ci_low"],
+            "CI_high": prob_reg["ci_high"],
+            "p_value": prob_reg["p_value"],
+            "R2": prob_reg["r2"]
+        })
+
+        brier_reg_results.append({
+            "Case": case_name,
+            "Character": agent,
+            "Beta": brier_reg["slope"],
+            "CI_low": brier_reg["ci_low"],
+            "CI_high": brier_reg["ci_high"],
+            "p_value": brier_reg["p_value"],
+            "R2": brier_reg["r2"]
+        })
 
 
 # =================================================
@@ -403,17 +303,62 @@ def evaluate_case(case_name, tokenizer, model, f):
 # =================================================
 
 def main():
+    np.random.seed(42)
     tokenizer, model = load_classifier()
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     output_dir = "./evaluation"
     os.makedirs(output_dir, exist_ok=True)
-
     output_path = os.path.join(output_dir, f"2.0_classifier_{timestamp}.txt")
 
+    prob_reg_results = []
+    brier_reg_results = []
+
     with open(output_path, "w", encoding="utf-8") as f:
+
         for case in CASES:
-            evaluate_case(case, tokenizer, model, f)
+            evaluate_case(case, tokenizer, model, f,
+                          prob_reg_results, brier_reg_results)
+
+        # ==============================
+        # Final integrated regression tables
+        # ==============================
+
+        print("\n\n==============================", file=f)
+        print("Regression results for prob_correct", file=f)
+        print("==============================\n", file=f)
+
+        print("Case\tCharacter\tβ (prob_correct)\t95% CI\tp-value\tR²", file=f)
+
+        for row in prob_reg_results:
+            ci_str = f"[{row['CI_low']:.3f}, {row['CI_high']:.3f}]"
+            p_str = format_p_value(row["p_value"])
+
+            print(f"{row['Case']}\t"
+                  f"{row['Character']}\t"
+                  f"{row['Beta']:.3f}\t"
+                  f"{ci_str}\t"
+                  f"{p_str}\t"
+                  f"{row['R2']:.3f}",
+                  file=f)
+
+        print("\n\n==============================", file=f)
+        print("Regression results for Brier score", file=f)
+        print("==============================\n", file=f)
+
+        print("Case\tCharacter\tβ (brier)\t95% CI\tp-value\tR²", file=f)
+
+        for row in brier_reg_results:
+            ci_str = f"[{row['CI_low']:.3f}, {row['CI_high']:.3f}]"
+            p_str = format_p_value(row["p_value"])
+
+            print(f"{row['Case']}\t"
+                  f"{row['Character']}\t"
+                  f"{row['Beta']:.3f}\t"
+                  f"{ci_str}\t"
+                  f"{p_str}\t"
+                  f"{row['R2']:.3f}",
+                  file=f)
 
     print(f"\nResults saved to {output_path}")
 

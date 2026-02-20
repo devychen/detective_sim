@@ -49,7 +49,6 @@ Methods / Libraries:
     * pooled regression results
 - Plots:
     * turn vs metric curves with bootstrap confidence bands
-    * multi-agent comparison plots (one per case)
 
 ---------------------------------------------------------
 Packages / Libraries Used
@@ -105,13 +104,6 @@ ID2LABEL = {
 LABEL2ID = {v: k for k, v in ID2LABEL.items()}
 
 AGENTS = ["Holmes", "Marple", "Poirot"]
-
-# Color palette for agents
-AGENT_COLORS = {
-    "Holmes": "#1f77b4",  # blue
-    "Marple": "#ff7f0e",  # orange
-    "Poirot": "#2ca02c"   # green
-}
 
 
 # =================================================
@@ -310,7 +302,7 @@ def pooled_regression(dfs: List[pd.DataFrame], metric: str):
 
 
 # =================================================
-# Plotting - Individual agent plots
+# Plotting
 # =================================================
 
 def plot_with_ci(df, metric_prefix, case_name, agent, output_dir):
@@ -331,78 +323,6 @@ def plot_with_ci(df, metric_prefix, case_name, agent, output_dir):
     save_path = os.path.join(output_dir, f"{case_name}_{agent}_{metric_prefix}.png")
     plt.savefig(save_path, dpi=300, bbox_inches="tight")
     plt.close()
-
-
-# =================================================
-# Plotting - Multi-agent comparison
-# =================================================
-
-def plot_multi_agent_comparison(agent_turn_dfs, case_name, metric="prob", output_dir="./evaluation/plots"):
-    """
-    Plot comparison of all agents in one case.
-    
-    Parameters:
-    -----------
-    agent_turn_dfs : dict
-        Dictionary with agent names as keys and turn-level DataFrames as values
-    case_name : str
-        Name of the case
-    metric : str
-        Either 'prob' or 'brier'
-    output_dir : str
-        Directory to save the plot
-    """
-    plt.figure(figsize=(10, 6))
-    
-    for agent, df in agent_turn_dfs.items():
-        if df is None or df.empty:
-            continue
-            
-        color = AGENT_COLORS.get(agent, "#000000")
-        
-        # Plot mean line
-        plt.plot(df["turn"], df[f"{metric}_mean"], 
-                marker="o", markersize=4, linewidth=2,
-                color=color, label=agent)
-        
-        # Plot confidence interval
-        plt.fill_between(df["turn"], 
-                        df[f"{metric}_ci_low"], 
-                        df[f"{metric}_ci_high"],
-                        alpha=0.2, color=color)
-    
-    plt.xlabel("Turn", fontsize=12)
-    
-    if metric == "prob":
-        ylabel = "Probability of Correct Character"
-        title = f"{case_name} - Character Consistency Over Time"
-        plt.ylim(0, 1.05)  # Probability range
-        # Add horizontal line at y=1 for reference
-        plt.axhline(y=1.0, color='gray', linestyle='--', alpha=0.5, linewidth=0.8)
-    else:
-        ylabel = "Brier Score"
-        title = f"{case_name} - Prediction Error Over Time"
-        plt.ylim(0, None)  # Brier score starts from 0
-    
-    plt.ylabel(ylabel, fontsize=12)
-    plt.title(title, fontsize=14, fontweight='bold')
-    plt.legend(title="Agent", fontsize=10, title_fontsize=11)
-    plt.grid(True, alpha=0.3)
-    
-    # Customize ticks
-    plt.xticks(fontsize=10)
-    plt.yticks(fontsize=10)
-    
-    # Tight layout
-    plt.tight_layout()
-    
-    # Save
-    os.makedirs(output_dir, exist_ok=True)
-    save_path = os.path.join(output_dir, f"{case_name}_multi_agent_{metric}_comparison.png")
-    plt.savefig(save_path, dpi=300, bbox_inches="tight")
-    plt.close()
-    
-    print(f"Saved multi-agent comparison plot to: {save_path}")
 
 
 # =================================================
@@ -431,20 +351,15 @@ def evaluate_case(case_name, tokenizer, model, f):
     os.makedirs(turn_csv_dir, exist_ok=True)
     os.makedirs(reg_csv_dir, exist_ok=True)
     os.makedirs(plots_dir, exist_ok=True)
-    
-    # Store turn-level DataFrames for multi-agent comparison
-    agent_turn_dfs = {}
 
     for agent, dfs in aggregated.items():
         if len(dfs) == 0:
-            agent_turn_dfs[agent] = None
             continue
 
         print(f"\n--- {agent} ---", file=f)
 
         # Turn-level statistics
         turn_df = aggregate_turn_level(dfs)
-        agent_turn_dfs[agent] = turn_df
 
         print("\nTurn-level aggregated metrics (Bootstrap 95% CI):", file=f)
         print(turn_df.to_string(index=False, float_format="%.4f"), file=f)
@@ -478,13 +393,9 @@ def evaluate_case(case_name, tokenizer, model, f):
             index=False
         )
 
-        # Individual agent plots
+        # Plots
         plot_with_ci(turn_df, "prob", case_name, agent, plots_dir)
         plot_with_ci(turn_df, "brier", case_name, agent, plots_dir)
-    
-    # Create multi-agent comparison plots for this case
-    plot_multi_agent_comparison(agent_turn_dfs, case_name, metric="prob", output_dir=plots_dir)
-    plot_multi_agent_comparison(agent_turn_dfs, case_name, metric="brier", output_dir=plots_dir)
 
 
 # =================================================
@@ -492,7 +403,6 @@ def evaluate_case(case_name, tokenizer, model, f):
 # =================================================
 
 def main():
-    np.random.seed(42) # fixed random seed
     tokenizer, model = load_classifier()
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
