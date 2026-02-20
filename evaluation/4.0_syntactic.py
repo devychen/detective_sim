@@ -13,8 +13,8 @@ Revisions relative to the initial version (as suggested by Polina):
 - Baseline utterances are restricted to longer, non-fragmented utterances
   before random sampling.
 - Two types of z-scores are computed:
-    (a) reference-based z-scores relative to the baseline corpus;
-    (b) simulation-based z-scores relative to the simulation corpus.
+    (a) reference-based z-scores relative to the baseline corpus; （偏离原著风格多少）
+    (b) simulation-based z-scores relative to the simulation corpus. （在sim内部，生成的这句话是否异常）
 - Syntactic drift is estimated with pooled regression across runs instead of
   separate per-run regressions only.
 
