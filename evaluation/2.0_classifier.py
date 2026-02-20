@@ -1,3 +1,112 @@
+"""
+=========================================================
+2.0_classifier.py 
+
+CLASSIFIER-BASED IN-CHARACTER EVALUATION PIPELINE
+-------------------------------------------------
+
+Goal:
+This script evaluates whether LLM agents remain in-character (IC) by using a
+fine-tuned BERT-style text classifier as a reference model of character voice.
+For each dialogue simulation, the classifier outputs a probability distribution
+over the three characters (Holmes, Marple, Poirot), and we quantify how likely
+each utterance is to belong to the speaking agent.
+
+---------------------------------------------------------
+Metrics
+---------------------------------------------------------
+For each utterance produced by an agent, we compute:
+
+1) prob_correct
+   - Definition: the classifier’s predicted probability assigned to the
+     utterance’s *true* character (i.e., the speaking agent).
+   - Interpretation: higher values indicate that the utterance is strongly
+     aligned with the agent’s learned stylistic and lexical profile.
+
+2) Brier score
+   - Definition: squared error between prob_correct and the ideal target 1.0,
+     i.e. (prob_correct − 1)^2.
+   - Interpretation: lower values indicate better calibrated character
+     predictions and thus stronger in-character behaviour.
+
+---------------------------------------------------------
+(1) Turn-level descriptive statistics with Bootstrap CIs
+---------------------------------------------------------
+- For each case and agent, collect all simulation runs.
+- Align utterances by turn index across runs (turn 1, turn 2, ...).
+- For each turn and metric (prob_correct, Brier score):
+    • Aggregate all utterances at that turn across runs.
+    • Estimate the mean using non-parametric bootstrap resampling.
+    • Compute 95% bootstrap confidence intervals for the mean.
+- Purpose: describe how classifier-based character consistency evolves over
+  dialogue turns, and quantify uncertainty at each turn.
+
+Methods / Libraries:
+- numpy, pandas for data handling.
+- Custom bootstrap (resampling with replacement) to obtain CIs for the mean.
+- Matplotlib, seaborn to visualise:
+    • per-agent curves with confidence bands,
+    • per-case multi-agent comparison plots.
+
+---------------------------------------------------------
+(2) Pooled regression analysis (turn-level trend inference)
+---------------------------------------------------------
+- For each case and agent, pool all utterances across all simulation runs.
+- Fit two separate linear regression models using Ordinary Least Squares (OLS):
+
+      prob_correct ~ turn
+      brier        ~ turn
+
+  where each utterance is treated as one observation and “turn” is the
+  dialogue turn index.
+
+- For each model, extract:
+    • slope of turn (trend direction and magnitude),
+    • t-statistic and p-value for the slope,
+    • 95% confidence interval for the slope,
+    • R² and number of observations.
+
+- Purpose: test whether classifier-based character consistency (prob_correct)
+  or prediction error (Brier score) systematically increase or decrease over
+  turns, i.e. whether there is evidence of drift away from the learned
+  character profiles as dialogues progress.
+
+Methods / Libraries:
+- statsmodels.api.OLS for pooled linear regression.
+
+---------------------------------------------------------
+(3) Outputs
+---------------------------------------------------------
+- Text report:
+    * Human-readable summary per case and agent, including turn-level
+      statistics and pooled regression results.
+
+- CSV files:
+    * Turn-level aggregated statistics (mean + 95% bootstrap CI) for each
+      agent and case.
+    * Pooled regression summaries for each agent and case (slope, t, p, CI, R²).
+
+- Plots:
+    * For each agent and case:
+         - turn vs prob_correct with bootstrap confidence band.
+         - turn vs Brier score with bootstrap confidence band.
+    * For each case:
+         - multi-agent comparison plots showing all agents’ curves in a
+           single figure, separately for prob_correct and Brier score.
+
+---------------------------------------------------------
+Packages / Libraries Used
+---------------------------------------------------------
+- transformers (HuggingFace): loading the fine-tuned BERT classifier.
+- torch: GPU-accelerated inference.
+- pandas, numpy: data preparation, aggregation, and bootstrap resampling.
+- statsmodels: pooled OLS regression over dialogue turns.
+- matplotlib, seaborn: visualisation of temporal trends and confidence bands.
+
+=========================================================
+"""
+
+
 # =================================================
 # Imports
 # =================================================
