@@ -350,9 +350,9 @@ def evaluate_case(case_name, tokenizer, model, f,
 
     aggregated = aggregate_over_runs(all_runs)
 
-    turn_csv_dir = "./evaluation/turn_csv"
-    reg_csv_dir = "./evaluation/regression_csv"
-    plots_dir = "./evaluation/plots"
+    turn_csv_dir = "./evaluation/turn_csv_classifier"
+    reg_csv_dir = "./evaluation/regression_csv_classifier"
+    plots_dir = "./evaluation/plots_classifier"
     os.makedirs(turn_csv_dir, exist_ok=True)
     os.makedirs(reg_csv_dir, exist_ok=True)
     os.makedirs(plots_dir, exist_ok=True)
