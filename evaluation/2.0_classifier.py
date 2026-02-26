@@ -230,6 +230,7 @@ def evaluate_simulation(dialogue_path, tokenizer, model) -> Dict[str, pd.DataFra
             "brier": brier
         })
 
+
     return results
 
 
@@ -345,8 +346,56 @@ def evaluate_case(case_name, tokenizer, model, f,
     print(f"Found {len(dialogue_logs)} simulation runs.", file=f)
 
     all_runs = []
+    per_turn_records = []   # NEW: collect raw per-utterance results
+
     for path in dialogue_logs:
-        all_runs.append(evaluate_simulation(path, tokenizer, model))
+        run_id = os.path.basename(os.path.dirname(path))
+
+        run_results = evaluate_simulation(path, tokenizer, model)
+        all_runs.append(run_results)
+
+        # NEW: collect per-utterance data
+        for agent, df_agent in run_results.items():
+            for _, row in df_agent.iterrows():
+                per_turn_records.append({
+                    "case": case_name,
+                    "run_id": run_id,
+                    "turn": row["turn"],
+                    "character": agent.lower(),
+                    "prob_correct": row["prob_correct"],
+                    "brier": row["brier"]
+                })
+
+    # ===============================
+    # NEW: Save per-utterance file
+    # ===============================
+    per_turn_df = pd.DataFrame(per_turn_records)
+    per_turn_df["turn"] = per_turn_df["turn"].astype(int)
+
+
+    per_turn_output_path = os.path.join(
+        "./evaluation",
+        "2.0_classifier_per_turn.csv"
+    )
+
+    os.makedirs("./evaluation", exist_ok=True)
+
+    if os.path.exists(per_turn_output_path):
+        per_turn_df.to_csv(
+            per_turn_output_path,
+            mode="a",
+            header=False,
+            index=False
+        )
+    else:
+        per_turn_df.to_csv(
+            per_turn_output_path,
+            index=False
+        )
+
+    # ===============================
+    # Original aggregation continues
+    # ===============================
 
     aggregated = aggregate_over_runs(all_runs)
 
@@ -376,7 +425,6 @@ def evaluate_case(case_name, tokenizer, model, f,
         prob_reg = pooled_regression(dfs, "prob_correct")
         brier_reg = pooled_regression(dfs, "brier")
 
-        # Save regression CSV (unchanged)
         pd.DataFrame([
             {"metric": "prob_correct", **prob_reg},
             {"metric": "brier", **brier_reg}
@@ -385,7 +433,6 @@ def evaluate_case(case_name, tokenizer, model, f,
             index=False
         )
 
-        # Store for final integrated table
         prob_reg_results.append({
             "Case": case_name,
             "Character": agent,
@@ -405,6 +452,77 @@ def evaluate_case(case_name, tokenizer, model, f,
             "p_value": brier_reg["p_value"],
             "R2": brier_reg["r2"]
         })
+
+# def evaluate_case(case_name, tokenizer, model, f,
+#                   prob_reg_results, brier_reg_results):
+
+#     pattern = os.path.join(DATA_ROOT, case_name, "run_*", "dialogue_log.csv")
+#     dialogue_logs = sorted(glob.glob(pattern))
+
+#     print(f"\n=== {case_name.upper()} ===", file=f)
+#     print(f"Found {len(dialogue_logs)} simulation runs.", file=f)
+
+#     all_runs = []
+#     for path in dialogue_logs:
+#         all_runs.append(evaluate_simulation(path, tokenizer, model))
+
+#     aggregated = aggregate_over_runs(all_runs)
+
+#     turn_csv_dir = "./evaluation/turn_csv_classifier"
+#     reg_csv_dir = "./evaluation/regression_csv_classifier"
+#     plots_dir = "./evaluation/plots_classifier"
+#     os.makedirs(turn_csv_dir, exist_ok=True)
+#     os.makedirs(reg_csv_dir, exist_ok=True)
+#     os.makedirs(plots_dir, exist_ok=True)
+
+#     for agent, dfs in aggregated.items():
+#         if len(dfs) == 0:
+#             continue
+
+#         print(f"\n--- {agent} ---", file=f)
+
+#         turn_df = aggregate_turn_level(dfs)
+
+#         print("\nTurn-level aggregated metrics (Bootstrap 95% CI):", file=f)
+#         print(turn_df.to_string(index=False, float_format="%.4f"), file=f)
+
+#         turn_df.to_csv(
+#             os.path.join(turn_csv_dir, f"{case_name}_{agent}_turn_stats.csv"),
+#             index=False
+#         )
+
+#         prob_reg = pooled_regression(dfs, "prob_correct")
+#         brier_reg = pooled_regression(dfs, "brier")
+
+#         # Save regression CSV (unchanged)
+#         pd.DataFrame([
+#             {"metric": "prob_correct", **prob_reg},
+#             {"metric": "brier", **brier_reg}
+#         ]).to_csv(
+#             os.path.join(reg_csv_dir, f"{case_name}_{agent}_pooled_regression.csv"),
+#             index=False
+#         )
+
+#         # Store for final integrated table
+#         prob_reg_results.append({
+#             "Case": case_name,
+#             "Character": agent,
+#             "Beta": prob_reg["slope"],
+#             "CI_low": prob_reg["ci_low"],
+#             "CI_high": prob_reg["ci_high"],
+#             "p_value": prob_reg["p_value"],
+#             "R2": prob_reg["r2"]
+#         })
+
+#         brier_reg_results.append({
+#             "Case": case_name,
+#             "Character": agent,
+#             "Beta": brier_reg["slope"],
+#             "CI_low": brier_reg["ci_low"],
+#             "CI_high": brier_reg["ci_high"],
+#             "p_value": brier_reg["p_value"],
+#             "R2": brier_reg["r2"]
+#         })
 
 
 # =================================================

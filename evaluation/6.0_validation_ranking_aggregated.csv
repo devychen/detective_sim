@@ -1,0 +1,8 @@
+metric,faithfulness_score
+depth,0.864
+lexical_similarity,0.837
+z_sim,0.799
+z_ref,0.541
+intra_similarity,0.450
+character_distance,0.398
+sentiment_distance,0.150

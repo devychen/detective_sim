@@ -227,6 +227,11 @@ files = glob.glob(DATA_GLOB)
 
 for file_path in tqdm(files, desc="Processing dialogues"):
     df = pd.read_csv(file_path)
+    
+    # Extract case and run_id from file path
+    run_dir = os.path.dirname(file_path)                # data/caseX/runY
+    case_name = os.path.basename(os.path.dirname(run_dir))  # caseX
+    run_id = os.path.basename(run_dir)                  # runY
 
     # ---- column mapping (adapt to your csv schema) ----
     COL_TURN = "turn"
@@ -245,8 +250,9 @@ for file_path in tqdm(files, desc="Processing dialogues"):
         turn_vec = scores.mean(axis=0)
 
         turn_records.append({
-            "file": file_path,
-            "turn_id": turn_id,
+            "case": case_name,
+            "run_id": run_id,
+            "turn": turn_id,
             "character": char,
             "pos": turn_vec[0],
             "neg": turn_vec[1],
@@ -283,8 +289,9 @@ for _, row in df_turn.iterrows():
     dist = float(np.linalg.norm(turn_vec - ref_vec))
 
     dist_records.append({
-        "file": row["file"],
-        "turn_id": row["turn_id"],
+        "case": row["case"],
+        "run_id": row["run_id"],
+        "turn": row["turn"],
         "character": char,
         "distance": dist
     })
@@ -305,13 +312,13 @@ print("Sentiment distance saved:", OUTPUT_DIST_FILE)
 trend_records = []
 
 
-for (file_path, char), group in df_dist.groupby(["file", "character"]):
-    group = group.sort_values("turn_id")
+for (case_name, run_id, char), group in df_dist.groupby(["case", "run_id", "character"]):
+    group = group.sort_values("turn")
 
     if len(group) < 2:
         continue
 
-    X = group["turn_id"].values.reshape(-1, 1)
+    X = group["turn"].values.reshape(-1, 1)
     y = group["distance"].values
 
     model = LinearRegression()
@@ -322,7 +329,9 @@ for (file_path, char), group in df_dist.groupby(["file", "character"]):
     r2 = float(model.score(X, y))
 
     trend_records.append({
-        "file": file_path,
+        "case": case_name,
+        "run_id": run_id,
+        "turn": turn_id,
         "character": char,
         "slope": slope,
         "intercept": intercept,
@@ -348,9 +357,6 @@ print("\n===== Generating summary tables =====")
 
 
 df = df_trend.copy()
-
-# extract case name from file path: data/case1/run_xxx/dialogue_log.csv
-df["case"] = df["file"].apply(lambda x: str(x).split("/")[1] if "/" in str(x) else x)
 
 
 # ----------------------------------------
@@ -428,13 +434,13 @@ if VISUALIZE:
         if len(group) < 2:
             continue
 
-        group = group.sort_values("turn_id")
+        group = group.sort_values("turn")
 
         plt.figure(figsize=(8, 5))
-        sns.scatterplot(data=group, x="turn_id", y="distance", alpha=0.4)
+        sns.scatterplot(data=group, x="turn", y="distance", alpha=0.4)
         sns.regplot(
             data=group,
-            x="turn_id",
+            x="turn",
             y="distance",
             scatter=False,
             color="C1",

@@ -102,7 +102,13 @@ for file in dialogue_files:
         .str.strip()
     )
 
-    # add run_id (simulation identifier)
+    # Extract case and run_id from file path
+    run_dir = os.path.dirname(file)                # data/caseX/runY
+    case_name = os.path.basename(os.path.dirname(run_dir))  # caseX
+    run_id = os.path.basename(run_dir)             # runY
+
+    # add case and run_id (simulation identifier)
+    df["case"] = case_name
     df["run_id"] = os.path.basename(os.path.dirname(file))
 
     all_data.append(df)
@@ -111,6 +117,7 @@ all_df = pd.concat(all_data, ignore_index=True)
 
 print(f"Total utterances loaded: {len(all_df)}")
 print("Speakers found:", all_df["speaker"].unique())
+print("Cases found:", all_df["case"].unique())
 
 
 # ----------------------------------------
@@ -133,13 +140,14 @@ embeddings = tfidf_matrix.toarray()
 results = []
 
 # group by run (each simulation independently)
-for run_id, run_df in all_df.groupby("run_id"):
+for (case_name, run_id), run_df in all_df.groupby(["case", "run_id"]):
     run_df = run_df.sort_values(by=["turn", "speaker"]).reset_index(drop=True)
 
     # mapping: (turn, speaker) -> global index in all_df
     index_map = {}
     for _, row in run_df.iterrows():
         global_idx = all_df[
+            (all_df["case"] == case_name) &
             (all_df["run_id"] == run_id) &
             (all_df["turn"] == row["turn"]) &
             (all_df["speaker"] == row["speaker"])
@@ -191,6 +199,7 @@ for run_id, run_df in all_df.groupby("run_id"):
         char_distance = intra_sim - cross_sim
 
         results.append({
+            "case": case_name,
             "run_id": run_id,
             "turn": turn,
             "character": speaker,

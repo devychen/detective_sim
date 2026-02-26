@@ -1,0 +1,5 @@
+metric,pearson_r,pearson_p,spearman_rho,spearman_p,ECE
+lexical_similarity,0.276,0.029,0.252,0.047,0.335
+character_distance,-0.018,0.887,-0.102,0.427,0.352
+z_ref,0.102,0.427,0.187,0.143,0.343
+sentiment_distance,-0.238,0.061,-0.068,0.594,0.183

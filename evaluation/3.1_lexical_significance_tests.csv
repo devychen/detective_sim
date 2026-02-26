@@ -1,0 +1,4 @@
+pair,U_stat,p_value,significant_after_bonferroni
+holmes vs marple,7504.0,0.173,False
+holmes vs poirot,4844.0,0.0,True
+marple vs poirot,6413.0,0.001,True

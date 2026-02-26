@@ -1,0 +1,8 @@
+metric,n_samples,pearson_r,pearson_p,spearman_rho,spearman_p,ECE
+lexical_similarity,72,0.353,0.002,0.384,0.001,0.226
+character_distance,63,0.018,0.887,0.102,0.427,0.130
+z_ref,72,-0.180,0.131,-0.244,0.039,0.270
+sentiment_distance,72,0.183,0.124,-0.016,0.896,0.551
+intra_similarity,63,-0.084,0.515,-0.161,0.206,0.195
+depth,72,-0.385,0.001,-0.459,0.000,0.301
+z_sim,72,-0.321,0.006,-0.415,0.000,0.268

@@ -76,10 +76,6 @@ Packages / Libraries Used
 
 =========================================================
 
-To align with the character-specific vocab rate, i use td-idf embbeding here, 
-but this is might be too topic-sensitive.
-Should I use others? What would be the recommended options?
-
 """
 
 
@@ -153,6 +149,11 @@ for file in dialogue_files:
     print("Processing:", file)
     df = pd.read_csv(file)
 
+    # Extract case and run_id from file path
+    run_dir = os.path.dirname(file)                # data/caseX/runY
+    case_name = os.path.basename(os.path.dirname(run_dir))  # caseX
+    run_id = os.path.basename(run_dir)             # runY
+
     for _, row in df.iterrows():
         char = str(row["speaker"]).lower().strip()
         utterance = str(row["utterance"]).strip()
@@ -175,7 +176,8 @@ for file in dialogue_files:
         sim = cosine_similarity(utter_vec, char_vec)[0][0]
 
         results.append({
-            "file": os.path.basename(os.path.dirname(file)),
+            "case": case_name,
+            "run_id": run_id,
             "turn": row["turn"],
             "character": char,
             "utterance": utterance,
@@ -186,6 +188,9 @@ for file in dialogue_files:
 # Step 4. Save results
 # ----------------------------------------
 sim_df = pd.DataFrame(results)
+# Round similarity scores to 3 decimal places for output
+sim_df_rounded = sim_df.copy()
+sim_df_rounded["similarity"] = sim_df_rounded["similarity"].round(3)
 sim_df.to_csv(OUTPUT_FILE, index=False)
 
 print("\n========== DONE ==========")
@@ -193,12 +198,15 @@ print(f"Saved lexical similarity results to: {OUTPUT_FILE}")
 print(f"Total evaluated utterances: {len(sim_df)}")
 print(f"Total skipped utterances: {skipped}")
 
+
 # ----------------------------------------
 # Step 5. Summary statistics
 # ----------------------------------------
 if len(sim_df) > 0:
     print("\n========== Summary Statistics ==========")
     summary = sim_df.groupby("character")["similarity"].describe()
+    # Round summary statistics to 3 decimal places
+    summary_rounded = summary.round(3)
     print(summary)
 
     summary.to_csv(os.path.join(OUTPUT_DIR, "3.1_lexical_summary_stats.csv"))
@@ -243,8 +251,8 @@ for name1, name2, s1, s2 in pairs:
     
     pairwise_results.append({
         "pair": f"{name1} vs {name2}",
-        "U_stat": U_stat,
-        "p_value": p_val,
+        "U_stat": round(U_stat, 3),  # Round to 3 decimals
+        "p_value": round(p_val, 3),   # Round to 3 decimals
         "significant_after_bonferroni": significant
     })
 
