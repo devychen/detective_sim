@@ -1,114 +1,6 @@
-"""
-=========================================================
-2.0_classifier.py 
-
-CLASSIFIER-BASED IN-CHARACTER EVALUATION PIPELINE
--------------------------------------------------
-
-Goal:
-This script evaluates whether LLM agents remain in-character (IC) by using a
-fine-tuned BERT-style text classifier as a reference model of character voice.
-For each dialogue simulation, the classifier outputs a probability distribution
-over the three characters (Holmes, Marple, Poirot), and we quantify how likely
-each utterance is to belong to the speaking agent.
-
----------------------------------------------------------
-Metrics
----------------------------------------------------------
-For each utterance produced by an agent, we compute:
-
-1) prob_correct
-   - Definition: the classifier’s predicted probability assigned to the
-     utterance’s *true* character (i.e., the speaking agent).
-   - Interpretation: higher values indicate that the utterance is strongly
-     aligned with the agent’s learned stylistic and lexical profile.
-
-2) Brier score
-   - Definition: squared error between prob_correct and the ideal target 1.0,
-     i.e. (prob_correct − 1)^2.
-   - Interpretation: lower values indicate better calibrated character
-     predictions and thus stronger in-character behaviour.
-
----------------------------------------------------------
-(1) Turn-level descriptive statistics with Bootstrap CIs
----------------------------------------------------------
-- For each case and agent, collect all simulation runs.
-- Align utterances by turn index across runs (turn 1, turn 2, ...).
-- For each turn and metric (prob_correct, Brier score):
-    • Aggregate all utterances at that turn across runs.
-    • Estimate the mean using non-parametric bootstrap resampling.
-    • Compute 95% bootstrap confidence intervals for the mean.
-- Purpose: describe how classifier-based character consistency evolves over
-  dialogue turns, and quantify uncertainty at each turn.
-
-Methods / Libraries:
-- numpy, pandas for data handling.
-- Custom bootstrap (resampling with replacement) to obtain CIs for the mean.
-- Matplotlib, seaborn to visualise:
-    • per-agent curves with confidence bands,
-    • per-case multi-agent comparison plots.
-
----------------------------------------------------------
-(2) Pooled regression analysis (turn-level trend inference)
----------------------------------------------------------
-- For each case and agent, pool all utterances across all simulation runs.
-- Fit two separate linear regression models using Ordinary Least Squares (OLS):
-
-      prob_correct ~ turn
-      brier        ~ turn
-
-  where each utterance is treated as one observation and “turn” is the
-  dialogue turn index.
-
-- For each model, extract:
-    • slope of turn (trend direction and magnitude),
-    • t-statistic and p-value for the slope,
-    • 95% confidence interval for the slope,
-    • R² and number of observations.
-
-- Purpose: test whether classifier-based character consistency (prob_correct)
-  or prediction error (Brier score) systematically increase or decrease over
-  turns, i.e. whether there is evidence of drift away from the learned
-  character profiles as dialogues progress.
-
-Methods / Libraries:
-- statsmodels.api.OLS for pooled linear regression.
-
----------------------------------------------------------
-(3) Outputs
----------------------------------------------------------
-- Text report:
-    * Human-readable summary per case and agent, including turn-level
-      statistics and pooled regression results.
-
-- CSV files:
-    * Turn-level aggregated statistics (mean + 95% bootstrap CI) for each
-      agent and case.
-    * Pooled regression summaries for each agent and case (slope, t, p, CI, R²).
-
-- Plots:
-    * For each agent and case:
-         - turn vs prob_correct with bootstrap confidence band.
-         - turn vs Brier score with bootstrap confidence band.
-    * For each case:
-         - multi-agent comparison plots showing all agents’ curves in a
-           single figure, separately for prob_correct and Brier score.
-
----------------------------------------------------------
-Packages / Libraries Used
----------------------------------------------------------
-- transformers (HuggingFace): loading the fine-tuned BERT classifier.
-- torch: GPU-accelerated inference.
-- pandas, numpy: data preparation, aggregation, and bootstrap resampling.
-- statsmodels: pooled OLS regression over dialogue turns.
-- matplotlib, seaborn: visualisation of temporal trends and confidence bands.
-
-=========================================================
-"""
-
-
 # =================================================
-# Imports
+# 2.0_classifier.py 
+# FINAL THESIS VERSION (RESTORED TXT + FIXED TURN TYPE + MULTI-AGENT PLOTS)
 # =================================================
 
 import os
@@ -116,14 +8,12 @@ import glob
 import numpy as np
 import pandas as pd
 import torch
-
 import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set(style="whitegrid")
 
 from datetime import datetime
 from typing import List, Dict
-
 import statsmodels.api as sm
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
@@ -138,12 +28,7 @@ DATA_ROOT = "./data"
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
-ID2LABEL = {
-    0: "holmes",
-    1: "marple",
-    2: "poirot"
-}
-
+ID2LABEL = {0: "holmes", 1: "marple", 2: "poirot"}
 LABEL2ID = {v: k for k, v in ID2LABEL.items()}
 AGENTS = ["Holmes", "Marple", "Poirot"]
 
@@ -155,10 +40,10 @@ AGENT_COLORS = {
 
 
 # =================================================
-# Helper: load latest checkpoint
+# Load classifier
 # =================================================
 
-def load_latest_checkpoint(model_dir: str):
+def load_latest_checkpoint(model_dir):
     checkpoints = sorted(
         glob.glob(os.path.join(model_dir, "checkpoint-*")),
         key=os.path.getmtime
@@ -167,10 +52,6 @@ def load_latest_checkpoint(model_dir: str):
         raise FileNotFoundError("No checkpoint found.")
     return checkpoints[-1]
 
-
-# =================================================
-# Load classifier
-# =================================================
 
 def load_classifier():
     checkpoint = load_latest_checkpoint(MODEL_DIR)
@@ -206,7 +87,8 @@ def predict_probabilities(texts, tokenizer, model):
 # Per-simulation evaluation
 # =================================================
 
-def evaluate_simulation(dialogue_path, tokenizer, model) -> Dict[str, pd.DataFrame]:
+def evaluate_simulation(dialogue_path, tokenizer, model):
+
     df = pd.read_csv(dialogue_path)
     results = {}
 
@@ -216,7 +98,7 @@ def evaluate_simulation(dialogue_path, tokenizer, model) -> Dict[str, pd.DataFra
             continue
 
         texts = agent_df["utterance"].tolist()
-        turns = agent_df["turn"].tolist()
+        turns = agent_df["turn"].astype(int).tolist()
 
         probs = predict_probabilities(texts, tokenizer, model)
 
@@ -230,25 +112,20 @@ def evaluate_simulation(dialogue_path, tokenizer, model) -> Dict[str, pd.DataFra
             "brier": brier
         })
 
-
     return results
 
 
 # =================================================
-# Aggregate simulation runs
+# Aggregation
 # =================================================
 
-def aggregate_over_runs(all_runs: List[Dict[str, pd.DataFrame]]):
+def aggregate_over_runs(all_runs):
     aggregated = {agent: [] for agent in AGENTS}
     for run in all_runs:
         for agent, df in run.items():
             aggregated[agent].append(df)
     return aggregated
 
-
-# =================================================
-# Bootstrap CI helper
-# =================================================
 
 def bootstrap_ci(values, n_boot=10000, ci=95):
     values = np.array(values)
@@ -259,7 +136,6 @@ def bootstrap_ci(values, n_boot=10000, ci=95):
         means.append(sample.mean())
 
     means = np.array(means)
-
     alpha = (100 - ci) / 2
     ci_low = np.percentile(means, alpha)
     ci_high = np.percentile(means, 100 - alpha)
@@ -267,12 +143,10 @@ def bootstrap_ci(values, n_boot=10000, ci=95):
     return values.mean(), ci_low, ci_high
 
 
-# =================================================
-# Turn-level aggregation
-# =================================================
-
-def aggregate_turn_level(dfs: List[pd.DataFrame]) -> pd.DataFrame:
+def aggregate_turn_level(dfs):
     all_data = pd.concat(dfs, ignore_index=True)
+    all_data["turn"] = all_data["turn"].astype(int)
+
     results = []
 
     for turn, group in all_data.groupby("turn"):
@@ -280,7 +154,7 @@ def aggregate_turn_level(dfs: List[pd.DataFrame]) -> pd.DataFrame:
         brier_mean, brier_low, brier_high = bootstrap_ci(group["brier"])
 
         results.append({
-            "turn": turn,
+            "turn": int(turn),
             "prob_mean": prob_mean,
             "prob_ci_low": prob_low,
             "prob_ci_high": prob_high,
@@ -294,11 +168,12 @@ def aggregate_turn_level(dfs: List[pd.DataFrame]) -> pd.DataFrame:
 
 
 # =================================================
-# Pooled regression
+# Regression
 # =================================================
 
-def pooled_regression(dfs: List[pd.DataFrame], metric: str):
+def pooled_regression(dfs, metric):
     all_data = pd.concat(dfs, ignore_index=True)
+    all_data["turn"] = all_data["turn"].astype(int)
 
     X = sm.add_constant(all_data["turn"])
     y = all_data[metric]
@@ -319,10 +194,6 @@ def pooled_regression(dfs: List[pd.DataFrame], metric: str):
     }
 
 
-# =================================================
-# Format p-value with stars
-# =================================================
-
 def format_p_value(p):
     if p < 0.01:
         return f"{p:.3f}**"
@@ -333,11 +204,12 @@ def format_p_value(p):
 
 
 # =================================================
-# Case-level evaluation
+# Case evaluation
 # =================================================
 
 def evaluate_case(case_name, tokenizer, model, f,
-                  prob_reg_results, brier_reg_results):
+                  prob_reg_results, brier_reg_results,
+                  per_turn_output_path):
 
     pattern = os.path.join(DATA_ROOT, case_name, "run_*", "dialogue_log.csv")
     dialogue_logs = sorted(glob.glob(pattern))
@@ -346,65 +218,42 @@ def evaluate_case(case_name, tokenizer, model, f,
     print(f"Found {len(dialogue_logs)} simulation runs.", file=f)
 
     all_runs = []
-    per_turn_records = []   # NEW: collect raw per-utterance results
+    per_turn_records = []
 
     for path in dialogue_logs:
         run_id = os.path.basename(os.path.dirname(path))
-
         run_results = evaluate_simulation(path, tokenizer, model)
         all_runs.append(run_results)
 
-        # NEW: collect per-utterance data
         for agent, df_agent in run_results.items():
             for _, row in df_agent.iterrows():
                 per_turn_records.append({
                     "case": case_name,
                     "run_id": run_id,
-                    "turn": row["turn"],
+                    "turn": int(row["turn"]),
                     "character": agent.lower(),
                     "prob_correct": row["prob_correct"],
                     "brier": row["brier"]
                 })
 
-    # ===============================
-    # NEW: Save per-utterance file
-    # ===============================
+    # Save per-turn (overwrite each run)
     per_turn_df = pd.DataFrame(per_turn_records)
     per_turn_df["turn"] = per_turn_df["turn"].astype(int)
-
-
-    per_turn_output_path = os.path.join(
-        "./evaluation",
-        "2.0_classifier_per_turn.csv"
-    )
-
-    os.makedirs("./evaluation", exist_ok=True)
-
-    if os.path.exists(per_turn_output_path):
-        per_turn_df.to_csv(
-            per_turn_output_path,
-            mode="a",
-            header=False,
-            index=False
-        )
-    else:
-        per_turn_df.to_csv(
-            per_turn_output_path,
-            index=False
-        )
-
-    # ===============================
-    # Original aggregation continues
-    # ===============================
+    per_turn_df.to_csv(per_turn_output_path, mode="a",
+                       header=not os.path.exists(per_turn_output_path),
+                       index=False)
 
     aggregated = aggregate_over_runs(all_runs)
 
     turn_csv_dir = "./evaluation/turn_csv_classifier"
     reg_csv_dir = "./evaluation/regression_csv_classifier"
     plots_dir = "./evaluation/plots_classifier"
+
     os.makedirs(turn_csv_dir, exist_ok=True)
     os.makedirs(reg_csv_dir, exist_ok=True)
     os.makedirs(plots_dir, exist_ok=True)
+
+    agent_turn_stats = {}
 
     for agent, dfs in aggregated.items():
         if len(dfs) == 0:
@@ -413,12 +262,14 @@ def evaluate_case(case_name, tokenizer, model, f,
         print(f"\n--- {agent} ---", file=f)
 
         turn_df = aggregate_turn_level(dfs)
+        agent_turn_stats[agent] = turn_df
 
         print("\nTurn-level aggregated metrics (Bootstrap 95% CI):", file=f)
         print(turn_df.to_string(index=False, float_format="%.4f"), file=f)
 
         turn_df.to_csv(
-            os.path.join(turn_csv_dir, f"{case_name}_{agent}_turn_stats.csv"),
+            os.path.join(turn_csv_dir,
+                         f"{case_name}_{agent}_turn_stats.csv"),
             index=False
         )
 
@@ -429,7 +280,8 @@ def evaluate_case(case_name, tokenizer, model, f,
             {"metric": "prob_correct", **prob_reg},
             {"metric": "brier", **brier_reg}
         ]).to_csv(
-            os.path.join(reg_csv_dir, f"{case_name}_{agent}_pooled_regression.csv"),
+            os.path.join(reg_csv_dir,
+                         f"{case_name}_{agent}_pooled_regression.csv"),
             index=False
         )
 
@@ -453,76 +305,49 @@ def evaluate_case(case_name, tokenizer, model, f,
             "R2": brier_reg["r2"]
         })
 
-# def evaluate_case(case_name, tokenizer, model, f,
-#                   prob_reg_results, brier_reg_results):
+    # ===== Multi-agent plots =====
 
-#     pattern = os.path.join(DATA_ROOT, case_name, "run_*", "dialogue_log.csv")
-#     dialogue_logs = sorted(glob.glob(pattern))
+    for metric in ["prob", "brier"]:
 
-#     print(f"\n=== {case_name.upper()} ===", file=f)
-#     print(f"Found {len(dialogue_logs)} simulation runs.", file=f)
+        plt.figure(figsize=(8, 6))
 
-#     all_runs = []
-#     for path in dialogue_logs:
-#         all_runs.append(evaluate_simulation(path, tokenizer, model))
+        for agent in AGENTS:
+            if agent not in agent_turn_stats:
+                continue
 
-#     aggregated = aggregate_over_runs(all_runs)
+            df_plot = agent_turn_stats[agent]
+            x = df_plot["turn"]
 
-#     turn_csv_dir = "./evaluation/turn_csv_classifier"
-#     reg_csv_dir = "./evaluation/regression_csv_classifier"
-#     plots_dir = "./evaluation/plots_classifier"
-#     os.makedirs(turn_csv_dir, exist_ok=True)
-#     os.makedirs(reg_csv_dir, exist_ok=True)
-#     os.makedirs(plots_dir, exist_ok=True)
+            if metric == "prob":
+                y = df_plot["prob_mean"]
+                ci_low = df_plot["prob_ci_low"]
+                ci_high = df_plot["prob_ci_high"]
+                ylabel = "Probability (Correct Character)"
+            else:
+                y = df_plot["brier_mean"]
+                ci_low = df_plot["brier_ci_low"]
+                ci_high = df_plot["brier_ci_high"]
+                ylabel = "Brier Score"
 
-#     for agent, dfs in aggregated.items():
-#         if len(dfs) == 0:
-#             continue
+            plt.plot(x, y, label=agent,
+                     color=AGENT_COLORS[agent], linewidth=2)
+            plt.fill_between(x, ci_low, ci_high,
+                             color=AGENT_COLORS[agent], alpha=0.2)
 
-#         print(f"\n--- {agent} ---", file=f)
+        plt.xlabel("Turn")
+        plt.ylabel(ylabel)
+        plt.title(f"{case_name.upper()} – {ylabel} over Turns")
+        plt.legend()
+        plt.tight_layout()
 
-#         turn_df = aggregate_turn_level(dfs)
-
-#         print("\nTurn-level aggregated metrics (Bootstrap 95% CI):", file=f)
-#         print(turn_df.to_string(index=False, float_format="%.4f"), file=f)
-
-#         turn_df.to_csv(
-#             os.path.join(turn_csv_dir, f"{case_name}_{agent}_turn_stats.csv"),
-#             index=False
-#         )
-
-#         prob_reg = pooled_regression(dfs, "prob_correct")
-#         brier_reg = pooled_regression(dfs, "brier")
-
-#         # Save regression CSV (unchanged)
-#         pd.DataFrame([
-#             {"metric": "prob_correct", **prob_reg},
-#             {"metric": "brier", **brier_reg}
-#         ]).to_csv(
-#             os.path.join(reg_csv_dir, f"{case_name}_{agent}_pooled_regression.csv"),
-#             index=False
-#         )
-
-#         # Store for final integrated table
-#         prob_reg_results.append({
-#             "Case": case_name,
-#             "Character": agent,
-#             "Beta": prob_reg["slope"],
-#             "CI_low": prob_reg["ci_low"],
-#             "CI_high": prob_reg["ci_high"],
-#             "p_value": prob_reg["p_value"],
-#             "R2": prob_reg["r2"]
-#         })
-
-#         brier_reg_results.append({
-#             "Case": case_name,
-#             "Character": agent,
-#             "Beta": brier_reg["slope"],
-#             "CI_low": brier_reg["ci_low"],
-#             "CI_high": brier_reg["ci_high"],
-#             "p_value": brier_reg["p_value"],
-#             "R2": brier_reg["r2"]
-#         })
+        plt.savefig(
+            os.path.join(
+                plots_dir,
+                f"{case_name}_{metric}_multi_agent.png"
+            ),
+            dpi=300
+        )
+        plt.close()
 
 
 # =================================================
@@ -530,13 +355,27 @@ def evaluate_case(case_name, tokenizer, model, f,
 # =================================================
 
 def main():
+
     np.random.seed(42)
     tokenizer, model = load_classifier()
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     output_dir = "./evaluation"
     os.makedirs(output_dir, exist_ok=True)
-    output_path = os.path.join(output_dir, f"2.0_classifier_{timestamp}.txt")
+
+    output_path = os.path.join(
+        output_dir,
+        f"2.0_classifier_{timestamp}.txt"
+    )
+
+    per_turn_output_path = os.path.join(
+        output_dir,
+        "2.0_classifier_per_turn.csv"
+    )
+
+    # Remove old per-turn file
+    if os.path.exists(per_turn_output_path):
+        os.remove(per_turn_output_path)
 
     prob_reg_results = []
     brier_reg_results = []
@@ -545,17 +384,12 @@ def main():
 
         for case in CASES:
             evaluate_case(case, tokenizer, model, f,
-                          prob_reg_results, brier_reg_results)
-
-        # ==============================
-        # Final integrated regression tables
-        # ==============================
+                          prob_reg_results, brier_reg_results,
+                          per_turn_output_path)
 
         print("\n\n==============================", file=f)
         print("Regression results for prob_correct", file=f)
         print("==============================\n", file=f)
-
-        print("Case\tCharacter\tβ (prob_correct)\t95% CI\tp-value\tR²", file=f)
 
         for row in prob_reg_results:
             ci_str = f"[{row['CI_low']:.3f}, {row['CI_high']:.3f}]"
@@ -572,8 +406,6 @@ def main():
         print("\n\n==============================", file=f)
         print("Regression results for Brier score", file=f)
         print("==============================\n", file=f)
-
-        print("Case\tCharacter\tβ (brier)\t95% CI\tp-value\tR²", file=f)
 
         for row in brier_reg_results:
             ci_str = f"[{row['CI_low']:.3f}, {row['CI_high']:.3f}]"

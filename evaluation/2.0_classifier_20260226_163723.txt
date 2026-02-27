@@ -130,7 +130,6 @@ Turn-level aggregated metrics (Bootstrap 95% CI):
 Regression results for prob_correct
 ==============================
 
-Case	Character	β (prob_correct)	95% CI	p-value	R²
 case1	Holmes	-0.063	[-0.118, -0.008]	0.025*	0.102
 case1	Marple	-0.002	[-0.064, 0.060]	0.947	0.000
 case1	Poirot	0.057	[-0.009, 0.124]	0.091	0.060
@@ -146,7 +145,6 @@ case3	Poirot	-0.061	[-0.157, 0.034]	0.203	0.042
 Regression results for Brier score
 ==============================
 
-Case	Character	β (brier)	95% CI	p-value	R²
 case1	Holmes	0.062	[0.003, 0.121]	0.039*	0.087
 case1	Marple	-0.011	[-0.079, 0.057]	0.745	0.002
 case1	Poirot	-0.052	[-0.119, 0.015]	0.124	0.050
