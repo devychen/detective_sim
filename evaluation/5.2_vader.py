@@ -331,7 +331,7 @@ for (case_name, run_id, char), group in df_dist.groupby(["case", "run_id", "char
     trend_records.append({
         "case": case_name,
         "run_id": run_id,
-        "turn": turn_id,
+        # "turn": turn_id,
         "character": char,
         "slope": slope,
         "intercept": intercept,

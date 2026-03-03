@@ -229,6 +229,14 @@ poirot_scores = sim_df[sim_df["character"] == "poirot"]["similarity"].values
 H_stat, p_kw = kruskal(holmes_scores, marple_scores, poirot_scores)
 print(f"Kruskal-Wallis test: H = {H_stat:.4f}, p = {p_kw:.6f}")
 
+kw_result = pd.DataFrame([{
+    "H_stat": round(H_stat, 4),
+    "df": 2,
+    "p_value": round(p_kw, 6)
+}])
+
+kw_result.to_csv(os.path.join(OUTPUT_DIR, "3.1_kruskal_wallis_result.csv"), index=False)
+
 # ---- Pairwise Mann-Whitney U tests ----
 pairs = [
     ("holmes", "marple", holmes_scores, marple_scores),

@@ -1,0 +1,7 @@
+data_type,vector_type,silhouette,purity,ARI_character,ARI_case
+reference,embedding_finetuned,0.3437,0.8889,0.6970,
+reference,embedding_finetuned,0.3163,0.8837,0.6846,
+reference,embedding_finetuned,0.3368,0.8708,0.6626,
+reference,embedding_finetuned,0.3266,0.8837,0.6885,
+reference,embedding_finetuned,0.2973,0.8708,0.6546,
+simulation,embedding_finetuned,0.4064,0.4005,0.0070,0.0269
