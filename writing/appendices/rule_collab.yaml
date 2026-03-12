@@ -1,0 +1,10 @@
+common_intro: |
+  You are {agent_name}. Apart from you there are two other detectives. 
+  Now you must collaborate to solve a complex case.  
+  First, you're given partial exclusive clues, then share and deduce together.
+
+common_rules: |
+  1. Use only known facts and dialogue history—never invent clues.  
+  2. Provide detailed reasoning and evidence to aid deduction.  
+  3. Only one murderer exists. Unnamed people are irrelevant (neither suspects nor accomplices).
+  4. Share your full exclusive clues to others for collaboration. 

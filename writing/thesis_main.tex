@@ -12,7 +12,6 @@
 \usepackage{multirow} % For multirow cells
 \usepackage{booktabs}
 \usepackage{tocloft} % 公式lsit
-
 \usepackage{titlesec}   % 控制 section 样式
 \usepackage{mfirstuc}   % 提供 \capitalisewords
 % \section：每个单词首字母大写
@@ -34,6 +33,17 @@
 \usepackage{url}
 \usepackage{amsmath}
 \usepackage[title]{appendix} % 自动在附录章节名前加上 "Appendix " 字样
+
+\usepackage{listings}
+\usepackage{minted}
+\setminted{
+    breaklines=true,
+    fontsize=\small,
+    % gobble=4,
+    % frame=single,
+    % linenos,
+    % breakanywhere=true
+    }
 
 % ------ 首页 ------
 
@@ -69,9 +79,7 @@ I thank my instructor Ms. Polina Tsvilodub for encouraging and guiding me on the
 \begin{center}
   \normalsize\bfseries\MakeUppercase{abstract}
 \end{center}
-
-
-...[TBC] Code and data are available on GitHub. \footnote{\url{https://github.com/devychen/detective_sim}}
+This thesis investigates the challenge of character consistency in multi-agent large language model (LLM) collaboration. While LLMs are increasingly used for role-playing, they often struggle to maintain a specific character over long interactions. This study uses a simulation-based design where three agents, role-playing as Sherlock Holmes, Hercule Poirot, and Miss Marple, work together to solve murder mystery cases. The research evaluates character consistency across three linguistic levels: lexical, syntactic, and discourse. A fine-tuned BERT-based classifier is also used as a stylistic benchmark to measure how well the agents stay in character. The results show that collaborative pressure significantly reduces character consistency. While agents partially preserve their characters, their linguistic styles often converge toward a generic, neutral "AI register" as the dialogue progresses. The study finds that syntactic depth is the most reliable indicator for capturing shifts in character consistency. Furthermore, clustering analysis reveals that while detectives are distinct in literary texts, they become representationaly similar during collaboration, a phenomenon termed character contamination. This thesis provides a new multi-level framework for measuring how social dynamics affect the character consistency of LLM agents. Code and data are available on GitHub. \footnote{\url{https://github.com/devychen/detective_sim}}
 
 
 
@@ -1087,48 +1095,59 @@ Overall, the clustering analysis provides evidence of character contamination in
 
 \section{Discussion}
 
-\subsection{Overview of Findings: Addressing Research Questions}
+\subsection{Overview of Findings}
 
-Based on the experiement results, now research questions and hypotheses could be evaluted. This section provides a summary of the findings and directly addresses the research questions and hypotheses of this study. The results show that character consistency is not a single, uniform state. Instead, it depends on which linguistic level is being measured
+This section provides a summary of the experimental results and directly addresses the research questions of this study. The findings show that large language model (LLM) agents maintain character consistency only partially during collaborative reasoning tasks. Although the agents can preserve assigned characters in the early stages of a dialogue, this character consistency tends to erode as the interaction progresses.
 
-\begin{itemize}
-    \item \textbf{RQ1}: To what extent do LLMs maintain character consistency during collaborative reasoning tasks?
-    \item[] \textit{Hypothesis}: LLMs will partially preserve assigned personas but will exhibit character inconsistency over longer multi-turn dialogues.
-\end{itemize}
+The study also demonstrates that character consistency is not a uniform or single state. Instead, it is a multi-dimensional construct that depends on the specific linguistic level being measured. While lexical and syntactic features serve as relatively stable anchors for a character, agents show significant convergence at the discourse and representational levels. This suggests that local stylistic signals may remain detectable even when the global identity of the character begins to collapse.
 
-The results partially support the first hypothesis. LLM agents maintained character consistency at lexical and syntactic levels. However, this consistency was not perfect. As the collaborative dialogues progressed, agents showed systematic inconsistency. Their sentence structures became more complex and less like the original literary sources. Therefore, character consistency is partially preserved but tends to erode during long interactions.
+Finally, the evaluation reveals that syntactic depth is the most reliable and faithful indicator of character consistency. This structural metric correlates most strongly with the confidence scores of the character classifier. These results indicate that structural patterns in language are better predictors of character fidelity than surface-level word choices or affective traits. In summary, while LLMs can simulate distinct characters, the pressure of collaboration creates a systematic challenge to maintaining a stable and consistent character.
 
+\subsection{The Collaboration Paradox and Character Contamination}
 
-\begin{itemize}
-    \item \textbf{RQ2}: How can multi-level linguistic metrics capture character consistency?
-    \item[] \textit{Hypothesis}: Combining lexical, syntactic, and discourse features will better reflect persona fidelity than any single level alone.
-\end{itemize}
+The clustering analysis reveals a significant decline in character consistency at the global representational level. In the reference corpus, the three detectives occupy distinct areas in the embedding space, showing high cluster purity and clear separation. However, this distinctiveness disappears during collaborative simulations. The embeddings of the agents' utterances converge into a single group that no longer aligns with their individual identities. This result suggests that while local signals might persist, the overall "linguistic fingerprint" of each character becomes blurred. This phenomenon is termed character contamination, where the unique traits of the detectives are lost in the shared dialogue.
 
-The results support the second hypothesis. A single metric cannot fully capture the nuances of character consistency and multiple linguistic levels provides a better view. Lexical and syntactic features acted as strong character anchors. These structural patterns remained detectable even under the pressure of collaboration. In contrast, embedding-based clustering showed representational convergence. Combining these levels provides a more complete view of how agents behave in multi-agent settings
+A primary cause of this loss in character consistency is the pressure of multi-agent coordination. To solve the murder cases, agents must exchange information and reach a collective consensus. This drive for agreement creates a "collaboration paradox". While the detectives work together to achieve a task, the social dynamics of the group force their styles to align. The agents often sacrifice their specific investigative approaches or personalities to maintain group harmony. Consequently, the "chat context" becomes a stronger influence on the model than the initial character prompt. The need for task-oriented cooperation effectively overrides the individual character traits defined in the preamble \citep{baltaji2024cultured,chen2024socialbench}.
 
-\begin{itemize}
-    \item \textbf{RQ3}: Which metrics are most reliable capture it?
-    \item[] \textit{Hypothesis}: Metrics that correlate strongly with a dedicated persona classifier’s confidence scores (e.g. classification probability that an utterance matches the persona) will be more predictive of true consistency
-\end{itemize}
+Another important factor is the influence of the "default AI register". Most large language models are fine-tuned to be helpful, neutral, and cooperative. When faced with complex reasoning tasks, these models often revert to a formal and standardized style of speaking \citep{moon2024anthology}. This inherent bias pulls the agents away from their specific literary characterisations. Instead of sounding like Sherlock Holmes or Miss Marple, the agents begin to sound like a generic AI assistant. This shift explains why the agents' sentence structures become more complex and uniform during the simulation. Therefore, character consistency remains fragile in multi-agent environments because the models naturally gravitate toward a neutral, task-focused persona.
 
-The results support the third hypothesis. Syntactic depth metrics showed the strongest correlation with classifier confidence scores. Specifically, raw depth deviation was the most reliable indicator of character consistency. This confirms that structural patterns are better predictors of character fidelity than lexical or discourse features.
+\subsection{A Layered Perspective on Character Consistency}
+
+The findings of this study suggest that character consistency should not be viewed as a single or binary state. Instead, it is more accurately described as a layered construct that operates across different linguistic levels with varying degrees of stability. While an agent might fail to maintain its identity at a global representational level, it can still preserve specific stylistic signals at a local level. This distinction is important because it shows that character consistency can be partially maintained even when the overall persona begins to erode. 
+
+A significant observation in this research is that structural features serve as more reliable anchors for a character than surface-level traits. The high faithfulness score of syntactic depth indicates that the way a character organises their sentences is a more stable indicator of identity than their choice of words or emotional tone. In contrast, discourse-level features, such as sentiment, appear to be highly sensitive to the immediate context of the conversation. This suggests that while a model can easily adapt its vocabulary or mood to fit a collaborative task, its underlying "syntactic fingerprint" is more resistant to change.
+
+This layered perspective has important implications for the design of role-playing AI. Many current systems rely heavily on lexical prompting, using specific catchphrases or vocabulary lists to define a persona. However, the results of this study imply that such surface-level methods are insufficient for maintaining character consistency during long or complex interactions. Because structural patterns are more predictive of character fidelity, future role-playing frameworks may require deeper structural constraints. Rather than simply telling a model what to say, developers might need to provide instructions on how to structure its language to ensure a more resilient and consistent character performance.
 
 
-\subsection{a multi-level interpretation of character consistency}
+\subsection{methodological contributions}
+The primary methodological contribution of this research is the development of a multi-dimensional framework grounded in linguistic theory. Many existing studies evaluate character consistency using macro-level indicators, such as task success, human judgment, or abstract personality tests like MBTI. While these methods offer useful insights into an agent's general behavior, they often overlook how a character is actually performed through specific language use. This thesis addresses this gap by examining character consistency across three distinct layers: lexical patterns, syntactic structures, and discourse-level affect. By focusing on these micro-level features, the framework can detect subtle shifts in character behavior that are often invisible to broader behavioral assessments. 
 
-The findings suggest that charcater consistency in LLM agents is not uniform. Instead, it is a layered construct where different linguistic levels contribute uneveny to identity recognition, and some features functioning as stronger signals than others.
+Furthermore, this approach provides a more granular view of how character consistency evolves over time. Instead of relying on a single aggregate score, the multi-level analysis reveals that an agent can maintain its identity in one dimension while losing it in another. For example, the results show that an agent might continue to use character-specific vocabulary even as its sentence structures converge toward a generic AI style. This distinction is critical for understanding the complex dynamics of role-playing in multi-agent environments. To ensure the reliability of these measurements, this study also utilises classifier confidence as a reference signal to validate the linguistic metrics. This step confirms that the chosen linguistic features are faithful and reliable indicators of character identity.
 
-At lexical and ysntacti level. 
-
-
-
-
+Finally, this framework moves beyond task-specific outcomes to offer an intrinsic evaluation of character performance. High task accuracy does not always mean an agent is remaining in character, as a model may solve a problem by abandoning its assigned persona to be more efficient. By prioritising linguistic form over task utility, this methodology offers a more rigorous way to evaluate the authenticity of large language model (LLM) simulations. This shift from macro-evaluations to micro-linguistic analysis provides a valuable tool for future researchers seeking to build more resilient and believable role-playing agents.
 
 \subsection{Limitation and Future Work}
 
+Several limitations should be acknowledged when interpreting the findings of this study. One primary concern is the reliance on the character classifier as a proxy for identity. While the model was validated on reference data, its confidence scores are not an objective ground truth for character consistency. This approach measures alignment with the classifier’s internal representation rather than with human judgment. Furthermore, using the same classifier for both identity prediction and clustering analysis might introduce some circularity. Future work could address this by employing external embedding models to verify the representational convergence observed in this study.
+
+The domain shift between the literary reference texts and the simulated dialogues also requires consideration. The reference corpus consists of narrative prose, while the simulations involve collaborative reasoning in a specific task environment. Part of the observed decline in character consistency may therefore reflect the shift in genre rather than a pure loss of identity. 
+
+Additionally, the focus on three canonical detectives limits the generalisability of the results. Characters with less distinct speaking styles or roles defined by functional attributes might behave differently under collaborative pressure. The modest sample size at the turn level also suggests that larger simulation sets would be beneficial for future replication.
+
+Building on these observations, there are several opportunities for future research. Incorporating human annotation would provide a valuable way to triangulate the model-based assessments of character consistency. Future studies could also test the multi-level framework on a more diverse range of personas to see if structural patterns remain the strongest anchors across different roles. Finally, exploring adaptive prompting strategies or longer interaction sequences could help determine how to mitigate the effects of character contamination. These developments would contribute to the creation of more robust and immersive multi-agent role-playing systems.
+
 \section{Conclusion}
 
+This thesis examined how large language models (LLMs) maintain character consistency during multi-agent collaborative reasoning tasks. By simulating a detective trio solving complex cases, the study measured shifts in character consistency through a hierarchical linguistic framework. The findings lead to several important conclusions. 
 
+First, LLM agents only partially maintain their assigned characters. As the dialogue continues, character consistency tends to erode. Second, a multi-level linguistic approach is necessary to detect these changes, as a single metric cannot capture the full complexity of character behavior. Third, syntactic features are the most faithful indicators of character consistency. Specifically, changes in sentence complexity, measured by syntactic depth, correlate most strongly with character recognition.
+
+A major discovery of this research is the collaboration paradox. While agents work together to solve a task, the pressure to reach a consensus forces their linguistic styles to converge. This leads to character contamination, where the unique "linguistic fingerprints" of the detectives are replaced by a uniform, task-oriented style.
+
+There are some limitations to this study. The evaluation relied on a model-based classifier rather than human judgment, and the results are limited to three specific literary characters. Future research should include human evaluations and explore a wider range of character types.
+
+In summary, this thesis highlights the fragile nature of character consistency in collaborative environments and offers a quantitative method for future studies in role-playing LLM-based agents..
 
 % ------ 引用 ------
 \bibliographystyle{plainnat}
@@ -1139,11 +1158,32 @@ At lexical and ysntacti level.
 
 % ------ 附录 ------
 \begin{appendices}
-\section{Character Prompt}  
+\section{Character Prompt}
+
+\subsection{Holmes}
+    \inputminted{yaml}{../prompts/holmes.yaml}
+
+\subsection{Marple}
+    \inputminted{yaml}{../prompts/marple.yaml}
+    
+\subsection{Poirot}
+    \inputminted{yaml}{../prompts/poirot.yaml}
+
 
 \section{Rule Prompt}
+    \inputminted{yaml}{../prompts/rule_collab.yaml}
+
 
 \section{Case Information}
+
+
+\subsection{Case 1}
+    \inputminted{yaml}{../cases/case1.yaml}
+\subsection{Case 2}
+    \inputminted{yaml}{../cases/case2.yaml}
+\subsection{Case 3}
+    \inputminted{yaml}{../cases/case3.yaml}
+
 
 
 \end{appendices}

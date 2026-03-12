@@ -1,0 +1,141 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nt}{case}\PYG{p}{:}
+\PYG{+w}{  }\PYG{n+nt}{setting}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{    }\PYG{n+no}{You are invited detectives on the luxurious cruise ship \PYGZdq{}Sunshine.\PYGZdq{} }
+\PYG{+w}{    }\PYG{n+no}{Yosef, a London bar owner involved in drugs and illegal activities, died in his cabin during a drug deal. }
+\PYG{+w}{    }\PYG{n+no}{Multiple suspects have motives: revenge, power struggles, and betrayal. }
+\PYG{+w}{    }\PYG{n+no}{The date is June 19, 1902.}
+
+\PYG{+w}{  }\PYG{n+nt}{victim}\PYG{p}{:}
+\PYG{+w}{    }\PYG{n+nt}{name}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Yosef}
+\PYG{+w}{    }\PYG{n+nt}{description}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{      }\PYG{n+no}{A bar owner with deep criminal ties: prostitution, gambling, drugs. }
+\PYG{+w}{      }\PYG{n+no}{Addicted to narcotics. Used drugs every night at 22:30. }
+\PYG{+w}{      }\PYG{n+no}{Paranoid but not skillful. Depended on Zack for drug supply.}
+
+\PYG{+w}{  }\PYG{n+nt}{suspects}\PYG{p}{:}
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{n+nt}{name}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Zack}
+\PYG{+w}{      }\PYG{n+nt}{role}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{First mate; Yosef’s drug supplier}
+\PYG{+w}{      }\PYG{n+nt}{motive}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{1. Revenge: Yosef killed Zack’s brother Nick. }
+\PYG{+w}{        }\PYG{n+no}{2. Self\PYGZhy{}preservation: Feared Yosef would replace him with Wilson.}
+\PYG{+w}{      }\PYG{n+nt}{background}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Maritime academy graduate; rose to first mate. }
+\PYG{+w}{        }\PYG{n+no}{Helped smuggle drugs for Yosef. }
+\PYG{+w}{        }\PYG{n+no}{Hid Wilson’s existence to protect himself. }
+\PYG{+w}{        }\PYG{n+no}{Yosef killed Nick after learning the truth. }
+\PYG{+w}{        }\PYG{n+no}{Zack gained both motive and opportunity.}
+\PYG{+w}{      }\PYG{n+nt}{appearance}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Dust from ventilation ducts on clothes. }
+\PYG{+w}{        }\PYG{n+no}{Powder residue on hands matching drug mixture with X Poison.}
+\PYG{+w}{      }\PYG{n+nt}{key\PYGZus{}items}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{\PYGZhy{} Duty roster showing Zack inspected Yosef’s luggage.}
+\PYG{+w}{        }\PYG{n+no}{\PYGZhy{} Empty cargo bag from the drug deal.}
+\PYG{+w}{        }\PYG{n+no}{\PYGZhy{} Burned cash fragment in office fireplace.}
+\PYG{+w}{        }\PYG{n+no}{\PYGZhy{} Secret letters to Wilson and Lynn.}
+\PYG{+w}{        }\PYG{n+no}{\PYGZhy{} Tools for moving through ventilation ducts.}
+
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{n+nt}{name}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Wilson}
+\PYG{+w}{      }\PYG{n+nt}{role}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Senior crew member; Zack’s subordinate}
+\PYG{+w}{      }\PYG{n+nt}{motive}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{1. Revenge for his son Wilson Jr.’s death.}
+\PYG{+w}{        }\PYG{n+no}{2. Believed Yosef planned to kill Lynn.}
+\PYG{+w}{      }\PYG{n+nt}{background}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Critically, Wilson never had access to Yosef’s drug stock. }
+\PYG{+w}{        }\PYG{n+no}{The drug stock was inside a locked case only Zack could open. }
+\PYG{+w}{        }\PYG{n+no}{Worked on ship for years. }
+\PYG{+w}{        }\PYG{n+no}{Hid drug involvement from his family. }
+\PYG{+w}{        }\PYG{n+no}{Son died from overdose; suspected foul play. }
+\PYG{+w}{        }\PYG{n+no}{Misheard Yosef’s words and believed Yosef killed his son.}
+\PYG{+w}{      }\PYG{n+nt}{appearance}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Elderly, tired, clean clothing. }
+\PYG{+w}{        }\PYG{n+no}{No suspicious physical traces.}
+\PYG{+w}{      }\PYG{n+nt}{key\PYGZus{}items}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{\PYGZhy{} Business card from Wendy’s subordinate.}
+\PYG{+w}{        }\PYG{n+no}{\PYGZhy{} Bottle labeled \PYGZdq{}Vitamin C\PYGZdq{} but containing X Poison (unopened).}
+\PYG{+w}{        }\PYG{n+no}{\PYGZhy{} Letters proposing cooperation with Yosef.}
+\PYG{+w}{        }\PYG{n+no}{\PYGZhy{} Wilson Jr.’s belongings.}
+
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{n+nt}{name}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Lynn}
+\PYG{+w}{      }\PYG{n+nt}{role}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Ship doctor; double agent}
+\PYG{+w}{      }\PYG{n+nt}{motive}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{1. Yosef threatened her.}
+\PYG{+w}{        }\PYG{n+no}{2. Long\PYGZhy{}term exploitation.}
+\PYG{+w}{      }\PYG{n+nt}{background}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Orphan; motivated by money. }
+\PYG{+w}{        }\PYG{n+no}{Recruited by Yosef, later by Wendy, later by Zack. }
+\PYG{+w}{        }\PYG{n+no}{Married Wilson Jr. for operational reasons. }
+\PYG{+w}{        }\PYG{n+no}{Not emotionally affected by his death. }
+\PYG{+w}{        }\PYG{n+no}{Feared Yosef would expose her.}
+\PYG{+w}{      }\PYG{n+nt}{appearance}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Dust from ventilation ducts on clothes. }
+\PYG{+w}{        }\PYG{n+no}{Diluted X Poison residue in pockets.}
+\PYG{+w}{      }\PYG{n+nt}{key\PYGZus{}items}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{\PYGZhy{} Three missing bottles of X Poison from medical cabinet.}
+\PYG{+w}{        }\PYG{n+no}{\PYGZhy{} Cabinet key found on cabinet, not on her person.}
+\PYG{+w}{        }\PYG{n+no}{\PYGZhy{} Missing syringes (likely discarded).}
+\PYG{+w}{        }\PYG{n+no}{\PYGZhy{} Clothing with poison residue.}
+
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{n+nt}{name}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Wendy}
+\PYG{+w}{      }\PYG{n+nt}{role}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Yosef’s secretary; criminal strategist}
+\PYG{+w}{      }\PYG{n+nt}{motive}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{1. Wanted to replace Yosef.}
+\PYG{+w}{        }\PYG{n+no}{2. Eliminated internal threats.}
+\PYG{+w}{      }\PYG{n+nt}{background}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Ambitious; manipulated Yosef. }
+\PYG{+w}{        }\PYG{n+no}{Controlled final stage of drug chain. }
+\PYG{+w}{        }\PYG{n+no}{Lured Wilson Jr. into addiction; killed him using X Poison. }
+\PYG{+w}{        }\PYG{n+no}{Also killed Nick to undermine Yosef. }
+\PYG{+w}{        }\PYG{n+no}{Planned to kill Yosef and take over.}
+\PYG{+w}{      }\PYG{n+nt}{appearance}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Dust from ventilation ducts. }
+\PYG{+w}{        }\PYG{n+no}{X Poison residue in pockets. }
+\PYG{+w}{        }\PYG{n+no}{Uncleaned stains from duct covers.}
+\PYG{+w}{      }\PYG{n+nt}{key\PYGZus{}items}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{\PYGZhy{} Forged letter in Lynn’s handwriting.}
+
+\PYG{+w}{  }\PYG{n+nt}{crime\PYGZus{}scene}\PYG{p}{:}
+\PYG{+w}{    }\PYG{n+nt}{time}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{22:40–23:00}
+\PYG{+w}{    }\PYG{n+nt}{location}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Yosef’s cabin}
+\PYG{+w}{    }\PYG{n+nt}{body\PYGZus{}state}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{      }\PYG{n+no}{Body contorted painfully. }
+\PYG{+w}{      }\PYG{n+no}{No external injuries. }
+\PYG{+w}{      }\PYG{n+no}{Symptoms consistent with X Poison overdose.}
+\PYG{+w}{    }\PYG{n+nt}{environment}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{      }\PYG{n+no}{Drug residue without poison on bedside table. }
+\PYG{+w}{      }\PYG{n+no}{Loose ventilation duct cover. }
+\PYG{+w}{      }\PYG{n+no}{Zack’s footprints in the room.}
+\PYG{+w}{    }\PYG{n+nt}{suspicious\PYGZus{}items}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{      }\PYG{n+no}{\PYGZhy{} Multiple entry traces in ventilation ducts.}
+\PYG{+w}{      }\PYG{n+no}{\PYGZhy{} Poisoned drugs found only in Yosef’s bag.}
+\PYG{+w}{      }\PYG{n+no}{\PYGZhy{} Replacement drugs placed after death.}
+
+\PYG{+w}{  }\PYG{n+nt}{forensic\PYGZus{}evidence}\PYG{p}{:}
+\PYG{+w}{    }\PYG{n+nt}{time\PYGZus{}of\PYGZus{}death}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{22:40–23:00}
+\PYG{+w}{    }\PYG{n+nt}{cause\PYGZus{}of\PYGZus{}death}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Oral ingestion of X Poison mixed with drugs}
+\PYG{+w}{    }\PYG{n+nt}{body\PYGZus{}observations}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{      }\PYG{n+no}{Dilated pupils, foam at mouth, rigid posture.}
+\PYG{+w}{    }\PYG{n+nt}{toxicology}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{      }\PYG{n+no}{High concentration of X Poison mixed with narcotics.}
+\PYG{+w}{    }\PYG{n+nt}{other\PYGZus{}findings}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{      }\PYG{n+no}{Fibers and prints inside ducts (multiple individuals).}
+\PYG{+w}{      }\PYG{n+no}{Poisoned powder found at ship’s bow (Zack trying to dispose).}
+\PYG{+w}{    }\PYG{n+nt}{other\PYGZus{}information}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{      }\PYG{n+no}{X Poison is only lethal via injection or ingestion.}
+
+\PYG{+w}{  }\PYG{n+nt}{timeline}\PYG{p}{:}
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}17:00:}\PYG{n+nv}{ }\PYG{l+s}{Yosef}\PYG{n+nv}{ }\PYG{l+s}{boarded;}\PYG{n+nv}{ }\PYG{l+s}{Zack}\PYG{n+nv}{ }\PYG{l+s}{inspected}\PYG{n+nv}{ }\PYG{l+s}{luggage.\PYGZdq{}}
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}18:00:}\PYG{n+nv}{ }\PYG{l+s}{Zack}\PYG{n+nv}{ }\PYG{l+s}{confirmed}\PYG{n+nv}{ }\PYG{l+s}{drug}\PYG{n+nv}{ }\PYG{l+s}{package}\PYG{n+nv}{ }\PYG{l+s}{and}\PYG{n+nv}{ }\PYG{l+s}{replaced}\PYG{n+nv}{ }\PYG{l+s}{it.\PYGZdq{}}
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}18:20:}\PYG{n+nv}{ }\PYG{l+s}{Zack}\PYG{n+nv}{ }\PYG{l+s}{left;}\PYG{n+nv}{ }\PYG{l+s}{Lynn}\PYG{n+nv}{ }\PYG{l+s}{seen}\PYG{n+nv}{ }\PYG{l+s}{outside}\PYG{n+nv}{ }\PYG{l+s}{cabin.\PYGZdq{}}
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}18:30:}\PYG{n+nv}{ }\PYG{l+s}{Wendy}\PYG{n+nv}{ }\PYG{l+s}{near}\PYG{n+nv}{ }\PYG{l+s}{medical}\PYG{n+nv}{ }\PYG{l+s}{room.\PYGZdq{}}
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}18:40:}\PYG{n+nv}{ }\PYG{l+s}{Wendy}\PYG{n+nv}{ }\PYG{l+s}{asked}\PYG{n+nv}{ }\PYG{l+s}{crew}\PYG{n+nv}{ }\PYG{l+s}{about}\PYG{n+nv}{ }\PYG{l+s}{ventilation}\PYG{n+nv}{ }\PYG{l+s}{ducts.\PYGZdq{}}
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}18:50:}\PYG{n+nv}{ }\PYG{l+s}{Lynn}\PYG{n+nv}{ }\PYG{l+s}{found}\PYG{n+nv}{ }\PYG{l+s}{X}\PYG{n+nv}{ }\PYG{l+s}{Poison}\PYG{n+nv}{ }\PYG{l+s}{missing.\PYGZdq{}}
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}19:30:}\PYG{n+nv}{ }\PYG{l+s}{Lynn}\PYG{n+nv}{ }\PYG{l+s}{gave}\PYG{n+nv}{ }\PYG{l+s}{Wilson}\PYG{n+nv}{ }\PYG{l+s}{a}\PYG{n+nv}{ }\PYG{l+s}{bottle}\PYG{n+nv}{ }\PYG{l+s}{and}\PYG{n+nv}{ }\PYG{l+s}{syringe}\PYG{n+nv}{ }\PYG{l+s}{(unused).\PYGZdq{}}
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}19:40:}\PYG{n+nv}{ }\PYG{l+s}{Wilson}\PYG{n+nv}{ }\PYG{l+s}{met}\PYG{n+nv}{ }\PYG{l+s}{Yosef.\PYGZdq{}}
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}22:40:}\PYG{n+nv}{ }\PYG{l+s}{Wendy}\PYG{n+nv}{ }\PYG{l+s}{reached}\PYG{n+nv}{ }\PYG{l+s}{cabin}\PYG{n+nv}{ }\PYG{l+s}{via}\PYG{n+nv}{ }\PYG{l+s}{ducts;}\PYG{n+nv}{ }\PYG{l+s}{saw}\PYG{n+nv}{ }\PYG{l+s}{Yosef}\PYG{n+nv}{ }\PYG{l+s}{already}\PYG{n+nv}{ }\PYG{l+s}{dead.\PYGZdq{}}
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}22:50:}\PYG{n+nv}{ }\PYG{l+s}{Lynn}\PYG{n+nv}{ }\PYG{l+s}{near}\PYG{n+nv}{ }\PYG{l+s}{duct}\PYG{n+nv}{ }\PYG{l+s}{entrance;}\PYG{n+nv}{ }\PYG{l+s}{heard}\PYG{n+nv}{ }\PYG{l+s}{crawling}\PYG{n+nv}{ }\PYG{l+s}{and}\PYG{n+nv}{ }\PYG{l+s}{hid.\PYGZdq{}}
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}23:00:}\PYG{n+nv}{ }\PYG{l+s}{Wendy}\PYG{n+nv}{ }\PYG{l+s}{passed}\PYG{n+nv}{ }\PYG{l+s}{syringe\PYGZhy{}shaped}\PYG{n+nv}{ }\PYG{l+s}{item}\PYG{n+nv}{ }\PYG{l+s}{to}\PYG{n+nv}{ }\PYG{l+s}{accomplice.\PYGZdq{}}
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}23:20:}\PYG{n+nv}{ }\PYG{l+s}{Lynn}\PYG{n+nv}{ }\PYG{l+s}{saw}\PYG{n+nv}{ }\PYG{l+s}{body}\PYG{n+nv}{ }\PYG{l+s}{but}\PYG{n+nv}{ }\PYG{l+s}{did}\PYG{n+nv}{ }\PYG{l+s}{not}\PYG{n+nv}{ }\PYG{l+s}{enter.\PYGZdq{}}
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}02:10:}\PYG{n+nv}{ }\PYG{l+s}{Zack}\PYG{n+nv}{ }\PYG{l+s}{entered}\PYG{n+nv}{ }\PYG{l+s}{via}\PYG{n+nv}{ }\PYG{l+s}{duct}\PYG{n+nv}{ }\PYG{l+s}{to}\PYG{n+nv}{ }\PYG{l+s}{confirm}\PYG{n+nv}{ }\PYG{l+s}{death.\PYGZdq{}}
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}02:20:}\PYG{n+nv}{ }\PYG{l+s}{Zack}\PYG{n+nv}{ }\PYG{l+s}{disposed}\PYG{n+nv}{ }\PYG{l+s}{of}\PYG{n+nv}{ }\PYG{l+s}{poisoned}\PYG{n+nv}{ }\PYG{l+s}{powder}\PYG{n+nv}{ }\PYG{l+s}{at}\PYG{n+nv}{ }\PYG{l+s}{ship’s}\PYG{n+nv}{ }\PYG{l+s}{bow.\PYGZdq{}}
+\end{Verbatim}

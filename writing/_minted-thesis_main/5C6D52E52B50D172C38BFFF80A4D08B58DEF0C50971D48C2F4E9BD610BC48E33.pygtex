@@ -1,0 +1,134 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nt}{case}\PYG{p}{:}
+\PYG{+w}{  }\PYG{n+nt}{setting}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{    }\PYG{n+no}{An engagement party at Lambert Manor. }
+\PYG{+w}{    }\PYG{n+no}{A sudden blackout occurs. }
+\PYG{+w}{    }\PYG{n+no}{Minutes later, William Lambert is found dead in his study. }
+\PYG{+w}{    }\PYG{n+no}{Medical conspiracies, forged documents and old cover\PYGZhy{}ups confuse the evidence. }
+\PYG{+w}{    }\PYG{n+no}{Many motives overlap. }
+\PYG{+w}{    }\PYG{n+no}{Real clues and false clues are mixed intentionally.}
+
+\PYG{+w}{  }\PYG{n+nt}{victim}\PYG{p}{:}
+\PYG{+w}{    }\PYG{n+nt}{name}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{William Lambert}
+\PYG{+w}{    }\PYG{n+nt}{description}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{      }\PYG{n+no}{Deep cardiac puncture. }
+\PYG{+w}{      }\PYG{n+no}{Cyanide traces found. }
+\PYG{+w}{      }\PYG{n+no}{Either poison first and stabbing later, or a staged combination. }
+\PYG{+w}{      }\PYG{n+no}{A torn page shows only the letter “S”. }
+\PYG{+w}{      }\PYG{n+no}{The clue could point to multiple suspects.}
+
+\PYG{+w}{  }\PYG{n+nt}{suspects}\PYG{p}{:}
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{n+nt}{name}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{John Saar}
+\PYG{+w}{      }\PYG{n+nt}{role}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Cardiac surgeon; fiancé}
+\PYG{+w}{      }\PYG{n+nt}{motive}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Victim threatened to expose unauthorized heart\PYGZhy{}transplant trials. }
+\PYG{+w}{        }\PYG{n+no}{Risk of losing research funding. }
+\PYG{+w}{        }\PYG{n+no}{Tied to Toni Stewart’s failed surgery.}
+\PYG{+w}{      }\PYG{n+nt}{appearance}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Brownish stain on left cuff. }
+\PYG{+w}{        }\PYG{n+no}{Later testing: cyanide + anticoagulant. }
+\PYG{+w}{        }\PYG{n+no}{Oddly shaped cut on palm. }
+\PYG{+w}{        }\PYG{n+no}{Injury inconsistent with normal accidents.}
+\PYG{+w}{      }\PYG{n+nt}{key\PYGZus{}items}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Missing surgical scalpel. }
+\PYG{+w}{        }\PYG{n+no}{Experimental drug records with torn pages. }
+\PYG{+w}{        }\PYG{n+no}{Late\PYGZhy{}night lab access logs with no direct proof of toxin removal.}
+
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{n+nt}{name}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Charles Stewart}
+\PYG{+w}{      }\PYG{n+nt}{role}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Butler; real name James Stewart}
+\PYG{+w}{      }\PYG{n+nt}{motive}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Believes Lambert family caused deaths of wife and daughter. }
+\PYG{+w}{        }\PYG{n+no}{Holds decades of resentment.}
+\PYG{+w}{      }\PYG{n+nt}{appearance}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Cyanide containers near his room. }
+\PYG{+w}{        }\PYG{n+no}{Chemical formula does not match toxin found in victim. }
+\PYG{+w}{        }\PYG{n+no}{Soil on shoes does not match study exterior.}
+\PYG{+w}{      }\PYG{n+nt}{key\PYGZus{}items}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Mixed investigation reports (some real, some forged). }
+\PYG{+w}{        }\PYG{n+no}{Coffee cup with sedative but no cyanide. }
+\PYG{+w}{        }\PYG{n+no}{False rumors about will changes.}
+
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{n+nt}{name}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Shirley Lambert}
+\PYG{+w}{      }\PYG{n+nt}{role}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Victim’s daughter}
+\PYG{+w}{      }\PYG{n+nt}{motive}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Thinks her father manipulated her medical treatment and memories.}
+\PYG{+w}{      }\PYG{n+nt}{appearance}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Red residue under nails. }
+\PYG{+w}{        }\PYG{n+no}{It is violin rosin.}
+\PYG{+w}{      }\PYG{n+nt}{key\PYGZus{}items}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Unlabeled pill bottle (non\PYGZhy{}toxic). }
+\PYG{+w}{        }\PYG{n+no}{Diary pages mentioning \PYGZdq{}S\PYGZdq{} repeatedly. }
+\PYG{+w}{        }\PYG{n+no}{Study key with smudged surface and no prints.}
+
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{n+nt}{name}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Mel Gibson}
+\PYG{+w}{      }\PYG{n+nt}{role}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Daughter of Millie Gibson}
+\PYG{+w}{      }\PYG{n+nt}{motive}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Resentment toward Lambert and John.}
+\PYG{+w}{      }\PYG{n+nt}{appearance}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Small vial with plant toxin (not lethal to humans).}
+\PYG{+w}{      }\PYG{n+nt}{key\PYGZus{}items}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Dry ice blackout device set at 21:25 (earlier than murder window). }
+\PYG{+w}{        }\PYG{n+no}{Autopsy photos of her mother. }
+\PYG{+w}{        }\PYG{n+no}{Wig with synthetic hair found at scene.}
+
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{n+nt}{name}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Jeremy Lambert}
+\PYG{+w}{      }\PYG{n+nt}{role}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Adopted son}
+\PYG{+w}{      }\PYG{n+nt}{motive}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Believes he was removed from the will.}
+\PYG{+w}{      }\PYG{n+nt}{appearance}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Scratches from climbing study window earlier.}
+\PYG{+w}{      }\PYG{n+nt}{key\PYGZus{}items}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Duplicate study key (unused). }
+\PYG{+w}{        }\PYG{n+no}{Alcohol bottle with partial prints. }
+\PYG{+w}{        }\PYG{n+no}{Hypnosis notes referencing “S”. }
+\PYG{+w}{        }\PYG{n+no}{Notes could mean Shirley, Saar or Stewart.}
+
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{n+nt}{name}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Jamie Collins}
+\PYG{+w}{      }\PYG{n+nt}{role}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Journalist}
+\PYG{+w}{      }\PYG{n+nt}{motive}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Angry about medical malpractice that killed her mother.}
+\PYG{+w}{      }\PYG{n+nt}{appearance}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Empty syringe without needle.}
+\PYG{+w}{      }\PYG{n+nt}{key\PYGZus{}items}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Photos of Gibson–Lambert conflicts. }
+\PYG{+w}{        }\PYG{n+no}{Supplements mixed with harmless additives. }
+\PYG{+w}{        }\PYG{n+no}{Duplicate key planted in her bag.}
+
+\PYG{+w}{  }\PYG{n+nt}{crime\PYGZus{}scene}\PYG{p}{:}
+\PYG{+w}{    }\PYG{n+nt}{body\PYGZus{}state}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{      }\PYG{n+no}{Cardiac stab wound with rare surgeon\PYGZhy{}level angle. }
+\PYG{+w}{      }\PYG{n+no}{Cyanide injected, not swallowed. }
+\PYG{+w}{      }\PYG{n+no}{Brief struggle confirmed. }
+\PYG{+w}{      }\PYG{n+no}{Skin under victim\PYGZsq{}s nails matches John Saar.}
+\PYG{+w}{    }\PYG{n+nt}{environment}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{      }\PYG{n+no}{Window unlocked but no soil transfer. }
+\PYG{+w}{      }\PYG{n+no}{Safe opened but only William\PYGZsq{}s prints found. }
+\PYG{+w}{      }\PYG{n+no}{Blackout timing conflicts with most suspects\PYGZsq{} movements.}
+\PYG{+w}{    }\PYG{n+nt}{suspicious\PYGZus{}items}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{      }\PYG{n+no}{Bloodied piano wire (not linked to wounds). }
+\PYG{+w}{      }\PYG{n+no}{Synthetic black hair (from Mel’s wig). }
+\PYG{+w}{      }\PYG{n+no}{Scalpel sheath missing one blade.}
+
+\PYG{+w}{  }\PYG{n+nt}{forensic}\PYG{p}{:}
+\PYG{+w}{    }\PYG{n+nt}{wound\PYGZus{}analysis}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{      }\PYG{n+no}{Puncture matches a two\PYGZhy{}step rotation technique. }
+\PYG{+w}{      }\PYG{n+no}{Only advanced cardiac surgeons know this method. }
+\PYG{+w}{      }\PYG{n+no}{Only one suspect fits this skill.}
+\PYG{+w}{    }\PYG{n+nt}{toxin\PYGZus{}analysis}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{      }\PYG{n+no}{Cyanide formula mixed with anticoagulant. }
+\PYG{+w}{      }\PYG{n+no}{Compound used only in experimental cardiac research. }
+\PYG{+w}{      }\PYG{n+no}{Traces match chemicals found on John’s cuff.}
+\PYG{+w}{    }\PYG{n+nt}{additional}\PYG{p}{:}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Jeremy’s key shows no recent use.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Charles’s cyanide formula is different.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Mel’s plant toxin cannot kill humans.}
+
+\PYG{+w}{  }\PYG{n+nt}{timeline}\PYG{p}{:}
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}21:20:}\PYG{n+nv}{ }\PYG{l+s}{Mel}\PYG{n+nv}{ }\PYG{l+s}{sets}\PYG{n+nv}{ }\PYG{l+s}{blackout}\PYG{n+nv}{ }\PYG{l+s}{device}\PYG{n+nv}{ }\PYG{l+s}{(too}\PYG{n+nv}{ }\PYG{l+s}{early}\PYG{n+nv}{ }\PYG{l+s}{for}\PYG{n+nv}{ }\PYG{l+s}{murder}\PYG{n+nv}{ }\PYG{l+s}{window).\PYGZdq{}}
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}21:30:}\PYG{n+nv}{ }\PYG{l+s}{John}\PYG{n+nv}{ }\PYG{l+s}{seen}\PYG{n+nv}{ }\PYG{l+s}{walking}\PYG{n+nv}{ }\PYG{l+s}{toward}\PYG{n+nv}{ }\PYG{l+s}{study.\PYGZdq{}}
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}21:40:}\PYG{n+nv}{ }\PYG{l+s}{Shirley}\PYG{n+nv}{ }\PYG{l+s}{arguing}\PYG{n+nv}{ }\PYG{l+s}{with}\PYG{n+nv}{ }\PYG{l+s}{staff;}\PYG{n+nv}{ }\PYG{l+s}{far}\PYG{n+nv}{ }\PYG{l+s}{from}\PYG{n+nv}{ }\PYG{l+s}{study.\PYGZdq{}}
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}21:45:}\PYG{n+nv}{ }\PYG{l+s}{Charles}\PYG{n+nv}{ }\PYG{l+s}{in}\PYG{n+nv}{ }\PYG{l+s}{kitchen,}\PYG{n+nv}{ }\PYG{l+s}{confirmed}\PYG{n+nv}{ }\PYG{l+s}{by}\PYG{n+nv}{ }\PYG{l+s}{witnesses.\PYGZdq{}}
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}21:50:}\PYG{n+nv}{ }\PYG{l+s}{Blackout}\PYG{n+nv}{ }\PYG{l+s}{triggered.\PYGZdq{}}
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}21:50–21:55:}\PYG{n+nv}{ }\PYG{l+s}{Cyanide}\PYG{n+nv}{ }\PYG{l+s}{injection}\PYG{n+nv}{ }\PYG{l+s}{and}\PYG{n+nv}{ }\PYG{l+s}{surgical}\PYG{n+nv}{ }\PYG{l+s}{puncture}\PYG{n+nv}{ }\PYG{l+s}{performed.\PYGZdq{}}
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}22:00:}\PYG{n+nv}{ }\PYG{l+s}{Body}\PYG{n+nv}{ }\PYG{l+s}{discovered.\PYGZdq{}}
+\end{Verbatim}

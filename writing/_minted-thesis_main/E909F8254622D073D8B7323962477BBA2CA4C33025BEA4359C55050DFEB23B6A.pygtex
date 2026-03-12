@@ -1,0 +1,157 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nt}{case}\PYG{p}{:}
+\PYG{+w}{  }\PYG{n+nt}{setting}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{    }\PYG{n+no}{Evening of May 14, 1910. }
+\PYG{+w}{    }\PYG{n+no}{A poor isolated village outside London. }
+\PYG{+w}{    }\PYG{n+no}{Villagers are uneducated. }
+\PYG{+w}{    }\PYG{n+no}{Only William speaks Mandarin. }
+\PYG{+w}{    }\PYG{n+no}{Charlie is a fake philanthropist who exploited the poor. }
+\PYG{+w}{    }\PYG{n+no}{He planned to leave on May 15. }
+\PYG{+w}{    }\PYG{n+no}{Many characters crossed paths with him due to conflict. }
+\PYG{+w}{    }\PYG{n+no}{Charlie was found dead in his residence.}
+
+\PYG{+w}{  }\PYG{n+nt}{victim}\PYG{p}{:}
+\PYG{+w}{    }\PYG{n+nt}{name}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Charlie}
+\PYG{+w}{    }\PYG{n+nt}{description}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{      }\PYG{n+no}{Fake benefactor who profited from poverty. }
+\PYG{+w}{      }\PYG{n+no}{Planned to build a factory; William opposed it. }
+\PYG{+w}{      }\PYG{n+no}{Had conflicts with Hook, William and Raymond. }
+\PYG{+w}{      }\PYG{n+no}{Found with blood from mouth; suspected poison. }
+\PYG{+w}{      }\PYG{n+no}{Basement door under bed open. }
+\PYG{+w}{      }\PYG{n+no}{Jim found unconscious in basement.}
+\PYG{+w}{    }\PYG{n+nt}{identifiers}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{      }\PYG{n+no}{1. Conflicts with several characters.  }
+\PYG{+w}{      }\PYG{n+no}{2. Held evidence of William’s crimes.  }
+\PYG{+w}{      }\PYG{n+no}{3. Met William shortly before death.}
+
+\PYG{+w}{  }\PYG{n+nt}{suspects}\PYG{p}{:}
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{n+nt}{name}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Jim}
+\PYG{+w}{      }\PYG{n+nt}{role}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Villager; orphan}
+\PYG{+w}{      }\PYG{n+nt}{motive}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Hated wealthy people. }
+\PYG{+w}{        }\PYG{n+no}{Vowed revenge but did not kill Charlie.}
+\PYG{+w}{      }\PYG{n+nt}{background}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Witnessed father’s abuse by wealthy men. }
+\PYG{+w}{        }\PYG{n+no}{Developed trauma. }
+\PYG{+w}{        }\PYG{n+no}{Attacked wealthy targets by cutting off fingers. }
+\PYG{+w}{        }\PYG{n+no}{Sneaked into Charlie’s residence. }
+\PYG{+w}{        }\PYG{n+no}{Knocked out in basement. }
+\PYG{+w}{        }\PYG{n+no}{Woke to find Charlie dead.}
+\PYG{+w}{      }\PYG{n+nt}{appearance}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Ragged clothes. }
+\PYG{+w}{        }\PYG{n+no}{Carried unused hatchet. }
+\PYG{+w}{        }\PYG{n+no}{No blood. }
+\PYG{+w}{        }\PYG{n+no}{Fierce eyes. }
+\PYG{+w}{        }\PYG{n+no}{Reclusive.}
+\PYG{+w}{      }\PYG{n+nt}{key\PYGZus{}items}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{1. Hatchet (unused).  }
+\PYG{+w}{        }\PYG{n+no}{2. Father’s cryptic note.}
+
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{n+nt}{name}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Raymond}
+\PYG{+w}{      }\PYG{n+nt}{role}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Police officer}
+\PYG{+w}{      }\PYG{n+nt}{motive}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Wanted revenge for girlfriend. }
+\PYG{+w}{        }\PYG{n+no}{She committed suicide after Charlie assaulted her.}
+\PYG{+w}{      }\PYG{n+nt}{background}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Undercover in village. }
+\PYG{+w}{        }\PYG{n+no}{Investigating serial killer. }
+\PYG{+w}{        }\PYG{n+no}{Went to Charlie’s room with gun. }
+\PYG{+w}{        }\PYG{n+no}{Missed his shot. }
+\PYG{+w}{        }\PYG{n+no}{Left the scene.}
+\PYG{+w}{      }\PYG{n+nt}{appearance}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Plain clothes. }
+\PYG{+w}{        }\PYG{n+no}{Silenced gun. }
+\PYG{+w}{        }\PYG{n+no}{Hands trembled.}
+\PYG{+w}{      }\PYG{n+nt}{key\PYGZus{}items}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{1. Gun (fired but missed).  }
+\PYG{+w}{        }\PYG{n+no}{2. Girlfriend’s keepsake.}
+
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{n+nt}{name}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{William}
+\PYG{+w}{      }\PYG{n+nt}{role}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{De facto village leader}
+\PYG{+w}{      }\PYG{n+nt}{motive}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Charlie threatened to expose his crimes.}
+\PYG{+w}{      }\PYG{n+nt}{background}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Controlled villagers with poverty and gambling. }
+\PYG{+w}{        }\PYG{n+no}{Embezzled charity funds. }
+\PYG{+w}{        }\PYG{n+no}{Regularly handled chemicals for village pest control.}
+\PYG{+w}{        }\PYG{n+no}{Met Charlie and applied poison that night.}
+\PYG{+w}{      }\PYG{n+nt}{appearance}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Neat clothes. }
+\PYG{+w}{        }\PYG{n+no}{Pesticide residue on hands. }
+\PYG{+w}{        }\PYG{n+no}{Nervous expression.}
+\PYG{+w}{      }\PYG{n+nt}{key\PYGZus{}items}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{1. Pesticide bottle (lethal, used).}
+\PYG{+w}{        }\PYG{n+no}{2. Gambling records.}
+
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{n+nt}{name}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Hook}
+\PYG{+w}{      }\PYG{n+nt}{role}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Government investigator}
+\PYG{+w}{      }\PYG{n+nt}{motive}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Wanted to rescue his kidnapped son.}
+\PYG{+w}{      }\PYG{n+nt}{background}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Had recordings of Charlie’s exploitation. }
+\PYG{+w}{        }\PYG{n+no}{Charlie blackmailed him. }
+\PYG{+w}{        }\PYG{n+no}{Tried to retrieve evidence but failed.}
+\PYG{+w}{        }\PYG{n+no}{No container, residue, or smell of pesticide was detected anywhere in his travel bag.}
+\PYG{+w}{        }\PYG{n+no}{He had no access to any form of pesticide and never entered the storage shed where William kept toxic chemicals.}
+\PYG{+w}{      }\PYG{n+nt}{appearance}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{Anxious. }
+\PYG{+w}{        }\PYG{n+no}{His fruit knife tested negative for toxins. }
+\PYG{+w}{        }\PYG{n+no}{No pesticide traces were found on Hook’s hands, clothes, or belongings. }
+\PYG{+w}{      }\PYG{n+nt}{key\PYGZus{}items}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{        }\PYG{n+no}{1. Voice recorder.  }
+\PYG{+w}{        }\PYG{n+no}{2. Fruit knife (unused).}
+
+\PYG{+w}{  }\PYG{n+nt}{crime\PYGZus{}scene}\PYG{p}{:}
+\PYG{+w}{    }\PYG{n+nt}{time}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{May 14, 1910, 21:00–22:00}
+\PYG{+w}{    }\PYG{n+nt}{location}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Charlie’s residence (William’s house)}
+\PYG{+w}{    }\PYG{n+nt}{body\PYGZus{}state}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{      }\PYG{n+no}{Blood from mouth. }
+\PYG{+w}{      }\PYG{n+no}{Poison suspected. }
+\PYG{+w}{      }\PYG{n+no}{Bed overturned. }
+\PYG{+w}{      }\PYG{n+no}{Basement entrance exposed. }
+\PYG{+w}{      }\PYG{n+no}{Jim unconscious nearby.}
+\PYG{+w}{    }\PYG{n+nt}{environment}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{      }\PYG{n+no}{Candles extinguished. }
+\PYG{+w}{      }\PYG{n+no}{Window open. }
+\PYG{+w}{      }\PYG{n+no}{Door kicked open. }
+\PYG{+w}{      }\PYG{n+no}{Signs of struggle.}
+\PYG{+w}{    }\PYG{n+nt}{suspicious\PYGZus{}items}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{      }\PYG{n+no}{1. Pesticide cup (poison residue) with fresh residue.}
+\PYG{+w}{      }\PYG{n+no}{2. Wooden club (used to knock out Jim).  }
+\PYG{+w}{      }\PYG{n+no}{3. Basement bloodstains (likely Jim’s).}
+
+\PYG{+w}{  }\PYG{n+nt}{forensic\PYGZus{}evidence}\PYG{p}{:}
+\PYG{+w}{    }\PYG{n+nt}{time\PYGZus{}of\PYGZus{}death}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{21:30–22:00}
+\PYG{+w}{    }\PYG{n+nt}{cause\PYGZus{}of\PYGZus{}death}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Lethal pesticide}
+\PYG{+w}{    }\PYG{n+nt}{body\PYGZus{}observations}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{      }\PYG{n+no}{Blood from mouth. }
+\PYG{+w}{      }\PYG{n+no}{Dilated pupils. }
+\PYG{+w}{      }\PYG{n+no}{Blue skin.}
+\PYG{+w}{    }\PYG{n+nt}{toxicology}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{      }\PYG{n+no}{Lethal pesticide found in stomach.}
+\PYG{+w}{    }\PYG{n+nt}{other\PYGZus{}findings}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{      }\PYG{n+no}{Basement shows struggle. }
+\PYG{+w}{      }\PYG{n+no}{Wooden club has Jim’s DNA.}
+\PYG{+w}{      }\PYG{n+no}{The chaos and bloodstains in the basement are consistent with Jim’s injuries.}
+
+\PYG{+w}{  }\PYG{n+nt}{timeline}\PYG{p}{:}
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}21:00:}\PYG{n+nv}{ }\PYG{l+s}{Jim}\PYG{n+nv}{ }\PYG{l+s}{sneaks}\PYG{n+nv}{ }\PYG{l+s}{in}\PYG{n+nv}{ }\PYG{l+s}{and}\PYG{n+nv}{ }\PYG{l+s}{hides.\PYGZdq{}}\PYG{+w}{  }
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}21:10:}\PYG{n+nv}{ }\PYG{l+s}{Raymond}\PYG{n+nv}{ }\PYG{l+s}{enters,}\PYG{n+nv}{ }\PYG{l+s}{fires}\PYG{n+nv}{ }\PYG{l+s}{but}\PYG{n+nv}{ }\PYG{l+s}{misses,}\PYG{n+nv}{ }\PYG{l+s}{leaves}\PYG{n+nv}{ }\PYG{l+s}{quickly.\PYGZdq{}}\PYG{+w}{  }
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}21:15:}\PYG{n+nv}{ }\PYG{l+s}{Jim}\PYG{n+nv}{ }\PYG{l+s}{enters}\PYG{n+nv}{ }\PYG{l+s}{bedroom,}\PYG{n+nv}{ }\PYG{l+s}{finds}\PYG{n+nv}{ }\PYG{l+s}{basement,}\PYG{n+nv}{ }\PYG{l+s}{jumps}\PYG{n+nv}{ }\PYG{l+s}{down,}\PYG{n+nv}{ }\PYG{l+s}{gets}\PYG{n+nv}{ }\PYG{l+s}{knocked}\PYG{n+nv}{ }\PYG{l+s}{out.\PYGZdq{}}\PYG{+w}{  }
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}21:25:}\PYG{n+nv}{ }\PYG{l+s}{Hook}\PYG{n+nv}{ }\PYG{l+s}{enters}\PYG{n+nv}{ }\PYG{l+s}{with}\PYG{n+nv}{ }\PYG{l+s}{knife,}\PYG{n+nv}{ }\PYG{l+s}{fails}\PYG{n+nv}{ }\PYG{l+s}{to}\PYG{n+nv}{ }\PYG{l+s}{find}\PYG{n+nv}{ }\PYG{l+s}{Charlie,}\PYG{n+nv}{ }\PYG{l+s}{leaves.\PYGZdq{}}\PYG{+w}{ }
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}21:28:}\PYG{n+nv}{ }\PYG{l+s}{William}\PYG{n+nv}{ }\PYG{l+s}{retrieves}\PYG{n+nv}{ }\PYG{l+s}{pesticide}\PYG{n+nv}{ }\PYG{l+s}{from}\PYG{n+nv}{ }\PYG{l+s}{his}\PYG{n+nv}{ }\PYG{l+s}{locked}\PYG{n+nv}{ }\PYG{l+s}{storage}\PYG{n+nv}{ }\PYG{l+s}{shed.\PYGZdq{}}\PYG{+w}{ }
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}21:30:}\PYG{n+nv}{ }\PYG{l+s}{William}\PYG{n+nv}{ }\PYG{l+s}{enters}\PYG{n+nv}{ }\PYG{l+s}{Charlie’s}\PYG{n+nv}{ }\PYG{l+s}{room}\PYG{n+nv}{ }\PYG{l+s}{alone;}\PYG{n+nv}{ }\PYG{l+s}{door}\PYG{n+nv}{ }\PYG{l+s}{observed}\PYG{n+nv}{ }\PYG{l+s}{closed.\PYGZdq{}}\PYG{+w}{  }
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}21:40:}\PYG{n+nv}{ }\PYG{l+s}{Hook}\PYG{n+nv}{ }\PYG{l+s}{returns,}\PYG{n+nv}{ }\PYG{l+s}{passes}\PYG{n+nv}{ }\PYG{l+s}{unconscious}\PYG{n+nv}{ }\PYG{l+s}{Jim.\PYGZdq{}}\PYG{+w}{  }
+\PYG{+w}{    }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}22:00:}\PYG{n+nv}{ }\PYG{l+s}{Jim}\PYG{n+nv}{ }\PYG{l+s}{wakes}\PYG{n+nv}{ }\PYG{l+s}{up}\PYG{n+nv}{ }\PYG{l+s}{and}\PYG{n+nv}{ }\PYG{l+s}{sees}\PYG{n+nv}{ }\PYG{l+s}{Charlie}\PYG{n+nv}{ }\PYG{l+s}{dead.\PYGZdq{}}
+
+\PYG{+w}{  }\PYG{n+nt}{investigation\PYGZus{}starter}\PYG{p}{:}
+\PYG{+w}{    }\PYG{n+nt}{holmes}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{      }\PYG{n+no}{Holmes sees William’s fingerprints on pesticide cup. }
+\PYG{+w}{      }\PYG{n+no}{Blood in basement matches Jim’s wounds.}
+\PYG{+w}{    }\PYG{n+nt}{poirot}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{      }\PYG{n+no}{Poirot notices inconsistencies in William’s timing. }
+\PYG{+w}{      }\PYG{n+no}{He also notes Hook’s anxiety is unrelated to the poisoning.}
+\PYG{+w}{    }\PYG{n+nt}{marple}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{      }\PYG{n+no}{Miss Marple notices William’s gambling records. }
+\PYG{+w}{      }\PYG{n+no}{She links them to his motive and Charlie’s conflicts.}
+\end{Verbatim}
