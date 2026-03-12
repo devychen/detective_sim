@@ -50,7 +50,7 @@
 \contentsline {subsubsection}{\numberline {5.3.4}Cross-case summary}{35}{}%
 \contentsline {subsection}{\numberline {5.4}Lexical Metrics}{35}{}%
 \contentsline {subsubsection}{\numberline {5.4.1}Vector-based TF-IDF similarity}{35}{}%
-\contentsline {subsubsection}{\numberline {5.4.2}Intra-agent cosine similarity}{37}{}%
+\contentsline {subsubsection}{\numberline {5.4.2}Intra-agent cosine similarity}{36}{}%
 \contentsline {subsubsection}{\numberline {5.4.3}Lexical results summary}{37}{}%
 \contentsline {subsection}{\numberline {5.5}Syntactic Metrics}{38}{}%
 \contentsline {subsubsection}{\numberline {5.5.1}Comparison of syntactic depth with literary baselines}{38}{}%

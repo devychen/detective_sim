@@ -5,6 +5,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx} % 插图
 \usepackage{caption}
+\captionsetup{font=small}
 \usepackage{subcaption} %插subfigure
 \usepackage{float} %图表in text
 \usepackage{cutwin}
@@ -28,7 +29,7 @@
   {\thesubsubsection}{1em}{\capitalisewords}
   
 \usepackage{natbib} % 引用
-% \setcitestyle{authoryear,open={(},close={)}} %改为()
+% \setcitestyle{authoryear,open={(},close={)}} %如果想把[]改为()
 
 \usepackage{url}
 \usepackage{amsmath}
@@ -44,6 +45,8 @@
     % linenos,
     % breakanywhere=true
     }
+
+    
 
 % ------ 首页 ------
 
@@ -360,8 +363,7 @@ For each simulation turn, the classifier outputs a probability distribution over
 Character utterances were extracted using an LLM-assisted pipeline to improve speaker attribution reliability. The initial corpus comprised six recurring characters: in additional to the detective trio, three leading characters are also selected: Dr. John Watson from Sherlock Holmes's stories, Inspector James Japp and Captain Arthur JM Hastings from Hercule Poirot's stories. Table\ref{data_diagnosis} summarises corpus size and data quality indicators prior to cleaning.
 \begin{table}[h]
     \centering
-    
-    
+    \resizebox{\textwidth}{!}{%
     \begin{tabular}{lrrrrrr}
         \toprule
         Character & Utterances & Tokens & Avg Tokens per Utterance & Empty / Noise & $<3$ Tokens & Duplicates \\
@@ -374,6 +376,7 @@ Character utterances were extracted using an LLM-assisted pipeline to improve sp
         Japp     & 1{,}584 &  32{,}740 & 20.67 & 18.56 & 20.14 & 24.05 \\
         \bottomrule
     \end{tabular}
+    }%
 \caption{Initial Corpus Statistics and Data Quality Diagnostics (\% of Utterances)}
 \label{data_diagnosis}
 \end{table}
@@ -403,17 +406,15 @@ For both configurations, utterances were fully shuffled prior to dataset splitti
 The classification results are summarised in Table\ref{model_compare}  below.
 
 \begin{table}[h]
-    \centering
-    
-    
-    \begin{tabular}{lcccc}
-        \hline
-        Model & Epochs & Train Accuracy & Test Accuracy & Test Macro-F1 \\
-        \hline
-        3-class & 1 & 0.82 & 0.74 & 0.74 \\
-        3-class & 3 & 0.89 & 0.76 & 0.76 \\
-        4-class & 3 & 0.81 & 0.55 & 0.54 \\
-        \hline
+\centering
+\begin{tabular}{lcccc}
+    \hline
+    Model & Epochs & Train Accuracy & Test Accuracy & Test Macro-F1 \\
+    \hline
+    3-class & 1 & 0.82 & 0.74 & 0.74 \\
+    3-class & 3 & 0.89 & 0.76 & 0.76 \\
+    4-class & 3 & 0.81 & 0.55 & 0.54 \\
+    \hline
     \end{tabular}
 \caption{Comparisons of Baseline Performance}
 \label{model_compare}
@@ -528,15 +529,14 @@ To evaluate the influence of character-specific prompting and collaborative dyna
 
 \begin{table}[H]
 \centering
-
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{l l l l}\toprule
 Condition & Case 1 & Case 2 & Case 3 \\\midrule
-
 C1: Zero-shot (Baseline)& 97\% (47/50) & 100\% & 100\% \\
 C2: Persona Prompt (No Collaboration)& 92\% (46/50) & 36\% (18/50) & 100\% \\
 C3: Collaboration Prompt (No Persona)& 20\% (10/50) & 50\% & 40\% \\ \bottomrule
-
 \end{tabular}
+}%
 \caption{Murderer Identification Accuracy across Three Experimental Conditions}
 \label{task_accuracy}
 \end{table}
@@ -574,10 +574,8 @@ The results are presented collectively for clearer comparisons and overview. Tab
 
 \begin{table}[H]
 \centering
-
 \begin{tabular}{l l l l l}\toprule
 \textbf{Case} & \textbf{Character} & \textbf{$\beta$ (prob\_correct)}& \textbf{95\% CI} & \textbf{$R^2$}\\\midrule
-
 case1 & Holmes & -0.063* & [-0.118, -0.008] & 0.102 \\
 case1 & Marple & -0.002 & [-0.064, 0.060] & 0.000 \\
 case1 & Poirot & 0.057 & [-0.009, 0.124] & 0.060 \\
@@ -587,7 +585,6 @@ case2 & Poirot & -0.035 & [-0.104, 0.034] & 0.026 \\
 case3 & Holmes & -0.039 & [-0.118, 0.041] & 0.025 \\
 case3 & Marple & -0.102* & [-0.182, -0.021] & 0.146 \\
 case3 & Poirot & -0.061 & [-0.157, 0.034] & 0.042 \\ \bottomrule
-
 \end{tabular}
 \caption{Regression Results for Predicted Probability of Correct Class}
 \label{prob_correct}
@@ -596,10 +593,8 @@ case3 & Poirot & -0.061 & [-0.157, 0.034] & 0.042 \\ \bottomrule
 
 \begin{table}[H]
 \centering
-
 \begin{tabular}{l l l l l}\toprule
 \textbf{Case} & \textbf{Character} & \textbf{$\beta$ (brier)}& \textbf{95\% CI} & \textbf{$R^2$}\\\midrule
-
 case1 & Holmes & 0.062* & [0.003, 0.121] & 0.087 \\
 case1 & Marple & -0.011 & [-0.079, 0.057] & 0.002 \\
 case1 & Poirot & -0.052 & [-0.119, 0.015] & 0.050 \\
@@ -609,7 +604,6 @@ case2 & Poirot & 0.028 & [-0.045, 0.102] & 0.016 \\
 case3 & Holmes & 0.032 & [-0.057, 0.121] & 0.014 \\
 case3 & Marple & 0.103* & [0.019, 0.188] & 0.139 \\
 case3 & Poirot & 0.061 & [-0.034, 0.156] & 0.043 \\ \bottomrule
-
 \end{tabular}
 \caption{Regression Results for Brier Score}
 \label{brier_score}
@@ -752,7 +746,7 @@ Holmes vs Marple & 7504.0& .173 \\
 Holmes vs Poirot & 4844.0& < .001 \\
 Marple vs Poirot & 6413.0& .001 \\ \bottomrule
 \end{tabular}
-\caption{ Pairwise Mann–Whitney U Tests Results (Bonferroni Corrected)}
+\caption{Pairwise Mann–Whitney U Tests Results (Bonferroni Corrected)}
 \label{lexical_utest}
 \end{table}
 
@@ -799,9 +793,9 @@ Poirot & 0.119 & 0.075 \\ \bottomrule
 \label{lexical_summary}
 \end{table}
 
-Hercule Poirot exhibits the highest levels of character consistency across both metrics ($M_{TF–IDF}=0.119$; $M_{CharDist}=0.075$), indicating that the model successfully prioritises his unique psychological profiling and methodical vocabulary even under the pressure of group interaction. Sherlock Holmes similarly maintains a resilient "linguistic fingerprint" ($M_{CharDist}=0.069$), showing strong differentiation from his counterparts.
+Hercule Poirot exhibits the highest levels of character consistency across both metrics ($M_{TF-IDF}=0.119$; $M_{CharDist}=0.075$), indicating that the model successfully prioritises his unique psychological profiling and methodical vocabulary even under the pressure of group interaction. Sherlock Holmes similarly maintains a resilient "linguistic fingerprint" ($M_{CharDist}=0.069$), showing strong differentiation from his counterparts.
 
-In contrast, Miss Marple presents a notable asymmetry: despite moderate alignment with her literary reference ($M_{TF–IDF}=0.110$), her near-zero character distance ($M_{CharDist}=0.005$) reveals that her lexical choices are highly susceptible to the collective dialogue flow. This suggests that while her individual utterances appear consistent in isolation, her character consistency is more vulnerable to erosion during collaborative reasoning, leading her to adopt a more generic persona.
+In contrast, Miss Marple presents a notable asymmetry: despite moderate alignment with her literary reference ($M_{TF-IDF}=0.110$), her near-zero character distance ($M_{CharDist}=0.005$) reveals that her lexical choices are highly susceptible to the collective dialogue flow. This suggests that while her individual utterances appear consistent in isolation, her character consistency is more vulnerable to erosion during collaborative reasoning, leading her to adopt a more generic persona.
 
 These findings indicate that lexical character consistency is present but unevenly maintained, likely depending on the salience and stereotypical stability of each character’s established stylistic profile.
 
@@ -816,6 +810,7 @@ Before analysing temporal drift, it is instructive to consider the overall level
 
 \begin{table}[H]
 \centering
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{l l l l l l l}
  & \multicolumn{2}{c}{Baseline}& \multicolumn{2}{c}{Simulation}& \multicolumn{2}{c}{Difference}\\\toprule
 Character& Mean Depth& SD& Mean Depth& SD& Depth Diff.& Increase (\%)\\\midrule
@@ -823,6 +818,7 @@ Holmes & 4.588 & 1.693 & 6.928 & 0.742 & 2.339 & 50.99 \\
 Marple & 4.057 & 1.339 & 7.035 & 0.744 & 2.979 & 73.42 \\
 Poirot & 4.086 & 1.427 & 6.812 & 0.743 & 2.726 & 66.70 \\ \bottomrule
 \end{tabular}
+}%
 \caption{Mean Syntactic Depth and Deviation from Literary Baseline by Character}
 \label{syntax_depth}
 \end{table}
@@ -1121,6 +1117,7 @@ This layered perspective has important implications for the design of role-playi
 
 
 \subsection{methodological contributions}
+
 The primary methodological contribution of this research is the development of a multi-dimensional framework grounded in linguistic theory. Many existing studies evaluate character consistency using macro-level indicators, such as task success, human judgment, or abstract personality tests like MBTI. While these methods offer useful insights into an agent's general behavior, they often overlook how a character is actually performed through specific language use. This thesis addresses this gap by examining character consistency across three distinct layers: lexical patterns, syntactic structures, and discourse-level affect. By focusing on these micro-level features, the framework can detect subtle shifts in character behavior that are often invisible to broader behavioral assessments. 
 
 Furthermore, this approach provides a more granular view of how character consistency evolves over time. Instead of relying on a single aggregate score, the multi-level analysis reveals that an agent can maintain its identity in one dimension while losing it in another. For example, the results show that an agent might continue to use character-specific vocabulary even as its sentence structures converge toward a generic AI style. This distinction is critical for understanding the complex dynamics of role-playing in multi-agent environments. To ensure the reliability of these measurements, this study also utilises classifier confidence as a reference signal to validate the linguistic metrics. This step confirms that the chosen linguistic features are faithful and reliable indicators of character identity.
@@ -1147,7 +1144,7 @@ A major discovery of this research is the collaboration paradox. While agents wo
 
 There are some limitations to this study. The evaluation relied on a model-based classifier rather than human judgment, and the results are limited to three specific literary characters. Future research should include human evaluations and explore a wider range of character types.
 
-In summary, this thesis highlights the fragile nature of character consistency in collaborative environments and offers a quantitative method for future studies in role-playing LLM-based agents..
+In summary, this thesis highlights the fragile nature of character consistency in collaborative environments and offers a quantitative method for future studies in role-playing LLM-based agents.
 
 % ------ 引用 ------
 \bibliographystyle{plainnat}
