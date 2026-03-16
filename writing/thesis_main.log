@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Homebrew) (preloaded format=pdflatex 2024.3.20)  15 MAR 2026 09:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Homebrew) (preloaded format=pdflatex 2024.3.20)  16 MAR 2026 20:47
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -608,36 +608,36 @@ Overfull \hbox (2.6189pt too wide) in paragraph at lines 1043--1044
 []\T1/cmr/m/n/10 Reference-based syn-tac-tic de-vi-a-tion ($\OML/cmm/m/it/10 z[]$\T1/cmr/m/n/10 ) shows mod-er-ate align-ment (0.541),
  []
 
-[46] [47] [48] [49] [50] (./thesis_main.bbl [51]
-Underfull \hbox (badness 1478) in paragraph at lines 91--94
+[46] [47] [48] [49] [50] (./thesis_main.bbl [51] [52]
+Underfull \hbox (badness 1478) in paragraph at lines 101--104
 \T1/cmr/m/n/10 Chawla, Olaf Wiest, and Xi-an-gliang Zhang.  Large lan-guage model
  []
 
-[52] [53] [54] [55]) (./_minted-thesis_main/default.pygstyle) (./_minted-thesis_main/51ED45AC8E1958D8BBD61889C5EBAA0221809B1E84F1B1144DA32E16C4784B10.pygtex
+[53] [54] [55]) (./_minted-thesis_main/default.pygstyle) (./_minted-thesis_main/51ED45AC8E1958D8BBD61889C5EBAA0221809B1E84F1B1144DA32E16C4784B10.pygtex
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <9> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 4.
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 8.
  (/usr/local/Cellar/texlive/20240312/share/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [56] [57]) (./_minted-thesis_main/2EA0B900DF3F3EEF4C7466CE9608B4EBFD903ED19DEBC0E0D4F5487E858AE242.pygtex [58] [59] [60]) (./_minted-thesis_main/6F675154D096E4E22C58E65D49D7A48494F06FB5EC026A2BBB606726FA67D757.pygtex [61] [62]) (./_minted-thesis_main/DFA736874866CFDEE9A85BAD294448C24026489473DBD88358564B6BB43818CA.pygtex) (./_minted-thesis_main/4D3C376550253A52D878ED22CA95E6DBF0552221DF258DA6691C1D5F22BB05D3.pygtex [63] [64] [65]) (./_minted-thesis_main/E909F8254622D073D8B7323962477BBA2CA4C33025BEA4359C55050DFEB23B6A.pygtex [66] [67] [68]) (./_minted-thesis_main/C8A63655E7E06D47C9E4227664797EC68DEF0C50971D48C2F4E9BD610BC48E33.pygtex [69] [70] [71]) [72] (./thesis_main.aux)
+) [56] [57] [58]) (./_minted-thesis_main/2EA0B900DF3F3EEF4C7466CE9608B4EBFD903ED19DEBC0E0D4F5487E858AE242.pygtex [59] [60]) (./_minted-thesis_main/6F675154D096E4E22C58E65D49D7A48494F06FB5EC026A2BBB606726FA67D757.pygtex [61] [62]) (./_minted-thesis_main/DFA736874866CFDEE9A85BAD294448C24026489473DBD88358564B6BB43818CA.pygtex [63]) (./_minted-thesis_main/4D3C376550253A52D878ED22CA95E6DBF0552221DF258DA6691C1D5F22BB05D3.pygtex [64] [65] [66]) (./_minted-thesis_main/E909F8254622D073D8B7323962477BBA2CA4C33025BEA4359C55050DFEB23B6A.pygtex [67] [68] [69]) (./_minted-thesis_main/C8A63655E7E06D47C9E4227664797EC68DEF0C50971D48C2F4E9BD610BC48E33.pygtex [70] [71] [72]) [73] (./thesis_main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 11653 strings out of 474116
- 212097 string characters out of 5735128
- 1948187 words of memory out of 5000000
- 33788 multiletter control sequences out of 15000+600000
+ 11662 strings out of 474116
+ 212316 string characters out of 5735128
+ 1947187 words of memory out of 5000000
+ 33797 multiletter control sequences out of 15000+600000
  575916 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  77i,12n,81p,1631b,681s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfit0900.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on thesis_main.pdf (72 pages, 2880084 bytes).
+Output written on thesis_main.pdf (73 pages, 2881678 bytes).
 PDF statistics:
- 391 PDF objects out of 1000 (max. 8388607)
- 242 compressed objects within 3 object streams
+ 396 PDF objects out of 1000 (max. 8388607)
+ 246 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

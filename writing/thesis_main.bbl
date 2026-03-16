@@ -1,4 +1,4 @@
-\begin{thebibliography}{47}
+\begin{thebibliography}{50}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -19,6 +19,11 @@ Gati~V Aher, Rosa~I Arriaga, and Adam~Tauman Kalai.
 Razan Baltaji, Babak Hemmatian, and Lav~R Varshney.
 \newblock Persona inconstancy in multi-agent llm collaboration: Conformity, confabulation, and impersonation.
 \newblock \emph{arXiv preprint arXiv:2405.03862}, 2024.
+
+\bibitem[Bao et~al.(2026)Bao, Perez, Wang, and Parapar]{bao2026eval4sim}
+Eliseo Bao, Anxo Perez, Xi~Wang, and Javier Parapar.
+\newblock Eval4sim: An evaluation framework for persona simulation.
+\newblock \emph{arXiv preprint arXiv:2603.02876}, 2026.
 
 \bibitem[Bhandari et~al.(2025)Bhandari, Fay, Wise, Datta, Meek, Naseem, and Nasim]{bhandari2025can}
 Pranav Bhandari, Nicolas Fay, Michael~J Wise, Amitava Datta, Stephanie Meek, Usman Naseem, and Mehwish Nasim.
@@ -41,20 +46,25 @@ Hyungjoo Chae, Yongho Song, Kai Ong, Taeyoon Kwon, Minjin Kim, Youngjae Yu, Dong
 \newblock Dialogue chain-of-thought distillation for commonsense-aware conversational agents.
 \newblock In \emph{Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing}, pages 5606--5632, 2023.
 
+\bibitem[Chen et~al.(2024{\natexlab{a}})Chen, Yao, Ye, Wang, and Li]{chen2024evaluating}
+Chaoran Chen, Bingsheng Yao, Yanfang Ye, Dakuo Wang, and Toby Jia-Jun Li.
+\newblock Evaluating the llm agents for simulating humanoid behavior.
+\newblock In \emph{CHI conference proceedingsCHI Conference}. The First Workshop on Human-Centered Evaluation and Auditing of Language~…, 2024{\natexlab{a}}.
+
 \bibitem[Chen et~al.(2023{\natexlab{a}})Chen, Dong, Shu, Zhang, Jaward, B{\"o}rje, Fu, and Shi]{chen2023autoagents}
 Guangyao Chen, Siwei Dong, Yu~Shu, Ge~Zhang, Sesay Jaward, Karlsson B{\"o}rje, Jie Fu, and Yemin Shi.
 \newblock Autoagents: The automatic agents generation framework.
 \newblock \emph{arXiv preprint arXiv:2309.17288}, 2023{\natexlab{a}}.
 
-\bibitem[Chen et~al.(2024{\natexlab{a}})Chen, Chen, Yan, Xu, Xing, Shen, Quan, Li, Zhang, and Huang]{chen2024socialbench}
+\bibitem[Chen et~al.(2024{\natexlab{b}})Chen, Chen, Yan, Xu, Xing, Shen, Quan, Li, Zhang, and Huang]{chen2024socialbench}
 Hongzhan Chen, Hehong Chen, Ming Yan, Wenshen Xu, Gao Xing, Weizhou Shen, Xiaojun Quan, Chenliang Li, Ji~Zhang, and Fei Huang.
 \newblock Socialbench: Sociality evaluation of role-playing conversational agents.
-\newblock In \emph{Findings of the Association for Computational Linguistics: ACL 2024}, pages 2108--2126, 2024{\natexlab{a}}.
+\newblock In \emph{Findings of the Association for Computational Linguistics: ACL 2024}, pages 2108--2126, 2024{\natexlab{b}}.
 
-\bibitem[Chen et~al.(2024{\natexlab{b}})Chen, Wang, Xu, Yuan, Zhang, Shi, Xie, Li, Yang, Zhu, et~al.]{chen2024review}
+\bibitem[Chen et~al.(2024{\natexlab{c}})Chen, Wang, Xu, Yuan, Zhang, Shi, Xie, Li, Yang, Zhu, et~al.]{chen2024review}
 Jiangjie Chen, Xintao Wang, Rui Xu, Siyu Yuan, Yikai Zhang, Wei Shi, Jian Xie, Shuang Li, Ruihan Yang, Tinghui Zhu, et~al.
 \newblock From persona to personalization: A survey on role-playing language agents.
-\newblock \emph{arXiv preprint arXiv:2404.18231}, 2024{\natexlab{b}}.
+\newblock \emph{arXiv preprint arXiv:2404.18231}, 2024{\natexlab{c}}.
 
 \bibitem[Chen et~al.(2023{\natexlab{b}})Chen, Wang, Jiang, Cai, Li, Chen, Wang, and Li]{chen2023hp}
 Nuo Chen, Yan Wang, Haiyun Jiang, Deng Cai, Yuhan Li, Ziyang Chen, Longyue Wang, and Jia Li.
@@ -156,6 +166,11 @@ Karol Przystalski, Jan~K Argasi{\'n}ski, Iwona Grabska-Gradzi{\'n}ska, and Jerem
 Vinay Samuel, Henry~Peng Zou, Yue Zhou, Shreyas Chaudhari, Ashwin Kalyan, Tanmay Rajpurohit, Ameet Deshpande, Karthik Narasimhan, and Vishvak Murahari.
 \newblock Personagym: Evaluating persona agents and llms.
 \newblock \emph{arXiv preprint arXiv:2407.18416}, 8\penalty0 (9), 2024.
+
+\bibitem[Shanahan et~al.(2023)Shanahan, McDonell, and Reynolds]{shanahan2023role}
+Murray Shanahan, Kyle McDonell, and Laria Reynolds.
+\newblock Role play with large language models.
+\newblock \emph{Nature}, 623\penalty0 (7987):\penalty0 493--498, 2023.
 
 \bibitem[Shao et~al.(2023)Shao, Li, Dai, and Qiu]{shao2023characterllm}
 Yunfan Shao, Linyang Li, Junqi Dai, and Xipeng Qiu.
