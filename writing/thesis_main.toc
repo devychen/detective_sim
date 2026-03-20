@@ -72,15 +72,15 @@
 \contentsline {subsection}{\numberline {6.1}Overview of Findings}{47}{}%
 \contentsline {subsection}{\numberline {6.2}The Collaboration Paradox and Character Contamination}{48}{}%
 \contentsline {subsection}{\numberline {6.3}A Layered Perspective on Character Consistency}{49}{}%
-\contentsline {subsection}{\numberline {6.4}methodological contributions}{49}{}%
+\contentsline {subsection}{\numberline {6.4}methodological contributions}{50}{}%
 \contentsline {subsection}{\numberline {6.5}Limitation and Future Work}{50}{}%
 \contentsline {section}{\numberline {7}Conclusion}{51}{}%
-\contentsline {section}{\numberline {A}Character Prompt}{56}{}%
-\contentsline {subsection}{\numberline {A.1}Holmes}{56}{}%
-\contentsline {subsection}{\numberline {A.2}Marple}{59}{}%
-\contentsline {subsection}{\numberline {A.3}Poirot}{61}{}%
-\contentsline {section}{\numberline {B}Rule Prompt}{64}{}%
-\contentsline {section}{\numberline {C}Case Information}{64}{}%
-\contentsline {subsection}{\numberline {C.1}Case 1}{64}{}%
-\contentsline {subsection}{\numberline {C.2}Case 2}{67}{}%
-\contentsline {subsection}{\numberline {C.3}Case 3}{70}{}%
+\contentsline {section}{\numberline {A}Character Prompt}{58}{}%
+\contentsline {subsection}{\numberline {A.1}Holmes}{58}{}%
+\contentsline {subsection}{\numberline {A.2}Marple}{60}{}%
+\contentsline {subsection}{\numberline {A.3}Poirot}{63}{}%
+\contentsline {section}{\numberline {B}Rule Prompt}{65}{}%
+\contentsline {section}{\numberline {C}Case Information}{65}{}%
+\contentsline {subsection}{\numberline {C.1}Case 1}{65}{}%
+\contentsline {subsection}{\numberline {C.2}Case 2}{68}{}%
+\contentsline {subsection}{\numberline {C.3}Case 3}{72}{}%
