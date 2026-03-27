@@ -3,7 +3,6 @@
 % \usepackage{times}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-% \usepackage{geometry}
 \usepackage{graphicx} % 插图
 \usepackage{caption}
 \captionsetup{font=small}
@@ -83,12 +82,7 @@ I thank Ms. Polina Tsvilodub and Prof. Dr. Michael Franke for encouraging and gu
 \begin{center}
   \normalsize\bfseries\MakeUppercase{abstract}
 \end{center}
-
-This thesis investigates the character consistency in multi-agent large language model (LLM) collaboration. While LLMs are increasingly used for role-playing, they often struggle to maintain a specific character over long interactions. To address this, this study poses three core research questions: (1) to what extent do LLMs maintain character consistency during collaborative reasoning task; (2) how can multi-level linguistic metrics capture this consistency; and (3) which metrics are most reliably capture it. 
-
-Departing from existing reference-based or macro-level evaluations such as human judgment or abstract personality tests, this study introduces a novel linguistically grounded evaluation framework. Rooted in the sociolinguistic premise that linguistic style is inherently indicatives of character identity, it conceptualises character consistency as a quantifiable linguistic construct by operationalising it across a hierrachy of lexical, syntactic, and discourse-level features, and validating these metrics against the results of a BERT-based classification baseline model.
-
-Using a simulation of three iconic detectives (Sherlock Holmes, Hercule Poirot, and Miss Marple), the results reveal that collaborative dynamics lead to character inconsistency and contamination Agents' linguistic fingerprints in the end converge into a uniform, representationally undifferentiated group, echoing the generic and neutral AI register which is often identified in literature. Among the linguistic metrics, the study finds that syntactic depth is the most reliable and faithful indicator (faithfulness core: $0.864$) for capturing shifts in character consistency. This framework offers a scalable methodology for monitoring character consistency, providing a linguistic validation of role-playing LLM agents in complex social applications. Code and data are available on GitHub. \footnote{\url{https://github.com/devychen/detective_sim}}
+This thesis investigates the challenge of character consistency in multi-agent large language model (LLM) collaboration. While LLMs are increasingly used for role-playing, they often struggle to maintain a specific character over long interactions. This study uses a simulation-based design where three agents, role-playing as Sherlock Holmes, Hercule Poirot, and Miss Marple, work together to solve murder mystery cases. The research evaluates character consistency across three linguistic levels: lexical, syntactic, and discourse. A fine-tuned BERT-based classifier is also used as a benchmark to measure how well the agents stay in character and validate the linguistic metrics. The results suggest that collaborative pressure can lead to a reduction in character consistency, although this effect is selective rather than uniform. While agents partially preserve their characters, instances of significant inconsistency appear to be case-specific, showing that some characters remain more resilient to the 'AI register' than others depending on the interactional context. The study finds that syntactic depth is the most reliable indicator for capturing shifts in character consistency. Furthermore, clustering analysis reveals that while detectives' characters are distinct in literary texts, they become representationally similar during collaboration, a phenomenon termed character contamination. This thesis provides a new multi-level evaluation framework from linguistic perspective for measuring how collaboration affect the character consistency of LLM agents. Code and data are available on GitHub. \footnote{\url{https://github.com/devychen/detective_sim}}
 
 
 
@@ -115,203 +109,163 @@ Using a simulation of three iconic detectives (Sherlock Holmes, Hercule Poirot, 
 % ------ 正文 ------
 
 
-\section{Introduction} \label{sec:introduction}
+\section{Introduction}
 
-\subsection{Application background} \label{sec:application_background}
+\subsection{Application background}
 
+Large language models (LLMs) have achieved remarkable success on a wide range of NLP tasks (text generation, summarisation, instruction following, etc.) \citep{ji2025enhancing,guo2024review} Beyond these general applications, there is growing interest in using LLMs as interactive role-playing agents in simulation environments, entertainment, education, and social settings. For example, LLMs are now being deployed as ‘stand-ins’ for students, patients, voters or citizens in educational tutoring, therapy, social simulation \citep{park2022social, park2023generative}, behavioural studies \citep{aher2023using}, entertainments such as games \citep{xu2024survey}, and public administration research \citep{xiao2023simulating}. In such applications, each agent is typically given a persona or fictional character profile that it should be consistently embody. The profile contains role-playing background information such as career, backstory, personality traits, etc. This ability of LLM agents to generate realistic multi-agent dialogues, simulate psychological experiments or drive richly interactive games, opens up novel possibilities at scale and with reproducibility that would be impossible with human actors. For instance, recent work has shown LLMs being used to generate realistic populations in multi-agent social simulations, and to engage in cooperative \citep{guo2026collab} or adversarial \citep{baltaji2024cultured} group tasks.
 
-Large language models (LLMs) have achieved remarkable success on a wide range of NLP tasks such as text generation, sentiment analysis, and machine translation \citep{ji2025enhancing,guo2024review}. Beyond these general applications, there is growing interest in using LLMs as interactive role-playing agents in simulation environments, entertainment, education, and social settings. For example, LLMs are now being deployed as ‘stand-ins’ for students, patients, voters or citizens in educational tutoring, therapy, social simulation \citep{park2022social, park2023generative}, behavioural studies \citep{aher2023using}, entertainments such as games \citep{xu2024survey}, and public administration research \citep{xiao2023simulating}. 
+However, a major challenge in these setting is character consistency: an LLM agent must contain its assigned persona throughout a dialogue or collaborative task. In practice, off-the-shelf LLMs often drift from their personas, contradict earlier statements or display inconsistent traits, especially over longer interactions \citep{choi2024examining, bhandari2025can, abdulhai2025consistently}. As \citet{ji2025enhancing} note, current LLMs “lack […] fine-grained role awareness,” which limits their ability to provide truly personalised, role-consistent interactions. In collaborative multi-agent scenarios, this issue is amplified: agents may influence one another and inadvertently dilute distinct personality features. Maintaining credible character behaviour is thus essential for user satisfaction and system validity in these applications.
 
-In such applications, each agent is typically given a persona or fictional persona that it should be consistently embody. The primary goal is for the LLM to generate outputs that remain strictly consistent with the assigned profile throughout the interation. These profiles often contains role-playing background information such as career, backstory, personality traits, etc. For example, a persona propmt for a historical figure like Ludwig van Beethoven might include specific instructions to "response and answer like Beethoven, using the tone, manner and vocabulary he would use", followed by a detailed biographical status covering his harsh childhood music training and his early public performances \citep{shao2023characterllm}. A similar example is the design in \citet{wang2024rolellm} for a fictional character like Sherlock Holmes. In the profile he was defined as "brilliant and eccentric consulting detective" with an "unparalleled intellect," while explicitly including iconic catchphrases such as "Elementary, my dear Watson" to anchor his linguistic identity. By prepending these descriptive anchors to the conversation context, researchers aim to steer general-purpose models to act as high-fidelity "stand-ins" for specific individuals.
+\subsection{Character consistency in linguistic context}
+This study approach character consistency from a linguistic perspective. in sociolinguistics and stylometry, a speaker's or a character's identity is not viewed as a fixed label but as continuously construction through language use \citep{ przystalski2025stylometry}. In other words, how a character speaks conveys their persona, including choice of words, syntax, discourse style. For example, stylometric studies of television dialogue show that fictional characters develop distinct idiolects: Sheldon Cooper in the show The Big Bang Theory habitually uses formal, scientific vocabulary and passive constructions, whereas Penny's speech is more colloquial and conversational \citep{van2016stylometry}. Language therefore serves as a window into attitude, beliefs, and personality.
 
-This ability of LLM agents opens up novel possibilities at scale and with reproducibility that would be impossible with human actors. For instance, recent work has shown LLMs being used to generate realistic populations in multi-agent social simulations, and to engage in cooperative \citep{guo2026collab} or adversarial \citep{baltaji2024cultured} group tasks. 
+Following this view, this study posits that the character consistency of a LLM-based role-playing agent could be manifested in the linguistic profile of its outputs. If an agent truly embodies a persona, its generated responses should consistently reflect that persona's linguistic style. In this study, character consistency is therefore treated as fundamentally a linguistic style problem: this study expects to detect (in)consistency by analysing lexical, syntactic and discourse-level patterns in the generated dialogue text. This aligns with sociolinguistic theory that identity is performed and negotiated through language \citep{bucholtz2005identity}. By focusing on linguistic features, consistency could be quantified in a principled way.
 
-However, a major challenge in these setting is character consistency: an LLM agent must contain its assigned persona as described in profiles throughout the interaction process. In practice, LLM agents often drift from their personas, contradict earlier statements or display inconsistent traits, especially over longer interactions \citep{choi2024examining, bhandari2025can, abdulhai2025consistently}. As \citet{ji2025enhancing} note, current LLMs “lack […] fine-grained role awareness,” which limits their ability to provide truly personalised, role-consistent interactions. In collaborative multi-agent scenarios particularly, this issue is amplified: agents may influence one another and gradually lose their distinct persona. Maintaining credible character behaviour is thus essential for user satisfaction and system validity in these applications.
+\subsection{Research gap}
 
-To investigate these dynamics, this thesis utilises a multi-agent collaborative setup as a strategic testbed. By requiring agents to reach a shared decision about the believed murderer, this environment allows for a controlled analysis of \textit{character contamination}—the blurring of identity boundaries within multi-agent collaboration, more specifically in the context of this study, a phenomenon where the pressure of collaboration may cause agents to unconsciously mirror each other’s linguistic style.
+Despite the importance of character consistency, existing work on LLM-based agents has largely focused on model design, training paradigm, or learning methods, rather than systematic evaluation. And even evaluation rarely was designed from linguistic perspective. Much prior research has tried to imbue LLMs with persona via instruction fine-tuning such as the character-specific LLMs in CharacterGLM \citep{zhou2023characterglm} or the Ditto \citep{li2021ditto, lu2024large}, chain-of-thought \citep{chae2023dialogue}  or contrastive Reinforcement Learning fine-tuning \citep{shea2023building}. Moreover, they often use coarse or costly evaluation methods: performance is measured by high-level metrics of role-fidelity such as Big Five, Myers-Biggs Type Indicator (MBTI), or human judgements, rather than by analysing the language itself.
 
-
-\subsection{Character consistency in linguistic context} \label{sec:cc_in_ling}
-
-This study approach character consistency from a linguistic perspective. In sociolinguistics and stylometry, a speaker's or a character's identity is not viewed as a fixed label but as continuously construction through language use \citep{ przystalski2025stylometry}. In other words, how a character speaks conveys their persona, including choice of words, syntax, discourse style. For example, stylometric studies of television dialogue show that fictional characters develop distinct idiolects: Sheldon Cooper in the show The Big Bang Theory habitually uses formal, scientific vocabulary and passive constructions, whereas Penny's speech is more colloquial and conversational \citep{van2016stylometry}. Language therefore serves as a window into attitude, beliefs, and personality.
-
-Following this view, this study posits that the character consistency of a LLM-based role-playing agent could be manifested in the linguistic profile of its outputs. Within this framework, character consistency is explicitly defined as the successful maintenance of a specific linguistic style over the course of an interaction. Consequently, investigating the degree of consistency is equivalent to investigating systematic changes in that style.
-
-If an agent truly embodies a persona, its generated responses should consistently reflect that persona's linguistic style. In this study, \textit{character consistency} is therefore treated as fundamentally a linguistic style problem: this study expects to detect (in)consistency by analysing lexical, syntactic, semantic and discourse-level patterns in the generated dialogue text. This aligns with sociolinguistic theory that identity is performed and negotiated through language \citep{bucholtz2005identity}. By focusing on linguistic features, consistency could be quantified in a principled way.
-
-
-
-\subsection{Research gap} \label{sec:research_gap}
-
-Despite the importance of character consistency, existing work on LLM-based agents has largely focused on model design, training paradigm, or learning methods, rather than systematic evaluation. And even evaluation rarely was designed from linguistic perspective. Much prior research has tried to imbue LLMs with persona via instruction fine-tuning such as the character-specific LLMs in CharacterGLM \citep{zhou2023characterglm} or the Ditto \citep{li2021ditto, lu2024large}, chain-of-thought \citep{chae2023dialogue}  or contrastive Reinforcement Learning fine-tuning \citep{shea2023building}. Moreover, they often use coarse or costly evaluation methods: performance is measured by high-level personality metrics of role-fidelity such as Big Five, Myers-Biggs Type Indicator (MBTI), or human judgements, rather than by analysing the language itself. To bridge this gap, this research introduces a linguistically grounded approach for measuring character (in)consistency.
-
-
-\subsection{Research questions} \label{sec:rq}
-
+\subsection{Research questions}
 This thesis investigated character consistency in LLM-based agents through the following questions:
 \begin{enumerate}
     \item \textbf{RQ1}: To what extent do LLMs maintain character consistency during collaborative reasoning tasks?
-    \item[] \textit{Hypothesis}: LLMs will partially preserve assigned personas but will exhibit character inconsistency over longer multi-turn dialogues as indicated by changes in designed metrics.
+    \item[] \textit{Hypothesis}: LLMs will partially preserve assigned personas but will exhibit character inconsistency over longer multi-turn dialogues. 
     \item \textbf{RQ2}: How can multi-level linguistic metrics capture character consistency?
-    \item[] \textit{Hypothesis}: Lexical (as indicated by TF-IDF similarity and character distance), syntactic (as indicated by syntactic depth and $z$-score deviations), and semantic and discourse features (as indicated by sentiment distance) combined will better reflect character (in)consistency than any single feature alone.
-    \item \textbf{RQ3}: Which linguistic metric is the most faithful one to capture it?
-    \item[] \textit{Hypothesis}: Metric that exhibits stronger correlation and lower calibration error relative to the baseline classifier’s confidence scores will yield higher composite faithfulness scores, thereby it will be identified as the most reliable indicators of character consistency.
+    \item[] \textit{Hypothesis}: Combining lexical, syntactic, and discourse features will better reflect persona fidelity than any single level alone.
+    \item \textbf{RQ3}: Which metrics are most reliable capture it?
+    \item[] \textit{Hypothesis}: Metrics that correlate strongly with a dedicated persona classifier’s confidence scores (e.g. classification probability that an utterance matches the persona) will be more predictive of true consistency
 \end{enumerate}
 
+These questions guide a comprehensive evaluation of character consistency, from empirical measurement to alignment with predictive models.
 
 \subsection{Contribution}
-
 In addressing the questions above, this thesis makes the following contributions:
 \begin{enumerate}
     \item \textbf{A linguistically grounded multi-level evaluation framework}: This study proposes a systematic evaluation framework that combines lexical, syntactic and discourse-level metrics to assess character consistency in multi-agent dialogue.
-    \item \textbf{Classifier validation and calibration}: This study introduces a methodology to validate character consistency metrics by correlating them with a character classification model’s outputs. By comparing the alignment between linguistic scores and classifier confidence, this study examines their calibration against classifier confidence, identifying which metrics are most faithful and reliable.
+    \item \textbf{Classifier Validation and Calibration}: This study introduces a methodology to validate character consistency metrics by correlating them with a character classification model’s outputs. By treating consistency scores as pseudo-probabilities, this study examines their calibration against classifier confidence, identifying which metrics are most predictive and reliable.
 \end{enumerate}
 
-Together, these contributions aim to fill the identified gap: providing a linguistically grounded multi-dimensional evaluation of character consistency in LLM-based agents, especially under collaborative conditions. All components are designed to be extensible for future research in role-play driven conversational AI.
+Together, these contributions aim to fill the identified gap: providing a linguistically grounded multi-dimensional evaluation of character consistency in LLM-based agents, especially under collaborative conditions. All components are designed to be extensible for future research in role-playing driven conversational AI.
 
-\section{Background and Related Work} \label{sec:background}
+\section{Background and Related Work}
 
-\subsection{Character as a linguistic construct} \label{sec:background_char_in_ling}
+\subsection{Character as a linguistic construct}
 
-From the perspective of discourse and sociolinguistic theory, an individual’s identity (in this scenario, a character’s persona) is continuously enacted through language. In sociolinguistics, language is understood to construct identity: speakers adopt styles and linguistic cues that associate them with social groups stereotypes or affective states \citep{bucholtz2005identity, norton2011identity, eckert2016variation}. Similarly, in narrative, Characterisation is manifested by the way character speak. For example, \citet{culpeper2001language} argued that "an individual's feelings, behaviours, and cognitive states are represented by and through language", thus language use serves as a primary source of information about a character. In other words, characters are written into existence by their linguistic choices.
+From the perspective of discourse and sociolinguistic theory, an individual’s identity (in this scenario, a character’s persona) is continuously enacted through language. In sociolinguistics, language is understood to construct identity: speakers adopt styles and linguistic cues that associate them with social groups stereotypes or affective states. Similarly, in narrative, Characterisation is manifested by the way character speak. For example, \cite{culpeper2001language} argued that "an individual's feelings, behaviours, and cognitive states are represented by and through language", thus language use serves as a primary source of information about a character. In other words, characters are written into existence by their linguistic choices.
 
-This view is borne out by stylometric analyses. Stylometry is the quantitative study of linguistic style, originally developed for authorship attribution. Such methods have been applied to fictional dialogues to distinguish characters. For instance, a stylometric analysis of The Big Bang Theory dialogues \citep{van2016stylometry} showed the character Sheldon Cooper consistently differs from other characters in vocabulary and grammar: he uses more formal, scientific terms and favours passive voice, giving his language an “expository” quality distinct from his friends’ colloquial style. These distinct styles emerged despite being written by multiple script authors. Similarly, stylometric analysis of Jane Austen novels by \citet{burrows1987computation} and others have demonstrated that characters exhibit quantifiable differences in function word usage and lexical patterns. These examples illustrate that character identity leaves a detectable imprint on language.
+This view is borne out by stylometric analyses. Stylometry is the quantitative study of linguistic style, originally developed for authorship attribution. Such methods have been applied to fictional dialogues to distinguish characters. For instance, a stylometric analysis of The Big Bang Theory dialogues \citep{van2016stylometry} showed the character Sheldon Cooper consistently differs from other characters in vocabulary and grammar: he uses more formal, scientific terms and favours passive voice, giving his language an “expository” quality distinct from his friends’ colloquial style. These distinct styles emerged despite being written by multiple script authors. Similarly, stylometric analysis of Jane Austen novels by \cite{burrows1987computation} and others have demonstrated that characters exhibit quantifiable differences in function word usage and lexical patterns. These examples illustrate that character identity leaves a detectable imprint on language.
 
-Modern stylometry research whether focusing on fictional characters or not reinforces this idea. For authorship attribution or model identification, features such as character n-gram, word frequencies, syntactic structure and sentiments serve as "linguistic fingerprints" of an author or text generator. Studies show that a combination of lexical and grammatical features can distinguish texts written by different LLMs or humans with high accuracy \citep{przystalski2025stylometry}. They note that LLM-generated text tends to exhibit greater grammatical standardisation and systematic usage patterns compared to human text. These stylistic markers consistently reflect the underlying features of the speaker or model, even if they may be maybe subtle.
+Modern stylometry research whether focusing on fictional characters or not reinforces this idea. For authorship attribution or model identification, features such as character n-gram, word frequencies, syntactic structure and sentiments serve as "linguistic fingerprints" of an author or text generator. Studies show that a combination of lexical and grammatical features can distinguish texts written by different LLMs or humans with high accuracy \citep{przystalski2025stylometry}. They note that LLM-generated text tends to exhibit greater grammatical standardisation and systematic usage patterns compared to human text. These stylistic markers consistently reflect the underlying features of the speaker or model, although maybe subtle.
 
-In sum, the background literature suggests that linguistic style is a valid proxy for character consistency. If an LLM is playing a consistent character, its utterances should collectively form a coherent style profile. Conversely, a sudden change in language choices might signal a break in character. This perspective motivates the current approach: this study will use linguistic style metrics as indirect measures of character consistency.
+In sum, the background literature suggests that language style is a valid proxy for character consistency. If an LLM is playing a consistent character, its utterances should collectively form a coherent style profile. Conversely, a sudden  in language choices might signal a break in character. This perspective motivates current approach: this study will use linguistic style metrics as indirect measures of character consistency.
 
-In this thesis, the term \textit{persona} and \textit{character} is distinguished. This study uses \textit{persona} to refer to the explicitly assigned profile or identity specification provided to the model through prompting. In contrast, \textit{character} refers to the identity as realised through linguistic behaviour in dialogue. While persona concerns the intended role, character concerns its performed and observable manifestation. Character consistency therefore denotes the stability of this linguistic realisation across turns.
+In this thesis, the term persona and character is distinguished. This study uses persona to refer to the explicitly assigned profile or identity specification provided to the model through prompting. In contrast, character refers to the identity as realised through linguistic behaviour in dialogue. While persona concerns the intended role, character concerns its performed and observable manifestation. Character consistency therefore denotes the stability of this linguistic realisation across turns.
 
-\subsection{Character modelling in LLMs} \label{sec:background_char_modelling}
+\subsection{Character modelling in LLMs}
 
-In computational linguistics, \textit{character modelling} typically means conditioning a language model on a character description namely the persona. It has evolved from simple prompt engineering to complex architectural fine-tuning and specialised training. 
+In computational linguistics, character modelling typically means conditioning a language model on a character description or background. The simplest method is prompt-based conditioning, where a textual character profile (e.g. "You are Sherlock Holmes, a consulting detective who ...") is prepended to the conversation prompt. In this way, even a genera-purpose LLM can be guided to role-play that character. Recent studies confirm that prompting with explicit role profile can effectively steer LLMs. For example, \cite{chen2023autoagents, tu2024charactereval} show that chat models given a well-crafted character prompt can emulate that persona in dialogue. This in-context approach leverages the LLM's existing knowledge without fine-tuning, and can produce consistent character-specific responses with minimal examples.
 
-The simplest method is prompt-based conditioning, where a textual persona (e.g. "You are Sherlock Holmes, a consulting detective who ...") is prepended to the conversation prompt. Provided the model possesses sufficient instruction-following abilities, in this way even a general-purpose LLM can be guided to role-play that character. Recent studies confirm that prompting with explicit role profile can effectively steer LLMs. For example, \citet{chen2023autoagents, shao2023characterllm, tu2024charactereval, wang2024rolellm} show that given a well-crafted character-specific prompt LLMs can emulate that character in dialogue. This in-context approach leverages the LLM's existing knowledge without fine-tuning, and has the potential to produce character-specific responses with minimal examples.
+More advanced methods incorporate character information into model architecture or training. Early works without LLMs (with language models for example) fused memory networks or personal databases into dialogue models \citep{zhang2018personalizing}. With LLMs, researchers have built character-specific LLMs by further training on persona data. For example, CharacterGLM \citep{zhou2023characterglm} and Ditto \citep{li2021ditto, lu2024large} are instruction-tuned models with enhanced persona consistency for specific characters. Reinforcement learning techniques have also been applied. For example, \cite{shea2023building} use RLHF to better align models with persona traits, and \cite{chen2025compress} generate preference data with GPT-4 followed by Direct Preference Optimisation (DPO) to refine LLM persona behaviour. These engineering solutions can improve consistency, but they often require expensive data collection or fine-tuning.
 
-More advanced methods incorporate persona into model architecture or training. Early works without LLMs (with language models for example) fused memory networks or personal databases into dialogue models \citep{zhang2018personalizing}. With LLMs, researchers have built character-specific LLMs by further training on persona data. For example, CharacterGLM \citep{zhou2023characterglm} and Ditto \citep{li2021ditto, lu2024large} are instruction-tuned models with enhanced persona consistency for specific characters. Reinforcement learning techniques have also been applied. For example, \citet{shea2023building} use RLHF to better align models with persona traits, and \citet{chen2025compress} generate preference data with GPT-4 followed by Direct Preference Optimisation (DPO) to refine LLM persona behaviour. 
+Despite these advances, a common observation is that character inconsistency remains a problem. For example, \cite{choi2024examining} show that even when LLMs are primed with a persona, they may gradually shift away from it during a long conversation. In their study of nine LLMs, larger models tended to experience greater identity , and simply specifying a persona did not fully prevent its degradation. Similarly, \citep{frisch2024llm} found that persona prompts influence language style only up to a point and over multiple turns the models' output can change qualitatively. This suggests that while persona conditioning methods exist, they do not guarantee indefinite consistency.
 
-These advanced engineering solutions can improve consistency, but they also come with important drawbacks and often involve significant trade-offs. Extensive role-specific fine-tuning can impair a model’s generalisation ability and weaken its underlying commonsense reasoning capabilities \citep{ji2025enhancing}. Moreover, fine-tuned models may converge toward a singular, averaged character identity, which makes them less steerable for simulating the diverse character-specific responses needed in multi-agent settings \citep{park2023generative, moon2024anthology}. In addition, they are often require costly data collection and are expensive to implement.
+In sum, character and persona modelling in LLMs spans a range of techniques from prompt engineering to specialised training. But issue of inconsistency and erosion persist. Many prior works focus on how to inject persona and prevent inconsistency, whereas this study focus on assessing how well the character is maintained in the generated text.
 
-In contrast, prompt engineering offers a non-parametric and highly controllable alternative \citep{chen2024review}. By leveraging the LLM’s existing parametric knowledge, prompting makes it possible to switch personas quickly and to approximate specific idiolects without any extra training \citep{santurkar2023opinions, moon2024anthology, wang2024rolellm, yuan2024evaluating}. 
+\subsection{Evaluation of character consistency}
 
-Since the primary objective of this thesis is to observe and evaluate the character (in)consistency in multi-agent collaborative setting, rather than to improve or optimise it, the simplest prompt-based setup provides the most transparent and ideal window into the model's natural stylistic boundaries. By deliberately excluding specialised fine-tuning or additional modules, this study reduces the influence of confounding factors, ensuring that any detected character inconsistency can be directly and cleanly attributed to the interactional dynamics of the multi-agent environment and the persona prompts.
+\subsubsection{Human evaluation}
 
+Previous work have used a number of approaches. Human evaluation is the most traditional approach and is often regarded as the most reliable form of assessment. Researchers typically recruit human annotators, who may include domain experts or fans of the character being simulated. These evaluators assess the agent’s performance across multiple dimensions. This can provide nuanced feedback, but is costly and subjective. 
 
+Common criteria include consistency, which measures whether the agent’s responses align with the predefined character profile, human-likeness, and engagement, which reflects how interesting or immersive the interaction appears to users. For example, \cite{yang2024crafting, zhou2023characterglm} report human evaluations of their character customised model CharacterGLM and SimsChat agent for character consistency, and \cite{tu2024charactereval} use human annotators on their CharacterEval benchmark. \cite{zhu2024player} distributed a survey to human participants to capture their gameplay experience and satisfaction levels with agents.
 
+Two common formats are used. In pointwise evaluation, annotators rate the output of a single model according to predefined criteria \citep{zhou2023characterglm}. In pairwise comparison, annotators compare responses produced by two models and determine which performs better. For example, in role-playing detective games \citep{zhu2024player}, human participants may interact directly with an agent and then evaluate its performance using criteria such as narrative progression or character immersion.
 
-\subsection{Evaluation of character consistency} \label{sec:background_eval}
+\subsubsection{LLM-as-a-judge}
 
-\subsubsection{Human evaluation} \label{sec:background_eval_human}
+Because human evaluation is costly and difficult to reproduce, recent studies increasingly employ large language models as automated evaluators. In this approach, a stronger model such as GPT-4 is used to assess the responses produced by other agents \citep{chen2023hp, chen2024review, shao2023characterllm}.
 
-Previous studies have used a number of approaches to evaluate the performance of agents in role-playing. Human evaluation is the most traditional approach and is often seen as the most reliable form of assessment to capture the subjective nuances of characterisation, such as creativity, emotional depth, and immersion. Researchers typically recruit human annotators, who may include domain experts and/or fans of the character being simulated \citep{chen2023hp}.
+Researchers may design structured interview procedures in which the evaluation model asks the agent a series of questions. The responses are then assessed along predefined dimensions, such as memory consistency, value alignment, personality traits, hallucination tendency, and behavioural stability \citep{shao2023characterllm, park2023generative}. The evaluation model can also rank responses generated by multiple agents according to specified criteria, such as their compatibility with the scenario, character attributes, or interpersonal relationships \citep{chen2023hp, chen2024review}.
 
-In research focusing on multi-turn dialogue, such as \citet{zhou2023characterglm}, annotators engage in interactions and rate models on a five-point Likert scale. Consistency in this framework is specifically divided into \textit{attribute consistency}, which measures the maintenance of static character facts, and \textit{behavioural consistency}, which evaluates the dynamic alignment of linguistic features and emotional expressions with the persona. These evaluations often incorporate detailed error analysis, where humans identify specific failures such as being \textit{out-of-character (OOC)}, which is defined as responses that violate the character profile or historical context.
+Borrowing from psychology, some studies apply structured personality tests. \cite{jiang2024personallm} and \cite{sorokovikova2024llms} feed LLM outputs into the Big Five Inventory to score train alignment. \cite{pan2023llms} use the Myers-Biggs Type Indicator (MBTI) to categorise LLM "personalities" and observe that each model tends towards a stable MBTI type. \cite{wang2024incharacter} perform interview-style tests for personality fidelity. These methods can quantify high-level personality consistency, but they rely on the assumption that LLM output can be meaningfully mapped to human trait scales which is still an open question. As for fine-grained error analysis, LLM-based evaluators can further identify specific types of failure. These include out-of-character behaviour (OOC), internal contradictions, and repetitive responses \citep{zhou2023characterglm}.
 
-Similarly, the RoleLLM framework \citep{wang2024rolellm} uses human preference win-rate mechanisms, where specialists in natural language processing compare model outputs against baselines to judge \textit{lexical consistency}, which measures the use of character-specific catchphrases or jargon, and \textit{dialogic fidelity}, which measures stylistic similarity to original script's syntax and tone.
+\subsubsection{Reference-based automatic metrics}
 
-In more complex interactive settings, specialised evaluation protocols have been developed. For instance, the PLAYER framework \citep{zhu2024player} uses Murder Mystery Games (MMGs) to test agents under social reasoning and coordination pressure. In this setting, agents are required to maintain its secret identity and motivations while advancing the game's narrative. Human participants are recruited to play alongside AI agents for extended periods (totalling 49 hours of gameplay) and rate role immersion on a five-point Likert scale. A score of 5 indicates "full embodiment" (authentic alignment of actions, dialogue, and emotions with character traits), while 1 shows complete lack of immersion and indicate actions contradict the character.
+Another line of evaluation relies on existing textual resources or reference answers. One popular dimension is the \textbf{text overlaps}. Metrics such as BLEU and ROUGE-L are commonly used to measure lexical overlap between the generated responses and reference texts. In role-playing settings, these references may include original scripts, character dialogue, or curated conversation datasets \citep{chen2023hp, wang2024rolellm, wang2024character100}.
 
-Despite the richness of these human-centred evaluations, these prior studies also highlights several systemic limitations that motivate the search of alternative frameworks. Human evaluation is widely criticised for being expensive, time-consuming, and difficult to scale, particularly in multi-agent settings where interactions are long and complex \citep{shao2023characterllm, chen2024review, zhu2024player}. Furthermore, as \citep{wang2024character100} note, human-centric assessments are often hard to reproduce because of annotator subjectivity and the lack of standardised protocols. Crucially, human evaluations typically yield opaque scalar scores that act as a “black box”: a low immersion rating may signal that a character has broken down, but it rarely reveals the specific lexical, syntactic, or semantic patterns responsible for this erosion \citep{bao2026eval4sim}. As a result, while human judgment is considered reliable, it remains unsuited for the precise and micro-level tracking of linguistic consistency is required to understand the mechanical breakdown of character in LLMs.
+Another dimension is the \textbf{semantic similarity} implemented by embedding-based approaches. By computing cosine similarity between generated responses and character descriptions, researchers can evaluate whether the agent’s output remains consistent with the background knowledge or identity profile of the character \citep{wang2024character100}. 
 
+\subsubsection{Psychological and behavioural metrics}
 
-\subsubsection{LLM-as-a-judge} \label{sec:background_llm_judge}
+In addition to above directions, recent work has begun to evaluate LLM agents from a psychological perspective. One is \textbf{psychological scale testing}. Frameworks such as \cite{wang2024incharacter} assess personality fidelity by asking agents questions derived from established psychological inventories. Examples include the Big Five Inventory (BFI) or other personality assessment tools \citep{pan2023llms}. The resulting scores are used to determine whether the agent’s responses align with the expected personality traits of the target character.
 
-Because human evaluation is costly and difficult to reproduce, recent studies increasingly employ large language models as automated evaluators. This approach typically involves a stronger model, such as GPT-4, acting as an impartial judge to assess other agents' responses against specific criteria. For character modelling, this method enables more scalable and systematic analysis compared to human evaluation.
+Another aspect is the \textbf{behaviour and motivation prediction}. In narrative or scenario-based environments, agents may also be evaluated based on their ability to predict or simulate the actions of a character. For instance, in detective scenarios, researchers examine whether the agent can correctly anticipate a character’s next move or infer hidden motivations \citep{shao2023characterllm, chen2024socialbench, wang2024incharacter, xu2024destiny}.
 
-One common approach is for the judge LLM to act as an interviewer. For example, \citet{shao2023characterllm} use GPT-4 to create structured interview questions that test models across five relevant dimensions: \textit{memorisation}, which tests the recall of character-specific events and objects; \textit{values}, which ensures the agent shares the convictions and objectives of the persona; \textit{personality}, which evaluates the imitation of character-specific speaking styles and emotional reactions; \textit{hallucination}, which measures the agent's ability to avoid knowledge the character shouldn't have, like modern technology for historical figures; and \textit{stability}, which tracks whether the character remains consistent over long interactions despite pre-training biases. To ansure reliability, they employs "step-by-step judging," where the evaluator first identifies character traits from the persona profile before comparing them to the agent's performance and giving a final score.
+\subsubsection{Task-specific performance evaluation}
 
-Another approach is for the judge to act as an expert. For instance, in the InCharacter framework \citet{wang2024incharacter}, GPT-4 simulates a psychiatrist to score agents on specific personality traits based on conversations. This is called \textit{expert rating (ER)} in the study and examines whether the model shows consistent character-specific behaviour and cognitive patterns typical of a stable character.
+When agents operate within collaborative or problem-solving environments, task performance becomes another important evaluation dimension. One metric is the \textbf{task accuracy}. In the scenarios similar to this study, that is, investigative games or detective simulations, agents may be evaluated according to their ability to collect relevant clues, identify the culprit, and perform logical reasoning \citep{wu2024jubensha}.
 
-Judge LLMs can also act as critics to rank outputs and identify specific failures. For example, \citet{wang2024rolellm} evaluate the persona’s consistency by instructing GPT-4 to rank the generated texts based on three criteria: relevance with the scene (fitting the current narrative context, plot points, and situational settings), relevance with the attributes (matching character facts, traits, and background) and relevance with the relations (fidelity to interpersonal dynamics, social status, and intimacy levels between participants). Similarly, evaluations in the Harry Potter Dialogue (HPD) study \citep{chen2023hp} uses GPT-4 rankings for coherence with character relationships and story settings. For fine-grained error analysis, judge models can be instructed to detect out-of-character (OOC) behaviours, contradictions, or content gap that indicate character inconsistency \citep{zhou2023characterglm}.
-
-However, as highlighted by recent critical reviews \citep{chen2024review, guo2024review,samuel2024personagym, xi2025review}, many LLM-as-a-judge designs produce opaque scalar scores that lack grounding in observable micro-level patterns and may be influenced by model-specific biases or a tendency for models to converge toward a singular and average persona during evaluation. Consequently, while these automated judges provide a necessary layer of efficiency, there remains a critical need for frameworks that can transparently track the micro-level breakdown of character identity under collaborative pressure. 
-
-\subsubsection{Reference-based automatic metrics} \label{sec:background_autometric}
-
-Another line of evaluation relies on existing textual resources or reference answers. One popular measure is the \textbf{text overlap}. Metrics such as BLEU and ROUGE-L are commonly used to measure lexical overlap between the generated responses and reference texts. In role-playing settings, these references may include original scripts, character dialogue, or curated conversation datasets \citep{chen2023hp, wang2024rolellm, wang2024character100}.
-
-Another measure is the \textbf{semantic similarity} implemented by embedding-based approaches. By computing cosine similarity between generated responses and character descriptions, researchers can evaluate whether the agent’s output remains consistent with the background knowledge or identity profile of the character \citep{wang2024character100}. 
-
-\subsubsection{Psychological and behavioural metrics} \label{sec:background_psychotest}
-
-In addition to above directions, recent work has begun to evaluate LLM agents from a psychological perspective. One is \textbf{psychological scale testing}. Frameworks such as \citet{wang2024incharacter} ask agents questions derived from established psychological inventories. Examples include the Big Five Inventory (BFI) or other personality assessment tools such as the Myers-Briggs Type Indicator (MBTI) \citep{pan2023llms}.  The goal is to see if the agent’s scores align with the expected personality traits of the character they are playing, indicating character consistency.
-
-Another aspect is the \textbf{behaviour and motivation prediction}. In narrative or scenario-based environments, agents are evaluated on their ability to predict or simulate the actions of a character. For instance, in detective scenarios, researchers examine whether the agent can correctly anticipate a character’s next move or infer hidden motivations \citep{shao2023characterllm, chen2024socialbench, wang2024incharacter, xu2024destiny}.
-
-However, these psychological and behavioural metrics have several limitations. Firstly, they rely on the controversial assumption that LLM outputs can be meaningfully mapped onto human personality scales, which remains an open question in the field. Secondly, these methods often act as "macro-level" indicators. They provide a general snapshot of a character but fail to capture the micro-level linguistic form through which that identity is actually expressed. Moreover, these tests are often conducted as isolated measurements rather than continuous tracking throughout a dialogue. Because these tests usually happen outside the actual interaction, they may not detect the subtle character inconsistency that happens during the collaboration process.
-
-\subsubsection{Task Accuracy} \label{sec:background_taskacc}
-
-Existing literature shows that maintaining complex characters is not easy for LLMs and may impose a cognitive burden that reduces their overall performance \citep{baltaji2024cultured, ji2025enhancing}. This often creates a tension between role-playing and logical reasoning. This interference typically appears as \textit{character hallucination}, where models reject important information to stay true to a role's perceived knowledge boundaries \citep{shao2023characterllm}, and \textit{reasoning degradation}, where the effort to maintain a character over time weakens the model's self-awareness and logical accuracy \citep{xiao2023policy}.
-
-In collaborative settings, social dynamics make this reasoning decline even worse. As \citet{baltaji2024cultured} demonstrate, agents in multi-agent environments often experience "persona inconstancy" (similar to the character inconsistency examined here) due to "peer pressure" and conformity. When models give in to these influences, they abandon their assigned viewpoints and logical consistency, raising doubts about the reliability of multi-agent reasoning outcomes.
-
-Similarly, in murder mystery tasks \citep{wu2024jubensha, zhu2024player}, baseline LLMs perform much worse than specialised frameworks. Baselines often fail to use gathered information effectively, showing a breakdown in processing task-relevant clues while staying in character.
-
-This study utilises \textit{task accuracy}—defined as correctly identifying the culprit in a detective simulation—not only to measure task success but also to examine the trade-off between role-playing and logical reasoning. By tracking agents' task success rates, it assesses how much cognitive capacity models sacrifice to maintain consistent character identities under multi-agent collaboration pressure.
+Another aspect is the \textbf{team efficiency}. In multi-agent systems, evaluation may also consider group-level outcomes, such as task completion time, communication efficiency, and leadership dynamics within the team \citep{guo2026collab}.
 
 
-\subsection{Linguistic Metrics} \label{sec:background_lingmetric}
+\subsection{Linguistic Metrics}
 
-As \citet{tseng2024two} note in a recent survey, despite the growing number of evaluation approaches, “there still lacks a unifying understanding of how to quantify personality in LLMs”. Moreover, existing evaluations rarely examine which metrics most reliably capture character consistency over long interactions. As mentioned in the previous subsections, they also focus on macro-level outcomes and overlook how character is realised through language during ongoing interaction \citep{shao2023characterllm, wang2024incharacter, wu2024jubensha}, leaving micro-level patterns untracked.
+The methods described above provide useful perspectives on role-playing agents, yet they remain largely fragmented. A unified and multi-level evaluation framework is rarely applied. Even when multiple metrics are used, most operate at the level of individual utterances or predefined personality traits, while paying limited attention to the linguistic form through which character identity is expressed. As \cite{tseng2024two} note in a recent survey, despite the growing number of evaluation approaches, “there still lacks a unifying understanding of how to quantify personality in LLMs”. In addition, existing evaluations seldom examine which metrics most reliably capture character consistency across extended interactions.
 
-To address these gaps, this study develops a set of metrics based on the linguistic hierarchy and validates them through classification performance and confidence calibration. Rather than focusing mainly on high-level behaviour or abstract personality traits, it examines how character consistency appears through linguistic structure in dialogue. Specifically, the analysis covers three levels: lexical, syntactic, semantic and discourse features. This method allows subtle shifts in linguistic features to be detected and offers a new quantitative perspective on how character consistency evolves during long-term interaction.
+To address this limitation, the present study develops a set of metrics grounded in the linguistic hierarchy and validates them through classification performance and confidence calibration. The approach proposed in this thesis differs from existing evaluation frameworks in an important way. Rather than focusing primarily on high-level behavioural outcomes or abstract personality traits, it examines how character consistency is realised through linguistic structure during dialogue. Specifically, the analysis operates across three layers of language: lexical, syntactic, and discourse features.
 
-At the lexical level, the analysis can reveal changes in the use of character-specific vocabulary or recurring expressions. Such patterns may indicate whether the agent continues to employ a distinctive character voice \citep{zhou2023characterglm,wang2024rolellm}.
+Most existing studies evaluate role-playing agents through macro-level indicators, such as personality traits, value alignment, or task success. While these approaches provide useful insights, they often overlook how character identity is realised through language during ongoing interaction \citep{shao2023characterllm, wang2024incharacter, wu2024jubensha}. The method proposed in this thesis instead investigates the micro-level linguistic structure of agent dialogue, allowing subtle shifts in speaking style to be detected over the course of extended collaborative interactions.
+
+At the lexical level, the analysis can reveal changes in the use of character-specific vocabulary or recurring expressions. Such patterns may indicate whether the agent continues to employ a distinctive character voice \citep{zhou2023characterglm, wang2024rolellm}.
 
 At the syntactic level, structural features of sentences can signal shifts in communicative style. For instance, a character originally designed to speak in analytical or elaborate sentences may gradually revert to shorter and more generic responses typical of default assistant behaviour \citep{park2023generative, wang2024rolellm}.
 
 At the discourse level, the analysis examines how the agent maintains conversational coherence and fulfils its narrative role within collaborative dialogue. This includes how the agent manages topic development, responds to other participants, and sustains the interactional logic of the scenario \citep{ji2025enhancing}.
 
-\subsection{LLM-based multi-agent collaboration} \label{sec:background_multicollab}
+Although recent work has begun to discuss phenomena such as identity drift or persona drift in interactive agents, these studies often rely on isolated psychological measurements or discrete evaluation snapshots. They rarely track linguistic behaviour continuously throughout the dialogue itself. By contrast, the approach adopted in this thesis provides an intrinsic, corpus-based evaluation framework. Through systematic measurement of lexical, syntactic, and discourse-level features, it offers a new quantitative perspective on how character consistency evolves during long-term interaction \citep{choi2024examining}.
+
+\subsection{LLM-based multi-agent collaboration}
 
 \subsubsection{The evolution of LLM-based multi-agent systems}
 
-The transition from single-agent systems to multi-agent systems (MAS) marks a pivotal shift in LLM applications, moving from individual task execution to the emulation of collective intelligence \citep{guo2024review, xi2025review}. By assigning specialised persona and enabling inter-agent communication, MAS can effectively mirror human group dynamics in complex problem-solving scenarios, such as political debate \citep{baltaji2024cultured}, software development \citep{qian2024chatdev}, detective reasoning \citep{wu2024jubensha,zhu2024player}, and social reasoning \citep{xiao2023simulating}.
+The transition from single-agent systems to Multi-Agent Systems (MAS) marks a pivotal shift in LLM applications, moving from individual task execution to the emulation of collective intelligence \citep{guo2024review, xi2025review}. By assigning specialized profiles and enabling inter-agent communication, MAS can effectively mirror human group dynamics in complex problem-solving scenarios, such as scientific debate, software development, and detective or social reasoning \citep{xiao2023simulating, guo2024review}.
 
-Among the existing frameworks, WellPlay \citep{zhu2024player} and Jubensha \citep{wu2024jubensha} represent two influential examples of detective reasoning environments. In WellPlay, agents participate in Murder Mystery Games (MMGs) involving 4-12 players, where they uncover the truth through dialogue-based investigation while maintaining individual character goals, such as concealing secrets or protecting allies. Performance is evaluated using 1,482 inferential questions that test agents' ability to infer the perpetrator, explain motives, and reason about interpersonal relations, with success ultimately measured by win rate—the collective accuracy in identifying the real murderer.
+This study choses the detective case-solving scenario because it represents a pinnacle of complex social reasoning, requiring agents to not only process factual evidence but also to perform Theory of Mind (ToM) inferences regarding the motives and beliefs of other characters \citep{zhu2024player}. Recent frameworks like WellPlay \citep{zhu2024player} and Jubensha \citep{wu2024jubensha} have established benchmarks for measuring the task accuracy and reasoning efficiency of agents in such settings.
 
-The Jubensha benchmark follows a comparable structure, guiding agents through six stages: script reading, role assignment, clue collection, group discussion, and final voting—to assess both \textit{factual question answering}, which examines recall of case details, and \textit{inferential question answering}, which requires integrating fragmented clues into a coherent narrative.
+However, a significant gap remains in the literature. While current research heavily prioritizes optimization of cooperation strategies and final task outcomes (e.g., win rates), it often overlooks the linguistic integrity of the personas under the pressure of collaboration \citep{chen2024review, wu2024jubensha, zhu2024player}. The very nature of multi-round interaction introduces risks of Identity Drift and Persona Inconstancy, where agents may succumb to peer pressure or inadvertently adopt the linguistic patterns of their counterparts \citep{choi2024examining, baltaji2024cultured}. Unlike existing works that rely on macro-level performance metrics, this thesis shifts the focus to the micro-linguistic level. By analysing dialogues through lexical, syntactic, and discourse metrics, this study aims to quantify the subtle "linguistic imprint" left by collaboration and detect whether the intense interaction required for problem-solving inevitably leads to character inconsistency.
 
-This study adopts the detective case-solving setting because it provides a rigorous testbed for evaluating social reasoning under uncertainty. It demands not only logical deduction from evidence but also perspective-taking, the understanding of others’ intentions and beliefs, and the management of complex social dynamics. All of these make it an ideal environment to examine the boundaries of LLM-based multi-agent collaboration.
+\subsubsection{Identity contamination in multi-agent collaboration}
 
+Finally, the special dynamics of multi-agent systems is also worth elaborated. When multiple LLM agents interacts, linguistic phenomena such as alignment and convergence can occur. Recent surveys on multi-agent systems (MAS) highlight that while specialized profiles and inter-agent communication facilitate collective intelligence \citep{guo2024review}, they also introduce complex social dynamics \citep{zhu2024player}. This includes the risk of information redundancy and "over-reporting," where agents may prioritize group alignment over individual task precision \citep{guo2026collab}. Just as humans in conversation tend to adapt to each other’s style (accommodation), groups of AI agents may inadvertently begin to share vocabulary or syntax. Recent work by \cite{parfenova2025emergent} demonstrates this: in simulated collaborative annotation tasks, LLM groups were found to lexically and semantically converge over multi-round discussions.
 
-\subsubsection{character contamination in multi-agent collaboration}
+This linguistic convergence poses a severe risk of identity drift and identity contamination. \cite{choi2024examining} define identity drift as the phenomenon where interaction patterns or styles change over time, noting that larger models may paradoxically struggle more with identity stability due to their tendency to generate fictitious self-details. Furthermore, \cite{baltaji2024cultured} identify "Persona Inconstancy" as a critical failure mode in cross-national collaborations, categorising it into conformity, confabulation, and the most disruptive form—impersonation, where an agent abandons its assigned identity to adopt another mentioned in the chat context. Such lapses often stem from the lack of clear separation between role descriptions and the growing linguistic context of the dialogue.
 
-Finally, the special dynamics of multi-agent systems is also worth to elaborate. When multiple LLM agents interact, they often exhibit alignment or convergence, and gradually adapt their word choice, tone, or syntax toward one another. While specialized roles and inter-agent communication can enhance collective reasoning \citep{guo2024review}, they also introduce complex social dynamics \citep{zhu2024player} and risk inefficiencies such as information redundancy or “over-reporting,” where agents overemphasize consensus at the cost of precision \citep{guo2026collab}. Similar to conversational accommodation in human interaction, linguistic convergence among agents has been empirically observed in collaborative annotation and problem-solving tasks \citep{parfenova2025emergent, frisch2024llm}.
+Moreover, the singular persona convergence observed in models fine-tuned via RLHF often leads agents to default to a generic, polite assistant style, eroding the specific values and traits required for complex role-playing \citep{park2023generative, moon2024anthology}. Such contamination reduces the diversity and specificity of personas, which undermines the goal of simulating heterogeneous characters. This study argues that traditional macro-level evaluations (like task accuracy) are insufficient to capture these micro-linguistic shifts. By employing lexical, syntactic, and discourse-level metrics, this study provides a continuous monitoring tool for character (in)consistency, helping to ensure that multi-agent dialogues preserve the individuality of each character even under intense collaboration.
 
-This convergence can lead to character contamination. It is observed in prior work though the term may be name differently.  \citet{choi2024examining} refer to this as \textit{identity drift} describing how interaction styles shift over time and how larger models, in particular, may lose character consistency by inventing fictitious self-details. Similarly, \citet{baltaji2024cultured} describe \textit{Persona Inconstancy} as a failure mode in cooperative dialogue, including conformity, confabulation, and impersonation, where an agent abandons its defined role to mimic another participant. These effects often arise when contextual information in dialogue overwhelms the original role constraints.
-
-Compounding this, models fine-tuned with reinforcement learning from human feedback (RLHF) tend to revert toward a standardised, overly polite “AI register” \textit{AI register} \citep{park2023generative, moon2024anthology}. Such flattening undermines the linguistic and behavioural distinctiveness essential for multi-character simulations. Detecting and quantifying this contamination remains a crucial step toward maintaining stable character roles in multi-agent interactions.
-
-
-
-\section{Methods} \label{sec:methods}
+\section{Methods}
 
 This study adopts a simulation‑based experimental design to examine character consistency and collaborative reasoning in large language model (LLM)–driven agents. A controlled multi‑agent dialogue environment was developed in which three agents, each role‑playing a canonical fictional detective, collaboratively solve a murder case through turn‑based natural language interaction. The simulation prioritises reproducibility, interpretability, and detailed logging to enable systematic analysis.
 
-The fictional detectives included in the simulation are \textbf{Sherlock Holmes} from Arthur Conan Doyle's \textit{A Study in Scarlet} \citep{doyle1887study}, \textbf{Miss Marple} from Agatha Christie's \textit{The Murder at the Vicarage} \citep{christie1930murder}, and \textbf{Hercule Poirot} from Christie's \textit{The Mysterious Affair at Styles} \citep{christie1920mysterious}. These characters were selected for their distinctive personalities, investigative approaches, and differing genders. Moreover, their extensive and well-documented literary corpora provide rich linguistic material, making them particularly suitable for systematic analysis.
+The fictional detectives included in the simulation are \textbf{Sherlock Holmes} from Arthur Conan Doyle and \textbf{Miss Marple} and \textbf{Hercule Poirot} from Agatha Christie. These characters were selected for their distinctive personalities, investigative approaches, and differing genders. Moreover, their extensive and well‑documented literary corpora provide rich linguistic material, making them particularly suitable for systematic analysis.
 
-The list of selected novels used in the study is available in Appendix \ref{sec:app_novels}.
+\subsection{Prompt engineering}
 
-\subsection{Prompt engineering} \label{sec:methods_prompt}
+This study employs prompt engineering as the central mechanism for constructing non-parametric Role-Playing Language Agents (RPLAs). Rather than enhancing task performance through external knowledge augmentation, the aim is to investigate how character-specific descriptions which encompassing both static attributes (e.g., identities, viewpoints) and dynamic behaviours (e.g., linguistic features, interaction patterns) shape language generation and collaborative reasoning \citep{zhou2023characterglm, chen2024review}. 
 
-Building on the rationale outlined in section \ref{sec:background_char_modelling}, this study models the three detective agents as non-parametric, prompt-based LLMs. To ensure internal validity, the system adopts a strictly prompt-only architecture, deliberately excluding auxiliary components such as Retrieval-Augmented Generation (RAG) or long-term memory modules. This minimalist design isolates the effects of collaboration and persona, allowing any emerging inconsistency or contamination to be traced directly to the evolving interaction context. In this controlled setting, the boundaries of each simulated character depend solely on the initial role prompt and the immediate dialogue history, providing a clean foundation for subsequent linguistic analysis.
+Advanced architectures such as Retrieval-Augmented Generation (RAG) or specialised long-term memory modules, were intentionally excluded from this study. Their inclusion would introduce significant confounding factors by merging external information streams with the agent's internal parametric knowledge, making it impossible to isolate the influence of prompt-based conditioning on agent behaviour \citep{liu2023dynamic, guo2024review, xi2025review}. By adopting a prompt-only setup, this study aims to ensure that any observed instances of character hallucination (the intrusion of out-of-character knowledge) \citep{shao2023characterllm} or persona inconstancy (such as conformity or impersonation) \citep{baltaji2024cultured} can be directly attributed to the model's processing of the provided instructions within the evolving dialogue context \citep{chen2024review}.
 
-\subsection{agent construction} \label{sec:methods_agent}
+Furthermore, this approach facilitates a rigorous analysis of linguistic fidelity \citep{wang2024rolellm}. By limiting the system to prompt-based conditioning, this study can more effectively measure how lexical consistency and dialogic fidelity (e.g., syntactic tone) fluctuate under the pressure of multi-agent collaboration \citep{wang2024rolellm, ji2025enhancing}. This design aims to preserve high internal validity, shifting the focus from system optimisation to the micro-level quantification of identity drift—a phenomenon where interaction patterns and styles change over time due to the influence of the conversational history \cite{choi2024examining}. Consequently, prompt engineering offers a transparent and traceable framework for reproducibility, allowing for detailed post-hoc inspection of how linguistic constraints dictate the boundaries of LLM-simulated personas \citep{delima2025detective}.
 
+\subsection{Model selection and inference configuration}
 
+To ensure that any observed variations in Character Consistency arise purely from prompt-level conditioning rather than model-specific biases, all agents in this study are powered by the same underlying large language model. This study utilises Meta’s \textbf{Llama-3.2 3B Instruct} (\texttt{meta/llama-3.2-3b-instruct}), a lightweight yet capable instruction-tuned transformer model comprising approximately three billion parameters. The model is accessed as a non-parametric backbone via the NVIDIA API endpoint through the \texttt{langchain nvidia ai endpoints} interface, ensuring a high level of control over the reasoning core without the confounding effects of model fine-tuning or parametric updates
+\citep{shao2023characterllm}.
 
-\subsection{Model selection and inference configuration} \label{sec:methods_model}
+To preserve experimental rigour and minimise stochastic noise that could obscure the comparative analysis of linguistic behaviour, all inference parameters are held constant across all agents and cases. Following the experimental setups in recent character drift studies, this study sets nucleus sampling (top-p) to 0.9 and maximum token length to 512 to ensure sufficient response depth for collaborative reasoning \citep{choi2024examining}. While some studies prefer deterministic outputs (temperature = 0.0) for extraction tasks \citep{delima2025detective}, this study sets the temperature to 0.7 to "mirror real-world usage" and elicit a more natural and diverse range of conversational patterns necessary for detecting subtle linguistic shifts \citep{choi2024examining}. Fixed request timeouts (60 seconds) and single-response generation (n=1) are maintained to ensure system stability across multi-round detective simulations.
 
-To ensure that any observed variations in character consistency stem from prompt-level conditioning rather than model-specific factors, all agents in this study are based on the same underlying large language model. This study employs \texttt{meta/llama-3.2-3b-instruct} \citep{llama3.2}, a lightweight yet capable instruction-tuned transformer model with approximately three billion parameters, accessed through the NVIDIA API endpoint using the \texttt{langchain nvidia ai endpoints} interface.
-
-For experimental consistency, inference parameters remain identical across all agents and scenarios. Following recent studies on character drift \citep{choi2024examining}, nucleus sampling (\textit{top-p}) is set to 0.9, and the maximum token length to 512, allowing sufficient space for multi-turn reasoning. The temperature parameter is fixed at 0.7—not the deterministic 0.0 commonly used in extraction tasks \citep{delima2025detective}—to replicate more natural conversational variation and capture subtle linguistic shifts. To maintain system stability throughout multi-round interactions, each model call uses a single response (n=1) and a fixed request timeout of 60 seconds.
-
-The llama model is accessed as a stateless interface, meaning the simulation does not rely on the model’s own internal memory to track the ongoing interaction, and the model does not retain any internal memory or hidden states between turns. Instead, conversational continuity is managed externally by the simulation controller, which reconstructs the full prompt from scratch for every turn in the dialogue. In practice, this implementation involves concatenating several distinct text modules into a single, structured input for each API call. As detailed in the full prompt templates provided in the Appendices, each prompt begins with the character’s specific identity and linguistic guidelines (Appendix A), followed by the global rules for collaboration (Appendix B) and the unique set of clues assigned to that detective (Appendix C).
-
-To manage the dialogue history within the context window, the system maintains a running record of all previous utterances in a dedicated memory list within the code. At the start of a new turn, this history is formatted into a chronological transcript and appended to the end of the prompt under a clear header. This design effectively partitions the permanent role instructions from the evolving chat history, ensuring the model can see the full context of the discussion without the core persona being overshadowed by the growing volume of dialogue. By explicitly re-inserting the entire history into the prompt for every response, the system ensures that the detectives can build upon previous evidence and reasoning while remaining strictly anchored to their assigned linguistic and behavioural boundaries.
+Each agent interacts with the model through a unified conversational interface where the model operates in a stateless manner at each invocation \citep{park2023generative, guo2026collab}
+. Unlike systems with internal long-term memory modules that might introduce hidden state carry-over, conversational continuity is maintained externally through explicitly controlled prompt construction. By managing dialogue history in the context window and strictly partitioning role descriptions from chat history, this design effectively isolates the linguistic effects of prompt conditioning \citep{delima2025detective}. This isolation is critical for our multi-level analysis, as it ensures that any erosion of character integrity—whether at the lexical, syntactic, or discourse level—can be directly traced to the dynamics of the multi-agent collaboration itself \citep{choi2024examining, guo2026collab}.
 
 \subsection{Experimental scenarios and case selection}
 
@@ -341,11 +295,11 @@ Each agent’s prompt is dynamically regenerated for every model call and is com
     
     \item \textbf{Collaboration Rules}: This module defines global behavioural constraints, requiring agents to reason strictly from stated evidence and dialogue history, avoid fabricating new clues, and maintain transparency by sharing all received information. These rules promote collective intelligence through disciplined deductive interaction rather than isolated speculation.
     
-    \item \textbf{Role-play Guidelines} (Dynamic Behaviours): This section describes each detective’s persona from a linguistic perspective, ensuring Linguistic Fidelity \citep{wang2024rolellm}. Inspired by \citet{delima2025detective}, there are five linguistic aspects covered: (1) vocabulary, (2) lexical features, (3) syntactic features, (4) discourse patterns, and (5) investigative methods. For instance, Sherlock Holmes is characterised by scientific vocabulary, logically nested sentences, and a detached analytical tone. The steps of completing this is:
+    \item \textbf{Role-play Guidelines} (Dynamic Behaviours): This section describes each detective’s persona from a linguistic perspective, ensuring Linguistic Fidelity \citep{wang2024rolellm}. Inspired by \cite{delima2025detective}, there are five linguistic aspects covered: (1) vocabulary, (2) lexical features, (3) syntactic features, (4) discourse patterns, and (5) investigative methods. For instance, Sherlock Holmes is characterised by scientific vocabulary, logically nested sentences, and a detached analytical tone. The steps of completing this is:
 
     \begin{itemize}
-    \item[Step 1] \textbf{Generation}: Following the methodology in \citet{delima2025detective}, a GPT-based API (\texttt{GPT-4}) was employed to generate the initial character profiles and final role-play prompts. During this automated generation phase, the temperature was fixed at 0.0 to ensure deterministic and consistent persona descriptions. For each description in the role-play prompts, an example is manually extracted from the original novels. 
-    \item[Step 2] \textbf{Validation}: To assess the validity of these representations, a \textit{Validation Via Reverse Identification} is conducted following \citet{delima2025detective}, requiring an independent LLM (Llama-3.2-3B-Instruct) to correctly infer the detective's identity based solely on the generated linguistic descriptions.
+    \item[Step 1] \textbf{Generation}: Following the methodology in \cite{delima2025detective}, a GPT-based API (\texttt{GPT-4}) was employed to generate the initial character profiles and final role-play prompts. During this automated generation phase, the temperature was fixed at 0.0 to ensure deterministic and consistent persona descriptions. For each description in the role-play prompts, an example is manually extracted from the original novels. 
+    \item[Step 2] \textbf{Validation}: To assess the validity of these representations, a \textit{Validation Via Reverse Identification} is conducted following \cite{delima2025detective}, requiring an independent LLM (Llama-3.2-3B-Instruct) to correctly infer the detective's identity based solely on the generated linguistic descriptions.
     \end{itemize}
 
     \item \textbf{Protective Guidelines}: To preserve character integrity over extended dialogue, we implemented strict behavioral prohibitions designed to prevent stylistic drift. For example, Holmes is instructed to avoid emotional expression or social small-talk. These constraints serve as guardrails against Character Hallucination, which is the tendency of LLMs to default to a generic "AI assistant" style that violates their assigned persona \citep{shao2023characterllm, chen2024review}.
@@ -369,7 +323,7 @@ The procedure follows a rigorous cycle of interaction and belief monitoring:
 Throughout the process, the system maintains comprehensive logging for post-hoc analysis. Surface-level dialogue is recorded in CSV format (including turn index, speaker, and extracted hypothesis), while the raw, dynamically evolving prompts for each turn are stored. This dual-logging design ensures full observability and reproducibility, providing a structured basis for our downstream analysis of linguistic drift across lexical, syntactic, and discourse levels.
 
 
-\section{Evaluation Scheme} \label{sec:evalscheme}
+\section{Evaluation Scheme}
 
 The evaluation scheme is designed to rigorously assess the trade-off between task utility (solving the mystery) and persona fidelity (remaining in character) within a multi-agent detective simulation. Given that the collaborative pressure to reach a consensus often triggers identity contamination or character drift, this study treats character consistency as a multidimensional construct and move beyond macro-level success rates to implement a fine-grained analysis of Out-of-Character (OOC) behaviours \citep{zhou2023characterglm}, quantified through specific linguistic markers across three hierarchical levels.
 
@@ -380,7 +334,7 @@ To ensure robustness, the evaluation framework integrates task-level outcome met
 Each simulation run is evaluated across two primary axes, reflecting the agent's dual role as a problem-solver and a role-playing entity.
 
 \begin{enumerate}
-    \item \textbf{Task Performance (Utility)}: This study measures the collective intelligence of the detective trio by their ability to accurately identify the murderer within the allotted rounds, similar to the win rate in \citet{zhu2024player}. This axis assesses whether the specific persona prompts or the dynamics of collaboration facilitate or hinder the logical reasoning required for the mysterious cases.
+    \item \textbf{Task Performance (Utility)}: This study measures the collective intelligence of the detective trio by their ability to accurately identify the murderer within the allotted rounds, similar to the win rate in \cite{zhu2024player}. This axis assesses whether the specific persona prompts or the dynamics of collaboration facilitate or hinder the logical reasoning required for the mysterious cases.
     \item \textbf{Character Consistency (Linguistic Fidelity)}: This study quantifies the stability of each agent's "investigative fingerprint" throughout the dialogue. Rather than relying on a single aggregate score, character consistency is operationalised through multiple measures spanning lexical, syntactic, and discourse levels.
 \end{enumerate}
 
@@ -449,7 +403,7 @@ For both configurations, utterances were fully shuffled prior to dataset splitti
 
 \subsubsection{Baseline performance comparisons}
 
-The classification results are summarised in Table\ref{tab:model_compare} below.
+The classification results are summarised in Table\ref{model_compare}  below.
 
 \begin{table}[h]
 \centering
@@ -463,7 +417,7 @@ The classification results are summarised in Table\ref{tab:model_compare} below.
     \hline
     \end{tabular}
 \caption{Comparisons of Baseline Performance}
-\label{tab:model_compare}
+\label{model_compare}
 \end{table}
 
 The three-class model achieved stable performance after a single epoch. Additional training produced only marginal improvements, suggesting rapid convergence and robust baseline separability among the three target characters.
@@ -557,7 +511,7 @@ Second, a metric-based representation is constructed by concatenating turn-level
 
 Clustering performance on simulation data is then compared with results obtained from the reference corpus. If collaborative simulation reduces cluster separability relative to the reference texts, this is interpreted as evidence of cross-character stylistic leakage and increased out-of-character behaviour.
 
-\section{Results} \label{sec:results}
+\section{Results}
 
 \subsection{Data Overview}
 
@@ -571,7 +525,7 @@ This relatively balanced simulation design supports fair comparison across chara
 
 \subsection{Task performance}
 
-To evaluate the influence of character-specific prompting and collaborative dynamics on the deductive capabilities of LLM agents, the murderer identification accuracy is calculated across repeated simulation runs (\textit{N}=50 for each case/condition). The results summarised in Table \ref{task_accuracy} reveal a distinct \textbf{performance gradient} where task utility is progressively challenged by the introduction of persona constraints and group interactio
+To evaluate the influence of character-specific prompting and collaborative dynamics on the deductive capabilities of LLM agents, the murderer identification accuracy is calculated across repeated simulation runs (\textit{N}=50 for each case/condition). The results summarised in Table \ref{task_accuracy} reveal a distinct \textbf{performance gradient} where task utility is progressively challenged by the introduction of persona constraints and group interaction.
 
 \begin{table}[H]
 \centering
@@ -657,18 +611,16 @@ case3 & Poirot & 0.061 & [-0.034, 0.156] & 0.043 \\ \bottomrule
 
 Figure \ref{bert_case1}, \ref{bert_case2} and \ref{bert_case3} below are the plots of predicted probabilities and brier scores for each case. For each case, two plots are produced. The x-axis represents the dialogue turn, while the y-axis shows either the classifier probability for the correct character (\texttt{prob\_correct}) or the Brier score (\texttt{brier\_score}). Each plot contains three curves corresponding to the three detectives (Holmes, Marple, and Poirot). Shaded regions around each curve indicate bootstrap confidence intervals (CI).
 
-
-
 \begin{figure}[H]
     \centering
     \begin{minipage}{\textwidth}
         \centering
-        \begin{subfigure}[b]{0.9\textwidth}
+        \begin{subfigure}[b]{.45\textwidth}
             \centering
              \includegraphics[width=.7\linewidth]{images/case1_prob_multi_agent.png}
             \caption{Predicted Probability}\label{prob_case1}
         \end{subfigure}\qquad
-        \begin{subfigure}[b]{0.9\textwidth}
+        \begin{subfigure}[b]{.45\textwidth}
             \centering
             \includegraphics[width=.7\linewidth]{images/case1_brier_multi_agent.png}
             \caption{Brier Score}\label{brier_case1}
@@ -682,12 +634,12 @@ Figure \ref{bert_case1}, \ref{bert_case2} and \ref{bert_case3} below are the plo
     \centering
     \begin{minipage}{\textwidth}
         \centering
-        \begin{subfigure}[b]{.9\textwidth}
+        \begin{subfigure}[b]{.45\textwidth}
             \centering
              \includegraphics[width=.7\linewidth]{images/case2_prob_multi_agent.png}
             \caption{Predicted Probability}\label{prob_case2}
         \end{subfigure}\qquad
-        \begin{subfigure}[b]{.9\textwidth}
+        \begin{subfigure}[b]{.45\textwidth}
             \centering
             \includegraphics[width=.7\linewidth]{images/case2_brier_multi_agent.png}
             \caption{Brier Score}\label{brier_case2}
@@ -701,12 +653,12 @@ Figure \ref{bert_case1}, \ref{bert_case2} and \ref{bert_case3} below are the plo
     \centering
     \begin{minipage}{\textwidth}
         \centering
-        \begin{subfigure}[b]{.9\textwidth}
+        \begin{subfigure}[b]{.45\textwidth}
             \centering
              \includegraphics[width=.7\linewidth]{images/case3_prob_multi_agent.png}
             \caption{Predicted Probability}\label{prob_case3}
         \end{subfigure}\qquad
-        \begin{subfigure}[b]{.9\textwidth}
+        \begin{subfigure}[b]{.45\textwidth}
             \centering
             \includegraphics[width=.7\linewidth]{images/case3_brier_multi_agent.png}
             \caption{Brier Score}\label{brier_case3}
@@ -715,7 +667,6 @@ Figure \ref{bert_case1}, \ref{bert_case2} and \ref{bert_case3} below are the plo
     \label{bert_case3}
     \end{minipage}
 \end{figure}
-
 
 Visualisations above are shown for each case in order to preserve the temporal structure of the dialogues. Nevertheless, since the analysis focuses on character-level consistency, the results below are organised by agent.
 
@@ -926,7 +877,6 @@ Among the three characters, Holmes shows the strongest syntactic drift, with a $
 \subsubsection{Syntactic results summary}
 
 When considered collectively, the syntactic results reveal two parallel challenges to character consistency: a substantial global elevation in structural complexity relative to canonical baselines Table \ref{syntax_depth}, and a progressive temporal drift as the dialogue advances \ref{syntax_z}.
-
 The uniformity of these effects suggests that role-conditioned multi-agent interaction does not merely replicate each detective’s established structural habits. Instead, the collaborative environment appears to impose an "investigative overhead", where the pressure of mystery-solving mandates increasingly complex syntactic constructions. This shift likely reflects the cognitive demands of cumulative reasoning, elaborative hypothesis building, and escalating argumentative detail required by the task.
 
 Crucially, the consistent direction of drift across all three detectives which are characterised by positive slopes in Table \ref{syntax_slope_compare}, contrasts with the more heterogeneous patterns observed in lexical measures. This implies that while agents may retain certain unique vocabulary traits, their underlying syntactic structures are particularly sensitive to dialogue dynamics. This results in a systematic convergence towards a complex, task-oriented register that ultimately erodes the structural dimension of character consistency over time.
@@ -1139,7 +1089,7 @@ These results suggest that collaborative simulation reorganises the embedding sp
 Overall, the clustering analysis provides evidence of character contamination in simulation. Compared with the reference corpus, simulated dialogue substantially reduces the separability of character-specific linguistic features in the embedding space.
 
 
-\section{Discussion} \label{sec:discussion}
+\section{Discussion}
 
 \subsection{Overview of Findings}
 
@@ -1163,7 +1113,7 @@ The findings of this study suggest that character consistency should not be view
 
 A significant observation in this research is that structural features serve as more reliable anchors for a character than surface-level traits. The high faithfulness score of syntactic depth indicates that the way a character organises their sentences is a more stable indicator of identity than their choice of words or emotional tone. In contrast, discourse-level features, such as sentiment, appear to be highly sensitive to the immediate context of the conversation. This suggests that while a model can easily adapt its vocabulary or mood to fit a collaborative task, its underlying "syntactic fingerprint" is more resistant to change.
 
-This layered perspective has important implications for the design of role-playing AI. Many current systems rely heavily on lexical prompting, using specific catchphrases or vocabulary lists to define a persona, such as the lexical consistency in \citet{wang2024rolellm}. However, the results of this study imply that such surface-level methods are insufficient for maintaining character consistency during long or complex interactions, as plain instructions are often inadequate for describing a vivid, living person accurately \citep{shao2023characterllm}. Because structural patterns are more predictive of character fidelity, future role-playing frameworks may require deeper structural constraints. Rather than simply telling a model what to say, developers might need to provide instructions on how to structure its language and integrate intrinsic cognitive processes \citep{zhou2023characterglm} to ensure a more resilient and consistent character performance.
+This layered perspective has important implications for the design of role-playing AI. Many current systems rely heavily on lexical prompting, using specific catchphrases or vocabulary lists to define a persona, such as the lexical consistency in \cite{wang2024rolellm}. However, the results of this study imply that such surface-level methods are insufficient for maintaining character consistency during long or complex interactions, as plain instructions are often inadequate for describing a vivid, living person accurately \citep{shao2023characterllm}. Because structural patterns are more predictive of character fidelity, future role-playing frameworks may require deeper structural constraints. Rather than simply telling a model what to say, developers might need to provide instructions on how to structure its language and integrate intrinsic cognitive processes \citep{zhou2023characterglm} to ensure a more resilient and consistent character performance.
 
 
 \subsection{methodological contributions}
@@ -1186,7 +1136,7 @@ Furthermore, this research assumes that 'linguistic fingerprints' are a valid pr
 
 Building on these observations, there are several opportunities for future research. Incorporating human annotation would provide a valuable way to triangulate the model-based assessments of character consistency. Future studies could also test the multi-level framework on a more diverse range of personas to see if structural patterns remain the strongest anchors across different roles. Finally, exploring adaptive prompting strategies or longer interaction sequences could help determine how to mitigate the effects of character contamination. These developments would contribute to the creation of more robust and immersive multi-agent role-playing systems.
 
-\section{Conclusion} \label{sec:conclusion}
+\section{Conclusion}
 
 This research has examined the stability of character consistency within large language model agents during collaborative reasoning tasks. By simulating a detective trio solving complex murder mysteries, the study tracked shifts in linguistic behaviour across multiple levels to determine how well agents stay in character over time. The findings demonstrate that character consistency is not a static trait but a fragile state that often diminishes as interactions become more complex. Rather than a uniform decline, the results point to a selective form of inconsistency, where the preservation of a character's unique voice varies according to the specific role and the nature of the task. This suggests that while agents can initially adopt distinctive personas, the ongoing demand for group consensus and the influence of the model's inherent "AI register" lead to a gradual convergence of styles. Ultimately, the study reveals that the social dynamics of collaboration act as a significant pressure point, often eroding the very character boundaries that define the agents' individual identities.
 
@@ -1217,9 +1167,8 @@ In summary, this research contributes a quantifiable, cost-effective evaluation 
 
 
 % ------ 附录 ------
-\begin{appendices} \label{sec:app}
-
-\section{Character Prompt} \label{sec:app_char_prompt}
+\begin{appendices}
+\section{Character Prompt}
 
 \subsection{Holmes}
     \inputminted{yaml}{../prompts/holmes.yaml}
@@ -1231,22 +1180,20 @@ In summary, this research contributes a quantifiable, cost-effective evaluation 
     \inputminted{yaml}{../prompts/poirot.yaml}
 
 
-\section{Rule Prompt} \label{sec:app_rule_prompt}
+\section{Rule Prompt}
     \inputminted{yaml}{../prompts/rule_collab.yaml}
 
 
-\section{Case Information} \label{sec:app_case}
+\section{Case Information}
 
 
-\subsection{Case 1} \label{sec:app_case1}
+\subsection{Case 1}
     \inputminted{yaml}{../cases/case1.yaml}
-\subsection{Case 2} \label{sec:app_case2}
+\subsection{Case 2}
     \inputminted{yaml}{../cases/case2.yaml}
-\subsection{Case 3} \label{sec:app_case3}
+\subsection{Case 3}
     \inputminted{yaml}{../cases/case3.yaml}
 
-
-\section{List of Selected Novels} \label{sec:app_novels}
 
 
 \end{appendices}

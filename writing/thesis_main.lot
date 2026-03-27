@@ -1,19 +1,19 @@
-\contentsline {table}{\numberline {1}{\ignorespaces Initial Corpus Statistics and Data Quality Diagnostics (\% of Utterances)}}{24}{}%
-\contentsline {table}{\numberline {2}{\ignorespaces Comparisons of Baseline Performance}}{25}{}%
-\contentsline {table}{\numberline {3}{\ignorespaces Murderer Identification Accuracy across Three Experimental Conditions}}{30}{}%
-\contentsline {table}{\numberline {4}{\ignorespaces Regression Results for Predicted Probability of Correct Class}}{32}{}%
-\contentsline {table}{\numberline {5}{\ignorespaces Regression Results for Brier Score}}{32}{}%
-\contentsline {table}{\numberline {6}{\ignorespaces TF-IDF similarity summary statistics}}{36}{}%
-\contentsline {table}{\numberline {7}{\ignorespaces Kruskal–Wallis Test Results}}{36}{}%
-\contentsline {table}{\numberline {8}{\ignorespaces Pairwise Mann–Whitney U Tests Results (Bonferroni Corrected)}}{36}{}%
-\contentsline {table}{\numberline {9}{\ignorespaces Intra-agent lexical distance summary}}{37}{}%
-\contentsline {table}{\numberline {10}{\ignorespaces Lexical Consistency Indicators by Character}}{38}{}%
-\contentsline {table}{\numberline {11}{\ignorespaces Mean Syntactic Depth and Deviation from Literary Baseline by Character}}{39}{}%
-\contentsline {table}{\numberline {12}{\ignorespaces Pooled linear regression of z-scores ($z_{sim}$) over dialogue turns}}{40}{}%
-\contentsline {table}{\numberline {13}{\ignorespaces Comparison of Reference- and Simulation-Based Temporal Slopes}}{40}{}%
-\contentsline {table}{\numberline {14}{\ignorespaces Average sentiment vectors for each character}}{42}{}%
-\contentsline {table}{\numberline {15}{\ignorespaces Mean Slope of Sentiment Distance for Each Character }}{42}{}%
-\contentsline {table}{\numberline {16}{\ignorespaces Character-Level Summary of Discourse Consistency Indicators}}{43}{}%
-\contentsline {table}{\numberline {17}{\ignorespaces Correlation between linguistic metrics and classifier-based character consistency}}{45}{}%
-\contentsline {table}{\numberline {18}{\ignorespaces Faithfulness Ranking of Metrics}}{46}{}%
-\contentsline {table}{\numberline {19}{\ignorespaces Character Contamination}}{47}{}%
+\contentsline {table}{\numberline {1}{\ignorespaces Initial Corpus Statistics and Data Quality Diagnostics (\% of Utterances)}}{26}{}%
+\contentsline {table}{\numberline {2}{\ignorespaces Comparisons of Baseline Performance}}{26}{}%
+\contentsline {table}{\numberline {3}{\ignorespaces Murderer Identification Accuracy across Three Experimental Conditions}}{32}{}%
+\contentsline {table}{\numberline {4}{\ignorespaces Regression Results for Predicted Probability of Correct Class}}{34}{}%
+\contentsline {table}{\numberline {5}{\ignorespaces Regression Results for Brier Score}}{34}{}%
+\contentsline {table}{\numberline {6}{\ignorespaces TF-IDF similarity summary statistics}}{40}{}%
+\contentsline {table}{\numberline {7}{\ignorespaces Kruskal–Wallis Test Results}}{40}{}%
+\contentsline {table}{\numberline {8}{\ignorespaces Pairwise Mann–Whitney U Tests Results (Bonferroni Corrected)}}{40}{}%
+\contentsline {table}{\numberline {9}{\ignorespaces Intra-agent lexical distance summary}}{41}{}%
+\contentsline {table}{\numberline {10}{\ignorespaces Lexical Consistency Indicators by Character}}{41}{}%
+\contentsline {table}{\numberline {11}{\ignorespaces Mean Syntactic Depth and Deviation from Literary Baseline by Character}}{42}{}%
+\contentsline {table}{\numberline {12}{\ignorespaces Pooled linear regression of z-scores ($z_{sim}$) over dialogue turns}}{43}{}%
+\contentsline {table}{\numberline {13}{\ignorespaces Comparison of Reference- and Simulation-Based Temporal Slopes}}{44}{}%
+\contentsline {table}{\numberline {14}{\ignorespaces Average sentiment vectors for each character}}{45}{}%
+\contentsline {table}{\numberline {15}{\ignorespaces Mean Slope of Sentiment Distance for Each Character }}{46}{}%
+\contentsline {table}{\numberline {16}{\ignorespaces Character-Level Summary of Discourse Consistency Indicators}}{47}{}%
+\contentsline {table}{\numberline {17}{\ignorespaces Correlation between linguistic metrics and classifier-based character consistency}}{49}{}%
+\contentsline {table}{\numberline {18}{\ignorespaces Faithfulness Ranking of Metrics}}{50}{}%
+\contentsline {table}{\numberline {19}{\ignorespaces Character Contamination}}{51}{}%
