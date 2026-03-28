@@ -297,7 +297,7 @@ Each simulation terminates when either of the following conditions is met: (1) T
 
 The fictional detectives chosen are \textbf{Sherlock Holmes} from Arthur Conan Doyle's \textit{A Study in Scarlet} \citep{doyle1887study}, \textbf{Miss Marple} from Agatha Christie's \textit{The Murder at the Vicarage} \citep{christie1930murder}, and \textbf{Hercule Poirot} from Christie's \textit{The Mysterious Affair at Styles} \citep{christie1920mysterious}. These characters were selected for their distinctive personalities, investigative approaches \citep{delima2025detective}, and differing genders. Moreover, their extensive and well-documented literary corpora provide rich linguistic material, making them particularly suitable for systematic analysis. The details of how these agents are constructed will be introduced in Subsection \ref{sec:methods_agent}.
 
-The list of selected novels used in the study is available in Appendix \ref{sec:app_novels}.
+Throughout the process, the system maintains comprehensive logging for post-hoc analysis. Dialogue is recorded in CSV format (including turn index, speaker, and extracted name of the believed murderer), while the raw, dynamically evolving system prompts for each run are stored (will be unfolded in later Subsection \ref{sec:methods_prompt}). This dual-logging design ensures full observability and reproducibility, providing a structured basis for the downstream analysis of linguistic drift across lexical, syntactic, and discourse levels. 
 
 \subsection{Model selection and inference configuration} \label{sec:methods_model}
 
@@ -315,7 +315,7 @@ This study adopts three murder mystery cases originally created for \textit{Jube
 
 This study choses to use pre-existing, human-authored Jubensha cases rather than canonical literary mysteries (for example, from Arthur Conan Doyle or Agatha Christie) for better experimental rigour. \citet{delima2025detective} indicates that LLMs have "varying degrees of familiarity with detective narratives" through their pre-training data. Using famous stories like \textit{The Adventure of the Speckled Band} \citep{doyle1892speckled} would create a high risk of data leakage or character hallucination, where agents might solve the case based on memorised plots instead of collaborative reasoning \citep{chen2023hp, chen2024review}. By using three "neutral" and novel cases from the Jubensha dataset in \citet{wu2024jubensha} which are not part of the old classic books, this study ensures that the agents' responses are not simply existing lines from books. Instead, their responses are driven by the provided case information and persona, preserving the internal validity of our analysis of character-specific linguistic drift.
 
-To support systematic control over dialogue dynamics, each case was converted into a structured YAML template. This format decomposes the narrative into distinct modules: a global setting, victim profiles, suspect attributes (including motives and secrets), crime scene data, forensic evidence, and a chronological timeline (see Appendix \ref{sec:app_case} for the full case YAML). At the beginnibg of each simulation, specific parts of case information subsets are assigned to each agent based on the detectives' established investigative methods introduced in \citet{delima2025detective}. The details will be unfold in Subsection \ref{sec:methods_prompt_infopieces}
+To support systematic control over dialogue dynamics, each case was converted into a structured YAML template. This format decomposes the narrative into distinct modules: a global setting, victim profiles, suspect attributes (including motives and secrets), crime scene data, forensic evidence, and a chronological timeline (see Appendix \ref{sec:app_case} for the full case YAML). At the beginnibg of each simulation, specific parts of case information subsets are assigned to each agent based on the detectives' established investigative methods introduced in \citet{delima2025detective}. The details will be unfolded in Subsection \ref{sec:methods_prompt_infopieces}.
 
 % By mapping the original scripts into this template-based design, this study creates a reproducible environment where the pressure to solve the crime and the subsequent need for information sharing act as a "stress test" for character consistency \citep{park2023generative, guo2026collab}. This setup allows precisely track whether the demand for group consensus leads to a convergence of linguistic features or a breakdown of character traits (inlcuding investigative methods) assigned to each detective.
 
@@ -439,21 +439,6 @@ This deliberate seperation of information aims at encourging collaboration, and 
 \subsection{agent construction} \label{sec:methods_agent}
 
 Three distinct detective agents were constructed by prompting. Each agent is implemented as an instance of a shared \texttt{BaseAgent} class, which encapsulates the language model interface and a lightweight text-based memory module. This architectural design ensures structural homogeneity across the system, guaranteeing that any observed variation in character arises solely from prompt engineering and differential information exposure rather than model architecture or parameter disparity.
-
-\subsection{Simulation procedure: collaborative reasoning}
-
-The simulation is implemented as a turn-based, multi-agent dialogue where the three detective agents engage in complex social reasoning to solve a murder case. Each experimental run is initialised with an empty shared dialogue memory. The session acts as a "stress test" for character consistency, as agents must balance the preservation of their unique persona with the demand for group consensus \citep{chen2024socialbench}. 
-
-The procedure follows a rigorous cycle of interaction and belief monitoring:
-
-\begin{itemize}
-    \item \textbf{Controlled Interaction Flow}: At the start of each round, the speaking order of the three detectives is randomly permuted. This serves to mitigate positional bias and the Initiator Dominance effect, where the first speaker's opinion might disproportionately influence the group's trajectory.
-    \item \textbf{Linguistic Protocol Enforcement}: This study implements a strict one-speaker-per-turn protocol. Raw model outputs are post-processed to remove redundant speaker prefixes and truncate any content where the model attempts to self-impersonate or generate dialogue for other characters, thereby maintaining clear character boundaries \citep{chen2024review}.
-    \item \textbf{Belief State Alignment Tracking}: To quantitatively monitor the evolution of deductive logic, each agent is required to end every utterance with an explicit hypothesis in a fixed pattern: “I believe the murderer is [Suspect]”. This constraint enables automatic Belief State Extraction without semantic parsing, allowing us to track exactly when and how character consistency might erode in favour of Conformity \citep{baltaji2024cultured}.
-    \item \textbf{Termination and Logging}: The simulation terminates when Belief State Alignment is achieved (all three agents independently nominate the same suspect) or when the limit of ten rounds is reached.
-\end{itemize}
-
-Throughout the process, the system maintains comprehensive logging for post-hoc analysis. Surface-level dialogue is recorded in CSV format (including turn index, speaker, and extracted hypothesis), while the raw, dynamically evolving prompts for each turn are stored. This dual-logging design ensures full observability and reproducibility, providing a structured basis for our downstream analysis of linguistic drift across lexical, syntactic, and discourse levels.
 
 
 \section{Evaluation Scheme} \label{sec:evalscheme}

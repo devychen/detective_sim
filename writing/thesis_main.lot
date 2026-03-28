@@ -1,7 +1,7 @@
-\contentsline {table}{\numberline {1}{\ignorespaces Initial Corpus Statistics and Data Quality Diagnostics (\% of Utterances)}}{28}{}%
+\contentsline {table}{\numberline {1}{\ignorespaces Initial Corpus Statistics and Data Quality Diagnostics (\% of Utterances)}}{27}{}%
 \contentsline {table}{\numberline {2}{\ignorespaces Comparisons of Baseline Performance}}{28}{}%
-\contentsline {table}{\numberline {3}{\ignorespaces Murderer Identification Accuracy across Three Experimental Conditions}}{34}{}%
-\contentsline {table}{\numberline {4}{\ignorespaces Regression Results for Predicted Probability of Correct Class}}{36}{}%
+\contentsline {table}{\numberline {3}{\ignorespaces Murderer Identification Accuracy across Three Experimental Conditions}}{33}{}%
+\contentsline {table}{\numberline {4}{\ignorespaces Regression Results for Predicted Probability of Correct Class}}{35}{}%
 \contentsline {table}{\numberline {5}{\ignorespaces Regression Results for Brier Score}}{36}{}%
 \contentsline {table}{\numberline {6}{\ignorespaces TF-IDF similarity summary statistics}}{42}{}%
 \contentsline {table}{\numberline {7}{\ignorespaces Kruskal–Wallis Test Results}}{42}{}%
