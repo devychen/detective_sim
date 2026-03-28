@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nt}{common\PYGZus{}rules}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{  }\PYG{n+no}{1. Use only known facts and dialogue history—never invent clues.}
+\PYG{+w}{  }\PYG{n+no}{2. Provide detailed reasoning and evidence to aid deduction.}
+\PYG{+w}{  }\PYG{n+no}{3. Only one murderer exists. Unnamed people are irrelevant (neither suspects nor accomplices).}
+\PYG{+w}{  }\PYG{n+no}{4. Share your full exclusive clues to others for collaboration.}
+\end{Verbatim}

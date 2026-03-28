@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nt}{common\PYGZus{}intro}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{|}
+\PYG{+w}{  }\PYG{n+no}{You are \PYGZob{}agent\PYGZus{}name\PYGZcb{}. Apart from you there are two other detectives.}
+\PYG{+w}{  }\PYG{n+no}{Now you must collaborate to solve a complex case.}
+\PYG{+w}{  }\PYG{n+no}{First, you\PYGZsq{}re given partial exclusive clues, then share and deduce together.}
+\end{Verbatim}

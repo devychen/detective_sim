@@ -1,0 +1,53 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nt}{categories}\PYG{p}{:}\PYG{+w}{ }
+\PYG{+w}{  }\PYG{n+nt}{vocabulary}\PYG{p}{:}
+\PYG{+w}{    }\PYG{n+nt}{task}\PYG{p}{:}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}Generate}\PYG{n+nv}{ }\PYG{l+s}{a}\PYG{n+nv}{ }\PYG{l+s}{concise}\PYG{n+nv}{ }\PYG{l+s}{and}\PYG{n+nv}{ }\PYG{l+s}{formal}\PYG{n+nv}{ }\PYG{l+s}{description}\PYG{n+nv}{ }\PYG{l+s}{to}\PYG{n+nv}{ }\PYG{l+s}{distinguishing}\PYG{n+nv}{ }\PYG{l+s}{characteristics}\PYG{n+nv}{ }\PYG{l+s}{of}\PYG{n+nv}{ }\PYG{l+s}{the}\PYG{n+nv}{ }\PYG{l+s}{vocabulary}\PYG{n+nv}{ }\PYG{l+s}{used}\PYG{n+nv}{ }\PYG{l+s}{by}\PYG{n+nv}{ }\PYG{l+s}{the}\PYG{n+nv}{ }\PYG{l+s}{fictional}\PYG{n+nv}{ }\PYG{l+s}{detective}\PYG{n+nv}{ }\PYG{l+s}{D\PYGZus{}name.\PYGZdq{}}
+\PYG{+w}{    }\PYG{n+nt}{requirements}\PYG{p}{:}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Base your description of the vocabulary used in stories where D\PYGZus{}name is the protagonist or a principal investigator.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Avoid discourse\PYGZhy{}level, focus solely on the lexical\PYGZhy{}level and dinsinguishing features that would be able to define this detective\PYGZsq{}s personality from the linguistic perspective.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Consider only the distinguishing characteristics that set the vocabulary of D\PYGZus{}name apart from those of other fictional detectives.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Do not include biographical details, story summaries, or references to specific cases.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Structure the response as a single paragraph, without bullet points or numbered lists.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Do not include any introductory or concluding sentences outside of the description itself.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Limit the response to a maximum of 5 sentences.}
+\PYG{+w}{  }\PYG{n+nt}{sentences}\PYG{p}{:}
+\PYG{+w}{    }\PYG{n+nt}{task}\PYG{p}{:}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}Generate}\PYG{n+nv}{ }\PYG{l+s}{a}\PYG{n+nv}{ }\PYG{l+s}{concise}\PYG{n+nv}{ }\PYG{l+s}{and}\PYG{n+nv}{ }\PYG{l+s}{formal}\PYG{n+nv}{ }\PYG{l+s}{description}\PYG{n+nv}{ }\PYG{l+s}{to}\PYG{n+nv}{ }\PYG{l+s}{distinguishing}\PYG{n+nv}{ }\PYG{l+s}{characteristics}\PYG{n+nv}{ }\PYG{l+s}{of}\PYG{n+nv}{ }\PYG{l+s}{the}\PYG{n+nv}{ }\PYG{l+s}{sentences}\PYG{n+nv}{ }\PYG{l+s}{used}\PYG{n+nv}{ }\PYG{l+s}{by}\PYG{n+nv}{ }\PYG{l+s}{the}\PYG{n+nv}{ }\PYG{l+s}{fictional}\PYG{n+nv}{ }\PYG{l+s}{detective}\PYG{n+nv}{ }\PYG{l+s}{D\PYGZus{}name.\PYGZdq{}}
+\PYG{+w}{    }\PYG{n+nt}{requirements}\PYG{p}{:}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Base your description of the sentences used in stories where D\PYGZus{}name is the protagonist or a principal investigator.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Avoid lexical or discourse level. Focus on syntactic, structural and distinguishing features that define this detective\PYGZsq{}s personality from the linguistic perspective.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Consider only the distinguishing characteristics that set the sentences spoken by D\PYGZus{}name apart from those of other fictional detectives.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Do not include biographical details, story summaries, or references to specific cases.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Structure the response as a single paragraph, without bullet points or numbered lists.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Do not include any introductory or concluding sentences outside of the description itself.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Limit the response to a maximum of 5 sentences.}
+\PYG{+w}{  }\PYG{n+nt}{discourse\PYGZus{}pattern}\PYG{p}{:}
+\PYG{+w}{    }\PYG{n+nt}{task}\PYG{p}{:}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}Generate}\PYG{n+nv}{ }\PYG{l+s}{a}\PYG{n+nv}{ }\PYG{l+s}{concise}\PYG{n+nv}{ }\PYG{l+s}{and}\PYG{n+nv}{ }\PYG{l+s}{formal}\PYG{n+nv}{ }\PYG{l+s}{description}\PYG{n+nv}{ }\PYG{l+s}{to}\PYG{n+nv}{ }\PYG{l+s}{distinguishing}\PYG{n+nv}{ }\PYG{l+s}{characteristics}\PYG{n+nv}{ }\PYG{l+s}{of}\PYG{n+nv}{ }\PYG{l+s}{the}\PYG{n+nv}{ }\PYG{l+s}{discourse}\PYG{n+nv}{ }\PYG{l+s}{pattern}\PYG{n+nv}{ }\PYG{l+s}{of}\PYG{n+nv}{ }\PYG{l+s}{the}\PYG{n+nv}{ }\PYG{l+s}{fictional}\PYG{n+nv}{ }\PYG{l+s}{detective}\PYG{n+nv}{ }\PYG{l+s}{D\PYGZus{}name.\PYGZdq{}}
+\PYG{+w}{    }\PYG{n+nt}{requirements}\PYG{p}{:}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Base your description of the discourse pattern used in stories where D\PYGZus{}name is the protagonist or a principal investigator.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Avoid lexical\PYGZhy{}level, focus on discourse patterns and distinguishing features that would be able to define this detective\PYGZsq{}s personality from the linguistic perspective.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Consider only the distinguishing characteristics that set the discourse patterns of D\PYGZus{}name apart from those of other fictional detectives.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Do not include biographical details, story summaries, or references to specific cases.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Structure the response as a single paragraph, without bullet points or numbered lists.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Do not include any introductory or concluding sentences outside of the description itself.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Limit the response to a maximum of 5 sentences.}
+\PYG{+w}{  }\PYG{n+nt}{personal\PYGZus{}traits}\PYG{p}{:}
+\PYG{+w}{    }\PYG{n+nt}{task}\PYG{p}{:}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}Generate}\PYG{n+nv}{ }\PYG{l+s}{a}\PYG{n+nv}{ }\PYG{l+s}{concise}\PYG{n+nv}{ }\PYG{l+s}{and}\PYG{n+nv}{ }\PYG{l+s}{formal}\PYG{n+nv}{ }\PYG{l+s}{description}\PYG{n+nv}{ }\PYG{l+s}{to}\PYG{n+nv}{ }\PYG{l+s}{distinguishing}\PYG{n+nv}{ }\PYG{l+s}{characteristics}\PYG{n+nv}{ }\PYG{l+s}{of}\PYG{n+nv}{ }\PYG{l+s}{the}\PYG{n+nv}{ }\PYG{l+s}{personal}\PYG{n+nv}{ }\PYG{l+s}{traits}\PYG{n+nv}{ }\PYG{l+s}{of}\PYG{n+nv}{ }\PYG{l+s}{the}\PYG{n+nv}{ }\PYG{l+s}{fictional}\PYG{n+nv}{ }\PYG{l+s}{detective}\PYG{n+nv}{ }\PYG{l+s}{D\PYGZus{}name.\PYGZdq{}}
+\PYG{+w}{    }\PYG{n+nt}{requirements}\PYG{p}{:}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Base your description of the personality traits used in stories where D\PYGZus{}name is the protagonist or a principal investigator.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Focus on individual and distinguishing features that would be able to define this detective\PYGZsq{}s personality.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Consider only the distinguishing personal traits that set the discourse patterns of D\PYGZus{}name apart from those of other fictional detectives.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Do not include biographical details, story summaries, or references to specific cases.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Structure the response as a single paragraph, without bullet points or numbered lists.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Do not include any introductory or concluding sentences outside of the description itself.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Limit the response to a maximum of 5 sentences.}
+\PYG{+w}{  }\PYG{n+nt}{investigative\PYGZus{}methods}\PYG{p}{:}
+\PYG{+w}{    }\PYG{n+nt}{task}\PYG{p}{:}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}Generate}\PYG{n+nv}{ }\PYG{l+s}{a}\PYG{n+nv}{ }\PYG{l+s}{concise}\PYG{n+nv}{ }\PYG{l+s}{and}\PYG{n+nv}{ }\PYG{l+s}{formal}\PYG{n+nv}{ }\PYG{l+s}{description}\PYG{n+nv}{ }\PYG{l+s}{to}\PYG{n+nv}{ }\PYG{l+s}{distinguishing}\PYG{n+nv}{ }\PYG{l+s}{characteristics}\PYG{n+nv}{ }\PYG{l+s}{of}\PYG{n+nv}{ }\PYG{l+s}{the}\PYG{n+nv}{ }\PYG{l+s}{investigative}\PYG{n+nv}{ }\PYG{l+s}{method}\PYG{n+nv}{ }\PYG{l+s}{used}\PYG{n+nv}{ }\PYG{l+s}{by}\PYG{n+nv}{ }\PYG{l+s}{the}\PYG{n+nv}{ }\PYG{l+s}{fictional}\PYG{n+nv}{ }\PYG{l+s}{detective}\PYG{n+nv}{ }\PYG{l+s}{D\PYGZus{}name.\PYGZdq{}}
+\PYG{+w}{    }\PYG{n+nt}{requirements}\PYG{p}{:}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Base your description of the investigative method used on stories where D\PYGZus{}name is the protagonist or a principal investigator.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Focus solely on the investigative approach, strategies, and distinguishing features that define this detective\PYGZsq{}s method of solving cases.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Consider only the distinguishing characteristics that set the investigative method of D\PYGZus{}name apart from those of other fictional detectives.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Do not include biographical details, story summaries, or references to specific cases.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Structure the response as a single paragraph, without bullet points or numbered lists.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Do not include any introductory or concluding sentences outside of the description itself.}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Limit the response to a maximum of 5 sentences.}
+\end{Verbatim}

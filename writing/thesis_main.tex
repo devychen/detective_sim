@@ -289,13 +289,13 @@ Compounding this, models fine-tuned with reinforcement learning from human feedb
 
 This study adopts a simulation-based experimental design to examine character consistency and collaborative reasoning in large language model (LLM)–driven agents. A controlled multi-agent dialogue environment was developed in which three agents, each role-playing a canonical fictional detective, collaboratively solve a murder case through turn-based natural language interaction.
 
-There are three cases in total (which will be introduced later in Section \ref{sec:methods_case}). Each case is run 10 times, and each run is treated as \textit{one simulation}. 
+There are three cases in total (which will be introduced later in Subsection \ref{sec:methods_case}). Each case is run 10 times, and each run is treated as \textit{one simulation}. 
 
 Within each simulation, dialogue proceeds in turns. \textit{One turn} is defined as a complete cycle in which all three agents each speak once in a randomly determined order. Thus, after one turn, each agent has contributed exactly one statement. At the end of each statement, every agent is required to say: "I believe the murderer is xxx." This requirement ensures that the agents' beliefs are explicit and that the consensus condition can be reliably detected.
 
 Each simulation terminates when either of the following conditions is met: (1) The three agents reach consensus on the identity of the murderer; or (2) The simulation reaches a maximum of 10 turns (i.e., each agent has spoken up to 10 times). The simulation ends regardless of whether consensus is achieved. 
 
-The fictional detectives chosen are \textbf{Sherlock Holmes} from Arthur Conan Doyle's \textit{A Study in Scarlet} \citep{doyle1887study}, \textbf{Miss Marple} from Agatha Christie's \textit{The Murder at the Vicarage} \citep{christie1930murder}, and \textbf{Hercule Poirot} from Christie's \textit{The Mysterious Affair at Styles} \citep{christie1920mysterious}. These characters were selected for their distinctive personalities, investigative approaches \citep{delima2025detective}, and differing genders. Moreover, their extensive and well-documented literary corpora provide rich linguistic material, making them particularly suitable for systematic analysis. The details of how these agents are constructed will be introduced in Section \ref{sec:methods_agent}.
+The fictional detectives chosen are \textbf{Sherlock Holmes} from Arthur Conan Doyle's \textit{A Study in Scarlet} \citep{doyle1887study}, \textbf{Miss Marple} from Agatha Christie's \textit{The Murder at the Vicarage} \citep{christie1930murder}, and \textbf{Hercule Poirot} from Christie's \textit{The Mysterious Affair at Styles} \citep{christie1920mysterious}. These characters were selected for their distinctive personalities, investigative approaches \citep{delima2025detective}, and differing genders. Moreover, their extensive and well-documented literary corpora provide rich linguistic material, making them particularly suitable for systematic analysis. The details of how these agents are constructed will be introduced in Subsection \ref{sec:methods_agent}.
 
 The list of selected novels used in the study is available in Appendix \ref{sec:app_novels}.
 
@@ -315,81 +315,114 @@ This study adopts three murder mystery cases originally created for \textit{Jube
 
 This study choses to use pre-existing, human-authored Jubensha cases rather than canonical literary mysteries (for example, from Arthur Conan Doyle or Agatha Christie) for better experimental rigour. \citet{delima2025detective} indicates that LLMs have "varying degrees of familiarity with detective narratives" through their pre-training data. Using famous stories like \textit{The Adventure of the Speckled Band} \citep{doyle1892speckled} would create a high risk of data leakage or character hallucination, where agents might solve the case based on memorised plots instead of collaborative reasoning \citep{chen2023hp, chen2024review}. By using three "neutral" and novel cases from the Jubensha dataset in \citet{wu2024jubensha} which are not part of the old classic books, this study ensures that the agents' responses are not simply existing lines from books. Instead, their responses are driven by the provided case information and persona, preserving the internal validity of our analysis of character-specific linguistic drift.
 
-To support systematic control over dialogue dynamics, each case was converted into a structured YAML template. This format decomposes the narrative into distinct modules: a global setting, victim profiles, suspect attributes (including motives and secrets), crime scene data, forensic evidence, and a chronological timeline (see Appendix \ref{sec:app_case} for the full case YAML). At the beginnibg of each simulation, specific parts of case information subsets are assigned to each agent based on the detectives' established investigative methods introduced in \citet{delima2025detective}. The details will be unfold in Section \ref{sec:methods_prompt_infopieces}
+To support systematic control over dialogue dynamics, each case was converted into a structured YAML template. This format decomposes the narrative into distinct modules: a global setting, victim profiles, suspect attributes (including motives and secrets), crime scene data, forensic evidence, and a chronological timeline (see Appendix \ref{sec:app_case} for the full case YAML). At the beginnibg of each simulation, specific parts of case information subsets are assigned to each agent based on the detectives' established investigative methods introduced in \citet{delima2025detective}. The details will be unfold in Subsection \ref{sec:methods_prompt_infopieces}
 
 % By mapping the original scripts into this template-based design, this study creates a reproducible environment where the pressure to solve the crime and the subsequent need for information sharing act as a "stress test" for character consistency \citep{park2023generative, guo2026collab}. This setup allows precisely track whether the demand for group consensus leads to a convergence of linguistic features or a breakdown of character traits (inlcuding investigative methods) assigned to each detective.
 
 \subsection{Prompt engineering} \label{sec:methods_prompt}
 
-Building on the background outlined in Section \ref{sec:background_char_modelling}, this study models the three detective agents as non-parametric, prompt-based LLMs. To ensure internal validity, the system adopts a strictly prompt-only architecture, deliberately excluding auxiliary components such as Retrieval-Augmented Generation (RAG) or long-term memory modules. This minimalist design isolates the effects of collaboration and persona, allowing any emerging inconsistency or contamination to be traced directly to the evolving interaction context. In this controlled setting, the boundaries of each simulated character depend solely on the initial role prompt and the immediate dialogue history, providing a clean foundation for subsequent linguistic analysis.
+Building on the background outlined in Subsection \ref{sec:background_char_modelling}, this study models the three detective agents as non-parametric, prompt-based LLMs. To ensure internal validity, the system adopts a strictly prompt-only architecture, deliberately excluding auxiliary components such as Retrieval-Augmented Generation (RAG) or long-term memory modules. This minimalist design isolates the effects of collaboration and persona, allowing any emerging inconsistency or contamination to be traced directly to the evolving interaction context. In this controlled setting, the boundaries of each simulated character depend solely on the initial role prompt and the immediate dialogue history, providing a clean foundation for subsequent linguistic analysis.
 
 Inspired by \citet{wu2024jubensha}, the full system prompt consists of six components with the following headers: \textbf{Background} (fixed), \textbf{Collaboration Rules} (fixed), \textbf{Role Play Guidelines} (fixed), \textbf{Protective Guidelines} (fixed), \textbf{Allocated Case Information} (fixed), and \textbf{Conversation So Far}, which is dynamically appended as the interaction grows.
 
-After each turn, the conversation history is updated. As mentioned in Section \ref{sec:methods_model}, explicit delimiters and headers are used to ensure clear logical partitioning. In the Python script, this appears as:
-
-\begin{itemize}[itemsep=0pt, parsep=0pt, topsep=7pt]
-    \item[] \texttt{=== Background ===}
-    \item[] ...
-    \item[] \texttt{=== Collaboration Rules ===}
-    \item[] ...
-    \item[] \texttt{=== Role-Play Guidelines ===}
-    \item[] ...
-    \item[] \texttt{=== Protective Guidelines ===}
-    \item[] ...
-    \item[] \texttt{=== Allocated Case Information ===}
-    \item[] ...
-    \item[] \texttt{=== Conversation So Far ===}
-    \item[] ...
-\end{itemize}
+After each turn, the conversation history is updated. As mentioned in Subsection \ref{sec:methods_model}, explicit delimiters and headers are used to ensure clear logical partitioning. In the Python script, this appears as:
+\begin{minted}{text}
+    === Background ===
+    ...
+    === Collaboration Rules ===
+    ...
+    === Role-Play Guidelines ===
+    ...
+    === Protective Guidelines ===
+    ...
+    === Allocated Case Information ===
+    ...
+    === Conversation So Far ===
+    ...
+\end{minted}
 
 
 \subsubsection{Background and Collaboration Rule Prompt} \label{sec:methods_prompt_rule}
 
 The \textbf{Background} sets up the collaborative scenario by explaining the current situation and clarifying the task ahead, much like a game master introducing the background story in a Jubensha game. Its content is as follows (also available in the original YAML format in Appendix \ref{sec:app_rule_prompt}):
-
-\begin{itemize}
-    \item You are \{agent\_name\}. Apart from you there are two other detectives. Now you must collaborate to solve a complex case. First, you're given partial exclusive clues, then share and deduce together.
-\end{itemize}
+\begin{minted}{yaml}
+common_intro: |
+  You are {agent_name}. Apart from you there are two other detectives. 
+  Now you must collaborate to solve a complex case.  
+  First, you're given partial exclusive clues, then share and deduce together.
+\end{minted}
 
 The \texttt{\{agent\_name\}} here will be replaced by the actual character name when simulated.
 
 The \textbf{Collaboration Rules} defines global behavioural constraints, requiring agents to reason strictly from stated evidence and dialogue history, avoid fabricating new clues, and maintain transparency by sharing all received information to encourage collaboration. These rules promote collective intelligence through disciplined deductive interaction rather than isolated speculation. Its content is as follows (also available in the original YAML format in Appendix \ref{sec:app_rule_prompt}):
+\begin{minted}{yaml}
+common_rules: |
+  1. Use only known facts and dialogue history—never invent clues.  
+  2. Provide detailed reasoning and evidence to aid deduction.  
+  3. Only one murderer exists. Unnamed people are irrelevant (neither suspects nor accomplices).
+  4. Share your full exclusive clues to others for collaboration. 
+\end{minted}
 
-\begin{itemize}[itemsep=0pt, parsep=0pt, topsep=7pt]
-    \item[1.] Use only known facts and dialogue history—never invent clues.
-    \item[2.] Provide detailed reasoning and evidence to aid deduction.
-    \item[3.] Only one murderer exists. Unnamed people are irrelevant (neither suspects nor accomplices).
-    \item[4.] Share your full exclusive clues to others for collaboration.
-\end{itemize}
-
-However, in test runs (to test whether the overall design works), I noticed that some of the collaboration rules were occasionally violated. To ensure these rules are followed, I added an additional emphasis on key instructions in the function that builds the system prompt: after assembling the three modules, the same function re-states the important rules to guarantee that the resulting data are suitable for analysis. These instructions are designed to standardise the format and style of each agent's responses (e.g., paragraph structure, sentence length, and the required closing statement), without altering the fundamental collaborative dynamics of the simulation, such as how agents reason, exchange evidence, or negotiate with one another. The added instructions are as follows:
-
-\begin{itemize}[itemsep=0pt, parsep=0pt, topsep=7pt]
-    \item[1.] Begin with self-introductions because you don't know each other.
-    \item[2.] Speak in coherent, self-contained paragraphs with a clear beginning, middle, and end.
-    \item[3.]  Keep responses ideally under 5 sentences. NEVER repeat any phrases EVER.
-    \item[4.]  Always react to the previous speaker's suspect and evidence before giving your own view.
-    \item[5.]  Strictly follow Role Play Guidelines and your investigation style, and strictly avoid behaviours in Protective Guidelines.
-    \item[6.]  No parentheses. No narration. No actions. Speak only in first-person dialogue.
-    \item[7.]  For EACH reply, end with naming one and only one suspecty. MUST exactly in this format: I believe the murderer is XXX.
-\end{itemize}
+However, in test runs (to verify whether the overall design works), I found that the collaboration rules alone were not sufficient to ensure the expected output, particularly in terms of format quality. To improve this, I added an additional emphasis on key instructions in the function that builds the system prompt: after assembling the core components above, the same function re-states the important rules to guarantee that the resulting data are suitable for analysis. These instructions are designed to standardise the format and style of each agent's responses (e.g., paragraph structure, sentence length, and the required closing statement), without altering the fundamental collaborative dynamics of the simulation, such as how agents reason, exchange evidence, or negotiate with one another. The added instructions are as follows:
+\begin{minted}{text}
+IMPORTANT:
+ - Begin with self-introductions because you don’t know each other.
+ - Speak in coherent, self-contained paragraphs with a clear beginning, middle, and end.
+ - Keep responses ideally under 5 sentences. NEVER repeat any phrases EVER.
+ - Always react to the previous speaker’s suspect and evidence before giving your own view.
+ - Strictly follow Role Play Guidelines and your investigation style, and strictly avoid behaviours in Protective Guidelines.
+ - No parentheses. No narration. No actions. Speak only in first-person dialogue.
+ - For EACH reply, end with naming one and only one suspecty. MUST exactly in this format: I believe the murderer is XXX.
+\end{minted}
 
 \subsubsection{Role-Play Guideline} \label{sec:methods_prompt_person}
 
-This section describes each detctive's persona. There are five linguistic aspects covered: (1) vocabulary, (2) lexical features, (3) syntactic features, (4) discourse patterns, and (5) investigative methods. For instance, Sherlock Holmes is characterised by scientific vocabulary, logically nested sentences, and a detached analytical tone. The steps of completing this is as follows.
+This section describes each detective's persona, covering five linguistic aspects: (1) vocabulary, (2) lexical features, (3) syntactic features, (4) discourse patterns, and (5) investigative methods. For instance, Sherlock Holmes is characterised by scientific vocabulary, logically nested sentences, and a detached, analytical tone. The steps to construct this guideline are as follows.
 
-Step 1 \textbf{Generation}: Following the methodology in \citet{delima2025detective}, a GPT-based API (\texttt{GPT-4}) was employed to generate the initial character profiles and final persona prompts. During this automated generation phase, the temperature was fixed at 0.0 to ensure deterministic and consistent persona descriptions. For each description in the role-play prompts, an example line is manually extracted from the original novels. For example, when describing Sherlock Holmes' vocabulary:
-\begin{itemize}
-    \item  Description: You often use scientific and technical jargon, indicative of your analytical mind and extensive knowledge across various disciplines.
-    \item Example: \textit{"The old Guiacum test was very clumsy and uncertain. So is the microscopic examination for blood corpuscles."}
-\end{itemize}
+Step 1 \textbf{Generation}: Following the methodology in \citet{delima2025detective}, a GPT-based API (\texttt{GPT-4}) was used to generate an initial character description. With the system message:
+\begin{minted}{text}
+    You are a linguistic analysis expert specialising in fictional detective characters.
+\end{minted}
+and a detailed analytical template (see Appendix \ref{sec:app_gen_profile}), the model automatically generated analyses of the linguistic features and personality of the three detectives, and outputs the results as individual text reports. 
 
-Step 2 \textbf{Validation}: To assess the validity of these representations, a \textit{Validation Via Reverse Identification} is conducted following \citet{delima2025detective}, requiring an independent LLM (to ensure alignment, this study uses Llama-3.2-3B-Instruct, the same model for collaboration simulation) to correctly infer the detective's identity based solely on the generated linguistic descriptions. 
+The analytical template configuration contains several thematic categories. Each category specifies a task (the core description of what GPT should do) and a set of requirements that define detailed constraints for text generation, such as avoiding plot references, using a formal tone, and limiting each section to five sentences. The main categories are: vocabulary (lexical features), sentences (syntactic features), discourse pattern (discourse structure), personal traits (personality characteristics), and investigative methods (extracted from \citep{delima2025detective}). Each section is designed to produce a concise, formal description without narrative details or examples. The full generated character descriptions are available in Appendix \ref{sec:app_char_dcp}
+
+GPT-4 was then instructed to act as a professional literary analysis assistant" and generate the final persona prompts (namely the Role-Play Guideline) based on the character description generated. The system message was:
+\begin{minted}{text}
+You are a professional literary analysis assistant. Please process the text strictly according to these requirements:
+1. Extract the character's key traits
+2. Generate an 13-sentence character prompt
+3. Begin with "You are {name}. You are {occupation}."
+4. Then for the middle, generate 2 sentences for each category. Namely, first two sentences describe vocabulary traits, next two describe sentence structure, then two for discourse pattern, and then two for personality traits, and finally two for investigative methods. 
+5. Do not repeat sentences, they are supposed to be different across categories.
+6. End with "Stay in character at all times."
+7. Do not use any bullet points, lists, or formatting
+8. Use only content explicitly stated in the original text
+\end{minted}
+
+During this automated generation phase, the temperature was fixed at 0.0 to ensure deterministic and consistent character descriptions. For each description in the role-play prompts, one example line is manually extracted from the original novels. For example, when describing Sherlock Holmes' vocabulary:
+\begin{minted}{yaml}
+  - description: |
+      You often use scientific and technical jargon, indicative of your analytical mind and extensive knowledge across various disciplines.
+    example: |
+      "The old Guiacum test was very clumsy and uncertain. 
+      So is the microscopic examination for blood corpuscles."
+\end{minted}
+
+Step 2 \textbf{Validation}: To assess the validity of these representations, a \textit{Validation Via Reverse Identification} is conducted, following \citet{delima2025detective}. This means verifying the distinctiveness of the synthesised traits by asking an independent LLMs to identify detectives solely from their trait descriptions. To ensure alignment, this study uses \texttt{llama-3.2-3B-Instruct} (the same model for collaboration simulation) to infer the detective's identity based solely on the generated linguistic descriptions. 
+
+The system message to the llama model is:
+\begin{minted}{text}
+    You are an expert in literary analysis.
+    Identify which detective this description matches: 
+    Sherlock Holmes, Hercule Poirot, or Miss Marple.
+    Focus on linguistic patterns and personality traits.
+\end{minted}
 
 
 \subsubsection{Conversation History} \label{sec:methods_prompt_history}
 
-See Section \ref{sec:methods_model}.
+As mentioned in Subsection \ref{sec:methods_model}, to guarantee that the detectives can draw on earlier evidence and reasoning while staying firmly tied to their assigned persona, the full conversation history is updated and re-inserted into the system prompt at every turn.
 
 \subsubsection{Allocated Case Information} \label{sec:methods_prompt_infopieces}
 
@@ -405,31 +438,7 @@ This deliberate seperation of information aims at encourging collaboration, and 
 
 \subsection{agent construction} \label{sec:methods_agent}
 
-Three distinct detective agents were constructed by prompting. Each agent is implemented as an instance of a shared \texttt{BaseAgent} class, which encapsulates the language model interface and a lightweight text-based memory module. 
-
-
-\subsection{Agent construction: character simulation}
-
-To investigate Character Consistency under collaboration,  three distinct detective agents were constructed by prompting. Each agent is implemented as an instance of a shared \texttt{BaseAgent} class, which encapsulates the language model interface and a lightweight text-based memory module. This architectural design ensures structural homogeneity across the system, guaranteeing that any observed variation in character arises solely from prompt engineering and differential information exposure rather than model architecture or parameter disparity.
-
-Each agent's prompt is dynamically regenerated for every model call and is composed of five modular components (See Appendix for the full prompt):
-
-\begin{enumerate}
-    \item \textbf{Background and Identity}: This component establishes the shared "closed-room" scenario and explicitly assigns the character's identity (e.g., “You are Sherlock Holmes”). Following the design principles of CharacterGLM \citep{zhou2023characterglm}, these "Static Attributes" define the core knowledge and investigative methods inherent to the character's archetype.
-    
-    \item \textbf{Collaboration Rules}: This module defines global behavioural constraints, requiring agents to reason strictly from stated evidence and dialogue history, avoid fabricating new clues, and maintain transparency by sharing all received information. These rules promote collective intelligence through disciplined deductive interaction rather than isolated speculation.
-    
-    \item \textbf{Role-play Guidelines} (Dynamic Behaviours): This section describes each detective's persona from a linguistic perspective, ensuring Linguistic Fidelity \citep{wang2024rolellm}. Inspired by \citet{delima2025detective}, there are five linguistic aspects covered: (1) vocabulary, (2) lexical features, (3) syntactic features, (4) discourse patterns, and (5) investigative methods. For instance, Sherlock Holmes is characterised by scientific vocabulary, logically nested sentences, and a detached analytical tone. The steps of completing this is:
-
-    \begin{itemize}
-    \item[Step 1] \textbf{Generation}: Following the methodology in \citet{delima2025detective}, a GPT-based API (\texttt{GPT-4}) was employed to generate the initial character profiles and final role-play prompts. During this automated generation phase, the temperature was fixed at 0.0 to ensure deterministic and consistent persona descriptions. For each description in the role-play prompts, an example is manually extracted from the original novels. 
-    \item[Step 2] \textbf{Validation}: To assess the validity of these representations, a \textit{Validation Via Reverse Identification} is conducted following \citet{delima2025detective}, requiring an independent LLM (Llama-3.2-3B-Instruct) to correctly infer the detective's identity based solely on the generated linguistic descriptions.
-    \end{itemize}
-
-    \item \textbf{Protective Guidelines}: To preserve character integrity over extended dialogue, we implemented strict behavioral prohibitions designed to prevent stylistic drift. For example, Holmes is instructed to avoid emotional expression or social small-talk. These constraints serve as guardrails against Character Hallucination, which is the tendency of LLMs to default to a generic "AI assistant" style that violates their assigned persona \citep{shao2023characterllm, chen2024review}.
-
-    \item \textbf{Information Allocation}: Based on the detectives' established investigative archetypes, each agent is assigned a unique subset of case information from the YAML template as stated above. This deliberate \textit{Information Asymmetry} enforces interdependence, compelling agents to exchange unique clues to reach a coherent collective conclusion \citep{zhu2024player}.
-\end{enumerate}
+Three distinct detective agents were constructed by prompting. Each agent is implemented as an instance of a shared \texttt{BaseAgent} class, which encapsulates the language model interface and a lightweight text-based memory module. This architectural design ensures structural homogeneity across the system, guaranteeing that any observed variation in character arises solely from prompt engineering and differential information exposure rather than model architecture or parameter disparity.
 
 \subsection{Simulation procedure: collaborative reasoning}
 
@@ -1297,7 +1306,9 @@ In summary, this research contributes a quantifiable, cost-effective evaluation 
 % ------ 附录 ------
 \begin{appendices} \label{sec:app}
 
-\section{Character Prompt} \label{sec:app_char_prompt}
+\section{Prompt for generating role-play guideline} \label{sec:app_gen_persona}
+
+\section{Role-Play Guideline} \label{sec:app_char_prompt}
 
 \subsection{Holmes}
     \inputminted{yaml}{../prompts/holmes.yaml}
@@ -1309,12 +1320,11 @@ In summary, this research contributes a quantifiable, cost-effective evaluation 
     \inputminted{yaml}{../prompts/poirot.yaml}
 
 
-\section{Rule Prompt} \label{sec:app_rule_prompt}
+\section{Background and Collaboration Rule} \label{sec:app_rule_prompt}
     \inputminted{yaml}{../prompts/rule_collab.yaml}
 
 
-\section{Case Information} \label{sec:app_case}
-
+\section{Case Data} \label{sec:app_case}
 
 \subsection{Case 1} \label{sec:app_case1}
     \inputminted{yaml}{../cases/case1.yaml}
@@ -1323,6 +1333,17 @@ In summary, this research contributes a quantifiable, cost-effective evaluation 
 \subsection{Case 3} \label{sec:app_case3}
     \inputminted{yaml}{../cases/case3.yaml}
 
+\section{Prompt for generating profiles} \label{sec:app_gen_profile}
+    \inputminted{yaml}{../prompts/profile_prompts.yaml}
+
+\section{Generated Character Descriptions} \label{sec:app_char_dcp}
+
+\subsection{Character Description of Holmes} \label{sec:app_dcp_holmes}
+    \inputminted{text}{../profiles/sherlock_holmes_analysis.txt}
+\subsection{Character Description of Marple} \label{sec:app_dcp_marple}
+    \inputminted{text}{../profiles/miss_marple_analysis.txt}
+\subsection{Character Description of Poirot} \label{sec:app_dcp_poirot}
+    \inputminted{text}{../profiles/hercule_poirot_analysis.txt}
 
 \section{List of Selected Novels} \label{sec:app_novels}
 
