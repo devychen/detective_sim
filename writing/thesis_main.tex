@@ -313,7 +313,7 @@ To manage the dialogue history within the context window, the system keeps a run
 
 This study adopts three murder mystery cases originally created for \textit{Jubensha}, a Chinese live action role-playing murder mystery game called (also know as script murder games: \textit{Juben} means \textit{script}, \textit{sha} means \textit{murder}) \citep{ghorbanpour2023jubensha}. In Jubensha, players take on specific character roles, study scripts, interact, and analyze clues to solve a murder or mystery. In multi-agent simulation setting, each agent acts as a player and role-plays the assigned persona. These mysterious cases provide a complex, plot-driven environment that requires agents to perform Theory of Mind (ToM) inferences and negotiate over contradictory evidence \citep{zhu2024player, wu2024jubensha}.
 
-This study choses to use pre-existing, human-authored Jubensha cases rather than canonical literary mysteries (for example, from Arthur Conan Doyle or Agatha Christie) for better experimental rigour. \citet{delima2025detective} indicates that LLMs have "varying degrees of familiarity with detective narratives" through their pre-training data. Using famous stories like \textit{The Adventure of the Speckled Band} \citep{doyle1892speckled} would create a high risk of data leakage or character hallucination, where agents might solve the case based on memorised plots instead of collaborative reasoning \citep{chen2023hp, chen2024review}. By using "neutral" and novel cases from the Jubensha dataset in \citet{wu2024jubensha} which are not part of the old classic books, this study ensures that the agents' responses are not simply existing lines from books. Instead, their responses are driven by the provided case information and persona, preserving the internal validity of our analysis of character-specific linguistic drift.
+This study choses to use pre-existing, human-authored Jubensha cases rather than canonical literary mysteries (for example, from Arthur Conan Doyle or Agatha Christie) for better experimental rigour. \citet{delima2025detective} indicates that LLMs have "varying degrees of familiarity with detective narratives" through their pre-training data. Using famous stories like \textit{The Adventure of the Speckled Band} \citep{doyle1892speckled} would create a high risk of data leakage or character hallucination, where agents might solve the case based on memorised plots instead of collaborative reasoning \citep{chen2023hp, chen2024review}. By using three "neutral" and novel cases from the Jubensha dataset in \citet{wu2024jubensha} which are not part of the old classic books, this study ensures that the agents' responses are not simply existing lines from books. Instead, their responses are driven by the provided case information and persona, preserving the internal validity of our analysis of character-specific linguistic drift.
 
 To support systematic control over dialogue dynamics, each case was converted into a structured YAML template. This format decomposes the narrative into distinct modules: a global setting, victim profiles, suspect attributes (including motives and secrets), crime scene data, forensic evidence, and a chronological timeline (see Appendix \ref{sec:app_case} for the full case YAML). At the beginnibg of each simulation, specific parts of case information subsets are assigned to each agent based on the detectives' established investigative methods introduced in \citet{delima2025detective}. The details will be unfold in Section \ref{sec:methods_prompt_infopieces}
 
@@ -323,19 +323,37 @@ To support systematic control over dialogue dynamics, each case was converted in
 
 Building on the background outlined in Section \ref{sec:background_char_modelling}, this study models the three detective agents as non-parametric, prompt-based LLMs. To ensure internal validity, the system adopts a strictly prompt-only architecture, deliberately excluding auxiliary components such as Retrieval-Augmented Generation (RAG) or long-term memory modules. This minimalist design isolates the effects of collaboration and persona, allowing any emerging inconsistency or contamination to be traced directly to the evolving interaction context. In this controlled setting, the boundaries of each simulated character depend solely on the initial role prompt and the immediate dialogue history, providing a clean foundation for subsequent linguistic analysis.
 
-Inspired by \citet{wu2024jubensha}, the full system prompt contains three component: the global collaborative rule prompt (this is fixed), the persona prompt (this is fixed), the conversation history which is appended dynamically as the interaction grows. After each turn, the history will be updated.
+Inspired by \citet{wu2024jubensha}, the full system prompt consists of six components with the following headers: \textbf{Background} (fixed), \textbf{Collaboration Rules} (fixed), \textbf{Role Play Guidelines} (fixed), \textbf{Protective Guidelines} (fixed), \textbf{Allocated Case Information} (fixed), and \textbf{Conversation So Far}, which is dynamically appended as the interaction grows.
 
-\subsubsection{Collaboration Rule Prompt} \label{sec:methods_prompt_rule}
+After each turn, the conversation history is updated. As mentioned in Section \ref{sec:methods_model}, explicit delimiters and headers are used to ensure clear logical partitioning. In the Python script, this appears as:
 
-The collaboration rule prompt has two parts: one is a common introduction. This section sets up the collaborative scenario by explaining the current situation and clarifying the task ahead, much like a game master introducing the background story in a Jubensha game. Its content is as follows (also available in the original YAML format in Appendix \ref{sec:app_rule_prompt}):
+\begin{itemize}[itemsep=0pt, parsep=0pt, topsep=7pt]
+    \item[] \texttt{=== Background ===}
+    \item[] ...
+    \item[] \texttt{=== Collaboration Rules ===}
+    \item[] ...
+    \item[] \texttt{=== Role-Play Guidelines ===}
+    \item[] ...
+    \item[] \texttt{=== Protective Guidelines ===}
+    \item[] ...
+    \item[] \texttt{=== Allocated Case Information ===}
+    \item[] ...
+    \item[] \texttt{=== Conversation So Far ===}
+    \item[] ...
+\end{itemize}
+
+
+\subsubsection{Background and Collaboration Rule Prompt} \label{sec:methods_prompt_rule}
+
+The \textbf{Background} sets up the collaborative scenario by explaining the current situation and clarifying the task ahead, much like a game master introducing the background story in a Jubensha game. Its content is as follows (also available in the original YAML format in Appendix \ref{sec:app_rule_prompt}):
 
 \begin{itemize}
-    \item[] You are \{agent\_name\}. Apart from you there are two other detectives. Now you must collaborate to solve a complex case. First, you're given partial exclusive clues, then share and deduce together.
+    \item You are \{agent\_name\}. Apart from you there are two other detectives. Now you must collaborate to solve a complex case. First, you're given partial exclusive clues, then share and deduce together.
 \end{itemize}
 
 The \texttt{\{agent\_name\}} here will be replaced by the actual character name when simulated.
 
-Another part is the collaboration rules that all three agents must follow. It defines global behavioural constraints, requiring agents to reason strictly from stated evidence and dialogue history, avoid fabricating new clues, and maintain transparency by sharing all received information to encourage collaboration. These rules promote collective intelligence through disciplined deductive interaction rather than isolated speculation. Its content is as follows (also available in the original YAML format in Appendix \ref{sec:app_rule_prompt}):
+The \textbf{Collaboration Rules} defines global behavioural constraints, requiring agents to reason strictly from stated evidence and dialogue history, avoid fabricating new clues, and maintain transparency by sharing all received information to encourage collaboration. These rules promote collective intelligence through disciplined deductive interaction rather than isolated speculation. Its content is as follows (also available in the original YAML format in Appendix \ref{sec:app_rule_prompt}):
 
 \begin{itemize}[itemsep=0pt, parsep=0pt, topsep=7pt]
     \item[1.] Use only known facts and dialogue history—never invent clues.
@@ -356,9 +374,9 @@ However, in test runs (to test whether the overall design works), I noticed that
     \item[7.]  For EACH reply, end with naming one and only one suspecty. MUST exactly in this format: I believe the murderer is XXX.
 \end{itemize}
 
-\subsubsection{Person Prompt} \label{sec:methods_prompt_person}
+\subsubsection{Role-Play Guideline} \label{sec:methods_prompt_person}
 
-This prompt describes each detctive's persona. There are five linguistic aspects covered: (1) vocabulary, (2) lexical features, (3) syntactic features, (4) discourse patterns, and (5) investigative methods. For instance, Sherlock Holmes is characterised by scientific vocabulary, logically nested sentences, and a detached analytical tone. The steps of completing this is as follows.
+This section describes each detctive's persona. There are five linguistic aspects covered: (1) vocabulary, (2) lexical features, (3) syntactic features, (4) discourse patterns, and (5) investigative methods. For instance, Sherlock Holmes is characterised by scientific vocabulary, logically nested sentences, and a detached analytical tone. The steps of completing this is as follows.
 
 Step 1 \textbf{Generation}: Following the methodology in \citet{delima2025detective}, a GPT-based API (\texttt{GPT-4}) was employed to generate the initial character profiles and final persona prompts. During this automated generation phase, the temperature was fixed at 0.0 to ensure deterministic and consistent persona descriptions. For each description in the role-play prompts, an example line is manually extracted from the original novels. For example, when describing Sherlock Holmes' vocabulary:
 \begin{itemize}
