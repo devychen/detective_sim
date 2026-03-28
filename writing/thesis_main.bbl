@@ -1,4 +1,4 @@
-\begin{thebibliography}{57}
+\begin{thebibliography}{59}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -107,6 +107,11 @@ Arthur~Conan Doyle.
 \newblock \emph{A Study in Scarlet}.
 \newblock Ward, Lock and Company, 1887.
 
+\bibitem[Doyle(1892)]{doyle1892speckled}
+Arthur~Conan Doyle.
+\newblock The adventure of the speckled band.
+\newblock \emph{The Strand Magazine}, 3:\penalty0 142--157, February 1892.
+
 \bibitem[Eckert(2016)]{eckert2016variation}
 Penelope Eckert.
 \newblock Variation, meaning and social change.
@@ -116,6 +121,13 @@ Penelope Eckert.
 Ivar Frisch and Mario Giulianelli.
 \newblock Llm agents in interaction: Measuring personality consistency and linguistic alignment in interacting populations of large language models.
 \newblock In \emph{Proceedings of the 1st Workshop on Personalization of Generative AI Systems (PERSONALIZE 2024)}, pages 102--111, 2024.
+
+\bibitem[Ghorbanpour(2023)]{ghorbanpour2023jubensha}
+Kamiab Ghorbanpour.
+\newblock Jubensha: the mix of cluedo, werewolf and larp that became a chinese phenomenon.
+\newblock Dicebreaker, March 23 2023.
+\newblock URL \url{https://www.dicebreaker.com/categories/roleplaying-game/feature/jubensha-live-action-roleplaying-cluedo-werewolf-chinese-phenomenon}.
+\newblock Archived from the original on 2023-04-24. Retrieved 2023-06-15.
 
 \bibitem[Guo et~al.(2024)Guo, Chen, Wang, Chang, Pei, Chawla, Wiest, and Zhang]{guo2024review}
 Taicheng Guo, Xiuying Chen, Yaqi Wang, Ruidi Chang, Shichao Pei, Nitesh~V Chawla, Olaf Wiest, and Xiangliang Zhang.
