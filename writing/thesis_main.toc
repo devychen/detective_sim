@@ -12,7 +12,7 @@
 \contentsline {subsubsection}{\numberline {2.3.2}LLM-as-a-judge}{14}{}%
 \contentsline {subsubsection}{\numberline {2.3.3}Reference-based automatic metrics}{15}{}%
 \contentsline {subsubsection}{\numberline {2.3.4}Psychological and behavioural metrics}{15}{}%
-\contentsline {subsubsection}{\numberline {2.3.5}Task Accuracy}{16}{}%
+\contentsline {subsubsection}{\numberline {2.3.5}Case-solving rate}{16}{}%
 \contentsline {subsection}{\numberline {2.4}Linguistic Metrics}{17}{}%
 \contentsline {subsection}{\numberline {2.5}LLM-based multi-agent collaboration}{17}{}%
 \contentsline {subsubsection}{\numberline {2.5.1}The evolution of LLM-based multi-agent systems}{17}{}%
@@ -27,70 +27,69 @@
 \contentsline {subsubsection}{\numberline {3.3.4}Allocated Case Information}{24}{}%
 \contentsline {subsection}{\numberline {3.4}agent construction}{25}{}%
 \contentsline {section}{\numberline {4}Evaluation Scheme}{25}{}%
-\contentsline {subsection}{\numberline {4.1}Evaluation Overview}{25}{}%
-\contentsline {subsection}{\numberline {4.2}Task performance}{26}{}%
-\contentsline {subsection}{\numberline {4.3}Classification baseline}{26}{}%
-\contentsline {subsubsection}{\numberline {4.3.1}Data construction}{27}{}%
-\contentsline {subsubsection}{\numberline {4.3.2}Cleaning and balancing}{27}{}%
-\contentsline {subsubsection}{\numberline {4.3.3}Model Architectures and Training Procedure}{28}{}%
-\contentsline {subsubsection}{\numberline {4.3.4}Baseline performance comparisons}{28}{}%
-\contentsline {subsection}{\numberline {4.4}Lexical metrics}{28}{}%
-\contentsline {subsection}{\numberline {4.5}Syntactic metrics}{29}{}%
-\contentsline {subsection}{\numberline {4.6}Discourse metrics}{31}{}%
-\contentsline {subsection}{\numberline {4.7}Validation across metrics}{31}{}%
-\contentsline {subsection}{\numberline {4.8}Clustering-based contamination analysis}{32}{}%
-\contentsline {section}{\numberline {5}Results}{33}{}%
-\contentsline {subsection}{\numberline {5.1}Data Overview}{33}{}%
+\contentsline {subsection}{\numberline {4.1}Case-solving rate}{26}{}%
+\contentsline {subsection}{\numberline {4.2}Classification baseline}{26}{}%
+\contentsline {subsubsection}{\numberline {4.2.1}Data construction}{26}{}%
+\contentsline {subsubsection}{\numberline {4.2.2}Cleaning and balancing}{27}{}%
+\contentsline {subsubsection}{\numberline {4.2.3}Model Architectures and Training Procedure}{27}{}%
+\contentsline {subsubsection}{\numberline {4.2.4}Baseline performance comparisons}{28}{}%
+\contentsline {subsection}{\numberline {4.3}Lexical metrics}{28}{}%
+\contentsline {subsection}{\numberline {4.4}Syntactic metrics}{29}{}%
+\contentsline {subsection}{\numberline {4.5}Discourse metrics}{30}{}%
+\contentsline {subsection}{\numberline {4.6}Validation across metrics}{31}{}%
+\contentsline {subsection}{\numberline {4.7}Clustering-based contamination analysis}{32}{}%
+\contentsline {section}{\numberline {5}Results}{32}{}%
+\contentsline {subsection}{\numberline {5.1}Data Overview}{32}{}%
 \contentsline {subsection}{\numberline {5.2}Task performance}{33}{}%
 \contentsline {subsubsection}{\numberline {5.2.1}Baseline reasoning capacity (C1)}{33}{}%
-\contentsline {subsubsection}{\numberline {5.2.2}The impact of character prompts (C2)}{34}{}%
+\contentsline {subsubsection}{\numberline {5.2.2}The impact of character prompts (C2)}{33}{}%
 \contentsline {subsubsection}{\numberline {5.2.3}The impact of collaborative dynamics (C3)}{34}{}%
 \contentsline {subsubsection}{\numberline {5.2.4}Case-specific sensitivity}{34}{}%
 \contentsline {subsection}{\numberline {5.3}Classifier-based model baseline}{34}{}%
-\contentsline {subsubsection}{\numberline {5.3.1}Holmes}{39}{}%
-\contentsline {subsubsection}{\numberline {5.3.2}Marple}{40}{}%
-\contentsline {subsubsection}{\numberline {5.3.3}Poirot}{40}{}%
-\contentsline {subsubsection}{\numberline {5.3.4}Cross-case summary}{41}{}%
-\contentsline {subsection}{\numberline {5.4}Lexical Metrics}{41}{}%
-\contentsline {subsubsection}{\numberline {5.4.1}Vector-based TF-IDF similarity}{41}{}%
-\contentsline {subsubsection}{\numberline {5.4.2}Intra-agent cosine similarity}{42}{}%
-\contentsline {subsubsection}{\numberline {5.4.3}Lexical results summary}{43}{}%
-\contentsline {subsection}{\numberline {5.5}Syntactic Metrics}{44}{}%
-\contentsline {subsubsection}{\numberline {5.5.1}Comparison of syntactic depth with literary baselines}{44}{}%
-\contentsline {subsubsection}{\numberline {5.5.2}Temporal trends in structural deviation}{45}{}%
-\contentsline {subsubsection}{\numberline {5.5.3}Comparison of reference- and simulation-based slopes}{46}{}%
-\contentsline {subsubsection}{\numberline {5.5.4}Syntactic results summary}{46}{}%
-\contentsline {subsection}{\numberline {5.6}Discourse Metrics}{47}{}%
-\contentsline {subsubsection}{\numberline {5.6.1}comparison of affective profiles with literary baselines}{47}{}%
-\contentsline {subsubsection}{\numberline {5.6.2}Temporal trends in sentiment deviation}{48}{}%
-\contentsline {subsubsection}{\numberline {5.6.3}Visual analysis of sentiment distance}{49}{}%
-\contentsline {subsubsection}{\numberline {5.6.4}discourse results summary}{50}{}%
-\contentsline {subsection}{\numberline {5.7}Cross metric validation}{50}{}%
-\contentsline {subsubsection}{\numberline {5.7.1}Lexical level}{51}{}%
-\contentsline {subsubsection}{\numberline {5.7.2}Syntactic level}{51}{}%
-\contentsline {subsubsection}{\numberline {5.7.3}Discourse level}{51}{}%
-\contentsline {subsubsection}{\numberline {5.7.4}Comparative faithfulness ranking}{51}{}%
-\contentsline {subsection}{\numberline {5.8}Validation of Character Contamination}{52}{}%
-\contentsline {section}{\numberline {6}Discussion}{53}{}%
-\contentsline {subsection}{\numberline {6.1}Overview of Findings}{53}{}%
-\contentsline {subsection}{\numberline {6.2}The Collaboration Paradox and Character Contamination}{54}{}%
-\contentsline {subsection}{\numberline {6.3}A Layered Perspective on Character Consistency}{55}{}%
-\contentsline {subsection}{\numberline {6.4}methodological contributions}{56}{}%
-\contentsline {subsection}{\numberline {6.5}Limitation and Future Work}{56}{}%
-\contentsline {section}{\numberline {7}Conclusion}{57}{}%
-\contentsline {section}{\numberline {A}Prompt for generating role-play guideline}{64}{}%
-\contentsline {section}{\numberline {B}Role-Play Guideline}{64}{}%
-\contentsline {subsection}{\numberline {B.1}Holmes}{64}{}%
-\contentsline {subsection}{\numberline {B.2}Marple}{67}{}%
-\contentsline {subsection}{\numberline {B.3}Poirot}{69}{}%
-\contentsline {section}{\numberline {C}Background and Collaboration Rule}{72}{}%
-\contentsline {section}{\numberline {D}Case Data}{72}{}%
-\contentsline {subsection}{\numberline {D.1}Case 1}{72}{}%
-\contentsline {subsection}{\numberline {D.2}Case 2}{75}{}%
-\contentsline {subsection}{\numberline {D.3}Case 3}{78}{}%
-\contentsline {section}{\numberline {E}Prompt for generating profiles}{81}{}%
-\contentsline {section}{\numberline {F}Generated Character Descriptions}{83}{}%
-\contentsline {subsection}{\numberline {F.1}Character Description of Holmes}{83}{}%
-\contentsline {subsection}{\numberline {F.2}Character Description of Marple}{85}{}%
-\contentsline {subsection}{\numberline {F.3}Character Description of Poirot}{87}{}%
-\contentsline {section}{\numberline {G}List of Selected Novels}{88}{}%
+\contentsline {subsubsection}{\numberline {5.3.1}Holmes}{38}{}%
+\contentsline {subsubsection}{\numberline {5.3.2}Marple}{39}{}%
+\contentsline {subsubsection}{\numberline {5.3.3}Poirot}{39}{}%
+\contentsline {subsubsection}{\numberline {5.3.4}Cross-case summary}{40}{}%
+\contentsline {subsection}{\numberline {5.4}Lexical Metrics}{40}{}%
+\contentsline {subsubsection}{\numberline {5.4.1}Vector-based TF-IDF similarity}{40}{}%
+\contentsline {subsubsection}{\numberline {5.4.2}Intra-agent cosine similarity}{41}{}%
+\contentsline {subsubsection}{\numberline {5.4.3}Lexical results summary}{42}{}%
+\contentsline {subsection}{\numberline {5.5}Syntactic Metrics}{43}{}%
+\contentsline {subsubsection}{\numberline {5.5.1}Comparison of syntactic depth with literary baselines}{43}{}%
+\contentsline {subsubsection}{\numberline {5.5.2}Temporal trends in structural deviation}{44}{}%
+\contentsline {subsubsection}{\numberline {5.5.3}Comparison of reference- and simulation-based slopes}{45}{}%
+\contentsline {subsubsection}{\numberline {5.5.4}Syntactic results summary}{45}{}%
+\contentsline {subsection}{\numberline {5.6}Discourse Metrics}{46}{}%
+\contentsline {subsubsection}{\numberline {5.6.1}comparison of affective profiles with literary baselines}{46}{}%
+\contentsline {subsubsection}{\numberline {5.6.2}Temporal trends in sentiment deviation}{47}{}%
+\contentsline {subsubsection}{\numberline {5.6.3}Visual analysis of sentiment distance}{48}{}%
+\contentsline {subsubsection}{\numberline {5.6.4}discourse results summary}{49}{}%
+\contentsline {subsection}{\numberline {5.7}Cross metric validation}{49}{}%
+\contentsline {subsubsection}{\numberline {5.7.1}Lexical level}{50}{}%
+\contentsline {subsubsection}{\numberline {5.7.2}Syntactic level}{50}{}%
+\contentsline {subsubsection}{\numberline {5.7.3}Discourse level}{50}{}%
+\contentsline {subsubsection}{\numberline {5.7.4}Comparative faithfulness ranking}{50}{}%
+\contentsline {subsection}{\numberline {5.8}Validation of Character Contamination}{51}{}%
+\contentsline {section}{\numberline {6}Discussion}{52}{}%
+\contentsline {subsection}{\numberline {6.1}Overview of Findings}{52}{}%
+\contentsline {subsection}{\numberline {6.2}The Collaboration Paradox and Character Contamination}{53}{}%
+\contentsline {subsection}{\numberline {6.3}A Layered Perspective on Character Consistency}{54}{}%
+\contentsline {subsection}{\numberline {6.4}methodological contributions}{55}{}%
+\contentsline {subsection}{\numberline {6.5}Limitation and Future Work}{55}{}%
+\contentsline {section}{\numberline {7}Conclusion}{56}{}%
+\contentsline {section}{\numberline {A}Prompt for generating role-play guideline}{63}{}%
+\contentsline {section}{\numberline {B}Role-Play Guideline}{63}{}%
+\contentsline {subsection}{\numberline {B.1}Holmes}{63}{}%
+\contentsline {subsection}{\numberline {B.2}Marple}{66}{}%
+\contentsline {subsection}{\numberline {B.3}Poirot}{68}{}%
+\contentsline {section}{\numberline {C}Background and Collaboration Rule}{71}{}%
+\contentsline {section}{\numberline {D}Case Data}{71}{}%
+\contentsline {subsection}{\numberline {D.1}Case 1}{71}{}%
+\contentsline {subsection}{\numberline {D.2}Case 2}{74}{}%
+\contentsline {subsection}{\numberline {D.3}Case 3}{77}{}%
+\contentsline {section}{\numberline {E}Prompt for generating profiles}{80}{}%
+\contentsline {section}{\numberline {F}Generated Character Descriptions}{82}{}%
+\contentsline {subsection}{\numberline {F.1}Character Description of Holmes}{82}{}%
+\contentsline {subsection}{\numberline {F.2}Character Description of Marple}{84}{}%
+\contentsline {subsection}{\numberline {F.3}Character Description of Poirot}{86}{}%
+\contentsline {section}{\numberline {G}List of Selected Novels}{87}{}%

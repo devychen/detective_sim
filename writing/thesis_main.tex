@@ -134,9 +134,9 @@ To investigate these dynamics, this thesis utilises a multi-agent collaborative 
 
 This study approach character consistency from a linguistic perspective. In sociolinguistics and stylometry, a speaker's or a character's identity is not viewed as a fixed label but as continuously construction through language use \citep{ przystalski2025stylometry}. In other words, how a character speaks conveys their persona, including choice of words, syntax, discourse style. For example, stylometric studies of television dialogue show that fictional characters develop distinct idiolects: Sheldon Cooper in the show The Big Bang Theory habitually uses formal, scientific vocabulary and passive constructions, whereas Penny's speech is more colloquial and conversational \citep{van2016stylometry}. Language therefore serves as a window into attitude, beliefs, and personality.
 
-Following this view, this study posits that the character consistency of a LLM-based role-playing agent could be manifested in the linguistic profile of its outputs. Within this framework, character consistency is explicitly defined as the successful maintenance of a specific linguistic style over the course of an interaction. Consequently, investigating the degree of consistency is equivalent to investigating systematic changes in that style.
+Following this view, this study posits that the character consistency of a LLM-based role-playing agent could be manifested in the linguistic profile of its outputs. Within this framework, \textit{character consistency} is explicitly defined as the successful maintenance of a specific linguistic style over the course of an interaction. Consequently, investigating the degree of consistency is equivalent to investigating systematic changes in that style.
 
-If an agent truly embodies a persona, its generated responses should consistently reflect that persona's linguistic style. In this study, \textit{character consistency} is therefore treated as fundamentally a linguistic style problem: this study expects to detect (in)consistency by analysing lexical, syntactic, semantic and discourse-level patterns in the generated dialogue text. This aligns with sociolinguistic theory that identity is performed and negotiated through language \citep{bucholtz2005identity}. By focusing on linguistic features, consistency could be quantified in a principled way.
+If an agent truly embodies a persona, its generated responses should consistently reflect that persona's linguistic style. In this study, character consistency is therefore treated as fundamentally a linguistic style problem: this study expects to detect (in)consistency by analysing lexical, syntactic, semantic and discourse-level patterns in the generated dialogue text. This aligns with sociolinguistic theory that identity is performed and negotiated through language \citep{bucholtz2005identity}. By focusing on linguistic features, consistency could be quantified in a principled way.
 
 
 
@@ -240,7 +240,7 @@ Another aspect is the \textbf{behaviour and motivation prediction}. In narrative
 
 However, these psychological and behavioural metrics have several limitations. Firstly, they rely on the controversial assumption that LLM outputs can be meaningfully mapped onto human personality scales, which remains an open question in the field. Secondly, these methods often act as "macro-level" indicators. They provide a general snapshot of a character but fail to capture the micro-level linguistic form through which that identity is actually expressed. Moreover, these tests are often conducted as isolated measurements rather than continuous tracking throughout a dialogue. Because these tests usually happen outside the actual interaction, they may not detect the subtle character inconsistency that happens during the collaboration process.
 
-\subsubsection{Task Accuracy} \label{sec:background_taskacc}
+\subsubsection{Case-solving rate} \label{sec:background_taskacc}
 
 Existing literature shows that maintaining complex characters is not easy for LLMs and may impose a cognitive burden that reduces their overall performance \citep{baltaji2024cultured, ji2025enhancing}. This often creates a tension between role-playing and logical reasoning. This interference typically appears as \textit{character hallucination}, where models reject important information to stay true to a role's perceived knowledge boundaries \citep{shao2023characterllm}, and \textit{reasoning degradation}, where the effort to maintain a character over time weakens the model's self-awareness and logical accuracy \citep{xiao2023policy}.
 
@@ -248,7 +248,7 @@ In collaborative settings, social dynamics make this reasoning decline even wors
 
 Similarly, in murder mystery tasks \citep{wu2024jubensha, zhu2024player}, baseline LLMs perform much worse than specialised frameworks. Baselines often fail to use gathered information effectively, showing a breakdown in processing task-relevant clues while staying in character.
 
-This study utilises \textit{task accuracy}—defined as correctly identifying the culprit in a detective simulation—not only to measure task success but also to examine the trade-off between role-playing and logical reasoning. By tracking agents' task success rates, it assesses how much cognitive capacity models sacrifice to maintain consistent character identities under multi-agent collaboration pressure.
+This study utilises \textit{case-solving rate}—defined as correctly identifying the culprit in a detective simulation—not only to measure task success but also to examine the trade-off between role-playing and logical reasoning. By tracking agents' task success rates, it assesses how much cognitive capacity models sacrifice to maintain consistent character identities under multi-agent collaboration pressure.
 
 
 \subsection{Linguistic Metrics} \label{sec:background_lingmetric}
@@ -287,7 +287,7 @@ Compounding this, models fine-tuned with reinforcement learning from human feedb
 
 \section{Methods} \label{sec:methods}
 
-This study adopts a simulation-based experimental design to examine character consistency and collaborative reasoning in large language model (LLM)–driven agents. A controlled multi-agent dialogue environment was developed in which three agents, each role-playing a canonical fictional detective, collaboratively solve a murder case through turn-based natural language interaction.
+This study adopts a simulation-based experimental design to examine character consistency and collaborative reasoning in large language model (LLM)-driven agents. A controlled multi-agent dialogue environment was developed in which three agents, each role-playing a canonical fictional detective, collaboratively solve a murder case through turn-based natural language interaction.
 
 There are three cases in total (which will be introduced later in Subsection \ref{sec:methods_case}). Each case is run 10 times, and each run is treated as \textit{one simulation}. 
 
@@ -438,29 +438,33 @@ This deliberate seperation of information aims at encourging collaboration, and 
 
 \subsection{agent construction} \label{sec:methods_agent}
 
-Three distinct detective agents were constructed by prompting. Each agent is implemented as an instance of a shared \texttt{BaseAgent} class, which encapsulates the language model interface and a lightweight text-based memory module. This architectural design ensures structural homogeneity across the system, guaranteeing that any observed variation in character arises solely from prompt engineering and differential information exposure rather than model architecture or parameter disparity.
+Three detective agents were implemented using a single shared class. Each agent is an instance of this class and has three basic components: a name, a connection to the llama model, and a simple list that stores the conversation history. When an agent responds, the system builds a prompt that includes the full dialogue history up to that point, sends it to the model, and stores the returned text in memory for the next turn.
+
+The three agents differ only in the system prompts they receive during the simulation, not in their code or model. Crucially, the persona prompt is not inserted when the agent is created. Instead, it is constructed dynamically at each turn inside the simulation controller. 
+
+For each turn, the system loads the role-play guideline and combines it with shared bakground and collaboration rules, protective guideline, and a subset of case information that is tailored to that detective's investigative method (as introduced in Subsection \ref{sec:methods_prompt}), and appends the full conversation history under a clear header. Finally, it sends the resulting prompt to the LLM and logs both the prompt and the response.
+
+Thus, all behavioural differences between Holmes, Poirot, and Marple come from the content of the prompts they are given and the different clues they see, rather than from any difference in model architecture, parameters, or internal implementation.
+
+\section{Evaluation Scheme} \label{sec:eval}
+
+The evaluation has two primary axes. First one is also the core concept in this study.
+
+% The evaluation scheme is designed to rigorously assess the trade-off between case-solving rate (correctly solving the mystery) and character consistency (remaining in character) within a multi-agent detective simulation. 
+
+% To ensure robustness, the evaluation framework integrates task-level outcome metrics, model-based classification as baseline, and a suite of quantitative linguistic measures to track the evolution of character integrity turn-by-turn.
+
+% \subsection{Evaluation Overview} \label{sec:eval_overciew}
+
+Each simulation run is evaluated across two primary axes, reflecting the agent's problem solving basic reasoning ability, and its role-playing quality. The two axes are :
 
 
-\section{Evaluation Scheme} \label{sec:evalscheme}
-
-The evaluation scheme is designed to rigorously assess the trade-off between task utility (solving the mystery) and persona fidelity (remaining in character) within a multi-agent detective simulation. Given that the collaborative pressure to reach a consensus often triggers identity contamination or character drift, this study treats character consistency as a multidimensional construct and move beyond macro-level success rates to implement a fine-grained analysis of Out-of-Character (OOC) behaviours \citep{zhou2023characterglm}, quantified through specific linguistic markers across three hierarchical levels.
-
-To ensure robustness, the evaluation framework integrates task-level outcome metrics, model-based classification as baseline, and a suite of quantitative linguistic measures to track the evolution of character integrity turn-by-turn.
-
-\subsection{Evaluation Overview}
-
-Each simulation run is evaluated across two primary axes, reflecting the agent's dual role as a problem-solver and a role-playing entity.
-
-\begin{enumerate}
-    \item \textbf{Task Performance (Utility)}: This study measures the collective intelligence of the detective trio by their ability to accurately identify the murderer within the allotted rounds, similar to the win rate in \citet{zhu2024player}. This axis assesses whether the specific persona prompts or the dynamics of collaboration facilitate or hinder the logical reasoning required for the mysterious cases.
-    \item \textbf{Character Consistency (Linguistic Fidelity)}: This study quantifies the stability of each agent's "investigative fingerprint" throughout the dialogue. Rather than relying on a single aggregate score, character consistency is operationalised through multiple measures spanning lexical, syntactic, and discourse levels.
-\end{enumerate}
 
 In addition, to establish a robust baseline for evaluating character consistency, a fine-tuned BERT-base-cased text classification model is employed. This model functions as an automated "Style Discriminator" to determine the probability that a given utterance belongs to its assigned detective persona \citep{wang2024character100}.
 
 All evaluations are conducted turn-by-turn, enabling both static comparisons against reference texts and dynamic analyses of consistency development over the course of a dialogue.
 
-\subsection{Task performance}
+\subsection{Case-solving rate}
 
 To evaluate the utility of the multi-agent system, task performance is quantified through murderer identification accuracy across three distinct experimental conditions. This ablation-style design allows to isolate the individual contributions of character-specific constraints and collaborative instructions on the agents' deductive reasoning:
 
