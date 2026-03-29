@@ -8,7 +8,7 @@ This script evaluates character-specific lexical consistency in LLM-generated di
 using a TF-IDF-based similarity framework.
 
 For each generated utterance, we compute its lexical similarity to the corresponding
-character’s gold-standard corpus (Holmes, Poirot, Marple) by measuring cosine similarity
+character's gold-standard corpus (Holmes, Poirot, Marple) by measuring cosine similarity
 between TF-IDF representations.
 
 The evaluation focuses on quantifying whether LLM agents preserve character-specific

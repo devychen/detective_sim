@@ -4,46 +4,46 @@ The top-level auxiliary file: thesis_main.aux
 The style file: plainnat.bst
 Database file #1: custom.bib
 Warning--entry type for "ghorbanpour2023jubensha" isn't style-file defined
---line 13 of file custom.bib
-You've used 59 entries,
+--line 84 of file custom.bib
+You've used 66 entries,
             2773 wiz_defined-function locations,
-            894 strings with 18393 characters,
-and the built_in function-call counts, 37774 in all, are:
-= -- 3215
-> -- 2916
-< -- 42
-+ -- 987
-- -- 921
-* -- 3161
-:= -- 5695
-add.period$ -- 186
-call.type$ -- 59
-change.case$ -- 473
-chr.to.int$ -- 52
-cite$ -- 118
-duplicate$ -- 1565
-empty$ -- 2562
-format.name$ -- 992
-if$ -- 7984
+            941 strings with 19757 characters,
+and the built_in function-call counts, 40791 in all, are:
+= -- 3499
+> -- 3048
+< -- 49
++ -- 1033
+- -- 960
+* -- 3380
+:= -- 6149
+add.period$ -- 210
+call.type$ -- 66
+change.case$ -- 506
+chr.to.int$ -- 59
+cite$ -- 132
+duplicate$ -- 1722
+empty$ -- 2834
+format.name$ -- 1044
+if$ -- 8632
 int.to.chr$ -- 8
 int.to.str$ -- 1
-missing$ -- 62
-newline$ -- 307
-num.names$ -- 236
-pop$ -- 1045
+missing$ -- 70
+newline$ -- 344
+num.names$ -- 264
+pop$ -- 1117
 preamble$ -- 1
-purify$ -- 419
+purify$ -- 446
 quote$ -- 0
-skip$ -- 1417
+skip$ -- 1529
 stack$ -- 0
-substring$ -- 1278
-swap$ -- 390
-text.length$ -- 27
+substring$ -- 1398
+swap$ -- 410
+text.length$ -- 28
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 624
+type$ -- 696
 warning$ -- 0
-while$ -- 267
+while$ -- 297
 width$ -- 0
-write$ -- 764
+write$ -- 859
 (There was 1 warning)

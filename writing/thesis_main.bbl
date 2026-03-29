@@ -1,4 +1,4 @@
-\begin{thebibliography}{59}
+\begin{thebibliography}{66}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -102,6 +102,13 @@ Edirlei~Soares de~Lima, Marco~A Casanova, Bruno Feij{\'o}, and Antonio~L Furtado
 \newblock Characterizing the investigative methods of fictional detectives with large language models.
 \newblock \emph{arXiv preprint arXiv:2505.07601}, 2025.
 
+\bibitem[Devlin et~al.(2019)Devlin, Chang, Lee, and Toutanova]{devlin2019bert}
+Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova.
+\newblock {BERT}: Pre-training of deep bidirectional transformers for language understanding.
+\newblock In \emph{Proceedings of the 2019 Conference of the North {A}merican Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)}, pages 4171--4186, Minneapolis, Minnesota, June 2019. Association for Computational Linguistics.
+\newblock \doi{10.18653/v1/N19-1423}.
+\newblock URL \url{https://aclanthology.org}.
+
 \bibitem[Doyle(1887)]{doyle1887study}
 Arthur~Conan Doyle.
 \newblock \emph{A Study in Scarlet}.
@@ -129,6 +136,11 @@ Kamiab Ghorbanpour.
 \newblock URL \url{https://www.dicebreaker.com/categories/roleplaying-game/feature/jubensha-live-action-roleplaying-cluedo-werewolf-chinese-phenomenon}.
 \newblock Archived from the original on 2023-04-24. Retrieved 2023-06-15.
 
+\bibitem[Gibson(1998)]{gibson1998dependency}
+Edward Gibson.
+\newblock Linguistic complexity: Locality of syntactic dependencies.
+\newblock \emph{Cognition}, 68\penalty0 (1):\penalty0 1--76, 1998.
+
 \bibitem[Guo et~al.(2024)Guo, Chen, Wang, Chang, Pei, Chawla, Wiest, and Zhang]{guo2024review}
 Taicheng Guo, Xiuying Chen, Yaqi Wang, Ruidi Chang, Shichao Pei, Nitesh~V Chawla, Olaf Wiest, and Xiangliang Zhang.
 \newblock Large language model based multi-agents: A survey of progress and challenges.
@@ -139,6 +151,21 @@ Xudong Guo, Kaixuan Huang, Jiale Liu, Wenhui Fan, Natalia V{\'e}lez, Qingyun Wu,
 \newblock Embodied llm agents learn to cooperate in organized teams.
 \newblock \emph{IEEE Transactions on Computational Social Systems}, 2026.
 
+\bibitem[Honnibal and Montani(2017)]{spacy2}
+Matthew Honnibal and Ines Montani.
+\newblock {spaCy 2}: Natural language understanding with {B}loom embeddings, convolutional neural networks and incremental parsing.
+\newblock \emph{To appear}, 2017.
+
+\bibitem[Hudson(2007)]{hudson2007dependency}
+Richard~A Hudson.
+\newblock \emph{Language networks: The new word grammar}.
+\newblock Oxford University Press, 2007.
+
+\bibitem[Hutto and Gilbert(2014)]{Hutto2014}
+C.J. Hutto and E.E. Gilbert.
+\newblock Vader: A parsimonious rule-based model for sentiment analysis of social media text.
+\newblock In \emph{Eighth International Conference on Weblogs and Social Media (ICWSM-14)}, Ann Arbor, MI, June 2014.
+
 \bibitem[Ji et~al.(2025)Ji, Lian, Li, Gao, Li, and Dai]{ji2025enhancing}
 Ke~Ji, Yixin Lian, Linxu Li, Jingsheng Gao, Weiyuan Li, and Bin Dai.
 \newblock Enhancing persona consistency for llms’ role-playing using persona-aware contrastive learning.
@@ -148,6 +175,11 @@ Ke~Ji, Yixin Lian, Linxu Li, Jingsheng Gao, Weiyuan Li, and Bin Dai.
 Tian Li, Shengyuan Hu, Ahmad Beirami, and Virginia Smith.
 \newblock Ditto: Fair and robust federated learning through personalization.
 \newblock In \emph{International conference on machine learning}, pages 6357--6368. PMLR, 2021.
+
+\bibitem[Liu(2008)]{liu2008dependency}
+Haitao Liu.
+\newblock Dependency distance as a metric of language comprehension difficulty.
+\newblock \emph{Journal of Cognitive Science}, 9\penalty0 (2):\penalty0 159--191, 2008.
 
 \bibitem[Lu et~al.(2024)Lu, Yu, Zhou, and Zhou]{lu2024large}
 Keming Lu, Bowen Yu, Chang Zhou, and Jingren Zhou.
@@ -198,6 +230,11 @@ Karol Przystalski, Jan~K Argasi{\'n}ski, Iwona Grabska-Gradzi{\'n}ska, and Jerem
 Chen Qian, Wei Liu, Hongzhang Liu, Nuo Chen, Yufan Dang, Jiahao Li, Cheng Yang, Weize Chen, Yusheng Su, Xin Cong, et~al.
 \newblock Chatdev: Communicative agents for software development.
 \newblock In \emph{Proceedings of the 62nd annual meeting of the association for computational linguistics (volume 1: Long papers)}, pages 15174--15186, 2024.
+
+\bibitem[Salton and Buckley(1988)]{salton1988tdidf}
+Gerard Salton and Christopher Buckley.
+\newblock Term-weighting approaches in automatic text retrieval.
+\newblock \emph{Information processing \& management}, 24\penalty0 (5):\penalty0 513--523, 1988.
 
 \bibitem[Samuel et~al.(2024)Samuel, Zou, Zhou, Chaudhari, Kalyan, Rajpurohit, Deshpande, Narasimhan, and Murahari]{samuel2024personagym}
 Vinay Samuel, Henry~Peng Zou, Yue Zhou, Shreyas Chaudhari, Ashwin Kalyan, Tanmay Rajpurohit, Ameet Deshpande, Karthik Narasimhan, and Vishvak Murahari.

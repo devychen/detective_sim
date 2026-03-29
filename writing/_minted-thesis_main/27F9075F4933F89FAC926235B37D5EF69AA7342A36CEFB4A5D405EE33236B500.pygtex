@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+        As a detective, determine the most likely killer from the following fictional murder case. You must stay in your persona throughout this task. Perform all reasoning internally. Output ONLY the killer\PYGZsq{}s NAME. No explanations. No punctuation. No additional words.
+\end{Verbatim}
