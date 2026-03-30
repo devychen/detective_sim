@@ -1,4 +1,4 @@
-\begin{thebibliography}{66}
+\begin{thebibliography}{67}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -230,6 +230,11 @@ Karol Przystalski, Jan~K Argasi{\'n}ski, Iwona Grabska-Gradzi{\'n}ska, and Jerem
 Chen Qian, Wei Liu, Hongzhang Liu, Nuo Chen, Yufan Dang, Jiahao Li, Cheng Yang, Weize Chen, Yusheng Su, Xin Cong, et~al.
 \newblock Chatdev: Communicative agents for software development.
 \newblock In \emph{Proceedings of the 62nd annual meeting of the association for computational linguistics (volume 1: Long papers)}, pages 15174--15186, 2024.
+
+\bibitem[Raj et~al.(2025)Raj, Gupta, Rosati, and Majumdar]{raj2025ece}
+Harsh Raj, Vipul Gupta, Domenic Rosati, and Subhabrata Majumdar.
+\newblock Improving consistency in large language models through chain of guidance.
+\newblock \emph{arXiv preprint arXiv:2502.15924}, 2025.
 
 \bibitem[Salton and Buckley(1988)]{salton1988tdidf}
 Gerard Salton and Christopher Buckley.
