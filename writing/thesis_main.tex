@@ -246,7 +246,7 @@ In collaborative settings, social dynamics make this reasoning decline even wors
 
 Similarly, in murder mystery tasks \citep{wu2024jubensha, zhu2024player}, baseline LLMs perform much worse than specialised frameworks. Baselines often fail to use gathered information effectively, showing a breakdown in processing task-relevant clues while staying in character.
 
-This study utilises \textit{case-solving rate}—defined as correctly identifying the culprit in a detective simulation—not only to measure task success but also to examine the trade-off between role-playing and logical reasoning. By tracking agents' task success rates, it assesses how much cognitive capacity models sacrifice to maintain consistent character identities under multi-agent collaboration pressure.
+This study utilises \textit{case-solving rate}—defined as correctly identifying the culprit in a detective simulation—not only to measure task performance but also to examine the trade-off between role-playing and logical reasoning. By tracking agents' task success rates, it assesses how much reasoning capacity models sacrifice to maintain consistent character identities under multi-agent collaboration pressure.
 
 
 \subsection{Linguistic Metrics} \label{sec:background_lingmetric}
@@ -293,7 +293,7 @@ Within each simulation, dialogue proceeds in turns. \textit{One turn} is defined
 
 Each simulation terminates when either of the following conditions is met: (1) The three agents reach consensus on the identity of the murderer; or (2) The simulation reaches a maximum of 10 turns (i.e., each agent has spoken up to 10 times). The simulation ends regardless of whether consensus is achieved. 
 
-The fictional detectives chosen are \textbf{Sherlock Holmes} from Arthur Conan Doyle's \textit{A Study in Scarlet} \citep{doyle1887study}, \textbf{Miss Marple} from Agatha Christie's \textit{The Murder at the Vicarage} \citep{christie1930murder}, and \textbf{Hercule Poirot} from Christie's \textit{The Mysterious Affair at Styles} \citep{christie1920mysterious}. These characters were selected for their distinctive personalities, investigative approaches \citep{delima2025detective}, and differing genders. Moreover, their extensive and well-documented literary corpora provide rich linguistic material, making them particularly suitable for systematic analysis. The details of how these agents are constructed will be introduced in Subsection \ref{sec:methods_agent}.
+The fictional detectives chosen are \textbf{Sherlock Holmes} from Arthur Conan Doyle's \textit{A Study in Scarlet} \citep{doyle1887study}, \textbf{Miss Marple} from Agatha Christie's \textit{The Murder at the Vicarage} \citep{christie1930murder}, and \textbf{Hercule Poirot} from Christie's \textit{The Mysterious Affair at Styles} \citep{christie1920mysterious}. These characters were selected for their distinctive personalities, investigative approaches \citep{delima2025detective}, and differing genders. Moreover, their extensive and well-documented literary corpus provide rich linguistic material, making them particularly suitable for systematic analysis. The details of how these agents are constructed will be introduced in Subsection \ref{sec:methods_agent}.
 
 Throughout the process, the system maintains comprehensive logging for post-hoc analysis. Dialogue is recorded in CSV format (including turn index, speaker, and extracted name of the believed murderer), while the raw, dynamically evolving system prompts for each run are stored (will be unfolded in later Subsection \ref{sec:methods_prompt}). This dual-logging design ensures full observability and reproducibility, providing a structured basis for the downstream analysis of linguistic drift across lexical, syntactic, and discourse levels. 
 
@@ -361,7 +361,7 @@ common_rules: |
   4. Share your full exclusive clues to others for collaboration. 
 \end{minted}
 
-However, in test runs (to verify whether the overall design works), I found that the collaboration rules alone were not sufficient to ensure the expected output, particularly in terms of format quality. To improve this, I added an additional emphasis on key instructions in the function that builds the system prompt: after assembling the core components above, the same function re-states the important rules to guarantee that the resulting data are suitable for analysis. These instructions are designed to standardise the format and style of each agent's responses (e.g., paragraph structure, sentence length, and the required closing statement), without altering the fundamental collaborative dynamics of the simulation, such as how agents reason, exchange evidence, or negotiate with one another. The added instructions are as follows:
+However, in test simulations (to verify whether the overall design works), I found that the collaboration rules alone were not sufficient to ensure the expected output, particularly in terms of format quality. To improve this, I added an additional emphasis on key instructions in the function that builds the system prompt: after assembling the core components above, the same function re-states the important rules to guarantee that the resulting data are suitable for analysis. These instructions are designed to standardise the format and style of each agent's responses (e.g., paragraph structure, sentence length, and the required closing statement), without altering the fundamental collaborative dynamics of the simulation, such as how agents reason, exchange evidence, or negotiate with one another. The added instructions are as follows:
 \begin{minted}{text}
 IMPORTANT:
  - Begin with self-introductions because you don't know each other.
@@ -458,14 +458,14 @@ Thus, all behavioural differences between Holmes, Poirot, and Marple come from t
 
 The evaluation rests on two primary axes. The first and also the central concept in this study is \textbf{character consistency}. As noted in Subsection \ref{sec:intro_cc_in_ling}, character consistency is treated here as fundamentally a question of linguistic style, defined as the successful maintenance of a specific linguistic style throughout an interaction. More specifically, it is operationalised through a set of measures spanning lexical, syntactic, and discourse levels. The specific metrics are introduced in the following subsections..
 
-As discussed in Subsection \ref{sec:background_task_performance}, maintaining complex characters in multi-agent collaboration often creates tension between logical reasoning and role-playing. To reflect this trade-off between task performance (correctly solving the mystery) and character consistency (remaining in character), this study also calculate the \textbf{case-solving rate}. This is defined as the proportion of simulations in which the three detectives jointly identify the true murderer. Each of the three cases was run 50 times, and the case-solving rate is the number of runs in which the agents' agreed-upon culprit matches the actual murderer, divided by 50. This measure was first introduced in Subsection \ref{sec:background_task_performance}.
+As discussed in Subsection \ref{sec:background_task_performance}, maintaining complex characters in multi-agent collaboration often creates tension between logical reasoning and role-playing. To reflect this trade-off between task performance (correctly solving the mystery) and character consistency (remaining in character), this study also calculate the \textbf{case-solving rate}. This is defined as the proportion of simulations in which the three detectives jointly identify the true murderer. Each of the three cases was run 50 times, and the case-solving rate is the number of simulations in which the agents' agreed-upon culprit matches the actual murderer, divided by 50. This measure was first introduced in Subsection \ref{sec:background_task_performance}.
 
-\subsection{Case-Solving rate} \label{sec:eval_csrate}
+\subsection{Case-Solving rate} \label{sec:eval_case-solving-rate}
 
 Task performance is measured by the case-solving rate across three experimental conditions.
 
 \begin{itemize}
-    \item Condition 1: \textbf{Zero prompt (Baseline)}: Agents solve the case without role-playing or collaboration guidelines. This serves as a measure of the LLM's inherent reasoning ability.
+    \item Condition 1: \textbf{Zero prompt (Baseline)}: Agents solve the case without role-play or collaboration guidelines. And they are given the full case information. This serves as a measure of the LLM's inherent reasoning ability.
     \item Condition 2: \textbf{Persona only}: Agents are given the detective's role-play guidelines but no instructions on how to collaborate. They do not engage in dialogue; instead, they output only the name of the suspect they believe to be the murderer. This condition tests whether adopting a customised character separately improves or worsens task performance. The system prompt used is:
     \item[] 
     \begin{minted}{text}
@@ -559,13 +559,13 @@ In this study, an \textit{utterance} refers to a single agent's complete respons
 The analysis of these probabilities across turns proceeds in three steps:
 
 \begin{itemize}
-    \item \textbf{Mean probability over turns}: For each agent, we extract the probability of the correct class for every turn, then compute the mean (across all simulations) at each turn. We also compute 95\% confidence intervals over the runs using bootstrapping. These mean values and intervals are plotted against turn number to visualise whether confidence increases, decreases, or remains stable over time.
+    \item \textbf{Mean probability over turns}: For each agent, we extract the probability of the correct class for every turn, then compute the mean (across all simulations) at each turn. We also compute 95\% confidence intervals over the simulations using bootstrapping. These mean values and intervals are plotted against turn number to visualise whether confidence increases, decreases, or remains stable over time.
     \item \textbf{Brier score over turns}: For each utterance, the Brier score is computed as the squared error between the predicted probability for the correct class and 1.0. Lower Brier scores indicate higher confidence in the correct class. The Brier scores are then averaged over all simulations for each turn, and the mean and confidence intervals are plotted over turns.
     \begin{equation}
         Brier Score = (p_{correct} - 1)^{2}
     \label{eq:brier}
     \end{equation}
-    \item \textbf{Trend estimation via linear regression}: For each agent and each case, all utterances from all simulations are pooled into a single dataset. A pooled ordinary least squares (OLS) regression is then fitted with the probability of the correct class (and separately, the Brier score) as the dependent variable and turn number as the sole predictor. In this setup, every utterance is treated as an independent observation, and a single regression line is estimated for the combined data. The slope and $p$-value of the turn coefficient indicate whether there is a significant increasing or decreasing trend in classification confidence over the dialogue. This approach allows the overall trend in character consistency, as captured by the classifier, to be summarised across all runs, and indicates whether consistency collapses, improves, or stays stable as collaboration proceeds.
+    \item \textbf{Trend estimation via linear regression}: For each agent and each case, all utterances from all simulations are pooled into a single dataset. A pooled ordinary least squares (OLS) regression is then fitted with the probability of the correct class (and separately, the Brier score) as the dependent variable and turn number as the sole predictor. In this setup, every utterance is treated as an independent observation, and a single regression line is estimated for the combined data. The slope and $p$-value of the turn coefficient indicate whether there is a significant increasing or decreasing trend in classification confidence over the dialogue. This approach allows the overall trend in character consistency, as captured by the classifier, to be summarised across all simulations, and indicates whether consistency collapses, improves, or stays stable as collaboration proceeds.
 \end{itemize}
 
 These analyses are performed separately for each agent (Holmes, Poirot, Marple) and for each case. The resulting plots and regression tables describe temporal patterns in character consistency and provide an external, model-based benchmark against which the new linguistic metrics are later validated. The results will be introduced in Subsection \ref{sec:results}
@@ -620,18 +620,18 @@ Together, these two measures allow the analysis to distinguish between two types
     \label{eq:simulation-based z-score}
 \end{equation}
 
-where $\mu_{\mathrm{sim}}$ and $\sigma_{\mathrm{sim}}$ are the mean and standard deviation of syntactic depth computed over all utterances produced by the same character across all cases and all runs in the simulation corpus.
+where $\mu_{\mathrm{sim}}$ and $\sigma_{\mathrm{sim}}$ are the mean and standard deviation of syntactic depth computed over all utterances produced by the same character across all cases and all simulations in the simulation corpus.
 
-Finally, regression model is used to examine whether syntactic depth changes systematically during extended interaction. For each detective character, utterances from all three cases and all simulations are pooled into a single dataset. A pooled ordinary least squares (OLS) regression is then fitted with turn number as the predictor and syntactic deviation ($z_{\mathrm{ref}}$ or $z_{\mathrm{sim}}$) as the outcome. In this setup, every utterance is treated as an independent observation, and a single regression line is estimated for the combined data of that character across all cases and runs. The slope and $p$-value of the turn coefficient indicate whether there is a significant increasing or decreasing trend in syntactic deviation over the course of the dialogue.
+Finally, regression model is used to examine whether syntactic depth changes systematically during extended interaction. For each detective character, utterances from all three cases and all simulations are pooled into a single dataset. A pooled ordinary least squares (OLS) regression is then fitted with turn number as the predictor and syntactic deviation ($z_{\mathrm{ref}}$ or $z_{\mathrm{sim}}$) as the outcome. In this setup, every utterance is treated as an independent observation, and a single regression line is estimated for the combined data of that character across all cases and simulations. The slope and $p$-value of the turn coefficient indicate whether there is a significant increasing or decreasing trend in syntactic deviation over the course of the dialogue.
 
-All syntactic measurements are computed using the same dependency parsing pipeline for both reference and simulation corpora to ensure methodological consistency. The resulting per-utterance metrics and aggregated statistics form the basis for subsequent analysis of character consistency syntactically.
+All syntactic measurements are computed using the same dependency parsing pipeline for both reference and simulation corpus to ensure methodological consistency. The resulting per-utterance metrics and aggregated statistics form the basis for subsequent analysis of character consistency syntactically.
 
 
 \subsection{Discourse metrics} \label{sec:eval_discourse}
 
 At the discourse level, this study analyses \textbf{sentiment trajectories} as an auxiliary indicator of character consistency. Sentiment is measured using VADER \citep{Hutto2014}, a rule-based sentiment analyser that returns a four-dimensional polarity vector for each utterance: positive, negative, neutral, and compound scores. These are not embeddings from a pretrained neural model, but normalised scores between 0 and 1 (for pos, neg, neu) and between $-1$ and $+1$ (for compound), computed directly from the text using lexical cues. The positive, negative, and neutral scores indicate how much of the text is judged as positive, negative, or neutral. A compound score above $0.05$ are typically treated as positive, values below $-0.05$ as negative, and values in between as neutral.
 
-First, reference sentiment profiles are constructed from the original literary corpora. For each character (Holmes, Poirot, Marple), VADER is applied to every utterance in the baseline corpus, and the four-dimensional vectors are averaged across all utterances of that character. This produces a single reference vector per character:
+First, reference sentiment profiles are constructed from the original literary corpus. For each character (Holmes, Poirot, Marple), VADER is applied to every utterance in the baseline corpus, and the four-dimensional vectors are averaged across all utterances of that character. This produces a single reference vector per character:
 
 \begin{equation}
     \mathbf{v}_{\mathrm{ref}} = [\text{pos}_{\mathrm{ref}}, \text{neg}_{\mathrm{ref}}, \text{neu}_{\mathrm{ref}}, \text{compound}_{\mathrm{ref}}]
@@ -662,7 +662,7 @@ Larger distances indicate stronger deviations from the canonical sentiment profi
 
 The evolution of sentiment distance over dialogue is analysed to detect discourse-level inconsistency. For each character in each simulation, a simple linear regression is fitted with turn number as the predictor and sentiment distance as the outcome. The slope of this regression captures the direction and magnitude of sentiment drift across the interaction: a positive slope indicates increasing distance from the baseline sentiment over time, while a negative slope indicates convergence.
 
-Summary statistics (mean and standard deviation of slopes and mean distances) are then aggregated across turns, runs, cases, and characters to compare average inconsistency patterns. While sentiment is not treated as a primary marker of persona identity in many studies, these trajectories provide an additional discourse-level signal for detecting potential inconsistencies in character behaviour over time, complementing the lexical and syntactic metrics described earlier.
+Summary statistics (mean and standard deviation of slopes and mean distances) are then aggregated across turns, simulations, cases, and characters to compare average inconsistency patterns. While sentiment is not treated as a primary marker of persona identity in many studies, these trajectories provide an additional discourse-level signal for detecting potential inconsistencies in character behaviour over time, complementing the lexical and syntactic metrics described earlier.
 
 \subsection{Validation across metrics} \label{sec:eval_validation}
 
@@ -682,7 +682,7 @@ Finally, the metrics are compared using a composite \textit{faithfulness score}.
 
 Character contamination (defined as the blurring of identity boundaries within multi-agent collaboration in Subsection \ref{sec:intro_application_background}) across agents is examined using clustering analyses. Utterances from both the reference corpus (the original literary texts) and the simulation dialogues are represented as vectors and grouped into three clusters, one for each detective. The quality of this clustering is evaluated using three standard separability metrics: the silhouette coefficient, cluster purity, and the adjusted Rand index (ARI). By comparing clustering results between the reference and simulation data, the analysis checks whether collaborative dialogue reduces the distinctiveness of the three characters.
 
-Two types of vector representations are used. The first uses embedding vectors from the fine-tuned three-class character classifier. For each utterance, the CLS hidden state from the encoder of this classifier is extracted as the utterance representation. Clustering results are evaluated against the true character labels, giving an ARI for character identity (\texttt{ARI\textsubscript{character}}). 
+Two types of vector representations are used. The first uses embedding vectors from the fine-tuned three-class character classifier. For each utterance, the CLS hidden state from the encoder of this classifier is extracted as the utterance representation. Clustering results are evaluated against the true character labels, giving an ARI for character identity ($\mathrm{ARI_\mathrm{character}}$). 
 
 For the simulation data, clustering is also evaluated against case identifiers, giving a second ARI ($\mathrm{ARI_\mathrm{case}}$). This second check tests whether the clusters reflect the narrative context (which case the utterance comes from) rather than the character identity. If clustering aligns more with case than with character, it suggests that contextual factors are dominating over character-specific style.
 
@@ -692,19 +692,19 @@ Clustering performance on the simulation data is then compared with performance 
 
 \section{Results} \label{sec:results}
 
-\subsection{Data Overview}
+\subsection{Simulation Data Overview} \label{sec:results_data-overview}
 
-Before presenting the experimental results, an overview of the reference corpus and simulation data used in the analyses is presented.
+Before presenting the experimental results, this section gives an overview of the reference corpus and the simulation data used in the analyses.
 
-The \textbf{reference corpus} consists of 13,733 utterances extracted from canonical texts. The distribution across characters is relatively balanced: 4,907 utterances for Poirot, 4,445 for Marple, and 4,381 for Holmes. This corpus forms the basis for training and validating the character classifier and for constructing linguistic reference profiles.
+The \textbf{reference corpus} consists of 13,733 utterances extracted from canonical literary texts. The distribution across characters is relatively balanced: 4,907 utterances for Poirot, 4,445 for Marple, and 4,381 for Holmes. This corpus is used to train and validate the character classifier and to construct linguistic reference profiles for each detective.
 
-The \textbf{simulation dataset} comprises 387 utterances generated across 30 multi-agent runs (three cases × ten runs per case). At the case level, utterances were distributed as follows: 147 for Case 1, 120 for Case 2, and 120 for Case 3.
+The \textbf{simulation dataset} comprises 387 utterances generated across 30 multi-agent runs (three cases, with ten runs per case). At the case level, utterances are distributed as follows: 147 for Case 1, 120 for Case 2, and 120 for Case 3.
 
-This relatively balanced simulation design supports fair comparison across characters and cases in subsequent linguistic and clustering analyses.
+This relatively balanced simulation design supports fair comparison across characters and cases in the subsequent analyses.
 
-\subsection{Task performance}
+\subsection{Case-Solving Rate} \label{sec:results_case-solving-rate}
 
-To evaluate the influence of character-specific prompting and collaborative dynamics on the deductive capabilities of LLM agents, the murderer identification accuracy is calculated across repeated simulation runs (\textit{N}=50 for each case/condition). The results summarised in Table \ref{task_accuracy} reveal a distinct \textbf{performance gradient} where task utility is progressively challenged by the introduction of persona constraints and group interactio
+To evaluate how persona constraints and collaboration affect the deductive ability of LLM agents, the case-solving rate (introduced in Subsection \ref{sec:eval_case-solving-rate}) is calculated across repeated simulations. The three experimental conditions are referred to as C1 (zero-shot baseline), C2 (persona prompt without collaboration), and C3 (collaboration prompt without persona). The results in Table \ref{tab:case-solving rate} show a clear \emph{performance gradient}: task performance declines stepwise as persona constraints and collaboration are introduced.
 
 \begin{table}[H]
 \centering
@@ -716,40 +716,35 @@ C2: Persona Prompt (No Collaboration)& 92\% (46/50) & 36\% (18/50) & 100\% \\
 C3: Collaboration Prompt (No Persona)& 20\% (10/50) & 50\% & 40\% \\ \bottomrule
 \end{tabular}
 }%
-\caption{Murderer Identification Accuracy across Three Experimental Conditions}
-\label{task_accuracy}
+\caption{Case-Solving Rate Across Three Experimental Conditions}
+\label{tab:case-solving rate}
 \end{table}
 
 \subsubsection{Baseline reasoning capacity (C1)}
-In the zero-shot baseline condition, the agents exhibited exceptional deductive performance, achieving near-perfect accuracy (97\% to 100\%) across all three cases. These results confirm that the underlying LLM possesses the necessary parametric knowledge and reasoning depth to solve these cases when acting as a stand-alone generic reasoner \citep{wu2024jubensha}. This high baseline serves as the upper-bound performance reference and suggests that any subsequent decline in accuracy is not due to an inherent lack of reasoning ability but rather the cognitive load introduced by the character-specific prompting or collaborative dynamics.
 
-\subsubsection{The impact of character prompts (C2)}
+In the zero-shot baseline condition, agents showed very high deductive performance, with accuracy between 97\% and 100\% across all three cases. These results indicate that the underlying LLM has sufficient parametric knowledge and reasoning depth to solve the cases when acting as a stand-alone, generic reasoner \citep{wu2024jubensha}. This high baseline serves as an upper-bound reference for performance. Any later drop in case-solving rate is therefore not due to a lack of basic reasoning ability, but rather to the cognitive burden introduced by persona or by collaborative dynamics.
 
-The introduction of character prompts in Condition 2 (without collaboration) led to significant variability in performance. While Case 3 remained unaffected (100\%), Case 1 saw a slight decline to 92\%, and Case 2 suffered a substantial performance collapse to 36\%.
+\subsubsection{The impact of persona (C2)}
 
-This discrepancy suggests that \textbf{character consistency exists in a trade-off with task utility}. In Case 2, the specific role-playing required by the character prompt may have acted as a distraction. As noted in the literature, enforcing a specific character identity can hinder a model's ability to utilize its full reasoning capacity, especially when the character's "voice" or "behavioural constraints" conflict with the most direct logical path to the solution \citep{shao2023characterllm, samuel2024personagym}.
+The introduction of persona prompts in C2 led to significant variability in performance. While Case 3 remained unaffected (100\%), Case 1 saw a slight decline to 92\%, and Case 2 suffered a substantial drop to 36\%.
+
+This discrepancy suggests that \emph{character consistency exists in a trade-off with task performance}. In Case 2, the role-playing required by the character prompt may have acted as a distraction. This supports the discussion in Subsection \ref{sec:background_task_performance} where prior studies found that enforcing a specific character identity can hinder a model's ability to use its logical reasoning capacity.
 
 \subsubsection{The impact of collaborative dynamics (C3)}
 
-The most striking finding is the sharp reduction in accuracy across all cases when multi-agent collaboration was introduced. Despite the agents having access to partial case clues which is designed to encourage collective intelligence, accuracy plummeted to 20\% for Case 1, 50\% for Case 2, and 40\% for Case 3. Comparing the C1 and C2, the collaborative setting yielded the lowest performance levels.
+The most striking result is the sharp reduction in accuracy across all cases when multi-agent collaboration was introduced in Condition C3 (collaboration-only, without persona). Although agents were given partial case clues, accuracy fell to 20\% for Case 1, 50\% for Case 2, and 40\% for Case 3. Compared with both C1 and C2, the collaborative condition produced the lowest accuracy on every case.
 
-As noted in previous work, this collaboration paradox can be interpreted through several theoretical lenses. 
+Overall, the results show a clear performance gradient across conditions. The zero-shot baseline (C1) achieves the highest accuracy on all three cases. The persona-only condition (C2) yields intermediate accuracy, with strong performance on Cases 1 and 3 but a marked drop on Case 2. The collaboration-only condition (C3) produces the lowest accuracy on every case. This pattern indicates that the effect of adding persona constraints and, especially, adding collaboration is not uniform across cases; the magnitude of the performance drop depends on the specific case. 
 
-First, agents demonstrate extreme sensitivity to perceived peer pressure, resulting in strong conformity during discussions. This often leads them to sacrifice individual logical rigour or their pre-assigned investigative stance in favour of achieving alignment with the group \citep{baltaji2024cultured}.
+This supports the discussion in Subsection \ref{sec:background_task_performance}, where prior studies found that maintaining complex persona can reduce LLMs' overall performance, and that social dynamics in collaborative settings make it even worse.
 
-Second, the detective scenario involves a complex social reasoning bottleneck, requiring agents to possess high-order Theory of Mind (ToM) inference capabilities to track the beliefs and hidden goals of others. However, existing collaboration mechanisms often trigger information redundancy and noisy dialogue streams, which can obscure key evidence and hinder the deductive process \citep{ wu2024jubensha, zhu2024player, guo2026collab}.
+\subsection{Classifier-based baseline} \label{sec:results_classifier}
 
-\subsubsection{Case-specific sensitivity}
+As introduced in Subsection \ref{sec:eval_baseline_4eval}, a BERT-based classifier is trained to assess how classification confidence changes over the course of a dialogue. This confidence serves as an indirect measure of character consistency over time.
 
-Overall, these results demonstrate a clear performance gradient across conditions, with highest accuracy observed in the zero-shot baseline, intermediate and case-dependent performance under persona prompting, and lowest accuracy in the collaborative condition. This suggests that the impact of character persona and collaboration is not uniform but highly sensitive to case-specific characteristics.
+Tables \ref{tab:prob_correct} and \ref{tab:brier_score} present the regression results for the predicted probability of the correct class and the Brier score across turns, aggregated over all characters and cases, for a quick overview. A detailed interpretation is given in the following subsections, one character at a time. It should be noted that although statistically significant effects are present (values with $p<0.05$ are marked with *), the explained variance remains modest ($R^2\leq0.15$ in all cases). This indicates that the turn index accounts for only a limited proportion of the variance in attribution confidence.
 
-\subsection{Classifier-based model baseline} \label{sec:results_classifier}
-
-A BERT-based text classification model is trained as a model-based baseline to evaluate character consistency, as describe in the \textit{Methods} section.  To evaluate whether character identity becomes less recognisable as dialogue progresses, classifier confidence as a function of turn index is modelled. Specifically, the probability assigned by the trained classifier to the correct character label (\texttt{prob\_correct}) is extracted for each utterance. Linear regressions were then conducted with turn index as predictor. Negative slopes indicate declining attribution confidence over time and are interpreted as evidence of behavioural drift. In addition,  the mean squared error of predicted probabilities - Brier scores (\texttt{brier\_score}) - were examined descriptively to assess overall calibration stability.
-
-Regression analyses were conducted separately for each character within each case, pooling utterances across runs in order to estimate character-level temporal trends. Even where slopes did not reach statistical significance, their direction and magnitude are reported to provide a fuller picture of temporal tendencies. Although statistically significant effects are noted, explained variance remains modest ($R^2 \leq 0.15$ in all cases), indicating that turn index accounts for only a limited proportion of variance in attribution confidence.
-
-The results are presented collectively for clearer comparisons and overview. Table \ref{prob_correct} and Table \ref{brier_score} below show the regression results for predicted probability of correct class and brier score over turns. 
+The regression results are also visualised in Figures \ref{fig:classifier_case1}, \ref{fig:classifier_case2}, and \ref{fig:classifier_case3}. For each case, two plots are shown: one for the predicted probability of the correct character (\texttt{prob\_correct}) and one for the Brier score (\texttt{brier\_score}). The x-axis represents the dialogue turn, and the y-axis shows either the classifier probability or the Brier score. Each plot contains three curves, one for each detective. Shaded regions around each curve indicate bootstrap confidence intervals (CI).
 
 \begin{table}[H]
 \centering
@@ -766,7 +761,7 @@ case3 & Marple & -0.102* & [-0.182, -0.021] & 0.146 \\
 case3 & Poirot & -0.061 & [-0.157, 0.034] & 0.042 \\ \bottomrule
 \end{tabular}
 \caption{Regression Results for Predicted Probability of Correct Class}
-\label{prob_correct}
+\label{tab:prob_correct}
 \end{table}
 
 
@@ -785,10 +780,10 @@ case3 & Marple & 0.103* & [0.019, 0.188] & 0.139 \\
 case3 & Poirot & 0.061 & [-0.034, 0.156] & 0.043 \\ \bottomrule
 \end{tabular}
 \caption{Regression Results for Brier Score}
-\label{brier_score}
+\label{tab:brier_score}
 \end{table}
 
-Figure \ref{bert_case1}, \ref{bert_case2} and \ref{bert_case3} below are the plots of predicted probabilities and brier scores for each case. For each case, two plots are produced. The x-axis represents the dialogue turn, while the y-axis shows either the classifier probability for the correct character (\texttt{prob\_correct}) or the Brier score (\texttt{brier\_score}). Each plot contains three curves corresponding to the three detectives (Holmes, Marple, and Poirot). Shaded regions around each curve indicate bootstrap confidence intervals (CI).
+
 
 
 
@@ -796,18 +791,18 @@ Figure \ref{bert_case1}, \ref{bert_case2} and \ref{bert_case3} below are the plo
     \centering
     \begin{minipage}{\textwidth}
         \centering
-        \begin{subfigure}[b]{0.9\textwidth}
+        \begin{subfigure}[b]{1.2\textwidth}
             \centering
              \includegraphics[width=.7\linewidth]{images/case1_prob_multi_agent.png}
-            \caption{Predicted Probability}\label{prob_case1}
+            \caption{Predicted Probability}\label{fig:prob_case1}
         \end{subfigure}\qquad
-        \begin{subfigure}[b]{0.9\textwidth}
+        \begin{subfigure}[b]{1.2\textwidth}
             \centering
             \includegraphics[width=.7\linewidth]{images/case1_brier_multi_agent.png}
-            \caption{Brier Score}\label{brier_case1}
+            \caption{Brier Score}\label{fig:brier_case1}
         \end{subfigure}
     \caption{Plot of Predicted Probability and Brier Score for Case 1}
-    \label{bert_case1}
+    \label{fig:classifier_case1}
     \end{minipage}
 \end{figure}
 
@@ -815,18 +810,18 @@ Figure \ref{bert_case1}, \ref{bert_case2} and \ref{bert_case3} below are the plo
     \centering
     \begin{minipage}{\textwidth}
         \centering
-        \begin{subfigure}[b]{.9\textwidth}
+        \begin{subfigure}[b]{1.2\textwidth}
             \centering
              \includegraphics[width=.7\linewidth]{images/case2_prob_multi_agent.png}
-            \caption{Predicted Probability}\label{prob_case2}
+            \caption{Predicted Probability}\label{fig:prob_case2}
         \end{subfigure}\qquad
-        \begin{subfigure}[b]{.9\textwidth}
+        \begin{subfigure}[b]{1.2\textwidth}
             \centering
             \includegraphics[width=.7\linewidth]{images/case2_brier_multi_agent.png}
-            \caption{Brier Score}\label{brier_case2}
+            \caption{Brier Score}\label{fig:brier_case2}
         \end{subfigure}
     \caption{Plot of Predicted Probability and Brier Score for Case 2}
-    \label{bert_case2}
+    \label{fig:classifier_case2}
     \end{minipage}
 \end{figure}
 
@@ -834,29 +829,28 @@ Figure \ref{bert_case1}, \ref{bert_case2} and \ref{bert_case3} below are the plo
     \centering
     \begin{minipage}{\textwidth}
         \centering
-        \begin{subfigure}[b]{.9\textwidth}
+        \begin{subfigure}[b]{1.2\textwidth}
             \centering
              \includegraphics[width=.7\linewidth]{images/case3_prob_multi_agent.png}
-            \caption{Predicted Probability}\label{prob_case3}
+            \caption{Predicted Probability}\label{fig:prob_case3}
         \end{subfigure}\qquad
-        \begin{subfigure}[b]{.9\textwidth}
+        \begin{subfigure}[b]{1.2\textwidth}
             \centering
             \includegraphics[width=.7\linewidth]{images/case3_brier_multi_agent.png}
-            \caption{Brier Score}\label{brier_case3}
+            \caption{Brier Score}\label{fig:brier_case3}
         \end{subfigure}
     \caption{Plot of Predicted Probability and Brier Score for Case 3}
-    \label{bert_case3}
+    \label{fig:classifier_case3}
     \end{minipage}
 \end{figure}
-
 
 Visualisations above are shown for each case in order to preserve the temporal structure of the dialogues. Nevertheless, since the analysis focuses on character-level consistency, the results below are organised by agent.
 
 \subsubsection{Holmes}
 
-Holmes exhibits a significant negative temporal trend in Case 1 ($\beta=-0.063$, $p=.025$). This indicates that classifier confidence in correctly attributing Holmes' utterances decreases gradually over turns. Although the magnitude of the slope is moderate, the directionality is consistent across runs, suggesting a systematic tendency rather than isolated fluctuations. This pattern constitutes evidence of classifier-detected inconsistency in Case 1.
+Holmes exhibited a significant negative temporal trend in Case 1 ($\beta=-0.063$, $p=.025$). This indicates that classifier confidence in correctly attributing Holmes' utterances decreased gradually over turns. Although the magnitude of the slope was moderate, the directionality was consistent across simulations, suggesting a systematic tendency rather than isolated fluctuations. This pattern constitutes evidence of Holmes' character inconsistency in Case 1.
 
-In Cases 2 and 3, however, no significant trend is observed ($p>.05$ in both cases). In Case 2, the slope is slightly negative but not statistically significant. Although the direction is consistent with drift, the effect size is small and variability across runs appears to attenuate the trend. Thus, no reliable temporal degradation can be established in this scenario. In Case 3, the slope is again negative but non-significant. The absence of statistical significance suggests that any temporal weakening is subtle and not robust across simulations. In both cases, classifier confidence remains comparatively stable across turns, and no consistent directional movement is detectable. These results suggest that Holmes' behavioural stability depends on contextual factors inherent to the task scenario.
+In Cases 2 and 3, however, no significant trend was observed ($p>.05$ in both cases). In Case 2, the slope was slightly negative but not statistically significant. Although the direction was consistent with drift, the effect size was small and variability across simulations appears to attenuate the trend. Thus, no reliable temporal degradation can be established in this scenario. In Case 3, the slope was again negative but non-significant. The absence of statistical significance suggests that any temporal weakening is subtle and not robust across simulations. In both cases, classifier confidence remains comparatively stable across turns, and no consistent directional movement is detectable. These results suggest that Holmes' behavioural stability depends on contextual factors inherent to the task scenario.
 
 Taken together, Holmes exhibits the clearest evidence of classifier-detected drift in Case 1, while in the remaining cases only weak or unstable downward tendencies are observed. Holmes demonstrates selective inconsistency rather than uniform degradation across cases. The classifier detects temporal weakening of stylistic distinctiveness only under specific interactional conditions.
 
@@ -880,9 +874,9 @@ Overall, Poirot appears comparatively robust at the character consistency compar
 
 Across characters and cases, classifier-based character consistency is generally stable. Statistically significant temporal inconsistency is observed in only two instances: Holmes in Case 1 and Marple in Case 3. In both cases, the predicted probability of the correct class decreases over turns, accompanied by increasing Brier scores. This pattern indicates both declining attribution confidence and reduced probabilistic calibration as the dialogue progresses.
 
-In all remaining character–case combinations, regression slopes are not statistically different from zero. Classifier confidence therefore remains broadly stable over dialogue turns. Bootstrap confidence intervals widen slightly in later turns, reflecting increased variability and fewer observations.
+In all remaining character-case combinations, regression slopes are not statistically different from zero. Classifier confidence therefore remains broadly stable over dialogue turns. Bootstrap confidence intervals widen slightly in later turns, reflecting increased variability and fewer observations.
 
-Overall, the results suggest that character inconsistency emerges selectively rather than systematically. Most character–case configurations maintain stable classifier-based character consistency throughout the dialogue, while only a small number of scenarios exhibit measurable temporal degradation.
+Overall, the results suggest that character inconsistency emerges selectively rather than systematically. Most character-case configurations maintain stable classifier-based character consistency throughout the dialogue, while only a small number of scenarios exhibit measurable temporal degradation.
 
 \subsection{Lexical Metrics}
 
@@ -892,7 +886,7 @@ To ensure data quality, simulated utterances were pre-filtered to a minimum leng
 
 \subsubsection{Vector-based TF-IDF similarity}
 
-Lexical alignment was first evaluated by calculating the cosine similarity between generated utterances and character-specific TF–IDF centroids from the literary reference corpora. Across all characters ($N=129$ per character), Poirot exhibited the highest mean similarity ($M=0.119$, $SD=0.025$), followed by Marple ($M=0.110$, $SD=0.041$) and Holmes ($M=0.100$, $SD=0.025$). Detailed summary statistics, including similarity ranges and standard deviations, are provided in Table \ref{lexical_tfidf}. While absolute similarity values were modest (likely due to the domain divergence between literary narrative prose and task-oriented simulation dialogue), they reveal measurable character-specific differentiation.
+Lexical alignment was first evaluated by calculating the cosine similarity between generated utterances and character-specific TF–IDF centroids from the literary reference corpus. Across all characters ($N=129$ per character), Poirot exhibited the highest mean similarity ($M=0.119$, $SD=0.025$), followed by Marple ($M=0.110$, $SD=0.041$) and Holmes ($M=0.100$, $SD=0.025$). Detailed summary statistics, including similarity ranges and standard deviations, are provided in Table \ref{lexical_tfidf}. While absolute similarity values were modest (likely due to the domain divergence between literary narrative prose and task-oriented simulation dialogue), they reveal measurable character-specific differentiation.
 
 \begin{table}[H]
 \centering

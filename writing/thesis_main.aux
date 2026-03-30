@@ -152,7 +152,7 @@
 \@writefile{toc}{\contentsline {section}{\numberline {4}Evaluation Scheme}{26}{}\protected@file@percent }
 \newlabel{sec:eval}{{4}{26}{Evaluation Scheme}{}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Case-Solving rate}{26}{}\protected@file@percent }
-\newlabel{sec:eval_csrate}{{4.1}{26}{Case-Solving rate}{}{}}
+\newlabel{sec:eval_case-solving-rate}{{4.1}{26}{Case-Solving rate}{}{}}
 \citation{devlin2019bert}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Classification baseline}{27}{}\protected@file@percent }
 \newlabel{sec:eval_baseline}{{4.2}{27}{Classification baseline}{}{}}
@@ -197,108 +197,106 @@
 \citation{wu2024jubensha}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Results}{36}{}\protected@file@percent }
 \newlabel{sec:results}{{5}{36}{Results}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Data Overview}{36}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Task performance}{36}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Murderer Identification Accuracy across Three Experimental Conditions}}{36}{}\protected@file@percent }
-\newlabel{task_accuracy}{{3}{36}{Task performance}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Simulation Data Overview}{36}{}\protected@file@percent }
+\newlabel{sec:results_data-overview}{{5.1}{36}{Simulation Data Overview}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Case-Solving Rate}{36}{}\protected@file@percent }
+\newlabel{sec:results_case-solving-rate}{{5.2}{36}{Case-Solving Rate}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Case-Solving Rate Across Three Experimental Conditions}}{36}{}\protected@file@percent }
+\newlabel{tab:case-solving rate}{{3}{36}{Case-Solving Rate}{}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Baseline reasoning capacity (C1)}{36}{}\protected@file@percent }
-\citation{shao2023characterllm,samuel2024personagym}
-\citation{baltaji2024cultured}
-\citation{wu2024jubensha,zhu2024player,guo2026collab}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}The impact of character prompts (C2)}{37}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}The impact of persona (C2)}{37}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.3}The impact of collaborative dynamics (C3)}{37}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.4}Case-specific sensitivity}{37}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Classifier-based model baseline}{38}{}\protected@file@percent }
-\newlabel{sec:results_classifier}{{5.3}{38}{Classifier-based model baseline}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Classifier-based baseline}{37}{}\protected@file@percent }
+\newlabel{sec:results_classifier}{{5.3}{37}{Classifier-based baseline}{}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Regression Results for Predicted Probability of Correct Class}}{38}{}\protected@file@percent }
-\newlabel{prob_correct}{{4}{38}{Classifier-based model baseline}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Regression Results for Brier Score}}{39}{}\protected@file@percent }
-\newlabel{brier_score}{{5}{39}{Classifier-based model baseline}{}{}}
-\newlabel{prob_case1}{{1a}{40}{Classifier-based model baseline}{}{}}
-\newlabel{sub@prob_case1}{{a}{40}{Classifier-based model baseline}{}{}}
-\newlabel{brier_case1}{{1b}{40}{Classifier-based model baseline}{}{}}
-\newlabel{sub@brier_case1}{{b}{40}{Classifier-based model baseline}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Plot of Predicted Probability and Brier Score for Case 1}}{40}{}\protected@file@percent }
-\newlabel{bert_case1}{{1}{40}{Classifier-based model baseline}{}{}}
-\newlabel{prob_case2}{{2a}{41}{Classifier-based model baseline}{}{}}
-\newlabel{sub@prob_case2}{{a}{41}{Classifier-based model baseline}{}{}}
-\newlabel{brier_case2}{{2b}{41}{Classifier-based model baseline}{}{}}
-\newlabel{sub@brier_case2}{{b}{41}{Classifier-based model baseline}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Plot of Predicted Probability and Brier Score for Case 2}}{41}{}\protected@file@percent }
-\newlabel{bert_case2}{{2}{41}{Classifier-based model baseline}{}{}}
-\newlabel{prob_case3}{{3a}{42}{Classifier-based model baseline}{}{}}
-\newlabel{sub@prob_case3}{{a}{42}{Classifier-based model baseline}{}{}}
-\newlabel{brier_case3}{{3b}{42}{Classifier-based model baseline}{}{}}
-\newlabel{sub@brier_case3}{{b}{42}{Classifier-based model baseline}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Plot of Predicted Probability and Brier Score for Case 3}}{42}{}\protected@file@percent }
-\newlabel{bert_case3}{{3}{42}{Classifier-based model baseline}{}{}}
+\newlabel{tab:prob_correct}{{4}{38}{Classifier-based baseline}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Regression Results for Brier Score}}{38}{}\protected@file@percent }
+\newlabel{tab:brier_score}{{5}{38}{Classifier-based baseline}{}{}}
+\newlabel{fig:prob_case1}{{1a}{39}{Classifier-based baseline}{}{}}
+\newlabel{sub@fig:prob_case1}{{a}{39}{Classifier-based baseline}{}{}}
+\newlabel{fig:brier_case1}{{1b}{39}{Classifier-based baseline}{}{}}
+\newlabel{sub@fig:brier_case1}{{b}{39}{Classifier-based baseline}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Plot of Predicted Probability and Brier Score for Case 1}}{39}{}\protected@file@percent }
+\newlabel{fig:classifier_case1}{{1}{39}{Classifier-based baseline}{}{}}
+\newlabel{fig:prob_case2}{{2a}{40}{Classifier-based baseline}{}{}}
+\newlabel{sub@fig:prob_case2}{{a}{40}{Classifier-based baseline}{}{}}
+\newlabel{fig:brier_case2}{{2b}{40}{Classifier-based baseline}{}{}}
+\newlabel{sub@fig:brier_case2}{{b}{40}{Classifier-based baseline}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Plot of Predicted Probability and Brier Score for Case 2}}{40}{}\protected@file@percent }
+\newlabel{fig:classifier_case2}{{2}{40}{Classifier-based baseline}{}{}}
+\newlabel{fig:prob_case3}{{3a}{41}{Classifier-based baseline}{}{}}
+\newlabel{sub@fig:prob_case3}{{a}{41}{Classifier-based baseline}{}{}}
+\newlabel{fig:brier_case3}{{3b}{41}{Classifier-based baseline}{}{}}
+\newlabel{sub@fig:brier_case3}{{b}{41}{Classifier-based baseline}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Plot of Predicted Probability and Brier Score for Case 3}}{41}{}\protected@file@percent }
+\newlabel{fig:classifier_case3}{{3}{41}{Classifier-based baseline}{}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.1}Holmes}{42}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.2}Marple}{43}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.3}Poirot}{43}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.4}Cross-case summary}{44}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Lexical Metrics}{44}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.2}Marple}{42}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.3}Poirot}{42}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.4}Cross-case summary}{43}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Lexical Metrics}{43}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1}Vector-based TF-IDF similarity}{44}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces TF-IDF similarity summary statistics}}{45}{}\protected@file@percent }
-\newlabel{lexical_tfidf}{{6}{45}{Vector-based TF-IDF similarity}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Kruskal–Wallis Test Results}}{45}{}\protected@file@percent }
-\newlabel{lexical_kwallis}{{7}{45}{Vector-based TF-IDF similarity}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Pairwise Mann–Whitney U Tests Results (Bonferroni Corrected)}}{45}{}\protected@file@percent }
-\newlabel{lexical_utest}{{8}{45}{Vector-based TF-IDF similarity}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces TF-IDF similarity summary statistics}}{44}{}\protected@file@percent }
+\newlabel{lexical_tfidf}{{6}{44}{Vector-based TF-IDF similarity}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Kruskal–Wallis Test Results}}{44}{}\protected@file@percent }
+\newlabel{lexical_kwallis}{{7}{44}{Vector-based TF-IDF similarity}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Pairwise Mann–Whitney U Tests Results (Bonferroni Corrected)}}{44}{}\protected@file@percent }
+\newlabel{lexical_utest}{{8}{44}{Vector-based TF-IDF similarity}{}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.2}Intra-agent cosine similarity}{45}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Intra-agent lexical distance summary}}{46}{}\protected@file@percent }
-\newlabel{lexical_intra_agent}{{9}{46}{Intra-agent cosine similarity}{}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.3}Lexical results summary}{46}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Intra-agent lexical distance summary}}{45}{}\protected@file@percent }
+\newlabel{lexical_intra_agent}{{9}{45}{Intra-agent cosine similarity}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.3}Lexical results summary}{45}{}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Lexical Consistency Indicators by Character}}{46}{}\protected@file@percent }
 \newlabel{lexical_summary}{{10}{46}{Lexical results summary}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Syntactic Metrics}{47}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.1}Comparison of syntactic depth with literary baselines}{47}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Syntactic Metrics}{46}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.1}Comparison of syntactic depth with literary baselines}{46}{}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Mean Syntactic Depth and Deviation from Literary Baseline by Character}}{47}{}\protected@file@percent }
 \newlabel{syntax_depth}{{11}{47}{Comparison of syntactic depth with literary baselines}{}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.2}Temporal trends in structural deviation}{48}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.2}Temporal trends in structural deviation}{47}{}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces Pooled linear regression of z-scores ($z_{\mathrm  {sim}}$) over dialogue turns}}{48}{}\protected@file@percent }
 \newlabel{syntax_z}{{12}{48}{Temporal trends in structural deviation}{}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.3}Comparison of reference- and simulation-based slopes}{49}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces Comparison of Reference- and Simulation-Based Temporal Slopes}}{49}{}\protected@file@percent }
-\newlabel{syntax_slope_compare}{{13}{49}{Comparison of reference- and simulation-based slopes}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.3}Comparison of reference- and simulation-based slopes}{48}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces Comparison of Reference- and Simulation-Based Temporal Slopes}}{48}{}\protected@file@percent }
+\newlabel{syntax_slope_compare}{{13}{48}{Comparison of reference- and simulation-based slopes}{}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.4}Syntactic results summary}{49}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Discourse Metrics}{50}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.6.1}comparison of affective profiles with literary baselines}{50}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Discourse Metrics}{49}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.6.1}comparison of affective profiles with literary baselines}{49}{}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {14}{\ignorespaces Average sentiment vectors for each character}}{50}{}\protected@file@percent }
 \newlabel{sentiment_avg}{{14}{50}{comparison of affective profiles with literary baselines}{}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.6.2}Temporal trends in sentiment deviation}{51}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {15}{\ignorespaces Mean Slope of Sentiment Distance for Each Character }}{51}{}\protected@file@percent }
-\newlabel{sentiment_slope}{{15}{51}{Temporal trends in sentiment deviation}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {16}{\ignorespaces Character-Level Summary of Discourse Consistency Indicators}}{52}{}\protected@file@percent }
-\newlabel{sentiment_char}{{16}{52}{Temporal trends in sentiment deviation}{}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.6.3}Visual analysis of sentiment distance}{52}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.6.2}Temporal trends in sentiment deviation}{50}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {15}{\ignorespaces Mean Slope of Sentiment Distance for Each Character }}{50}{}\protected@file@percent }
+\newlabel{sentiment_slope}{{15}{50}{Temporal trends in sentiment deviation}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {16}{\ignorespaces Character-Level Summary of Discourse Consistency Indicators}}{51}{}\protected@file@percent }
+\newlabel{sentiment_char}{{16}{51}{Temporal trends in sentiment deviation}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.6.3}Visual analysis of sentiment distance}{51}{}\protected@file@percent }
 \newlabel{vader_holmes}{{4a}{52}{Visual analysis of sentiment distance}{}{}}
 \newlabel{sub@vader_holmes}{{a}{52}{Visual analysis of sentiment distance}{}{}}
 \newlabel{vader_marple}{{4b}{52}{Visual analysis of sentiment distance}{}{}}
 \newlabel{sub@vader_marple}{{b}{52}{Visual analysis of sentiment distance}{}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Plot of Sentiment Distance Over Turns For Each Character}}{52}{}\protected@file@percent }
 \newlabel{vader_scatter}{{4}{52}{Visual analysis of sentiment distance}{}{}}
-\newlabel{vader_poirot}{{5a}{53}{Visual analysis of sentiment distance}{}{}}
-\newlabel{sub@vader_poirot}{{a}{53}{Visual analysis of sentiment distance}{}{}}
-\newlabel{vader_boxplot}{{5b}{53}{Visual analysis of sentiment distance}{}{}}
-\newlabel{sub@vader_boxplot}{{b}{53}{Visual analysis of sentiment distance}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Plot of Sentiment Distance Over Turns For Each Character}}{53}{}\protected@file@percent }
-\newlabel{vader_2}{{5}{53}{Visual analysis of sentiment distance}{}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.6.4}discourse results summary}{53}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}Cross metric validation}{53}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {17}{\ignorespaces Correlation between linguistic metrics and classifier-based character consistency}}{54}{}\protected@file@percent }
-\newlabel{master_table}{{17}{54}{Cross metric validation}{}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.7.1}Lexical level}{54}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.7.2}Syntactic level}{54}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.7.3}Discourse level}{54}{}\protected@file@percent }
+\newlabel{vader_poirot}{{5a}{52}{Visual analysis of sentiment distance}{}{}}
+\newlabel{sub@vader_poirot}{{a}{52}{Visual analysis of sentiment distance}{}{}}
+\newlabel{vader_boxplot}{{5b}{52}{Visual analysis of sentiment distance}{}{}}
+\newlabel{sub@vader_boxplot}{{b}{52}{Visual analysis of sentiment distance}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Plot of Sentiment Distance Over Turns For Each Character}}{52}{}\protected@file@percent }
+\newlabel{vader_2}{{5}{52}{Visual analysis of sentiment distance}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.6.4}discourse results summary}{52}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}Cross metric validation}{52}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {17}{\ignorespaces Correlation between linguistic metrics and classifier-based character consistency}}{53}{}\protected@file@percent }
+\newlabel{master_table}{{17}{53}{Cross metric validation}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.7.1}Lexical level}{53}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.7.2}Syntactic level}{53}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.7.3}Discourse level}{53}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.7.4}Comparative faithfulness ranking}{54}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {18}{\ignorespaces Faithfulness Ranking of Metrics}}{55}{}\protected@file@percent }
-\newlabel{ranking}{{18}{55}{Comparative faithfulness ranking}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.8}Validation of Character Contamination}{55}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {19}{\ignorespaces Character Contamination}}{56}{}\protected@file@percent }
-\newlabel{clustering}{{19}{56}{Validation of Character Contamination}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Discussion}{56}{}\protected@file@percent }
-\newlabel{sec:discussion}{{6}{56}{Discussion}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Overview of Findings}{56}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {18}{\ignorespaces Faithfulness Ranking of Metrics}}{54}{}\protected@file@percent }
+\newlabel{ranking}{{18}{54}{Comparative faithfulness ranking}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.8}Validation of Character Contamination}{54}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {19}{\ignorespaces Character Contamination}}{55}{}\protected@file@percent }
+\newlabel{clustering}{{19}{55}{Validation of Character Contamination}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Discussion}{55}{}\protected@file@percent }
+\newlabel{sec:discussion}{{6}{55}{Discussion}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Overview of Findings}{55}{}\protected@file@percent }
 \citation{choi2024examining,bao2026eval4sim}
 \citation{baltaji2024cultured,choi2024examining}
 \citation{xiao2023simulating}
@@ -306,18 +304,18 @@
 \citation{shanahan2023role,xiao2023simulating,chen2024socialbench}
 \citation{shanahan2023role}
 \citation{park2023generative,moon2024anthology}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}The Collaboration Paradox and Character Contamination}{57}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}The Collaboration Paradox and Character Contamination}{56}{}\protected@file@percent }
 \citation{chen2024review,chen2024evaluating}
 \citation{chen2024review}
 \citation{wang2024rolellm}
 \citation{shao2023characterllm}
 \citation{zhou2023characterglm}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}A Layered Perspective on Character Consistency}{58}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}A Layered Perspective on Character Consistency}{57}{}\protected@file@percent }
 \citation{xiao2023simulating}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}methodological contributions}{59}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Limitation and Future Work}{59}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{60}{}\protected@file@percent }
-\newlabel{sec:conclusion}{{7}{60}{Conclusion}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}methodological contributions}{58}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Limitation and Future Work}{58}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{59}{}\protected@file@percent }
+\newlabel{sec:conclusion}{{7}{59}{Conclusion}{}{}}
 \bibstyle{plainnat}
 \bibdata{custom}
 \bibcite{abdulhai2025consistently}{{1}{2025}{{Abdulhai et~al.}}{{Abdulhai, Cheng, Clay, Althoff, Levine, and Jaques}}}
@@ -387,34 +385,34 @@
 \bibcite{zhang2018personalizing}{{65}{2018}{{Zhang et~al.}}{{Zhang, Dinan, Urbanek, Szlam, Kiela, and Weston}}}
 \bibcite{zhou2023characterglm}{{66}{2023}{{Zhou et~al.}}{{Zhou, Chen, Wan, Wen, Song, Yu, Huang, Peng, Yang, Xiao, et~al.}}}
 \bibcite{zhu2024player}{{67}{2024}{{Zhu et~al.}}{{Zhu, Zhao, Liang, Du, Gui, and He}}}
-\newlabel{sec:app}{{7}{68}{Conclusion}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {A}Prompt for generating role-play guideline}{68}{}\protected@file@percent }
-\newlabel{sec:app_gen_persona}{{A}{68}{Prompt for generating role-play guideline}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {B}Role-Play Guideline}{68}{}\protected@file@percent }
-\newlabel{sec:app_char_prompt}{{B}{68}{Role-Play Guideline}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.1}Holmes}{68}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.2}Marple}{70}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.3}Poirot}{73}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {C}Background and Collaboration Rule}{75}{}\protected@file@percent }
-\newlabel{sec:app_rule_prompt}{{C}{75}{Background and Collaboration Rule}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {D}Case Data}{76}{}\protected@file@percent }
-\newlabel{sec:app_case}{{D}{76}{Case Data}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.1}Case 1}{76}{}\protected@file@percent }
-\newlabel{sec:app_case1}{{D.1}{76}{Case 1}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.2}Case 2}{79}{}\protected@file@percent }
-\newlabel{sec:app_case2}{{D.2}{79}{Case 2}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.3}Case 3}{82}{}\protected@file@percent }
-\newlabel{sec:app_case3}{{D.3}{82}{Case 3}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {E}Prompt for generating profiles}{85}{}\protected@file@percent }
-\newlabel{sec:app_gen_profile}{{E}{85}{Prompt for generating profiles}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {F}Generated Character Descriptions}{87}{}\protected@file@percent }
-\newlabel{sec:app_char_dcp}{{F}{87}{Generated Character Descriptions}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {F.1}Character Description of Holmes}{87}{}\protected@file@percent }
-\newlabel{sec:app_dcp_holmes}{{F.1}{87}{Character Description of Holmes}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {F.2}Character Description of Marple}{89}{}\protected@file@percent }
-\newlabel{sec:app_dcp_marple}{{F.2}{89}{Character Description of Marple}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {F.3}Character Description of Poirot}{90}{}\protected@file@percent }
-\newlabel{sec:app_dcp_poirot}{{F.3}{90}{Character Description of Poirot}{}{}}
+\newlabel{sec:app}{{7}{67}{Conclusion}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Prompt for generating role-play guideline}{67}{}\protected@file@percent }
+\newlabel{sec:app_gen_persona}{{A}{67}{Prompt for generating role-play guideline}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Role-Play Guideline}{67}{}\protected@file@percent }
+\newlabel{sec:app_char_prompt}{{B}{67}{Role-Play Guideline}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.1}Holmes}{67}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.2}Marple}{69}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.3}Poirot}{72}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {C}Background and Collaboration Rule}{74}{}\protected@file@percent }
+\newlabel{sec:app_rule_prompt}{{C}{74}{Background and Collaboration Rule}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {D}Case Data}{75}{}\protected@file@percent }
+\newlabel{sec:app_case}{{D}{75}{Case Data}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.1}Case 1}{75}{}\protected@file@percent }
+\newlabel{sec:app_case1}{{D.1}{75}{Case 1}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.2}Case 2}{78}{}\protected@file@percent }
+\newlabel{sec:app_case2}{{D.2}{78}{Case 2}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.3}Case 3}{81}{}\protected@file@percent }
+\newlabel{sec:app_case3}{{D.3}{81}{Case 3}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {E}Prompt for generating profiles}{84}{}\protected@file@percent }
+\newlabel{sec:app_gen_profile}{{E}{84}{Prompt for generating profiles}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {F}Generated Character Descriptions}{86}{}\protected@file@percent }
+\newlabel{sec:app_char_dcp}{{F}{86}{Generated Character Descriptions}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {F.1}Character Description of Holmes}{86}{}\protected@file@percent }
+\newlabel{sec:app_dcp_holmes}{{F.1}{86}{Character Description of Holmes}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {F.2}Character Description of Marple}{88}{}\protected@file@percent }
+\newlabel{sec:app_dcp_marple}{{F.2}{88}{Character Description of Marple}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {F.3}Character Description of Poirot}{89}{}\protected@file@percent }
+\newlabel{sec:app_dcp_poirot}{{F.3}{89}{Character Description of Poirot}{}{}}
 \gdef\minted@oldcachelist{,
   default.pygstyle,
   7B5563BFC69759D606A199A074C7F4439AA7342A36CEFB4A5D405EE33236B500.pygtex,
@@ -438,6 +436,6 @@
   3E93348F51F9EE8855D0E53DA26E7058D955BA1AD98E98D33AE0027DDF848B9D.pygtex,
   A7711F05E579233F34628D1678FE947DF8E834F69438135D474209E8CC9E8012.pygtex,
   E855DA1C9EE239FB1EE0BFFD339939C24A217F46C8DF3B641C87A17F0BDA0D42.pygtex}
-\@writefile{toc}{\contentsline {section}{\numberline {G}List of Selected Novels}{92}{}\protected@file@percent }
-\newlabel{sec:app_novels}{{G}{92}{List of Selected Novels}{}{}}
-\gdef \@abspage@last{92}
+\@writefile{toc}{\contentsline {section}{\numberline {G}List of Selected Novels}{91}{}\protected@file@percent }
+\newlabel{sec:app_novels}{{G}{91}{List of Selected Novels}{}{}}
+\gdef \@abspage@last{91}
