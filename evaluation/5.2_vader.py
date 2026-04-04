@@ -128,6 +128,7 @@ import numpy as np
 from tqdm import tqdm
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from sklearn.linear_model import LinearRegression
+from scipy.stats import f_oneway
 
 # Optional visualisation flag
 VISUALIZE = True
@@ -371,6 +372,13 @@ char_summary = df.groupby("character").agg(
     std_distance=("mean_distance", "std")
 ).reset_index()
 
+# --- ADD: compute ANOVA p-value for slope across characters ---
+from scipy.stats import f_oneway
+char_groups = [df.loc[df['character']==c, 'slope'] for c in df['character'].unique()]
+_, p_val_char = f_oneway(*char_groups)
+char_summary['p_value_slope'] = p_val_char
+# --- 
+
 CHAR_SUMMARY_FILE = os.path.join(OUTPUT_DIR, "5.2_summary_by_character.csv")
 char_summary_rounded = char_summary.round(3)
 char_summary_rounded.to_csv(CHAR_SUMMARY_FILE, index=False)
@@ -391,6 +399,12 @@ case_summary = df.groupby("case").agg(
     std_distance=("mean_distance", "std")
 ).reset_index()
 
+# --- ADD: compute ANOVA p-value for slope across cases ---
+case_groups = [df.loc[df['case']==c, 'slope'] for c in df['case'].unique()]
+_, p_val_case = f_oneway(*case_groups)
+case_summary['p_value_slope'] = p_val_case
+# --- ADD
+
 CASE_SUMMARY_FILE = os.path.join(OUTPUT_DIR, "5.2_summary_by_case.csv")
 case_summary_rounded = case_summary.round(3)
 case_summary_rounded.to_csv(CASE_SUMMARY_FILE, index=False)
@@ -408,6 +422,22 @@ case_char_summary = df.groupby(["case", "character"]).agg(
     mean_slope=("slope", "mean"),
     mean_distance=("mean_distance", "mean")
 ).reset_index()
+
+# --- ADD: p-value per case across characters ---
+pvals_case = []
+for case in case_char_summary['case'].unique():
+    slopes = df.loc[df['case']==case].groupby('character')['slope'].mean().values
+    if len(slopes) > 1:
+        from scipy.stats import f_oneway
+        # 这里用 f_oneway, 注意只用均值也可以做概览
+        # 若想更精确可用原始 turn-level slopes per character
+        slope_groups = [df.loc[(df['case']==case) & (df['character']==c), 'slope'] 
+                        for c in df['character'].unique()]
+        _, pval = f_oneway(*slope_groups)
+    else:
+        pval = np.nan
+    pvals_case.extend([pval]*len(case_char_summary[case_char_summary['case']==case]))
+# --- ADD
 
 CASE_CHAR_SUMMARY_FILE = os.path.join(OUTPUT_DIR, "5.2_summary_by_case_character.csv")
 case_char_summary_rounded = case_char_summary.round(3)

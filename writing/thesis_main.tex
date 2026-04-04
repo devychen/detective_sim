@@ -12,6 +12,7 @@
 \usepackage{cutwin}
 \usepackage{tabularx} % 插表
 \usepackage{multirow} % For multirow cells
+\usepackage{threeparttable} 
 \usepackage{booktabs}
 \usepackage{tocloft} % 公式lsit
 \usepackage{titlesec}   % 控制 section 样式
@@ -50,21 +51,53 @@
 
 % ------ 首页 ------
 
-\title{Three Detectives in a Room: Investigating Character Consistency in Multi-Agent LLM Collaboration}
-\author{Yifei Chen}
-% \author{Yifei Chen \thanks{Supervisor: Prof. Dr. Michael Franke}}
-
-
-\date{\today}
-
-
-% A thesis submitted for the degree of \\
-% \textit{Master of Arts in Computational Linguistics
-
 
 \begin{document}
 
-\maketitle
+\begin{titlepage}
+  \centering
+  \vspace*{2cm}
+
+  % 学校名称
+  {\Large\bfseries Eberhard Karls University of Tübingen\par}
+  \vspace{0.5cm}
+
+  % 系名
+  {\large Department of Linguistics\par}
+  \vspace{1.5cm}
+
+  % 学位信息（可选）
+  {\large A thesis submitted for the degree of\\
+  \textit{Master of Arts in Computational Linguistics}\par}
+  \vspace{1.5cm}
+
+  % 论文标题
+  {\Large\bfseries Three Detectives in a Room:\\
+  Investigating Character Consistency in Multi-Agent LLM Collaboration\par}
+  \vspace{1.5cm}
+
+  % 作者
+  {\large Yifei Chen\par}
+  \vspace{1cm}
+
+%   % Supervisor
+%   {\normalsize Supervisor: Prof. Dr. Michael Franke\par}
+%   \vspace{1cm}
+
+  % Reviewers
+  {\normalsize
+  Reviewers:\\
+  Prof. Dr. Michael Franke\\
+  Mr. Çağrı Çöltekin\par}
+  \vspace{0.5cm}
+
+  % 日期
+  {\normalsize \today\par}
+
+  \vfill
+\end{titlepage}
+
+
 
 \newpage
 
@@ -83,11 +116,12 @@ I thank Ms. Polina Tsvilodub and Prof. Dr. Michael Franke for encouraging and gu
   \normalsize\bfseries\MakeUppercase{abstract}
 \end{center}
 
-This thesis investigates the character consistency in multi-agent large language model (LLM) collaboration. While LLMs are increasingly used for role-playing, they often struggle to maintain a specific character over long interactions. To address this, this study poses three core research questions: (1) to what extent do LLMs maintain character consistency during collaborative reasoning task; (2) how can multi-level linguistic metrics capture this consistency; and (3) which metrics are most reliably capture it. 
+This thesis investigates the character consistency in multi-agent large language model (LLM) collaboration. While LLMs are increasingly used for role-playing, they often struggle to maintain a specific character over long interactions. To address this, this study posed three core research questions: (1) to what extent do LLMs maintain character consistency during collaborative reasoning task; (2) how can multi-level linguistic metrics capture this consistency; and (3) which metrics most reliably capture it. 
 
-Departing from existing reference-based or macro-level evaluations such as human judgment or abstract personality tests, this study introduces a novel linguistically grounded evaluation framework. Rooted in the sociolinguistic premise that linguistic style is inherently indicatives of character identity, it conceptualises character consistency as a quantifiable linguistic construct by operationalising it across a hierrachy of lexical, syntactic, and discourse-level features, and validating these metrics against the results of a BERT-based classification baseline model.
+Departing from existing reference-based or macro-level evaluations such as human judgment or abstract personality tests, this study introduced a novel linguistically grounded evaluation framework. Rooted in the sociolinguistic premise that linguistic style is inherently indicative of character identity, it conceptualised character consistency as a quantifiable linguistic construct by operationalising it across a hierachy of lexical, syntactic, and discourse-level features, and validating these metrics against the results of a BERT-based classification baseline model.
 
-Using a simulation of three iconic detectives (Sherlock Holmes, Hercule Poirot, and Miss Marple), the results reveal that collaborative dynamics lead to character inconsistency and contamination Agents' linguistic fingerprints in the end converge into a uniform, representationally undifferentiated group, echoing the generic and neutral AI register which is often identified in literature. Among the linguistic metrics, the study finds that syntactic depth is the most reliable and faithful indicator (faithfulness core: $0.864$) for capturing shifts in character consistency. This framework offers a scalable methodology for monitoring character consistency, providing a linguistic validation of role-playing LLM agents in complex social applications. Code and data are available on GitHub. \footnote{\url{https://github.com/devychen/detective_sim}}
+Using a simulation of three iconic detectives (Sherlock Holmes, Hercule Poirot, and Miss Marple), the results revealed that collaborative dynamics led to character inconsistency and contamination. Agents' linguistic fingerprints in the end converged into a uniform, representationally undifferentiated group. Among the linguistic metrics, the study found that syntactic depth was the most reliable and faithful indicator for capturing shifts in character consistency. This framework offers a scalable methodology for monitoring character consistency, providing a linguistic validation of role-playing LLM agents in complex social applications \footnotemark[1].
+\footnotetext[1]{Code and data are available on GitHub: \url{https://github.com/devychen/detective_sim}}
 
 
 
@@ -125,16 +159,16 @@ In such applications, each agent is typically given a persona or fictional perso
 
 This ability of LLM agents opens up novel possibilities at scale and with reproducibility that would be impossible with human actors. For instance, recent work has shown LLMs being used to generate realistic populations in multi-agent social simulations, and to engage in cooperative \citep{guo2026collab} or adversarial \citep{baltaji2024cultured} group tasks. 
 
-However, a major challenge in these setting is character consistency: an LLM agent must contain its assigned persona as described in profiles throughout the interaction process. In practice, LLM agents often drift from their personas, contradict earlier statements or display inconsistent traits, especially over longer interactions \citep{choi2024examining, bhandari2025can, abdulhai2025consistently}. As \citet{ji2025enhancing} note, current LLMs “lack […] fine-grained role awareness,” which limits their ability to provide truly personalised, role-consistent interactions. In collaborative multi-agent scenarios particularly, this issue is amplified: agents may influence one another and gradually lose their distinct persona. Maintaining credible character behaviour is thus essential for user satisfaction and system validity in these applications.
+However, a major challenge in these setting is character consistency: an LLM agent must contain its assigned persona as described in profiles throughout the interaction process. In practice, LLM agents often drift from their personas, contradict earlier statements or display inconsistent traits, especially over longer interactions \citep{choi2024examining, bhandari2025ocean, abdulhai2025consistently}. As \citet{ji2025enhancing} note, current LLMs “lack […] fine-grained role awareness,” which limits their ability to provide truly personalised, role-consistent interactions. In collaborative multi-agent scenarios particularly, this issue is amplified: agents may influence one another and gradually lose their distinct persona. Maintaining credible character behaviour is thus essential for user satisfaction and system validity in these applications.
 
-To investigate these dynamics, this thesis utilises a multi-agent collaborative setup as a strategic testbed. By requiring agents to reach a shared decision about the believed murderer, this environment allows for a controlled analysis of \textit{character contamination}—the blurring of identity boundaries within multi-agent collaboration, more specifically in the context of this study, a phenomenon where the pressure of collaboration may cause agents to unconsciously mirror each other's linguistic style.
+To investigate these dynamics, this thesis utilises a multi-agent collaborative setup as a strategic testbed. By requiring agents to reach a shared decision about the believed murderer, this environment allows for a controlled analysis of \emph{character contamination}—the blurring of identity boundaries within multi-agent collaboration, more specifically in the context of this study, a phenomenon where the pressure of collaboration may cause agents to unconsciously mirror each other's linguistic style.
 
 
 \subsection{Character consistency in linguistic context} \label{sec:intro_cc_in_ling}
 
 This study approach character consistency from a linguistic perspective. In sociolinguistics and stylometry, a speaker's or a character's identity is not viewed as a fixed label but as continuously construction through language use \citep{ przystalski2025stylometry}. In other words, how a character speaks conveys their persona, including choice of words, syntax, discourse style. For example, stylometric studies of television dialogue show that fictional characters develop distinct idiolects: Sheldon Cooper in the show The Big Bang Theory habitually uses formal, scientific vocabulary and passive constructions, whereas Penny's speech is more colloquial and conversational \citep{van2016stylometry}. Language therefore serves as a window into attitude, beliefs, and personality.
 
-Following this view, this study posits that the character consistency of a LLM-based role-playing agent could be manifested in the linguistic profile of its outputs. Within this framework, \textit{character consistency} is explicitly defined as the successful maintenance of a specific linguistic style over the course of an interaction. Consequently, investigating the degree of consistency is equivalent to investigating systematic changes in that style.
+Following this view, this study posits that the character consistency of a LLM-based role-playing agent could be manifested in the linguistic profile of its outputs. Within this framework, \emph{character consistency} is explicitly defined as the successful maintenance of a specific linguistic style over the course of an interaction. Consequently, investigating the degree of consistency is equivalent to investigating systematic changes in that style.
 
 If an agent truly embodies a persona, its generated responses should consistently reflect that persona's linguistic style. In this study, character consistency is therefore treated as fundamentally a linguistic style problem: this study expects to detect (in)consistency by analysing lexical, syntactic, semantic and discourse-level patterns in the generated dialogue text. This aligns with sociolinguistic theory that identity is performed and negotiated through language \citep{bucholtz2005identity}. By focusing on linguistic features, consistency could be quantified in a principled way.
 
@@ -142,7 +176,7 @@ If an agent truly embodies a persona, its generated responses should consistentl
 
 \subsection{Research gap} \label{sec:intro_research_gap}
 
-Despite the importance of character consistency, existing work on LLM-based agents has largely focused on model design, training paradigm, or learning methods, rather than systematic evaluation. And even evaluation rarely was designed from linguistic perspective. Much prior research has tried to imbue LLMs with persona via instruction fine-tuning such as the character-specific LLMs in CharacterGLM \citep{zhou2023characterglm} or the Ditto \citep{li2021ditto, lu2024large}, chain-of-thought \citep{chae2023dialogue}  or contrastive Reinforcement Learning fine-tuning \citep{shea2023building}. Moreover, they often use coarse or costly evaluation methods: performance is measured by high-level personality metrics of role-fidelity such as Big Five, Myers-Biggs Type Indicator (MBTI), or human judgements, rather than by analysing the language itself. To bridge this gap, this research introduces a linguistically grounded approach for measuring character (in)consistency.
+Despite the importance of character consistency, existing work on LLM-based agents has largely focused on model design, training paradigm, or learning methods, rather than systematic evaluation. And even evaluation rarely was designed from linguistic perspective. Much prior research has tried to imbue LLMs with persona via instruction fine-tuning such as the character-specific LLMs in CharacterGLM \citep{zhou2023characterglm} or the Ditto \citep{li2021ditto, lu2024large}, chain-of-thought \citep{chae2023dialogue}  or contrastive Reinforcement Learning fine-tuning \citep{shea2023building}. Moreover, they often use coarse or costly evaluation methods: performance is measured by high-level personality metrics of role-fidelity such as Big Five \citep{john1991bigfive}, Myers-Biggs Type Indicator (MBTI) \citep{myers1962mbti}, or human judgements, rather than by analysing the language itself. To bridge this gap, this research introduces a linguistically grounded approach for measuring character (in)consistency.
 
 
 \subsection{Research questions} \label{sec:intro_rq}
@@ -176,21 +210,21 @@ From the perspective of discourse and sociolinguistic theory, an individual's id
 
 This view is borne out by stylometric analyses. Stylometry is the quantitative study of linguistic style, originally developed for authorship attribution. Such methods have been applied to fictional dialogues to distinguish characters. For instance, a stylometric analysis of The Big Bang Theory dialogues \citep{van2016stylometry} showed the character Sheldon Cooper consistently differs from other characters in vocabulary and grammar: he uses more formal, scientific terms and favours passive voice, giving his language an “expository” quality distinct from his friends' colloquial style. These distinct styles emerged despite being written by multiple script authors. Similarly, stylometric analysis of Jane Austen novels by \citet{burrows1987computation} and others have demonstrated that characters exhibit quantifiable differences in function word usage and lexical patterns. These examples illustrate that character identity leaves a detectable imprint on language.
 
-Modern stylometry research whether focusing on fictional characters or not reinforces this idea. For authorship attribution or model identification, features such as character n-gram, word frequencies, syntactic structure and sentiments serve as "linguistic fingerprints" of an author or text generator. Studies show that a combination of lexical and grammatical features can distinguish texts written by different LLMs or humans with high accuracy \citep{przystalski2025stylometry}. They note that LLM-generated text tends to exhibit greater grammatical standardisation and systematic usage patterns compared to human text. These stylistic markers consistently reflect the underlying features of the speaker or model, even if they may be maybe subtle.
+Modern stylometry research whether focusing on fictional characters or not reinforces this idea. For authorship attribution or model identification, features such as character n-gram, word frequencies, syntactic structure and sentiments serve as "linguistic fingerprints" of an author or text generator. Broadly defined, a \emph{linguistic fingerprint} refers to the unique pattern of language that defines a specific character's voice and acts as a measurable sign of their identity stability \citep{li2006fingerprint, bao2026eval4sim}. \citet{przystalski2025stylometry} show that a combination of lexical and grammatical features can distinguish texts written by different LLMs or humans with high accuracy. They note that LLM-generated text tends to exhibit greater grammatical standardisation and systematic usage patterns compared to human text. These stylistic markers consistently reflect the underlying features of the speaker or model, even if they may be subtle, and thus can be used as valid proxy for role-playing quality \citep{zhou2023characterglm, chen2024review, wang2024rolellm, wang2024incharacter, bhandari2025ocean}.
 
-In sum, the background literature suggests that linguistic style is a valid proxy for character consistency. If an LLM is playing a consistent character, its utterances should collectively form a coherent style profile. Conversely, a sudden change in language choices might signal a break in character. This perspective motivates the current approach: this study will use linguistic style metrics as indirect measures of character consistency.
+In sum, the background literature suggests that linguistic fingerprints is a valid proxy for character consistency. If an LLM is playing a consistent character, its utterances should collectively form a coherent style profile. Conversely, a sudden change in language choices might signal a break in character. This perspective motivates the current approach: this study will use linguistic style metrics as indirect measures of character consistency.
 
-In this thesis, the term \textit{persona} and \textit{character} is distinguished. This study uses \textit{persona} to refer to the explicitly assigned profile or identity specification provided to the model through prompting. In contrast, \textit{character} refers to the identity as realised through linguistic behaviour in dialogue. While persona concerns the intended role, character concerns its performed and observable manifestation. Character consistency therefore denotes the stability of this linguistic realisation across turns.
+In this thesis, the term \emph{persona} and \emph{character} is distinguished. This study uses \emph{persona} to refer to the explicitly assigned profile or identity specification provided to the model through prompting. In contrast, \emph{character} refers to the identity as realised through linguistic behaviour in dialogue. While persona concerns the intended role, character concerns its performed and observable manifestation. Character consistency therefore denotes the stability of this linguistic realisation across turns.
 
 \subsection{Character modelling in LLMs} \label{sec:background_char_modelling}
 
-In computational linguistics, \textit{character modelling} typically means conditioning a language model on a character description namely the persona. It has evolved from simple prompt engineering to complex architectural fine-tuning and specialised training. 
+In computational linguistics, \emph{character modelling} typically means conditioning a language model on a character description namely the persona. It has evolved from simple prompt engineering to complex architectural fine-tuning and specialised training. 
 
 The simplest method is prompt-based conditioning, where a textual persona (e.g. "You are Sherlock Holmes, a consulting detective who ...") is prepended to the conversation prompt. Provided the model possesses sufficient instruction-following abilities, in this way even a general-purpose LLM can be guided to role-play that character. Recent studies confirm that prompting with explicit role profile can effectively steer LLMs. For example, \citet{chen2023autoagents, shao2023characterllm, tu2024charactereval, wang2024rolellm} show that given a well-crafted character-specific prompt LLMs can emulate that character in dialogue. This in-context approach leverages the LLM's existing knowledge without fine-tuning, and has the potential to produce character-specific responses with minimal examples.
 
 More advanced methods incorporate persona into model architecture or training. Early works without LLMs (with language models for example) fused memory networks or personal databases into dialogue models \citep{zhang2018personalizing}. With LLMs, researchers have built character-specific LLMs by further training on persona data. For example, CharacterGLM \citep{zhou2023characterglm} and Ditto \citep{li2021ditto, lu2024large} are instruction-tuned models with enhanced persona consistency for specific characters. Reinforcement learning techniques have also been applied. For example, \citet{shea2023building} use RLHF to better align models with persona traits, and \citet{chen2025compress} generate preference data with GPT-4 followed by Direct Preference Optimisation (DPO) to refine LLM persona behaviour. 
 
-These advanced engineering solutions can improve consistency, but they also come with important drawbacks and often involve significant trade-offs. Extensive role-specific fine-tuning can impair a model's generalisation ability and weaken its underlying commonsense reasoning capabilities \citep{ji2025enhancing}. Moreover, fine-tuned models may converge toward a singular, averaged character identity, which makes them less steerable for simulating the diverse character-specific responses needed in multi-agent settings \citep{park2023generative, moon2024anthology}. In addition, they are often require costly data collection and are expensive to implement.
+These advanced engineering solutions can improve consistency, but they also come with important drawbacks and often involve significant trade-offs. Extensive role-specific fine-tuning can impair a model's generalisation ability and weaken its underlying commonsense reasoning capabilities \citep{ji2025enhancing}. Moreover, fine-tuned models may converge toward a singular, averaged character identity, which makes them less steerable for simulating the diverse character-specific responses needed in multi-agent settings \citep{park2023generative, moon2024anthology}. In addition, they often require costly data collection and are expensive to implement.
 
 In contrast, prompt engineering offers a non-parametric and highly controllable alternative \citep{chen2024review}. By leveraging the LLM's existing parametric knowledge, prompting makes it possible to switch personas quickly and to approximate specific idiolects without any extra training \citep{santurkar2023opinions, moon2024anthology, wang2024rolellm, yuan2024evaluating}. 
 
@@ -246,7 +280,7 @@ In collaborative settings, social dynamics make this reasoning decline even wors
 
 Similarly, in murder mystery tasks \citep{wu2024jubensha, zhu2024player}, baseline LLMs perform much worse than specialised frameworks. Baselines often fail to use gathered information effectively, showing a breakdown in processing task-relevant clues while staying in character.
 
-This study utilises \textit{case-solving rate}—defined as correctly identifying the culprit in a detective simulation—not only to measure task performance but also to examine the trade-off between role-playing and logical reasoning. By tracking agents' task success rates, it assesses how much reasoning capacity models sacrifice to maintain consistent character identities under multi-agent collaboration pressure.
+This study utilises \emph{case-solving rate}—defined as correctly identifying the culprit in a detective simulation—not only to measure task performance but also to examine the trade-off between role-playing and logical reasoning. By tracking agents' task success rates, it assesses how much reasoning capacity models sacrifice to maintain consistent character identities under multi-agent collaboration pressure.
 
 
 \subsection{Linguistic Metrics} \label{sec:background_lingmetric}
@@ -274,22 +308,22 @@ The Jubensha benchmark follows a comparable structure, guiding agents through si
 This study adopts the detective case-solving setting because it provides a rigorous testbed for evaluating social reasoning under uncertainty. It demands not only logical deduction from evidence but also perspective-taking, the understanding of others' intentions and beliefs, and the management of complex social dynamics. All of these make it an ideal environment to examine the boundaries of LLM-based multi-agent collaboration.
 
 
-\subsubsection{character contamination in multi-agent collaboration}
+\subsubsection{Character contamination in multi-agent collaboration}
 
-Finally, the special dynamics of multi-agent systems is also worth to elaborate. When multiple LLM agents interact, they often exhibit alignment or convergence, and gradually adapt their word choice, tone, or syntax toward one another. While specialized roles and inter-agent communication can enhance collective reasoning \citep{guo2024review}, they also introduce complex social dynamics \citep{zhu2024player} and risk inefficiencies such as information redundancy or “over-reporting,” where agents overemphasize consensus at the cost of precision \citep{guo2026collab}. Similar to conversational accommodation in human interaction, linguistic convergence among agents has been empirically observed in collaborative annotation and problem-solving tasks \citep{parfenova2025emergent, frisch2024llm}.
+Finally, the special dynamics of multi-agent systems is also worth elaborating. When multiple LLM agents interact, they often exhibit alignment or convergence, and gradually adapt their word choice, tone, or syntax toward one another. While specialised roles and inter-agent communication can enhance collective reasoning \citep{guo2024review}, they also introduce complex social dynamics \citep{zhu2024player} and risk inefficiencies such as information redundancy or “over-reporting,” where agents overemphasise consensus at the cost of precision \citep{guo2026collab}. Similar to conversational accommodation in human interaction, linguistic convergence among agents has been empirically observed in collaborative annotation and problem-solving tasks \citep{parfenova2025emergent, frisch2024llm}.
 
-This convergence can lead to character contamination. It is observed in prior work though the term may be name differently.  \citet{choi2024examining} refer to this as \textit{identity drift} describing how interaction styles shift over time and how larger models, in particular, may lose character consistency by inventing fictitious self-details. Similarly, \citet{baltaji2024cultured} describe \textit{Persona Inconstancy} as a failure mode in cooperative dialogue, including conformity, confabulation, and impersonation, where an agent abandons its defined role to mimic another participant. These effects often arise when contextual information in dialogue overwhelms the original role constraints.
+This convergence can lead to character contamination. It is observed in prior work though the term may be namd differently.  \citet{choi2024examining} refer to this as \textit{identity drift} describing how interaction styles shift over time and how larger models, in particular, may lose character consistency by inventing fictitious self-details. Similarly, \citet{baltaji2024cultured} describe \textit{Persona Inconstancy} as a failure mode in cooperative dialogue, including conformity, confabulation, and impersonation, where an agent abandons its defined role to mimic another participant. These effects often arise when contextual information in dialogue overwhelms the original role constraints.
 
-Compounding this, models fine-tuned with reinforcement learning from human feedback (RLHF) tend to revert toward a standardised, overly polite “AI register” \textit{AI register} \citep{park2023generative, moon2024anthology}. Such flattening undermines the linguistic and behavioural distinctiveness essential for multi-character simulations. Detecting and quantifying this contamination remains a crucial step toward maintaining stable character roles in multi-agent interactions.
+Compounding this, models fine-tuned with reinforcement learning from human feedback (RLHF) tend to revert toward a standardised, overly polite “\emph{AI register} \citep{park2023generative, shanahan2023role, moon2024anthology}. Such flattening undermines the linguistic and behavioural distinctiveness essential for multi-character simulations. Detecting and quantifying this contamination remains a crucial step toward maintaining stable character roles in multi-agent interactions.
 
 
 \section{Methods} \label{sec:methods}
 
 This study adopts a simulation-based experimental design to examine character consistency and collaborative reasoning in large language model (LLM)-driven agents. A controlled multi-agent dialogue environment was developed in which three agents, each role-playing a canonical fictional detective, collaboratively solve a murder case through turn-based natural language interaction.
 
-There are three cases in total (which will be introduced later in Subsection \ref{sec:methods_case}). Each case is run 10 times, and each run is treated as \textit{one simulation}. 
+There are three cases in total (which will be introduced later in Subsection \ref{sec:methods_case}). Each case is run 10 times, and each run is treated as \emph{one simulation}. 
 
-Within each simulation, dialogue proceeds in turns. \textit{One turn} is defined as a complete cycle in which all three agents each speak once in a randomly determined order. Thus, after one turn, each agent has contributed exactly one statement. At the end of each statement, every agent is required to say: "I believe the murderer is xxx." This requirement ensures that the agents' beliefs are explicit and that the consensus condition can be reliably detected.
+Within each simulation, dialogue proceeds in turns. \emph{One turn} is defined as a complete cycle in which all three agents each speak once in a randomly determined order. Thus, after one turn, each agent has contributed exactly one statement. At the end of each statement, every agent is required to say: "I believe the murderer is xxx." This requirement ensures that the agents' beliefs are explicit and that the consensus condition can be reliably detected.
 
 Each simulation terminates when either of the following conditions is met: (1) The three agents reach consensus on the identity of the murderer; or (2) The simulation reaches a maximum of 10 turns (i.e., each agent has spoken up to 10 times). The simulation ends regardless of whether consensus is achieved. 
 
@@ -309,11 +343,11 @@ To manage the dialogue history within the context window, the system keeps a run
 
 \subsection{Experimental scenarios and case selection} \label{sec:methods_case}
 
-This study adopts three murder mystery cases originally created for \textit{Jubensha}, a Chinese live action role-playing murder mystery game called (also know as script murder games: \textit{Juben} means \textit{script}, \textit{sha} means \textit{murder}) \citep{ghorbanpour2023jubensha}. In Jubensha, players take on specific character roles, study scripts, interact, and analyze clues to solve a murder or mystery. In multi-agent simulation setting, each agent acts as a player and role-plays the assigned persona. These mysterious cases provide a complex, plot-driven environment that requires agents to perform Theory of Mind (ToM) inferences and negotiate over contradictory evidence \citep{zhu2024player, wu2024jubensha}.
+This study adopts three murder mystery cases originally created for \emph{Jubensha}, a Chinese live action role-playing murder mystery game (also know as script murder games: \textit{Juben} means \textit{script}, \textit{sha} means \textit{murder}) \citep{ghorbanpour2023jubensha}. In Jubensha, players take on specific character roles, study scripts, interact, and analyze clues to solve a murder or mystery. In multi-agent simulation setting, each agent acts as a player and role-plays the assigned persona. These mysterious cases provide a complex, plot-driven environment that requires agents to perform Theory of Mind (ToM) inferences and negotiate over contradictory evidence \citep{zhu2024player, wu2024jubensha}.
 
-This study choses to use pre-existing, human-authored Jubensha cases rather than canonical literary mysteries (for example, from Arthur Conan Doyle or Agatha Christie) for better experimental rigour. \citet{delima2025detective} indicates that LLMs have "varying degrees of familiarity with detective narratives" through their pre-training data. Using famous stories like \textit{The Adventure of the Speckled Band} \citep{doyle1892speckled} would create a high risk of data leakage or character hallucination, where agents might solve the case based on memorised plots instead of collaborative reasoning \citep{chen2023hp, chen2024review}. By using three "neutral" and novel cases from the Jubensha dataset in \citet{wu2024jubensha} which are not part of the old classic books, this study ensures that the agents' responses are not simply existing lines from books. Instead, their responses are driven by the provided case information and persona, preserving the internal validity of our analysis of character-specific linguistic drift.
+This study choses to use pre-existing, human-authored Jubensha cases rather than canonical literary mysteries (for example, from Arthur Conan Doyle or Agatha Christie) for better experimental rigour. \citet{delima2025detective} indicates that LLMs have "varying degrees of familiarity with detective narratives" through their pre-training data. Using famous stories like \textit{The Adventure of the Speckled Band} \citep{doyle1892speckled} would create a high risk of data leakage or \emph{character hallucination}, where agents might solve the case based on memorised plots instead of collaborative reasoning \citep{chen2023hp, chen2024review}. By using three "neutral" and novel cases from the Jubensha dataset in \citet{wu2024jubensha} which are not part of the old classic books, this study ensures that the agents' responses are not simply existing lines from books. Instead, their responses are driven by the provided case information and persona, preserving the internal validity of our analysis of character-specific linguistic drift.
 
-To support systematic control over dialogue dynamics, each case was converted into a structured YAML template. This format decomposes the narrative into distinct modules: a global setting, victim profiles, suspect attributes (including motives and secrets), crime scene data, forensic evidence, and a chronological timeline (see Appendix \ref{sec:app_case} for the full case YAML). At the beginnibg of each simulation, specific parts of case information subsets are assigned to each agent based on the detectives' established investigative methods introduced in \citet{delima2025detective}. The details will be unfolded in Subsection \ref{sec:methods_prompt_infopieces}.
+To support systematic control over dialogue dynamics, each case was converted into a structured YAML template. This format decomposes the narrative into distinct modules: a global setting, victim profiles, suspect attributes (including motives and secrets), crime scene data, forensic evidence, and a chronological timeline (see Appendix \ref{sec:app_case} for the full case YAML). At the beginning of each simulation, specific parts of case information subsets are assigned to each agent based on the detectives' established investigative methods introduced in \citet{delima2025detective}. The details will be unfolded in Subsection \ref{sec:methods_prompt_infopieces}.
 
 % By mapping the original scripts into this template-based design, this study creates a reproducible environment where the pressure to solve the crime and the subsequent need for information sharing act as a "stress test" for character consistency \citep{park2023generative, guo2026collab}. This setup allows precisely track whether the demand for group consensus leads to a convergence of linguistic features or a breakdown of character traits (inlcuding investigative methods) assigned to each detective.
 
@@ -340,7 +374,7 @@ After each turn, the conversation history is updated. As mentioned in Subsection
 \end{minted}
 
 
-\subsubsection{Background and Collaboration Rule Prompt} \label{sec:methods_prompt_rule}
+\subsubsection{Background and collaboration rule prompt} \label{sec:methods_prompt_rule}
 
 The \textbf{Background} sets up the collaborative scenario by explaining the current situation and clarifying the task ahead, much like a game master introducing the background story in a Jubensha game. Its content is as follows (also available in the original YAML format in Appendix \ref{sec:app_rule_prompt}):
 \begin{minted}{yaml}
@@ -370,10 +404,10 @@ IMPORTANT:
  - Always react to the previous speaker's suspect and evidence before giving your own view.
  - Strictly follow Role Play Guidelines and your investigation style, and strictly avoid behaviours in Protective Guidelines.
  - No parentheses. No narration. No actions. Speak only in first-person dialogue.
- - For EACH reply, end with naming one and only one suspecty. MUST exactly in this format: I believe the murderer is XXX.
+ - For EACH reply, end with naming one and only one suspect. MUST exactly in this format: I believe the murderer is XXX.
 \end{minted}
 
-\subsubsection{Role-Play Guideline} \label{sec:methods_prompt_person}
+\subsubsection{Role-play guideline} \label{sec:methods_prompt_person}
 
 This section describes each detective's persona, covering five linguistic aspects: (1) vocabulary, (2) lexical features, (3) syntactic features, (4) discourse patterns, and (5) investigative methods. For instance, Sherlock Holmes is characterised by scientific vocabulary, logically nested sentences, and a detached, analytical tone. The steps to construct this guideline are as follows.
 
@@ -407,7 +441,7 @@ During this automated generation phase, the temperature was fixed at 0.0 to ensu
       So is the microscopic examination for blood corpuscles."
 \end{minted}
 
-Step 2 \textbf{Validation}: To assess the validity of these representations, a \textit{Validation Via Reverse Identification} is conducted, following \citet{delima2025detective}. This means verifying the distinctiveness of the synthesised traits by asking an independent LLMs to identify detectives solely from their trait descriptions. To ensure alignment, this study uses \texttt{llama-3.2-3B-Instruct} (the same model for collaboration simulation) to infer the detective's identity based solely on the generated linguistic descriptions. 
+Step 2 \textbf{Validation}: To assess the validity of these representations, a \textit{Validation Via Reverse Identification} is conducted. Following \citet{delima2025detective}, this means verifying the distinctiveness of the synthesised traits by asking an independent LLMs to identify detectives solely from their trait descriptions. To ensure alignment, this study uses \texttt{llama-3.2-3B-Instruct} (the same model for collaboration simulation) to infer the detective's identity based solely on the generated linguistic descriptions. 
 
 The system message to the llama model is:
 \begin{minted}{text}
@@ -417,7 +451,7 @@ The system message to the llama model is:
     Focus on linguistic patterns and personality traits.
 \end{minted}
 
-Another important part of the role-play guidelines is the \textbf{prohibited behaviours}. This section lists behaviours that are prohibited because they would be considered out-of-character (OOC) and would violate the linguistic features of the fictional character. These constraints act as guardrails against character hallucination and character contamination and seek to shield a character's identity boundaries \citep{shao2023characterllm}. For example, Holmes is instructed to avoid emotional expression or social small-talk. The full text is available in Appendix \ref{sec:app_char_prompt}. For quick reference, the protective guidelines for Sherlock Holmes are shown below:
+Another important part of the role-play guidelines is the \emph{prohibited behaviours}. This section lists behaviours that are prohibited because they would be considered out-of-character (OOC) and would violate the linguistic features of the fictional character. These constraints act as guardrails against character hallucination and character contamination and seek to shield a character's identity boundaries \citep{shao2023characterllm}. For example, Holmes is instructed to avoid emotional expression or social small-talk. The full text is available in Appendix \ref{sec:app_char_prompt}. For quick reference, the protective guidelines for Sherlock Holmes are shown below:
 \begin{minted}{yaml}
   - description: You are not supposed to express emotions openly or show empathy.
   - description: You are not supposed to use simple, colloquial language or slang.
@@ -428,13 +462,13 @@ Another important part of the role-play guidelines is the \textbf{prohibited beh
   - description: You are not supposed to speak without logical reasoning or deductive analysis.
 \end{minted}
 
-\subsubsection{Conversation History} \label{sec:methods_prompt_history}
+\subsubsection{Conversation history} \label{sec:methods_prompt_history}
 
 As mentioned in Subsection \ref{sec:methods_model}, to guarantee that the detectives can draw on earlier evidence and reasoning while staying firmly tied to their assigned persona, the full conversation history is updated and re-inserted into the system prompt at every turn.
 
-\subsubsection{Allocated Case Information} \label{sec:methods_prompt_infopieces}
+\subsubsection{Allocated case information} \label{sec:methods_prompt_infopieces}
 
-As mentioned, at the beginnibg of each simulation, each agent is assigned a unique subset of case information based on the detectives' established investigative methods introduced in \citet{delima2025detective}:
+As mentioned, at the beginning of each simulation, each agent is assigned a unique subset of case information based on the detectives' established investigative methods introduced in \citet{delima2025detective}:
 
 \begin{itemize}
     \item Sherlock Holmes receives forensic evidence and crime scene data, reflecting his evidence-driven, analytical method.
@@ -444,7 +478,7 @@ As mentioned, at the beginnibg of each simulation, each agent is assigned a uniq
 
 This deliberate seperation of information aims at encourging collaboration, and compelling agents to exchange unique clues to reach a coherent collective conclusion \citep{zhu2024player}. 
 
-\subsection{agent construction} \label{sec:methods_agent}
+\subsection{Agent construction} \label{sec:methods_agent}
 
 Three detective agents were implemented using a single shared class. Each agent is an instance of this class and has three basic components: a name, a connection to the llama model, and a simple list that stores the conversation history. When an agent responds, the system builds a prompt that includes the full dialogue history up to that point, sends it to the model, and stores the returned text in memory for the next turn.
 
@@ -460,7 +494,7 @@ The evaluation rests on two primary axes. The first and also the central concept
 
 As discussed in Subsection \ref{sec:background_task_performance}, maintaining complex characters in multi-agent collaboration often creates tension between logical reasoning and role-playing. To reflect this trade-off between task performance (correctly solving the mystery) and character consistency (remaining in character), this study also calculate the \textbf{case-solving rate}. This is defined as the proportion of simulations in which the three detectives jointly identify the true murderer. Each of the three cases was run 50 times, and the case-solving rate is the number of simulations in which the agents' agreed-upon culprit matches the actual murderer, divided by 50. This measure was first introduced in Subsection \ref{sec:background_task_performance}.
 
-\subsection{Case-Solving rate} \label{sec:eval_case-solving-rate}
+\subsection{Case-solving rate} \label{sec:eval_case-solving-rate}
 
 Task performance is measured by the case-solving rate across three experimental conditions.
 
@@ -483,7 +517,7 @@ A supervised text classification model is used as a reference measure of charact
 
 For each turn in the simulation, the classifier outputs a probability distribution over the three character labels. The probability assigned to the intended character is treated as a continuous measure of character consistency. This allows us to analyse both the absolute level of consistency and how it changes over time across dialogue turns.
 
-\subsubsection{Training Data construction} \label{sec:eval_baseline_data}
+\subsubsection{Training data construction} \label{sec:eval_baseline_data}
 
 Character utterances were extracted using an LLM-assisted pipeline to improve the reliability of speaker attribution. The initial corpus included six recurring characters: the three detectives, plus three other leading characters: Dr. John Watson from the Sherlock Holmes stories, Inspector James Japp, and Captain Arthur Hastings from the Hercule Poirot stories. 
 
@@ -515,7 +549,7 @@ For the remaining characters, a cleaning procedure was applied. Empty utterances
 
 After cleaning, the datasets were balanced by total token count rather than by utterance count. This decision was made to reduce systematic bias arising from variation in utterance length across characters. Balancing by token count ensures that each class contributes a similar amount of lexical material during training.
 
-\subsubsection{Training Procedure} \label{sec:eval_baseline_training}
+\subsubsection{Training procedure} \label{sec:eval_baseline_training}
 
 This BERT-based classifier was trained under two configurations. The first configuration was a three-class model distinguishing Holmes, Poirot, and Marple. After balancing, each character contributed about 120,000 to 130,000 tokens.
 
@@ -554,12 +588,12 @@ The main evaluation goal is to assess how classification confidence changes over
 
 For each simulation, the classifier is applied to every utterance produced by each agent. For an utterance by a given detective (for example, Holmes), the predicted probability that the classifier assigns to the correct class is extracted (for Holmes, the probability for class “holmes”). This probability is treated as a continuous measure of how “Holmes-like” that utterance appears to the trained model.
 
-In this study, an \textit{utterance} refers to a single agent's complete response in one turn of the dialogue, which may contain multiple sentences. Each utterance is treated as one observation for classification and regression analysis.
+In this study, an \emph{utterance} refers to a single agent's complete response in one turn of the dialogue, which may contain multiple sentences. Each utterance is treated as one observation for classification and regression analysis.
 
 The analysis of these probabilities across turns proceeds in three steps:
 
 \begin{itemize}
-    \item \textbf{Mean probability over turns}: For each agent, we extract the probability of the correct class for every turn, then compute the mean (across all simulations) at each turn. We also compute 95\% confidence intervals over the simulations using bootstrapping. These mean values and intervals are plotted against turn number to visualise whether confidence increases, decreases, or remains stable over time.
+    \item \textbf{Mean probability over turns}: For each agent, the probability of the correct class for every turn is extracted, then compute the mean (across all simulations) at each turn. 95\% confidence intervals over the simulations using bootstrapping is also computed. These mean values and intervals are plotted against turn number to visualise whether confidence increases, decreases, or remains stable over time.
     \item \textbf{Brier score over turns}: For each utterance, the Brier score is computed as the squared error between the predicted probability for the correct class and 1.0. Lower Brier scores indicate higher confidence in the correct class. The Brier scores are then averaged over all simulations for each turn, and the mean and confidence intervals are plotted over turns.
     \begin{equation}
         Brier Score = (p_{correct} - 1)^{2}
@@ -598,11 +632,11 @@ This difference quantifies whether lexical similarity is more strongly associate
 
 Syntactically, character consistency is evaluated using dependency parsing to measure structural complexity. The \textbf{depth of the dependency tree} is used as the main indicator of syntactic complexity. This measure captures the hierarchical structure of a sentence and serves as a reliable proxy for syntactic complexity, as it is linked to the cognitive effort needed to understand the sentence \citep{gibson1998dependency, liu2008dependency}. Greater dependency depth usually reflects more intricate subordination and embedding in the character's discourse \citep{hudson2007dependency}. In this study, dependency depth is used to check whether the LLM-generated dialogue keeps the character-specific syntactic style.
 
-A character-specific reference distribution of syntactic depth is first built from the literary corpus for each detective. To ensure that the reference style reflects meaningful syntactic structure rather than short conversational fragments, baseline utterances are filtered prior to sampling. By default, utterances shorter than 6 token length are removed before random sampling.  
+A character-specific reference distribution of syntactic depth is first built from the literary corpus for each detective. To ensure that the reference style reflects meaningful syntactic structure rather than short conversational fragments, baseline utterances are filtered prior to sampling. By default, utterances shorter than 6-token length are removed before random sampling.  
 
 For each character, 100 filtered utterances are randomly sampled and parsed using the spaCy dependency parser (\texttt{en\_core\_web\_sm}) \citep{spacy2}. Sentence-level dependency depth is computed recursively from root nodes, and utterance-level syntactic complexity is defined as the mean depth across all sentences in the utterance. These values form the character-specific reference distribution. From these 100 sampled depths, the mean $\mu_{ref}$ and standard deviation $\sigma_{ref}$ are computed for each character. These two values serve as the character's reference statistics for syntactic depth.
 
-For each utterance in the simulation dialogue, two standardised deviation scores are then computed using these reference statistics. The first is the \textbf{reference-based z-score} ($z_{\mathrm{ref}}$), which measures how far an utterance’s syntactic depth deviates from the canonical style of the corresponding character. Formally,
+For each utterance in the simulation dialogue, two standardised deviation scores are then computed using these reference statistics. The first is the \textbf{reference-based z-score} ($z_{\mathrm{ref}}$), which measures how far an utterance's syntactic depth deviates from the canonical style of the corresponding character. Formally,
 
 \begin{equation}
     z_{\mathrm{ref}} = \frac{\mathrm{depth} - \mu_{\mathrm{ref}}}{\sigma_{\mathrm{ref}}}
@@ -611,18 +645,18 @@ For each utterance in the simulation dialogue, two standardised deviation scores
 
 where $\mu_{\mathrm{ref}}$ and $\sigma_{\mathrm{ref}}$ are the mean and standard deviation of syntactic depth in the character's baseline corpus. This metric answers: \emph{to what extent does a generated utterance deviate from the original syntactic style of the character?}
 
-In addition to reference-based comparison, an internal standardisation is computed within the simulation corpus. For each character, the mean and standard deviation of syntactic depth across all generated utterances pooled over all cases and all simulations are used to calculate a \textbf{simulation-based z-score} ($z_{\mathrm{sim}}$). This second metric shows whether a particular utterance is syntactically extreme compared to other utterances produced by the same agent during the simulation.
-
-Together, these two measures allow the analysis to distinguish between two types of syntactic variation: deviation from the canonical literary style ($z_{\mathrm{ref}}$) and internal variability within the simulated dialogue ($z_{\mathrm{sim}}$). Formally,
+In addition to reference-based comparison, an internal standardisation is computed within the simulation corpus. For each character, the mean and standard deviation of syntactic depth across all generated utterances pooled over all cases and all simulations are used to calculate a \textbf{simulation-based z-score} ($z_{\mathrm{sim}}$). This second metric shows whether a particular utterance is syntactically extreme compared to other utterances produced by the same agent during the simulation. Formally,
 
 \begin{equation}
     z_{\mathrm{sim}} = \frac{\mathrm{depth} - \mu_{\mathrm{sim}}}{\sigma_{\mathrm{sim}}}
     \label{eq:simulation-based z-score}
 \end{equation}
 
+Together, these two measures allow the analysis to distinguish between two types of syntactic variation: deviation from the canonical literary style ($z_{\mathrm{ref}}$) and internal variability within the simulated dialogue ($z_{\mathrm{sim}}$). 
+
 where $\mu_{\mathrm{sim}}$ and $\sigma_{\mathrm{sim}}$ are the mean and standard deviation of syntactic depth computed over all utterances produced by the same character across all cases and all simulations in the simulation corpus.
 
-Finally, regression model is used to examine whether syntactic depth changes systematically during extended interaction. For each detective character, utterances from all three cases and all simulations are pooled into a single dataset. A pooled ordinary least squares (OLS) regression is then fitted with turn number as the predictor and syntactic deviation ($z_{\mathrm{ref}}$ or $z_{\mathrm{sim}}$) as the outcome. In this setup, every utterance is treated as an independent observation, and a single regression line is estimated for the combined data of that character across all cases and simulations. The slope and $p$-value of the turn coefficient indicate whether there is a significant increasing or decreasing trend in syntactic deviation over the course of the dialogue.
+Finally, regression model is used to examine whether syntactic depth changes systematically as interaction continues. For each detective character, utterances from all three cases and all simulations are pooled into a single dataset. A pooled ordinary least squares (OLS) regression is then fitted with turn number as the predictor and syntactic deviation ($z_{\mathrm{ref}}$ or $z_{\mathrm{sim}}$) as the outcome. In this setup, every utterance is treated as an independent observation, and a single regression line is estimated for the combined data of that character across all cases and simulations. The slope and $p$-value of the turn coefficient indicate whether there is a significant increasing or decreasing trend in syntactic deviation over the course of the dialogue.
 
 All syntactic measurements are computed using the same dependency parsing pipeline for both reference and simulation corpus to ensure methodological consistency. The resulting per-utterance metrics and aggregated statistics form the basis for subsequent analysis of character consistency syntactically.
 
@@ -676,23 +710,28 @@ These correlations are computed on the two vectors of values (metric values and 
 
 Calibration between the linguistic metrics and classifier confidence is also examined. For each metric, the values are first normalised to the range $[0,1]$ using min-max scaling. Expected Calibration Error (ECE) is then computed by comparing the scaled metric values with the classifier probabilities across ten confidence bins. In each bin, the average scaled metric value is treated as a “predicted confidence” and the average classifier probability is treated as the “observed accuracy”. ECE is the weighted average of the absolute differences between these two quantities across all bins. Lower ECE indicates better alignment between the metric scores and the classifier confidence \citep{raj2025ece}.
 
-Finally, the metrics are compared using a composite \textit{faithfulness score}. This score combines: the absolute Pearson correlation, the absolute Spearman correlation, and a calibration score derived from ECE (defined as $1 - \text{ECE}$). All three components are first normalised to the range $[0,1]$ across the set of metrics, and then averaged to produce the final faithfulness score. Metrics with higher faithfulness scores are interpreted as more reliable indicators of character consistency, because they show stronger correlation with the classifier signal and better calibration with classifier confidence.
+Finally, the metrics are compared using a composite \emph{faithfulness score}. This score combines: the absolute Pearson correlation, the absolute Spearman correlation, and a calibration score derived from ECE (defined as $1 - \text{ECE}$). For each metric, the absolute values of Pearson's $r$ and Spearman's $\rho$ were first taken, then all three components (absolute Pearson, absolute Spearman, and calibration score) were normalised to the 0-1 range using min-max scaling. The final faithfulness score was the simple average of these three normalised values. Formally,
+
+\begin{equation}
+\text{faithfulness\_score} = \frac{ |r|_{\text{norm}} + |\rho|_{\text{norm}} + (1 - \text{ECE})_{\text{norm}} }{3}
+\end{equation}
+
+Metrics with higher faithfulness scores are interpreted as more reliable indicators of character consistency, because they show stronger correlation with the classifier signal and better calibration with classifier confidence.
 
 \subsection{Clustering-based contamination analysis} \label{sec:eval_clustering}
 
 Character contamination (defined as the blurring of identity boundaries within multi-agent collaboration in Subsection \ref{sec:intro_application_background}) across agents is examined using clustering analyses. Utterances from both the reference corpus (the original literary texts) and the simulation dialogues are represented as vectors and grouped into three clusters, one for each detective. The quality of this clustering is evaluated using three standard separability metrics: the silhouette coefficient, cluster purity, and the adjusted Rand index (ARI). By comparing clustering results between the reference and simulation data, the analysis checks whether collaborative dialogue reduces the distinctiveness of the three characters.
 
-Two types of vector representations are used. The first uses embedding vectors from the fine-tuned three-class character classifier. For each utterance, the CLS hidden state from the encoder of this classifier is extracted as the utterance representation. Clustering results are evaluated against the true character labels, giving an ARI for character identity ($\mathrm{ARI_\mathrm{character}}$). 
+The representation is based on embedding vectors from the fine-tuned three-class character classifier. For each utterance, the CLS hidden state from the encoder of this classifier is extracted as the utterance representation. Clustering results are evaluated against the true character labels, giving an ARI for character identity ($\mathrm{ARI_\mathrm{character}}$). 
 
 For the simulation data, clustering is also evaluated against case identifiers, giving a second ARI ($\mathrm{ARI_\mathrm{case}}$). This second check tests whether the clusters reflect the narrative context (which case the utterance comes from) rather than the character identity. If clustering aligns more with case than with character, it suggests that contextual factors are dominating over character-specific style.
 
-The second representation is based on the linguistic metrics themselves. For each turn, a feature vector is constructed by concatenating the turn-level metric values: lexical similarity, intra-agent character distance, syntactic deviation ($z_{\mathrm{ref}}$), syntactic depth, and sentiment distance. Optional metrics such as $z_{\mathrm{sim}}$ and intra-agent similarity can also be included. This metric-based representation provides an alternative view of character separability, based directly on the behavioural signals captured by the proposed linguistic measures rather than on neural embeddings.
+Clustering performance on the simulation data is then compared with performance on the reference corpus. The reference corpus is downsampled to match the simulation size, and clustering is repeated over several bootstrap samples to obtain stable estimates. If the simulation data show lower silhouette scores, lower purity, or lower character-based ARI than the reference texts, this is interpreted as evidence that collaborative dialogue reduces character distinctiveness. In other words, character consistency declines as agents interact, causing their utterances to become harder to separate into three clear character clusters.
 
-Clustering performance on the simulation data is then compared with performance on the reference corpus. The reference corpus is downsampled to match the simulation size, and clustering is repeated over several bootstrap samples to obtain stable estimates. If the simulation data show lower silhouette scores, lower purity, or lower character-based ARI than the reference texts, this is interpreted as evidence that collaborative dialogue reduces character distinctiveness. In other words, cross-character stylistic leakage and out-of-character behaviour increase as agents interact, causing their utterances to become harder to separate into three clear character clusters.
 
 \section{Results} \label{sec:results}
 
-\subsection{Simulation Data Overview} \label{sec:results_data-overview}
+\subsection{Simulation data overview} \label{sec:results_data-overview}
 
 Before presenting the experimental results, this section gives an overview of the reference corpus and the simulation data used in the analyses.
 
@@ -702,7 +741,7 @@ The \textbf{simulation dataset} comprises 387 utterances generated across 30 mul
 
 This relatively balanced simulation design supports fair comparison across characters and cases in the subsequent analyses.
 
-\subsection{Case-Solving Rate} \label{sec:results_case-solving-rate}
+\subsection{Case-solving rate} \label{sec:results_case-solving-rate}
 
 To evaluate how persona constraints and collaboration affect the deductive ability of LLM agents, the case-solving rate (introduced in Subsection \ref{sec:eval_case-solving-rate}) is calculated across repeated simulations. The three experimental conditions are referred to as C1 (zero-shot baseline), C2 (persona prompt without collaboration), and C3 (collaboration prompt without persona). The results in Table \ref{tab:case-solving rate} show a clear \emph{performance gradient}: task performance declines stepwise as persona constraints and collaboration are introduced.
 
@@ -742,14 +781,14 @@ This supports the discussion in Subsection \ref{sec:background_task_performance}
 
 As introduced in Subsection \ref{sec:eval_baseline_4eval}, a BERT-based classifier is trained to assess how classification confidence changes over the course of a dialogue. This confidence serves as an indirect measure of character consistency over time.
 
-Tables \ref{tab:prob_correct} and \ref{tab:brier_score} present the regression results for the predicted probability of the correct class and the Brier score across turns, aggregated over all characters and cases, for a quick overview. A detailed interpretation is given in the following subsections, one character at a time. It should be noted that although statistically significant effects are present (values with $p<0.05$ are marked with *), the explained variance remains modest ($R^2\leq0.15$ in all cases). This indicates that the turn index accounts for only a limited proportion of the variance in attribution confidence.
+Tables \ref{tab:prob_correct} and \ref{tab:brier_score} present the regression results for the predicted probability of the correct class and the Brier score across turns, aggregated over all characters and cases, for a quick overview. A detailed interpretation is given in the following subsections, one character at a time. It should be noted that although statistically significant effects are present, the explained variance remains modest ($R^2\leq0.15$ in all cases). This indicates that the turn index accounts for only a limited proportion of the variance in attribution confidence.
 
 The regression results are also visualised in Figures \ref{fig:classifier_case1}, \ref{fig:classifier_case2}, and \ref{fig:classifier_case3}. For each case, two plots are shown: one for the predicted probability of the correct character (\texttt{prob\_correct}) and one for the Brier score (\texttt{brier\_score}). The x-axis represents the dialogue turn, and the y-axis shows either the classifier probability or the Brier score. Each plot contains three curves, one for each detective. Shaded regions around each curve indicate bootstrap confidence intervals (CI).
 
 \begin{table}[H]
 \centering
 \begin{tabular}{l l l l l}\toprule
-\textbf{Case} & \textbf{Character} & \textbf{$\beta$ (prob\_correct)}& \textbf{95\% CI} & \textbf{$R^2$}\\\midrule
+\textbf{Case} & \textbf{Character} & \textbf{$\beta$ (prob\_correct)} \footnotemark[2]& \textbf{95\% CI} & \textbf{$R^2$}\\\midrule
 case1 & Holmes & -0.063* & [-0.118, -0.008] & 0.102 \\
 case1 & Marple & -0.002 & [-0.064, 0.060] & 0.000 \\
 case1 & Poirot & 0.057 & [-0.009, 0.124] & 0.060 \\
@@ -763,7 +802,7 @@ case3 & Poirot & -0.061 & [-0.157, 0.034] & 0.042 \\ \bottomrule
 \caption{Regression Results for Predicted Probability of Correct Class}
 \label{tab:prob_correct}
 \end{table}
-
+\footnotetext[2]{In all tables in this study, values with $p<0.05$ are marked with *, $<0.01$ are marked with **, $<0.001$ are marked with ***.}
 
 \begin{table}[H]
 \centering
@@ -782,9 +821,6 @@ case3 & Poirot & 0.061 & [-0.034, 0.156] & 0.043 \\ \bottomrule
 \caption{Regression Results for Brier Score}
 \label{tab:brier_score}
 \end{table}
-
-
-
 
 
 \begin{figure}[H]
@@ -846,96 +882,82 @@ case3 & Poirot & 0.061 & [-0.034, 0.156] & 0.043 \\ \bottomrule
 
 Visualisations above are shown for each case in order to preserve the temporal structure of the dialogues. Nevertheless, since the analysis focuses on character-level consistency, the results below are organised by agent.
 
-\subsubsection{Holmes}
+\subsubsection{Holmes} \label{sec:results_classifier_holmes}
 
-Holmes exhibited a significant negative temporal trend in Case 1 ($\beta=-0.063$, $p=.025$). This indicates that classifier confidence in correctly attributing Holmes' utterances decreased gradually over turns. Although the magnitude of the slope was moderate, the directionality was consistent across simulations, suggesting a systematic tendency rather than isolated fluctuations. This pattern constitutes evidence of Holmes' character inconsistency in Case 1.
+Holmes showed a significant negative temporal trend in Case 1 ($\beta=-0.063$, $p=.025$). This indicated that classifier confidence in correctly attributing Holmes' utterances decreased gradually over turns. Although the slope was moderate in magnitude, the direction was consistent across simulations, suggesting a systematic tendency rather than isolated fluctuations. This pattern provided evidence of Holmes' character inconsistency in Case 1.
 
-In Cases 2 and 3, however, no significant trend was observed ($p>.05$ in both cases). In Case 2, the slope was slightly negative but not statistically significant. Although the direction was consistent with drift, the effect size was small and variability across simulations appears to attenuate the trend. Thus, no reliable temporal degradation can be established in this scenario. In Case 3, the slope was again negative but non-significant. The absence of statistical significance suggests that any temporal weakening is subtle and not robust across simulations. In both cases, classifier confidence remains comparatively stable across turns, and no consistent directional movement is detectable. These results suggest that Holmes' behavioural stability depends on contextual factors inherent to the task scenario.
+In Cases 2 and 3, no significant trend was observed ($p>.05$ in both cases). In Case 2, the slope was slightly negative but not statistically significant. The Brier score slope was also non-significant and close to zero, indicating stable calibration. In Case 3, the slope for predicted probability was again negative but non-significant, and the Brier score slope was non-significant as well. In both cases, classifier confidence and calibration remained comparatively stable across turns, and no consistent directional movement was detectable. These results suggested that Holmes' character consistency depended on contextual factors inherent to the task scenario.
 
-Taken together, Holmes exhibits the clearest evidence of classifier-detected drift in Case 1, while in the remaining cases only weak or unstable downward tendencies are observed. Holmes demonstrates selective inconsistency rather than uniform degradation across cases. The classifier detects temporal weakening of stylistic distinctiveness only under specific interactional conditions.
+Taken together, Holmes showed evidence of character inconsistency across all three cases in terms of the overall direction of change: all three regression slopes for predicted probability were negative, indicating a general tendency toward declining classifier confidence and thus failing to maintain consistent persona throughout the dialogues. This negative direction was significant and clear only in Case 1, while in Cases 2 and 3 the downward tendencies were weak and unstable. Nevertheless, the consistent negative direction across cases suggests that Holmes did not consistently sustain his character identity under the interaction conditions tested. The significant increase in Brier score in Case 1 further confirmed reduced probabilistic calibration alongside declining confidence, reinforcing the conclusion of character inconsistency in that case.
 
-\subsubsection{Marple}
+\subsubsection{Marple} \label{sec:results_classifier_marple}
 
-For Marple, no significant temporal effects are observed in Cases 1 and 2 (both $p>.50$) and slopes are close to zero. Classifier confidence remains largely stable across dialogue turns, indicating consistent behavioural recognisability within those scenarios. Minor numerical fluctuations do not suggest a consistent directional trend.
+For Marple, no significant temporal effects were observed in Cases 1 and 2 for predicted probability (both $p>.50$), and slopes were close to zero. The Brier score slopes in these cases were also non-significant, indicating stable calibration. Classifier confidence remained largely stable across dialogue turns, indicating consistent behavioural recognisability within those scenarios. Minor numerical fluctuations did not suggest a consistent directional trend.
 
-In Case 3, however, a statistically significant negative trend emerges ($\beta=-0.102$, $p=.015$). The magnitude of this slope exceeds that observed for Holmes in Case 1, indicating a comparatively stronger temporal decline in attribution confidence. This suggests that Marple's generated dialogue increasingly diverges from the classifier's learned representation of her character profile as the conversation unfolds.
+In Case 3, however, a statistically significant negative trend emerged for predicted probability ($\beta=-0.102$, $p=.015$). The magnitude of this slope exceeded that observed for Holmes in Case 1, indicating a comparatively stronger temporal decline in attribution confidence. At the same time, the Brier score showed a significant positive slope ($\beta=-0.103$, $p=.05$), reflecting increasing calibration error as the dialogue unfolded. This suggested that Marple's generated dialogue increasingly diverged from the classifier's learned representation of her persona over time.
 
-The asymmetry across cases again points to contextual sensitivity. Rather than reflecting a general instability of the model's character portrayal, inconsistency appears to manifest selectively under certain task configurations.
+Taken together, Marple showed evidence of character inconsistency in Case 3, but not in Cases 1 or 2. In Case 3, the significant negative slope for predicted probability and the significant positive slope for Brier score together indicated declining classifier confidence and worsening calibration, which are direct signs of character inconsistency. In Cases 1 and 2, both metrics remained stable, with non-significant slopes and no consistent directional change. This pattern shows that Marple maintained consistent character identity in Cases 1 and 2, but failed to do so in Case 3.
 
-\subsubsection{Poirot}
+\subsubsection{Poirot} \label{sec:results_classifier_poirot}
 
-Across all three cases, Poirot does not exhibit statistically significant negative drift (all $p>.09$). In Case 1, a marginal positive trend is observed ($\beta=0.057$, $p=.091$), suggesting a slight increase in classifier confidence over turns. Although this effect does not reach conventional significance, its direction contrasts with the declining patterns observed for Holmes and Marple in their respective drift cases.
+Across all three cases, Poirot did not exhibit statistically significant negative drift in predicted probability (all $p>.09$). In Case 1, a marginal positive trend was observed ($\beta=0.057$, $p=.091$), suggesting a slight increase in classifier confidence over turns. Although this effect did not reach statistical significance, its direction contrasted with the declining patterns observed for Holmes and Marple in their respective drift cases. The Brier score slopes in all three cases were non-significant and close to zero, indicating stable calibration throughout.
 
-In Cases 2 and 3, slopes are close to zero and non-significant, classifier confidence remains stable across turns. While small numerical fluctuations are present, they do not indicate a systematic temporal decline.
+In Cases 2 and 3, slopes for predicted probability were close to zero and non-significant, and classifier confidence remained stable across turns. Brier score slopes were also non-significant in these cases. While small numerical fluctuations were present, they did not indicate a systematic temporal decline in either confidence or calibration.
 
-Overall, Poirot appears comparatively robust at the character consistency compared to Holmes and Marple, with no evidence of systematic degradation.
+Overall, Poirot maintained consistent character identity throughout the dialogues compared to Holmes and Marple, with no evidence of systematic degradation in classifier confidence or probabilistic calibration
 
-\subsubsection{Cross-case summary}
+\subsubsection{Classifier Results Summary} \label{sec:results_classifier_summary}
 
-Across characters and cases, classifier-based character consistency is generally stable. Statistically significant temporal inconsistency is observed in only two instances: Holmes in Case 1 and Marple in Case 3. In both cases, the predicted probability of the correct class decreases over turns, accompanied by increasing Brier scores. This pattern indicates both declining attribution confidence and reduced probabilistic calibration as the dialogue progresses.
+Across characters and cases, classifier-based character consistency was generally stable. Statistically significant temporal inconsistency was observed in only two instances: Holmes in Case 1 and Marple in Case 3. In both cases, the predicted probability of the correct class decreased significantly over turns, accompanied by a significant increase in Brier score. This pattern indicated both declining attribution confidence and reduced probabilistic calibration as the dialogue progressed, providing clear evidence of character inconsistency in these two character-case combinations. Overall, the results suggested that character inconsistency emerged selectively rather than systematically.
 
-In all remaining character-case combinations, regression slopes are not statistically different from zero. Classifier confidence therefore remains broadly stable over dialogue turns. Bootstrap confidence intervals widen slightly in later turns, reflecting increased variability and fewer observations.
+\subsection{Lexical metrics} \label{sec:results_lexical}
 
-Overall, the results suggest that character inconsistency emerges selectively rather than systematically. Most character-case configurations maintain stable classifier-based character consistency throughout the dialogue, while only a small number of scenarios exhibit measurable temporal degradation.
+As introduced in Subsection \ref{sec:eval_lexical}, from the lexically perspective this study examines how closely each generated utterance matches the character's established vocabulary, using TF-IDF cosine similarity to the gold reference corpus. It also compares similarity within the same agent over time against similarity across different agents at the same turn. The resulting character distance score indicates whether lexical patterns are driven by character identity or by shared conversational content. Kruskal-Wallis and Mann-Whitney $U$ tests are used to assess whether lexical similarity differs across characters, and to identify which specific pairs show significant differences.
 
-\subsection{Lexical Metrics}
+To ensure data quality, simulated utterances were pre-filtered to a minimum length of 6 tokens, resulting in 129 simulated utterances per character. For the reference corpus, a fixed sample of 100 baseline utterances per character was randomly selected (seed = 42) from the full corpus. This sampling strategy was chosen for keeping a balance between computational efficiency and maintainance of a sufficiently diverse lexical basis. Because simulated utterances are evaluated against these reference sets independently, the difference in sample size between baseline ($n=100$ per character) and simulation data ($n=129$ per character) introduces little statistical imbalance.
 
-Recall that lexical consistency was assessed using two complementary measures of distributional text similarity. First, external alignment was evaluated by comparing generated utterances against character-specific TF–IDF centroids derived from gold-standard literary corpora. Second, a corrected intra-agent similarity metric was employed to isolate character-driven stylistic continuity from shared, topic-driven similarity within dialogue turns.
+\subsubsection{Character-specific vocabulary similarity} \label{sec:results_lexical_vocab}
 
-To ensure data quality, simulated utterances were pre-filtered to a minimum length of six tokens, resulting in 129 simulated utterances per character. For the reference corpus, a fixed sample of 100 baseline utterances per character was randomly selected (seed = 42) from the full 12,000 utterances corpus. This sampling strategy optimises computational efficiency during repeated vectorisation while maintaining a sufficiently diverse lexical basis to stabilise centroid representations. Because simulated utterances are evaluated against these centroids independently, the difference in sample size between baseline (n=100) and simulation data (n=129) introduces little statistical imbalance.
-
-\subsubsection{Vector-based TF-IDF similarity}
-
-Lexical alignment was first evaluated by calculating the cosine similarity between generated utterances and character-specific TF–IDF centroids from the literary reference corpus. Across all characters ($N=129$ per character), Poirot exhibited the highest mean similarity ($M=0.119$, $SD=0.025$), followed by Marple ($M=0.110$, $SD=0.041$) and Holmes ($M=0.100$, $SD=0.025$). Detailed summary statistics, including similarity ranges and standard deviations, are provided in Table \ref{lexical_tfidf}. While absolute similarity values were modest (likely due to the domain divergence between literary narrative prose and task-oriented simulation dialogue), they reveal measurable character-specific differentiation.
+Table \ref{tab:lexical_tfidf} presents summary statistics of cosine similarity between simulated utterances and character-specific TF-IDF representations from the reference corpus. Poirot shows the highest mean similarity ($M=0.119$, $SD=0.025$), followed by Marple ($M=0.110$, $SD=0.041$) and Holmes ($M=0.100$, $SD=0.025$). Although absolute values are modest, the differences suggest variation in how closely each character aligns with their canonical vocabulary.
 
 \begin{table}[H]
 \centering
 \begin{tabular}{l l l l l}\toprule
-Character & Cosine Mean& Cosine SD& Min & Max \\\midrule
+Character & Cosine Mean& Cosine SD& Cosine Min & Cosine Max \\\midrule
 Holmes & 0.100 & 0.025 & 0.047 & 0.175 \\
 Marple & 0.110 & 0.041 & 0.042 & 0.263 \\
 Poirot & 0.119 & 0.025 & 0.064 & 0.184 \\ \bottomrule
 \end{tabular}
-\caption{TF-IDF similarity summary statistics}
-\label{lexical_tfidf}
+\caption{Summary of TF-IDF similarity statistics.}
+\label{tab:lexical_tfidf}
 \end{table}
 
-Statistical analyses confirmed significant distributional differences across characters. A Kruskal–Wallis test indicated a significant effect of character identity on TF–IDF similarity ($H(2)=30.11,p<.001$). (Table \ref{lexical_kwallis} below)
+A Kruskal-Wallis test confirmed a significant effect of character identity on TF-IDF similarity ($H(2)=30.11$, $p<.001$) (Table \ref{tab:lexical_stattest}), indicating that the distributions differ across characters. Bonferroni-corrected pairwise Mann-Whitney $U$ tests show that Poirot has significantly higher similarity than both Holmes ($U=4844.0$, $p<.001$) and Marple ($U=6413.0$, $p=.001$), while the difference between Holmes and Marple is not significant ($U=7504.0$, $p=.173$). 
 
 \begin{table}[H]
 \centering
-\begin{tabular}{l l l l}\toprule
-Test & H & df & p \\\midrule
-Kruskal–Wallis & 30.11 & 2 & < .001 \\ \bottomrule
+\begin{tabular}{l l l l l}\toprule
+Test Type & Comparison / Test & Test Statistic & df & $p$-value \\\midrule
+Overall & Kruskal-Wallis & $H=30.11$*** & 2 & < .001 \\
+Pairwise & Holmes vs Marple & $U=7504.0$ & - & .173 \\
+Pairwise & Holmes vs Poirot & $U=4844.0$*** & - & < .001 \\
+Pairwise & Marple vs Poirot & $U=6413.0$** & - & .001 \\ \bottomrule
 \end{tabular}
-\caption{Kruskal–Wallis Test Results}
-\label{lexical_kwallis}
+\caption{Kruskal-Wallis and pairwise Mann-Whitney $U$ test results (Bonferroni corrected).}
+\label{tab:lexical_stattest}
 \end{table}
 
-Bonferroni-corrected pairwise Mann–Whitney U tests (Table \ref{lexical_utest})revealed that Poirot's alignment was significantly stronger than both Holmes ($U=4844.0$, $p<.001$) and Marple ($U=6413$.0, $p=.001$). The difference between Holmes and Marple, however, did not reach statistical significance ($U=7504.0$, $p=.173$).
+Beyond mean differences, variability also differs across characters. Marple shows the largest spread ($SD=0.041$, range: 0.042-0.263), suggesting less stable lexical alignment, whereas Holmes and Poirot are more concentrated. Overall, all agents show some degree of character consistency from lexical perspective, but Poirot demonstrates the strongest and most stable alignment with the reference vocabulary.
 
-\begin{table}[H]
-\centering
-\begin{tabular}{l l l}\toprule
-Comparison & U & p \\\midrule
-Holmes vs Marple & 7504.0& .173 \\
-Holmes vs Poirot & 4844.0& < .001 \\
-Marple vs Poirot & 6413.0& .001 \\ \bottomrule
-\end{tabular}
-\caption{Pairwise Mann–Whitney U Tests Results (Bonferroni Corrected)}
-\label{lexical_utest}
-\end{table}
+\subsubsection{Character distance (intra- vs. cross-agent similarity)}  \label{sec:results_lexical_chardistance}
 
+This analysis examines whether lexical similarity is primarily driven by character identity or by shared conversational content. Following Subsection \ref{sec:eval_lexical}, intra-agent and cross-agent similarities are computed within each simulation run, and their difference (character distance) is used as the main indicator. More specifically, positive values indicate that an agent's lexical choices are more similar to its own previous utterances than to those of other agents, reflecting character-specific consistency. All similarities are computed within a shared TF-IDF space over generated utterances to ensure comparability. Since intra-agent similarity requires a previous utterance, the first turn of each run is excluded.
 
-Character-specific variability also differed substantially. As shown in Table \ref{lexical_tfidf}, Marple displayed the highest fluctuation ($SD=0.041$, range: 0.042–0.263), suggesting less lexical stability compared to the more concentrated distributions of Holmes and Poirot. These results indicate that while all agents maintain a degree of lexical character consistency, Poirot demonstrates the most robust and consistent alignment with his canonical vocabulary profile.
+Positive values indicate that lexical persistence is driven by character identity rather than shared conversational content. This metric was computed within a shared TF-IDF embedding space built over all generated utterances to ensure direct comparability. Due to the lag required for transition values, the first utterance of each run was excluded from the analysis.
 
-\subsubsection{Intra-agent cosine similarity}
+Table \ref{tab:lexical_char_distance} summarises intra-agent similarity, cross-agent similarity, and their difference. For all characters, intra-agent similarity is slightly higher than cross-agent similarity, but the magnitude of this difference varies. Poirot and Holmes show clear positive character distance (Poirot: $M=0.075$, Holmes: $M=0.069$), indicating that their lexical patterns remain more aligned with their own prior speech than with the group. In contrast, Marple's mean distance is close to zero ($M=0.005$), suggesting little distinction from the shared dialogue. For Marple, intra- and cross-agent similarities are nearly identical, which explains the near-zero character distance.
 
-While the similarity metric above captures the lexical characer consistency, they may be confounded by topic-driven similarity arising from the shared investigative context. In multi-agent collaboration, agents often lexically and semantically converge over multiple rounds. To isolate character-driven continuity from this "topical overlap,"  intra-agent and cross-agent similarity are computed within each simulation run. The terms and formula are provided in \ref{eq:lexical_chardistance}.
-
-Positive values indicate that lexical persistence is driven by character identity rather than shared conversational content. This metric was computed within a shared TF–IDF embedding space built over all generated utterances to ensure direct comparability. Due to the lag required for transition values, the first utterance of each run was excluded from the analysis.
-
-Statistical results, summarized in Table \ref{lexical_intra_agent}, indicate that character identity contributes significantly to lexical continuity for Poirot and Holmes, but less so for Marple.
+Overall, the results show that Poirot and Holmes retain a stable lexical fingerprints under collaboration, whereas that of Marple's is largely shaped by the shared conversational context.
 
 \begin{table}[H]
 \centering
@@ -945,22 +967,21 @@ Holmes & 0.357 & 0.288 & 0.069 & 0.219 \\
 Marple & 0.279 & 0.274 & 0.005 & 0.194 \\
 Poirot & 0.370 & 0.295 & 0.075 & 0.221 \\ \bottomrule
 \end{tabular}
-\caption{Intra-agent lexical distance summary}
-\label{lexical_intra_agent}
+\caption{Summary of intra-agent similarity, cross-agent similarity, and their difference (character distance).}
+\label{tab:lexical_char_distance}
 \end{table}
 
-Poirot exhibited the highest mean character distance ($M=0.075$, $SD=0.221$), followed closely by Holmes ($M=0.069$). Despite high variance ($SD\approx0.22$), their upper quantiles (reaching 0.689 and 0.612, respectively) suggest episodic reinforcement of unique lexical patterns that resist convergence with other agents. In contrast, Miss Marple displayed a near-zero mean distance ($M=0.005$, $SD=0.194$), indicating that her lexical choices are only marginally distinguishable from the group's shared vocabulary.
-
-These findings suggest varying degrees of vulnerability to character consistency. While Poirot and Holmes maintain a measurable "linguistic fingerprint" despite the pressure of collaboration, Marple demonstrates significantly weaker lexical consistence. This implies that in task-oriented multi-agent settings, Marple's persona is more prone to being subsumed by the collective dialogue flow.
 
 \subsubsection{Lexical results summary}
 
-Taken together, the lexical analyses provide a multi-dimensional assessment of character consistency within the collaborative simulation. As summarised in Table \ref{lexical_summary}, while all agents achieve measurable alignment with their canonical profiles, the stability of this consistency varies significantly across the three detectives.
+Taken together, the lexical analyses shows that character consistency is present but uneven across agents. Poirot achieves the strongest alignment with his reference vocabulary and maintains clear separation from other agents during interaction. Holmes shows a similar but slightly weaker pattern. In contrast, Marple, despite moderate alignment at the vocabulary level, shows little distinction from the group in interaction, indicating that her lexical behaviour is more influenced by shared conversational context.
+
+These results suggest that lexical character consistency depends not only on alignment with a reference corpus, but also on the ability to sustain that alignment during multi-agent collaboration.
 
 \begin{table}[H]
 \centering
 \begin{tabular}{l l l}\toprule
-Character & TF–IDF Mean & Character Distance Mean \\\midrule
+Character & TF-IDF Mean & Character Distance Mean \\\midrule
 Holmes & 0.100 & 0.069 \\
 Marple & 0.110 & 0.005 \\
 Poirot & 0.119 & 0.075 \\ \bottomrule
@@ -969,46 +990,42 @@ Poirot & 0.119 & 0.075 \\ \bottomrule
 \label{lexical_summary}
 \end{table}
 
-Hercule Poirot exhibits the highest levels of character consistency across both metrics ($M_{TF-IDF}=0.119$; $M_{CharDist}=0.075$), indicating that the model successfully prioritises his unique psychological profiling and methodical vocabulary even under the pressure of group interaction. Sherlock Holmes similarly maintains a resilient "linguistic fingerprint" ($M_{CharDist}=0.069$), showing strong differentiation from his counterparts.
+Poirot exhibited the highest levels of character consistency across both metrics ($M_{TF-IDF}=0.119$; $M_{CharDist}=0.075$). This indicates that he kept the unique lexical features and vocabulary even under the pressure of group interaction. Holmes also maintained a stable lexical fingerprint ($M_{CharDist}=0.069$), showing clear differentiation from the other detectives.
 
-In contrast, Miss Marple presents a notable asymmetry: despite moderate alignment with her literary reference ($M_{TF-IDF}=0.110$), her near-zero character distance ($M_{CharDist}=0.005$) reveals that her lexical choices are highly susceptible to the collective dialogue flow. This suggests that while her individual utterances appear consistent in isolation, her character consistency is more vulnerable to erosion during collaborative reasoning, leading her to adopt a more generic persona.
-
-These findings indicate that lexical character consistency is present but unevenly maintained, likely depending on the salience and stereotypical stability of each character's established stylistic profile.
+In contrast, Marple showed a clear mismatch: although her average alignment with her literary reference was moderate ($M_{TF-IDF}=0.110$), her character distance was near zero ($M_{CharDist}=0.005$). This shows that her lexical choices were highly susceptible to the collective dialogue flow. Her individual utterances appeared consistent when looked at alone, but her character consistency was more easily eroded during collaborative reasoning. Overall, these findings indicate that lexical character consistency was present but not maintained equally across the three detectives.
 
 
-\subsection{Syntactic Metrics}
+\subsection{Syntactic metrics} \label{sec:results_syntactic}
 
-Beyond lexical alignment, character consistency was assessed at the syntactic level using dependency tree depth as a proxy for structural complexity. This metric captures hierarchical fidelity by comparing simulation outputs against character-specific reference distributions derived from canonical literary baselines. Syntactic performance is evaluated along two primary dimensions: absolute deviation from established profiles and systematic temporal drift over the course of the collaboration.
+Character consistency was also evaluated at the syntactic level using dependency tree depth as a measure of structural complexity. As introduced in Subsection \ref{sec:eval_syntacic}, three aspects were considered: deviation from literary reference ($z_{\mathrm{ref}}$), internal variability within the simulation ($z_{\mathrm{sim}}$), and temporal trends across dialogue turns.
 
-\subsubsection{Comparison of syntactic depth with literary baselines}
+\subsubsection{Deviation from the reference}
 
-Before analysing temporal drift, it is instructive to consider the overall level of syntactic deviation relative to the Detectives' canonical voices. As shown in Table \ref{syntax_depth}, across all three characters, simulated utterances exhibited substantially higher mean dependency depth compared to their respective literary baselines. The magnitude of this increase was considerable: Sherlock Holmes showed a 50.99\% rise in mean depth, Hercule Poirot a 66.70\% increase, and Miss Marple the highest at 73.42\%. In absolute terms, simulation means clustered tightly around a range of 6.8–7.0, whereas baseline means were markedly lower, ranging between 4.06 and 4.59.
+Table \ref{tab:syntax_depth} summarised mean dependency depths for the baseline texts and the simulated dialogue. Across all characters, generated utterances showed substantially higher mean depth than the literary reference (Holmes: +50.99\%, Poirot: +66.70\%, Marple: +73.42\%). In absolute terms, simulation means clustered around 6.8-7.0, whereas baseline means ranged from 4.06 to 4.59.
 
 \begin{table}[H]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{l l l l l l l}
- & \multicolumn{2}{c}{Baseline}& \multicolumn{2}{c}{Simulation}& \multicolumn{2}{c}{Difference}\\\toprule
+ & \multicolumn{2}{c}{Reference}& \multicolumn{2}{c}{Simulation}& \multicolumn{2}{c}{Difference}\\\toprule
 Character& Mean Depth& SD& Mean Depth& SD& Depth Diff.& Increase (\%)\\\midrule
 Holmes & 4.588 & 1.693 & 6.928 & 0.742 & 2.339 & 50.99 \\
 Marple & 4.057 & 1.339 & 7.035 & 0.744 & 2.979 & 73.42 \\
 Poirot & 4.086 & 1.427 & 6.812 & 0.743 & 2.726 & 66.70 \\ \bottomrule
 \end{tabular}
 }%
-\caption{Mean Syntactic Depth and Deviation from Literary Baseline by Character}
-\label{syntax_depth}
+\caption{Mean syntactic depth and deviation from literary reference by character}
+\label{tab:syntax_depth}
 \end{table}
 
-This pattern indicates a pronounced global complexity shift in the LLM-generated dialogue. Crucially, the standard deviations within the simulation (approx. 0.74) were significantly smaller than those of the baseline distributions (1.34–1.69), suggesting that the model did not merely increase structural variability Table \ref{syntax_depth}. Instead, it converged towards a consistently more syntactically complex register, effectively reducing the character consistency of the detectives by overwriting their distinct literary sentence structures with a uniform, "expository" style. In other words, instead of fluctuate widely around their canonical styles, the agents collectively occupied a higher syntactic plateau instead.
-
-Importantly, this global level shift is analytically distinct from temporal drift. While drift concerns progressive change over turns, the observed elevation in depth suggests an underlying stylistic bias in the generative process itself, independent of dialogue progression. The findings indicate that the agents collectively operate at a syntactic complexity level that exceeds their literary norms from the outset, representing a fundamental challenge to maintaining character consistency in task-oriented collaborative environments.
+Standard deviations within the simulation (approx. 0.74) are lower than in the literary baselines (1.34-1.69), indicating that the model generates consistently deeper structures rather than simply more variable ones. This shift reflects a global elevation in syntactic complexity, independent of dialogue progression.
 
 
-\subsubsection{Temporal trends in structural deviation}
+\subsubsection{Temporal trends in syntactic deviation}
 
-To examine whether syntactic deviation intensified over time, pooled linear regressions were conducted for each character using the turn index as the predictor and the reference-based z-score ($z_{\mathrm{ref}}$) as the dependent variable. This metric captures the degree of divergence from the canonical literary norm in standard units.
+To examine whether syntactic divergence increases over dialogue turns, linear regressions were run for each character using turn index as predictor and reference-based z-score ($z_{\mathrm{ref}}$) as dependent variable. Table \ref{tab:syntax_regression} showed that all characters exhibit positive slopes, indicating progressive divergence from their literary references. Holmes showed the steepest slope (0.105, $p<.01$), followed by Poirot (0.093, $p<.01$), while Marple's slope (0.078) did not reach conventional significance.
 
-As detailed in Table \ref{syntax_z}, all three characters exhibited statistically significant positive slopes. Sherlock Holmes demonstrated the most pronounced upward drift (slope = 0.105, $p$<.001, $R^2$=.189), while Hercule Poirot (slope = 0.093, $p$<.001, $R^2$=.106) and Miss Marple (slope = 0.078, $p$e=.0036, $R^2$=.065) followed Table \ref{syntax_z}. These results indicate a systematic erosion of character consistency as the dialogue progressed, with simulated utterances becoming increasingly complex and structurally distant from their literary origins as the investigation intensified.
+These results indicate a systematic erosion of character consistency over dialogue turns for Holmes and Poirot, with simulated utterances becoming increasingly complex and distant from their literary reference. Marple shows a similar positive trend, but it is less pronounced and not statistically significant.
 
 \begin{table}[H]
 \centering
@@ -1021,50 +1038,91 @@ Marple & $z_{\mathrm{sim}}$& 0.140 & 0.065 & 0.047 \\
 Poirot & $z_{\mathrm{ref}}$& 0.093** & 0.106 & 0.024 \\
 Poirot & $z_{\mathrm{sim}}$& 0.180** & 0.106 & 0.046 \\ \bottomrule
 \end{tabular}
-\caption{Pooled linear regression of z-scores ($z_{\mathrm{sim}}$) over dialogue turns}
-\label{syntax_z}
+\caption{Pooled linear regression of z-scores ($z_{\mathrm{sim}}$) over dialogue turns.}
+\label{tab:syntax_regression}
 \end{table}
 
-Although the magnitude of the effect varied between detectives, the directionality of the drift was uniform across the simulation. The high slope and explanatory power for Holmes suggest that his unique syntactic profile—originally defined by a specific analytical structure—diverged most sharply from its literary baseline under the pressure of multi-agent interaction. In contrast, while Marple's character consistency was also subject to statistically reliable drift, her syntactic deviation remained comparatively more moderate.
-The pooled nature of these regressions ensures that these trends reflect stable character-level patterns across different cases and experimental runs rather than isolated fluctuations. 
-
-Supplementary per-run analyses further confirmed that positive slopes predominated across individual simulations, reinforcing the robustness of this temporal effect. Taken together, these findings provide strong evidence of cumulative syntactic divergence over dialogue turns. As the collaboration advances, the agents' structural voices increasingly migrate away from their canonical norms, further challenging the maintenance of character consistency in long-term reasoning tasks.
+Supplementary per-run analyses confirm that positive slopes are prevalent across individual simulations, showing that syntactic divergence is a consistent pattern rather than an artefact of aggregation.
 
 \subsubsection{Comparison of reference- and simulation-based slopes}
 
 \begin{table}[H]
 \centering
 \begin{tabular}{l l l l l}\toprule
-Character & $z\_{ref}$ Slope& $z\_{sim}$ Slope & Difference & Consistent Direction? \\\midrule
-Holmes & 0.105 & 0.240 & 0.135 & Yes \\
-Marple & 0.078 & 0.140 & 0.062 & Yes \\
-Poirot & 0.093 & 0.180 & 0.087 & Yes \\ \bottomrule
+Character & $z\_{ref}$ Slope& $z\_{sim}$ Slope & Difference \\\midrule
+Holmes & 0.105 & 0.240 & 0.135 \\
+Marple & 0.078 & 0.140 & 0.062 \\
+Poirot & 0.093 & 0.180 & 0.087 \\ \bottomrule
 \end{tabular}
-\caption{Comparison of Reference- and Simulation-Based Temporal Slopes}
-\label{syntax_slope_compare}
+\caption{Comparison of reference- and simulation-based temporal slopes.}
+\label{tab:syntax_slope_compare}
 \end{table}
 
-Table \ref{syntax_slope_compare} compares the temporal regression slopes obtained using the reference-based ($z_{\mathrm{ref}}$) and simulation-based ($z_{\mathrm{sim}}$) standardisations in order to assess the robustness of the observed syntactic drift patterns.
+Table \ref{tab:syntax_slope_compare} compares slopes from reference-based and simulation-based standardisation. All three characters show positive slopes under both normalisations, confirming the robustness of the temporal drift effect.
 
-The results show that all three detectives exhibit positive temporal slopes under both normalisation schemes (Consistent Direction: Yes). This indicates that the increase in syntactic complexity reflects a genuine linear evolution during dialogue generation rather than an artefact introduced by reference-based normalisation.
-
-Among the three characters, Holmes shows the strongest syntactic drift, with a $z_{\mathrm{sim}}$ slope of 0.240. By contrast, Marple displays the most stable character consistency, with the smallest $z_{\mathrm{sim}}$ slope (0.140) among the three detectives.
 
 \subsubsection{Syntactic results summary}
 
-When considered collectively, the syntactic results reveal two parallel challenges to character consistency: a substantial global elevation in structural complexity relative to canonical baselines Table \ref{syntax_depth}, and a progressive temporal drift as the dialogue advances \ref{syntax_z}.
+Overall, syntactic analyses revealed two challenges to character consistency. First, there was a substantial global increase in structural complexity relative to literary reference. Second, syntactic complexity tends to increase over dialogue turns, with Holmes and Poirot showed statistically significant upward trends. Marple showed a positive slope as well, but it does not reach conventional significance and is comparatively more stable.
 
-The uniformity of these effects suggests that role-conditioned multi-agent interaction does not merely replicate each detective's established structural habits. Instead, the collaborative environment appears to impose an "investigative overhead", where the pressure of mystery-solving mandates increasingly complex syntactic constructions. This shift likely reflects the cognitive demands of cumulative reasoning, elaborative hypothesis building, and escalating argumentative detail required by the task.
+These patterns suggest that multi-agent interaction shifts syntactic structures toward more complex constructions, reducing the distinctiveness of individual characters' syntactic styles over time. 
 
-Crucially, the consistent direction of drift across all three detectives which are characterised by positive slopes in Table \ref{syntax_slope_compare}, contrasts with the more heterogeneous patterns observed in lexical measures. This implies that while agents may retain certain unique vocabulary traits, their underlying syntactic structures are particularly sensitive to dialogue dynamics. This results in a systematic convergence towards a complex, task-oriented register that ultimately erodes the structural dimension of character consistency over time.
 
-\subsection{Discourse Metrics}
+\subsection{Discourse metrics} \label{sec:results_discourse}
 
-This section evaluates character consistency at the discourse level, focusing on the affective dimension of the agents' dialogue. While previous analyses examined task performance, classifier-based identity, and structural patterns (lexical and syntactic), the present analysis investigates whether agents maintain a coherent emotional profile throughout the interaction. In this study, discourse-level character consistency is operationalised through sentiment analysis using the VADER framework, which allows multi-dimensional measurement of affect across dialogue turns.
+This section evaluates character consistency at the discourse level, focusing on the affective dimension of the dialogue. While previous analyses examined task performance and structural patterns (lexical and syntactic), this analysis investigates whether agents maintain a coherent affective style throughout the interaction. As introduced in Section \ref{sec:eval_discourse}, discourse-level consistency is operationalised through sentiment analysis using the VADER framework. This involves measuring the Euclidean distance between the sentiment vectors of simulated utterances and character-specific affective style derived from the original literary works.
 
-\subsubsection{comparison of affective profiles with literary baselines}
+\subsubsection{Visual analysis of sentiment distance}
 
-The initial assessment examines the overall alignment between simulated dialogue and the emotional signatures derived from canonical literary baselines. Table \ref{sentiment_avg} summarises the average sentiment vectors for each detective in the simulation data.
+Figures \ref{fig:vader_holmes} to \ref{fig:vader_poirot} illustrate the distribution of sentiment distances across dialogue turns. In these plots, each blue semi-transparent circle represents the Euclidean distance of a character's utterance from their literary baseline for a specific turn. The solid orange line indicates the linear regression fit, representing the general trend of sentiment drift, while the shaded light orange area denotes the 95\% confidence interval for this regression.
+
+The regression lines for all three detectives showed a positive slope, suggesting a gradual increase in sentiment distance as the collaboration progresses. This trend indicated a progressive divergence from the literary persona's affective style rather than stabilisation. Marple displays the most pronounced upward trajectory, whereas the slope for Holmes appears relatively flatter.
+
+The boxplot in Figure \ref{fig:vader_boxplot} provided a comparison of the sentiment drift slopes across characters. Marple exhibited the highest median slope and the widest interquartile range, indicating that her affective consistency is the most sensitive to the progression of the dialogue and varies significantly between different simulation runs. In contrast, Holmes showed the lowest median slope and a more concentrated distribution, suggesting a more stable, albeit distant, affective profile. 
+
+The open circles in the boxplot represented outliers from individual simulation runs. These were specific instances where the sentiment drift (slope) was significantly higher or lower than the character's typical range. Several outliers were observed particularly in the cases of Marple and Poirot. These points represented specific simulations where the character's sentiment drifted abruptly, with some slopes for Marple exceeding $0.4$.
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{\textwidth}
+        \centering
+        \begin{subfigure}[b]{1.2\textwidth}
+            \centering
+             \includegraphics[width=.7\linewidth]{images/5.2_distance_over_turns_holmes.png}
+            \caption{Holmes}\label{fig:vader_holmes}
+        \end{subfigure}\qquad
+        \begin{subfigure}[b]{1.2\textwidth}
+            \centering
+            \includegraphics[width=.7\linewidth]{images/5.2_distance_over_turns_marple.png}
+            \caption{Marple}\label{fig:vader_marple}
+        \end{subfigure}
+    \caption{Plot of Sentiment Distance Over Turns For Each Character}
+    \label{fig:vader_1}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{\textwidth}
+        \centering
+        \begin{subfigure}[b]{1.2\textwidth}
+            \centering
+             \includegraphics[width=.7\linewidth]{images/5.2_distance_over_turns_poirot.png}
+            \caption{Poirot}\label{fig:vader_poirot}
+        \end{subfigure}\qquad
+        \begin{subfigure}[b]{1.2\textwidth}
+            \centering
+            \includegraphics[width=.7\linewidth]{images/5.2_slope_boxplot_by_character}
+            \caption{Boxplot}\label{fig:vader_boxplot}
+        \end{subfigure}
+    \caption{Plot of Sentiment Distance Over Turns For Each Character}
+    \label{fig:vader_2}
+    \end{minipage}
+\end{figure}
+
+\subsubsection{Alignment with literary affective baselines}
+
+The numerical assessment first examined the mean sentiment features of the simulated dialogues. Table \ref{tab:sentiment_avg} summarised the average sentiment vectors for each detective across all simulations. The results indicated that simulated utterances were predominantly neutral, with all mean neutral scores exceeding 0.840. This concentration reflected the general tendency for large language models to produce affectively neutral text. Poirot demonstrated the highest level of neutrality (0.859) and the lowest compound sentiment (0.038), indicating a restrained discourse style in the simulations.
 
 \begin{table}[H]
 \centering
@@ -1075,36 +1133,16 @@ Marple & 0.090 & 0.063 & 0.848 & 0.057 \\
 Poirot & 0.084 & 0.057 & 0.859 & 0.038 \\ \bottomrule
 \end{tabular}
 \caption{Average sentiment vectors for each character}
-\label{sentiment_avg}
+\label{tab:sentiment_avg}
 \end{table}
-
-Across all characters, simulated utterances are predominantly neutral ($M>0.84$). This pattern is consistent with the tendency of LLM-generated text to display relatively neutral affective distributions. Among the three detectives, Poirot exhibits the highest level of neutrality (0.859) and the lowest compound sentiment (0.038), suggesting a particularly restrained and controlled discourse style.
-
-The degree of discourse-level character consistency is further illustrated by the mean Euclidean distance between the simulation sentiment vectors and the literary baselines. As shown in Table~\ref{sentiment_char}, Holmes displays the largest mean distance ($M=0.946$), indicating the strongest deviation from his canonical affective profile. In contrast, Marple shows the smallest distance ($M=0.860$), suggesting that her simulated dialogue initially aligns more closely with the emotional characteristics observed in the literary corpus. Poirot occupies an intermediate position ($M=0.886$), reflecting moderate alignment with his baseline affective style.
 
 
 \subsubsection{Temporal trends in sentiment deviation}
 
+The degree of discourse-level inconsistency was further quantified by the mean Euclidean distance and the slope of drift over turns. Table \ref{tab:sentiment_char} presented these indicators based on the character-level summary.
 
-To examine whether discourse-level character consistency changes over time, linear regressions were fitted with turn index as the predictor and sentiment distance as the response variable. Table~\ref{sentiment_slope} presents the resulting slopes for the three cases.
+According to the results, Holmes maintained the largest mean distance ($M = 0.946$) from his literary baseline, indicating that his simulated persona was the most affectively distinct from the original source material. However, he also demonstrated the lowest mean slope ($M = 0.018$), suggesting that this deviation remained relatively constant throughout the interaction. In contrast, Marple showed the smallest initial mean distance ($M = 0.860$), suggesting a closer initial alignment with her literary reference. However, she also exhibited the steepest mean slope ($M = 0.083$) and the highest standard deviation in slopes ($SD = 0.122$). This indicated that while Marple begins closer to her canonical persona, her discourse consistency was the most prone to erosion over time. Poirot occupied a middle position in both mean distance ($M = 0.886$) and temporal drift ($M = 0.042$).
 
-\begin{table}[H]
-\centering
-\begin{tabular}{l l l l}\toprule
-Case & Holmes & Marple & Poirot \\\midrule
-Case 1 & 0.010 & 0.069 & 0.045 \\
-Case 2 & -0.005 & 0.055 & 0.015 \\
-Case 3 & 0.046 & 0.121 & 0.063 \\ \bottomrule
-\end{tabular}
-\caption{Mean Slope of Sentiment Distance for Each Character }
-\label{sentiment_slope}
-\end{table}
-
-Holmes presents a different pattern. While his overall sentiment distance from the baseline is relatively high, the temporal slopes remain small. In Case 2, the slope is slightly negative (-0.005), suggesting a minor convergence toward the baseline style. However, in Case 3 the slope increases to 0.046, indicating that stronger interaction demands can still lead to gradual divergence.
-
-Poirot again occupies an intermediate position. His slopes remain positive across all cases, but their magnitude is moderate compared with Marple. This pattern suggests a steady but limited erosion of discourse-level character consistency during the dialogue.
-
-Table~\ref{sentiment_char} summarises the discourse-level indicators across all cases. Marple displays the largest mean slope ($M=0.083$), indicating the strongest temporal erosion of character consistency. Holmes shows the smallest mean slope ($M=0.018$), suggesting comparatively stable discourse behaviour over time despite his higher baseline deviation. Poirot again falls between the two, with a moderate mean slope ($M=0.042$).
 
 \begin{table}[H]
 \centering
@@ -1115,109 +1153,56 @@ Marple & 0.083 & 0.122 & 0.860 & 0.110 \\
 Poirot & 0.042 & 0.107 & 0.886 & 0.114 \\ \bottomrule
 \end{tabular}
 \caption{Character-Level Summary of Discourse Consistency Indicators}
-\label{sentiment_char}
+\label{tab:sentiment_char}
+\begin{flushleft}
+\footnotesize
+Note: One-way ANOVA testing differences in slope across characters: $F = 2.75$, $p = 0.070$. \\
+Kruskal--Wallis test: $\chi^2 = 8.95$, $p = 0.011$ (significant at $\alpha = 0.05$).
+\end{flushleft}
 \end{table}
 
-\subsubsection{Visual analysis of sentiment distance}
+\subsubsection{Discourse results summary}
+
+Although Marple's simulated dialogue aligned most closely with the affective profile of the baseline corpus, it suffered from the highest rate of character drift. Conversely, Holmes's affective profile was the most distant from the reference but remained the most stable over the course of the dialogue. These findings suggested that as collaborative reasoning progresses, agents tend to drift away from their specific literary personas toward a more generic, neutral discourse style, with the rate of this drift being character-dependent.
 
 
-Visual inspection of the turn-level sentiment distances further clarifies the patterns observed in the regression analysis. Figure \ref{vader_holmes}, \ref{vader_marple}, \ref{vader_poirot} presents the distribution of sentiment distances across dialogue turns and characters.
+\subsection{Cross metric validation} \label{sec:results_validation}
 
-Across turns, all three detectives display a modest upward tendency. Sentiment distance from the baseline gradually increases as the conversation progresses. This pattern is consistent with the regression results and suggests a gradual decline in discourse-level character consistency rather than progressive stabilisation. Among the three characters, Poirot exhibits the steepest increase, whereas Holmes shows a comparatively flatter trajectory.
+To evaluate the reliability of the proposed character-consistency measures, each turn-level metric was compared with the classifier's probability of the correct character label. Correlation coefficients were computed to assess the association between linguistic measures and classifier confidence. In addition, expected calibration error (ECE) was calculated to examine the alignment between metric values and probabilistic predictions. The results are shown in Table \ref{tab:master_table}.
 
-The boxplot Figure \ref{vader_boxplot} highlights cross-character variation in sentiment distance. Marple displays the highest median distance from the baseline, followed by Poirot, while Holmes shows the lowest central tendency. In terms of dispersion, Marple also exhibits the widest distribution, indicating greater variability in emotional expression. Holmes shows moderate variability, whereas Poirot presents the most compact distribution.
-
-Overall, the visual patterns reinforce the quantitative findings. Marple demonstrates the largest variability in discourse-level character consistency, Holmes maintains a comparatively restrained affective profile, and Poirot displays moderate sentiment intensity with relatively stable dispersion.
-
-\begin{figure}[H]
-    \centering
-    \begin{minipage}{\textwidth}
-        \centering
-        \begin{subfigure}[b]{.45\textwidth}
-            \centering
-             \includegraphics[width=.7\linewidth]{images/5.2_distance_over_turns_holmes.png}
-            \caption{Holmes}\label{vader_holmes}
-        \end{subfigure}\qquad
-        \begin{subfigure}[b]{.45\textwidth}
-            \centering
-            \includegraphics[width=.7\linewidth]{images/5.2_distance_over_turns_marple.png}
-            \caption{Marple}\label{vader_marple}
-        \end{subfigure}
-    \caption{Plot of Sentiment Distance Over Turns For Each Character}
-    \label{vader_scatter}
-    \end{minipage}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \begin{minipage}{\textwidth}
-        \centering
-        \begin{subfigure}[b]{.45\textwidth}
-            \centering
-             \includegraphics[width=.7\linewidth]{images/5.2_distance_over_turns_poirot.png}
-            \caption{Poirot}\label{vader_poirot}
-        \end{subfigure}\qquad
-        \begin{subfigure}[b]{.45\textwidth}
-            \centering
-            \includegraphics[width=.7\linewidth]{images/5.2_slope_boxplot_by_character}
-            \caption{Boxplot}\label{vader_boxplot}
-        \end{subfigure}
-    \caption{Plot of Sentiment Distance Over Turns For Each Character}
-    \label{vader_2}
-    \end{minipage}
-\end{figure}
-
-\subsubsection{discourse results summary}
-
-Overall, the discourse-level results reveal a trade-off between initial alignment and temporal stability. Marple begins with the closest affective alignment to her literary baseline but exhibits the strongest temporal decline in character consistency. Holmes shows the opposite pattern: his simulated dialogue remains consistently distant from the baseline yet changes relatively little during the interaction. Poirot displays moderate baseline alignment together with a gradual but controlled increase in sentiment deviation.
-
-Taken together, these findings suggest that discourse-level character consistency is sensitive to the collaborative dynamics. As collaborative reasoning progresses, the affective profiles of the agents tend to diverge from their literary baselines, although the magnitude and stability of this divergence vary across characters.
+Correlation and ECE were computed using all available turn-level observations. Because intra-agent similarity requires a previous utterance, some metrics (for example, \texttt{character\_distance}) were not available for the first turn of each run, resulting in slightly smaller sample sizes for those metrics.
 
 
-\subsection{Cross metric validation}
-
-To evaluate the reliability of the proposed character-consistency measures, each turn-level metric was compared with the classifier's probability of the correct character label. Correlation coefficients were computed to assess the association between linguistic measures and classifier confidence. In addition, expected calibration error (ECE) was calculated to examine the alignment between metric values and probabilistic predictions. The results are shown in Table \ref{master_table}.
-
-Correlation and ECE were computed using all available turn-level observations. Because intra-agent similarity requires a previous utterance, some metrics (e.g. character\_distance) are not available for the first turn of each run, resulting in slightly smaller sample sizes. 
-
-
-\begin{table}[H]
+\begin{table}[h]
 \centering
 \begin{tabular}{l l l l l l l}\toprule
-Metric & pearson\_r & spearman\_rho & spearman\_p & ECE \\\midrule
+Metric & pearson\_r & spearman\_rho & ECE \\\midrule
 lexical\_similarity & 0.353*& 0.384**& 0.226 \\
 intra\_similarity & -0.084 & -0.161 & 0.195 \\
 character\_distance & 0.018 & 0.102 & 0.130 \\
-depth & -0.385**& -0.459**& 0.301 \\
+depth & -0.385**& -0.459***& 0.301 \\
 z\_ref & -0.180 & -0.244*& 0.270 \\
-z\_sim & -0.321*& -0.415**& 0.268 \\
+z\_sim & -0.321*& -0.415***& 0.268 \\
 sentiment\_distance & 0.183 & -0.016 & 0.551 \\ \bottomrule
 \end{tabular}
 \caption{Correlation between linguistic metrics and classifier-based character consistency}
-\label{master_table}
+\label{tab:master_table}
 \end{table}
 
-\subsubsection{Lexical level}
 
-Lexical similarity shows a moderate and statistically significant positive association with classifier confidence ($r=0.353$, $p=0.002$; $\rho=0.384$, $p=0.001$). This indicates that stronger lexical alignment with the reference character profile is associated with higher classifier-based character consistency. Among the evaluated measures, lexical similarity demonstrates one of the clearest relationships with classifier predictions.
+Lexical similarity showed a moderate and statistically significant positive association with classifier confidence (Pearson $r=0.353$; Spearman $\rho=0.384$). This indicated that stronger lexical alignment with the reference persona was associated with higher classifier-based character consistency. Among the evaluated measures, lexical similarity showed one of the clearest relationships with classifier predictions.
 
-\subsubsection{Syntactic level}
+Syntactic depth showed the strongest correlation with classifier confidence (Pearson $r=-0.385$; Spearman $\rho=-0.459$). The negative direction indicated that increasing syntactic deviation from the reference style corresponded to lower classifier-based character consistency. The simulation-based syntactic deviation (\texttt{z\_sim}) also showed a significant negative association (Pearson $r=-0.321$), while the reference-based measure (\texttt{z\_ref}) showed a weaker relationship, reaching significance only under the Spearman correlation ($\rho=-0.244$). These results suggested that syntactic structure provided an important signal for character identification.
 
-Syntactic depth exhibits the strongest correlation with classifier confidence ($r=-0.385$, $p=0.001$; $\rho=-0.459$, $p<0.001$). The negative direction indicates that increasing syntactic deviation from the reference style corresponds to lower classifier-based character consistency.
+Sentiment distance did not show a statistically significant association with classifier confidence. Both linear and rank correlations remained weak, indicating limited alignment between sentiment variation and classifier-based character consistency. In this setting, discourse-level affect therefore played a relatively minor role in character recognition.
 
-The simulation-based syntactic deviation ($z_{\mathrm{sim}}$) also shows a significant negative association ($r=-0.321$, $p=0.006$), while the reference-based measure ($z_{\mathrm{ref}}$) presents a weaker relationship, reaching significance only under the Spearman correlation ($\rho=-0.244$, $p=0.039$). These results suggest that syntactic structure provides an important signal for character identification.
 
-\subsubsection{Discourse level}
 
-Sentiment distance does not show a statistically significant association with classifier confidence. Both linear and rank correlations remain weak, indicating limited alignment between sentiment variation and classifier-based character consistency. In the present setting, discourse-level affect therefore appears to play a relatively minor role in character recognition.
+\subsubsection{Comparative faithfulness ranking}  \label{sec:results_validation_ranking}
 
-\subsubsection{Comparative faithfulness ranking}
+To compare the overall reliability of the proposed measures, a composite faithfulness score was computed by combining normalised correlation strength (Pearson $r$ and Spearman $\rho$) with calibration alignment ($1-\text{ECE}$). The resulting ranking is shown in Table \ref{tab:ranking}.
 
-To compare the overall reliability of the proposed measures, a composite faithfulness score was computed by combining normalised correlation strength (Pearson's $r$ and Spearman's $\rho$) with calibration alignment ($1-\mathrm{ECE}$). The resulting ranking is shown in Table~\ref{ranking}.
-
-Syntactic depth achieves the highest faithfulness score (0.864), followed by lexical similarity (0.837) and the simulation-based syntactic deviation ($z_{\mathrm{sim}}$; 0.799). These results indicate that lexical and syntactic features provide the most reliable signals of character consistency in the current evaluation framework.
-
-Reference-based syntactic deviation ($z_{\mathrm{ref}}$) shows moderate alignment (0.541), while transition-based metrics display weaker performance. Sentiment distance ranks lowest (0.150), suggesting that discourse-level affect contributes comparatively little to classifier-based character recognition in this setting.
+Syntactic depth achieved the highest faithfulness score (0.864), followed by lexical similarity (0.837) and the simulation-based syntactic deviation (\texttt{z\_sim}; 0.799). These results indicated that lexical and syntactic features provided the most reliable signals of character consistency in the current evaluation framework. Reference-based syntactic deviation (\texttt{z\_ref}) showed moderate alignment (0.541), while transition-based metrics displayed weaker performance. Sentiment distance ranked lowest (0.150), suggesting that discourse-level affect contributed comparatively little to classifier-based character recognition in this setting.
 
 \begin{table}[H]
 \centering
@@ -1232,108 +1217,115 @@ character\_distance & 0.398 \\
 sentiment\_distance & 0.150 \\ \bottomrule
 \end{tabular}
 \caption{Faithfulness Ranking of Metrics}
-\label{ranking}
+\label{tab:ranking}
 \end{table}
 
 
-\subsection{Validation of Character Contamination}
+\subsection{Validation of character contamination} \label{sec:results_contamination}
 
-To examine whether collaborative simulation alters character-specific linguistic representations, we conducted unsupervised clustering on turn-level embeddings produced by the fine-tuned classifier. The analysis compares the structure of simulated dialogue embeddings with those derived from the reference corpus.
+To examine whether collaborative simulation alters character-specific representations, unsupervised clustering was applied to utterance embeddings produced by the fine-tuned classifier. The structure of simulation embeddings was compared with that of the reference corpus.
 
-K-means clustering ($k=3$) was applied separately to reference and simulation embeddings. For the reference corpus, five bootstrap samples were drawn to match the total number of simulation utterances. Cluster quality was evaluated using the Silhouette Coefficient, cluster purity, and the Adjusted Rand Index (ARI). The resulting clustering statistics for both datasets are summarised in Table~\ref{clustering}.
+K-means clustering ($k=3$) was applied separately to both datasets. For the reference corpus, five bootstrap samples were drawn to match the number of simulation utterances, which explains the multiple reference rows in Table~\ref{tab:clustering}. Cluster quality was evaluated using the silhouette coefficient, cluster purity, and the adjusted Rand index (ARI). For the reference corpus, $\mathrm{ARI_{case}}$ is not defined, as no case structure is present.
+
 
 \begin{table}[H]
 \centering
 \begin{tabular}{l l l l l l}\toprule
 Data\_type& silhouette & purity & ARI\_character & ARI\_case \\\midrule
-reference & 0.3437 & 0.8889 & 0.6970 & NaN \\
-reference & 0.3163 & 0.8837 & 0.6846 & NaN \\
-reference & 0.3368 & 0.8708 & 0.6626 & NaN \\
-reference & 0.3266 & 0.8837 & 0.6885 & NaN \\
-reference & 0.2973 & 0.8708 & 0.6546 & NaN \\
+reference (bootstrap 1) & 0.3437 & 0.8889 & 0.6970 & NaN \\
+reference (bootstrap 2) & 0.3163 & 0.8837 & 0.6846 & NaN \\
+reference (bootstrap 3) & 0.3368 & 0.8708 & 0.6626 & NaN \\
+reference (bootstrap 4) & 0.3266 & 0.8837 & 0.6885 & NaN \\
+reference (bootstrap 5) & 0.2973 & 0.8708 & 0.6546 & NaN \\
 simulation & 0.4064 & 0.4005 & 0.0070 & 0.0269 \\ \bottomrule
 \end{tabular}
-\caption{Character Contamination}
-\label{clustering}
+\caption{Clustering performance on reference and simulation embeddings}
+\label{tab:clustering}
 \end{table}
 
-Embeddings derived from the reference corpus exhibit a clear character structure. Across bootstrap samples, the Silhouette Coefficient ranges from approximately 0.30 to 0.34, while cluster purity remains consistently high (0.87–0.89). The Adjusted Rand Index with respect to character labels ranges between 0.65 and 0.70, indicating strong agreement between cluster assignments and true character identities. These results confirm that the classifier-derived embedding space preserves character-distinctive linguistic features in the reference data.
+In the reference corpus, clustering results showed clear alignment with character identity. Across bootstrap samples, silhouette values ranged from 0.30 to 0.34, indicating moderate separation between clusters. Cluster purity remained high (0.87-0.89), and ARI with respect to character labels ($\mathrm{ARI_{character}}$) ranged from 0.65 to 0.70, showing strong agreement between clusters and true identities. These results indicate that the embedding space preserved character-specific structure in the reference data.
 
-In contrast, clustering of simulation embeddings produces a substantially different pattern. Although the Silhouette Coefficient increases to approximately 0.41, cluster purity drops sharply to 0.40 and ARI with respect to character labels falls to near zero (0.007). ARI computed against case labels is also very low (0.027), indicating that the cluster structure does not correspond to the underlying case divisions.
+In the simulation data, embeddings were derived from the same classifier, but clustering showed a different pattern. The silhouette coefficient increased to 0.41, suggesting that clusters were still well separated in the embedding space. However, cluster purity dropped to 0.40, and ARI with respect to character labels fell to near zero (0.007). ARI with respect to case labels was also close to zero (0.027), indicating that clusters did not correspond to either character identity or case structure.
 
-These results suggest that collaborative simulation reorganises the embedding space: while clusters remain internally coherent, they no longer align with character identity. Instead, character-distinctive dimensions appear to weaken, producing representational convergence between characters.
+Taken together, these results show that although clustering structure remained, it no longer reflected meaningful labels. High silhouette with low ARI and purity indicates that the embedding space was organised along dimensions that do not correspond to character identity. This suggests that collaborative simulation reduced the distinctiveness of character representations, leading to substantial overlap between characters.
 
-Overall, the clustering analysis provides evidence of character contamination in simulation. Compared with the reference corpus, simulated dialogue substantially reduces the separability of character-specific linguistic features in the embedding space.
+Overall, the clustering analysis provides evidence of character contamination. Compared with the reference corpus, simulated dialogue showed a marked reduction in the separability of character-specific features in the embedding space.
 
 
 \section{Discussion} \label{sec:discussion}
 
-\subsection{Overview of Findings}
+\subsection{Overview of findings}
 
-This section provides a summary of the experimental results and directly addresses the research questions of this study. The findings show that large language model (LLM) agents maintain character consistency only partially during collaborative reasoning tasks. Although the agents can preserve assigned characters in the early stages of a dialogue, this character consistency tends to erode as the interaction progresses.
+This section provides a summary of the experimental results and directly addresses the research questions of this study (Subsection\ref{sec:intro_rq}). The findings provided substantial evidence for the proposed hypotheses, while also revealing complex dynamics in character consistency within collaborative mystery murder game task.
 
-The study also demonstrates that character consistency is not a uniform or single state. Instead, it is a multi-dimensional construct that depends on the specific linguistic level being measured. While lexical and syntactic features serve as relatively stable anchors for a character, agents show significant convergence at the discourse and representational levels. This suggests that local stylistic signals may remain detectable even when the global identity of the character begins to collapse.
+Regarding \emph{RQ1}, the results supported the hypothesis that large language models (LLMs) only partially maintained their assigned personas during collaborative reasoning tasks. While the agents successfully adopted initial character identities, significant character inconsistency and contamination emerged over the course of the interaction. The classifier-based baseline revealed significant negative temporal trends in attribution confidence for specific character-case combinations, such as Holmes in Case 1 and Marple in Case 3 (Subsection \ref{sec:results_classifier}). Furthermore, the clustering analysis demonstrated that the distinctiveness of character representations declined during the simulation, leading to a substantial overlap between the agents (Subsection \ref{sec:results_contamination}). This confirmed that the pressure of multi-agent collaboration caused agents to mirror each other's styles and drift toward a uniform, generic "AI register".
 
-Finally, the evaluation reveals that syntactic depth is the most reliable and faithful indicator of character consistency. This structural metric correlates most strongly with the confidence scores of the character classifier. These results indicate that structural patterns in language are better predictors of character fidelity than surface-level word choices or affective traits. In summary, while LLMs can simulate distinct characters, the pressure of collaboration creates a systematic challenge to maintaining a stable and consistent character.
+For \emph{RQ2}, the investigation validated the hypothesis that a multi-level linguistic framework provides a more comprehensive assessment of character consistency than any single metric. The different levels of analysis captured distinct facets of character erosion. At the lexical level, Poirot demonstrated the strongest and most stable alignment with his reference vocabulary, while Marple's character distance score was near zero, indicating her lexical choices were highly susceptible to the collective dialogue flow (Subsection \ref{sec:results_lexical}). However, the syntactic level revealed a different pattern: all characters, including those lexically stable, exhibited a significant global increase in structural complexity compared to their literary references
+(Subsection \ref{sec:results_syntactic}). Systematic erosion was observed as sentences became increasingly complex over turns for Holmes and Poirot. At the discourse level, all agents drifted away from their specific affective profiles toward a neutral style (Subsection \ref{sec:results_discourse}). These inconsistent conclusions across dimensions—where a character might appear consistent lexically but fail syntactically—justified the necessity of a layered perspective to track the micro-level breakdown of persona.
 
-\subsection{The Collaboration Paradox and Character Contamination}
+Finally, \emph{RQ3} addressed the reliability of these metrics through validation against the classifier-based scores. The results identified Syntactic depth as the most reliable metric, achieving the highest composite faithfulness score (0.864). Lexical similarity also showed a significant positive association with classifier confidence, whereas sentiment distance played a minor role in character recognition. These findings established a validated hierarchy of metrics for monitoring character stability in role-playing LLM agents.
 
-The clustering analysis reveals a significant decline in character consistency at the global representational level. In the reference corpus, the three detectives occupy distinct areas in the embedding space, showing high cluster purity and clear separation. However, this distinctiveness disappears during collaborative simulations. The embeddings of the agents' utterances converge into a single group that no longer aligns with their individual identities. This result suggests that while local signals might persist, the overall "linguistic fingerprint" of each character becomes blurred. This phenomenon is termed character contamination or persona drift, where the unique traits of the detectives are lost in the shared dialogue \citep{choi2024examining, bao2026eval4sim}. Previous studies \citep{baltaji2024cultured,choi2024examining} have shown that while multi-agent discussions can support collective decision-making, this effect is often tempered by the agents' susceptibility to inconstancy and challenges in maintaining consistent personas. Similar patterns of contamination have been observed in other generative agent-based systems, where social interactions can inadvertently distort an agent's memory and lead to a loss of character-specific details \citep{xiao2023simulating}.
+\subsection{Trade off Between persona and performance}
 
-A primary cause of this loss in character consistency is the pressure of multi-agent coordination. To solve the murder cases, agents must exchange information and reach a collective consensus. This drive for agreement creates a "collaboration paradox". While the detectives work together to achieve a task, the social dynamics of the group force their styles to align. The agents often sacrifice their specific investigative approaches or personalities to maintain group harmony, sometimes becoming overly cooperative and failing to voice dissenting opinions reliably \citep{baltaji2024cultured, park2023generative}. Consequently, the "chat context" becomes a stronger influence on the model than the initial character prompt. The need for task-oriented cooperation effectively overrides the individual character traits defined in the preamble \citep{shanahan2023role, xiao2023simulating, chen2024socialbench}.
+Previous studies have shown that multi-agent interaction can support collective reasoning but may also reduce the stability of character representations \citep{baltaji2024cultured, choi2024examining}. Similar patterns have been observed in generative agent systems, where social interaction altered internal representations and reduced character-specific detail \citep{xiao2023simulating}.
 
-Another important factor is the influence of the "default AI register". Most large language models are fine-tuned to be helpful, neutral, and cooperative \citep{shanahan2023role}. When faced with complex reasoning tasks, these models often revert to a formal and standardized style of speaking, a result of instruction tuning that pushes models to converge towards a singular persona \citep{park2023generative, moon2024anthology}. This inherent bias pulls the agents away from their specific literary characterisations. Instead of sounding like Sherlock Holmes or Miss Marple, the agents begin to sound like a generic AI assistant. This shift explains why the agents' sentence structures become more complex and uniform during the simulation. Therefore, character consistency remains fragile in multi-agent environments because the models naturally gravitate toward a neutral, task-focused persona, especially as the dialogue history grows.
+The experimental results demonstrated a clear trade-off between solving the mystery and maintaining character consistency. Case-solving rates under the three experimental conditions highlighted this tension. The zero-shot baseline (C1) achieved near-perfect accuracy (97\%-100\%). When persona constraints were introduced (C2), performance declined, and collaborative interaction (C3) caused a further drop (Subsection \ref{sec:results_case-solving-rate}). This confirmed that maintaining character over multiple turns can interfere with logical reasoning, consistent with prior work suggesting that sustained persona effort reduces task performance \citep{shao2023characterllm, xiao2023policy, xiao2023simulating}. Under collaboration, agents prioritised group consensus over individual accuracy, sometimes abandoning their assigned viewpoints to conform \citep{baltaji2024cultured}.
 
-\subsection{A Layered Perspective on Character Consistency}
+Performance in the collaborative condition (C3) was notably lower than in C1 or C2. Agents frequently sacrificed their personal investigative strategies or distinctive traits to maintain harmony, sometimes failing to voice dissenting opinions. As a result, the dialogue context and history became a stronger influence than the initial persona prompt, and task-oriented cooperation tended to override individual character features \citep{shanahan2023role, xiao2023simulating, chen2024socialbench}.
 
-The findings of this study suggest that character consistency should not be viewed as a single or binary state. Instead, it is more accurately described as a layered construct that operates across different linguistic levels with varying degrees of stability, emcompassing both supercifial styles and deeper, underlying cognitive aspects \citep{chen2024review, chen2024evaluating}. While an agent might fail to maintain its identity at a global representational level, it can still preserve specific stylistic signals at a local level. This distinction is important because it shows that character consistency can be partially maintained even when the overall persona begins to erode, as stability varies significantly between surface-level linguistic features and a character's inner thoughts or personality traits \citep{chen2024review}. 
+The progressive decline in accuracy from C1 to C3 suggested that current LLMs struggled to handle complex social reasoning without reducing logical reasoning and task performance \citep{ji2025enhancing}. The findings provide empirical evidence for a performance-persona trade-off, namely enforcing character consistency can hinder task performance, especially in collaborative multi-agent settings.
 
-A significant observation in this research is that structural features serve as more reliable anchors for a character than surface-level traits. The high faithfulness score of syntactic depth indicates that the way a character organises their sentences is a more stable indicator of identity than their choice of words or emotional tone. In contrast, discourse-level features, such as sentiment, appear to be highly sensitive to the immediate context of the conversation. This suggests that while a model can easily adapt its vocabulary or mood to fit a collaborative task, its underlying "syntactic fingerprint" is more resistant to change.
+\subsection{Character contamination}
 
-This layered perspective has important implications for the design of role-playing AI. Many current systems rely heavily on lexical prompting, using specific catchphrases or vocabulary lists to define a persona, such as the lexical consistency in \citet{wang2024rolellm}. However, the results of this study imply that such surface-level methods are insufficient for maintaining character consistency during long or complex interactions, as plain instructions are often inadequate for describing a vivid, living person accurately \citep{shao2023characterllm}. Because structural patterns are more predictive of character fidelity, future role-playing frameworks may require deeper structural constraints. Rather than simply telling a model what to say, developers might need to provide instructions on how to structure its language and integrate intrinsic cognitive processes \citep{zhou2023characterglm} to ensure a more resilient and consistent character performance.
+The clustering analysis indicates a substantial decline in character consistency at the global representational level. In the reference corpus, the three detectives occupy distinct regions in the embedding space, as reflected by high cluster purity and strong alignment with character labels. 
+
+In the simulation data, this alignment was largely reduced. Although clustering structure remained, it no longer corresponds to character identity. This was reflected in the near-zero ARI ($\mathrm{ARI_{character}}$ = 0.007) and the substantial drop in purity (from 0.88 in the reference corpus to 0.40 in the simulation), indicating that cluster assignments were no longer consistent with the true character labels.
+
+This pattern suggests that while the embedding space still contained separable structure, the dimensions organising this structure were no longer character-specific. As a result, the overall linguistic fingerprints of the characters became less distinct, consistent with the notion of character contamination, where identity boundaries are weakened in collaborative settings \citep{choi2024examining, bao2026eval4sim}.
 
 
-\subsection{methodological contributions}
+\subsection{Character-dependent variations in consistency}
 
-The primary methodological contribution of this research is the development of a multi-dimensional framework grounded in linguistic theory. Many existing studies evaluate character consistency using macro-level indicators, such as task success, human judgment, or abstract personality tests like MBTI. While these methods offer useful insights into an agent's general behavior, they often overlook how a character is actually performed through specific language use. This thesis addresses this gap by examining character consistency across three distinct layers: lexical patterns, syntactic structures, and discourse-level affect. By focusing on these micro-level features, the framework can detect subtle shifts in character behavior that are often invisible to broader behavioral assessments. 
+The results demonstrated that character consistency was not uniform across the three agents, suggesting that the stability of a persona depends on the distinctiveness of its linguistic markers. Poirot exhibited the highest level of robustness, maintaining stable lexical features and classifier confidence even under the pressure of collaboration (Subsection \ref{sec:results_classifier_poirot}, \ref{sec:results_lexical}). This stability likely stemmed from the salience of his linguistic anchors such as the specific blend of French-English vocabulary and methodical, third-person discourse, these provided the model with a highly differentiated template that was less susceptible to environmental noise.
 
-Furthermore, this approach provides a more granular view of how character consistency evolves over time. Instead of relying on a single aggregate score, the multi-level analysis reveals that an agent can maintain its identity in one dimension while losing it in another. For example, the results show that an agent might continue to use character-specific vocabulary even as its sentence structures converge toward a generic AI style. This distinction is critical for understanding the complex dynamics of role-playing in multi-agent environments. To ensure the reliability of these measurements, this study also utilises classifier confidence as a reference signal to validate the linguistic metrics. This step confirms that the chosen linguistic features are faithful and reliable indicators of character identity.
+In contrast, Marple proved to be the most vulnerable to character contamination. While her individual utterances appeared consistent in isolation, her character distance score was near zero, indicating that her linguistic choices became indistinguishable from the collective dialogue flow. This vulnerability can be attributed to the overlap between her assigned persona (characteristic politeness, hedging, and indirectness) and the generic "AI register" (overly polite, civil, and neutral) \citep{shanahan2023role}. Consequently, as the interaction progressed, the boundaries of her identity blurred, leading to the highest rate of sentiment drift observed in the study (Subsection \ref{sec:results_discourse}).
 
-Finally, this framework moves beyond task-specific outcomes to offer an intrinsic evaluation of character performance. High task accuracy does not always mean an agent is remaining in character, as a model may solve a problem by abandoning its assigned persona to be more efficient. By prioritising linguistic form over task utility, this methodology offers a more rigorous way to evaluate the authenticity of large language model (LLM) simulations. This shift from macro-evaluations to micro-linguistic analysis provides a valuable tool for future researchers seeking to build more resilient and believable role-playing agents.
+Holmes presented a different pattern of inconsistency, characterised by a stable but distant affective profile (Subsection \ref{sec:results_discourse}). Although he maintained a unique lexical fingerprint, his utterances consistently showed the largest deviation from the literary baseline's emotional tone. This suggests a conflict between character traits and task requirements. Holmes's canonical "cold detachment" and "lack of interest in social norms" are fundamentally at odds with the collaborative nature of the mystery-solving task, which requires active perspective-taking and communicative cooperation. The observed decline in classifier confidence for Holmes (Subsection \ref{sec:results_classifier_holmes}) indicates that when faced with the dual demand of social reasoning and character performance, the model prioritised task-relevant cooperation over the maintenance of an abrasive or detached persona. 
+ 
+These findings imply that a LLM agent's ability to stay in character might be constrained by how well the character's linguistic fingerprints align with both the model's pre-trained biases and the social dynamics of the environment.
 
-\subsection{Limitation and Future Work}
 
-Several limitations should be acknowledged when interpreting the findings of this study. One primary concern is the reliance on the character classifier as a proxy for identity. While the model was validated on reference data, its confidence scores are not an objective ground truth for character consistency. This approach measures alignment with the classifier's internal representation rather than with human judgment. Furthermore, using the same classifier for both identity prediction and clustering analysis might introduce some circularity. Future work could address this by employing external embedding models to verify the representational convergence observed in this study.
+\subsection{Methodological contributions}
 
-The domain shift between the literary reference texts and the simulated dialogues also requires consideration. The reference corpus consists of narrative prose, while the simulations involve collaborative reasoning in a specific task environment. Part of the observed decline in character consistency may therefore reflect the shift in genre rather than a pure loss of identity. This process is closely related to the concept of 'reasoning degradation' \citep{xiao2023simulating}, where the impact of the original character input naturally diminishes as the interaction continues.
+The primary methodological contribution of this research is the development of a multi-dimensional framework grounded in linguistic theory. Many existing studies evaluate character consistency using macro-level indicators, such as task success, human judgment, or abstract personality tests. While these methods offer useful insights into an agent's general behaviour, they often overlook how a character is actually performed through specific language use. This thesis addresses this gap by examining character consistency across three distinct layers: lexical patterns, syntactic structures, and discourse-level affect. By focusing on these micro-level features, the framework can detect subtle shifts in character behaviour that are often invisible to broader behavioural assessments. 
 
-Additionally, the focus on three canonical detectives limits the generalisability of the results. Characters with less distinct speaking styles or roles defined by functional attributes might behave differently under collaborative pressure. The modest sample size at the turn level also suggests that larger simulation sets would be beneficial for future replication.
+Furthermore, this approach provides a more detailed view of how character consistency evolves over time. Instead of relying on a single aggregate score, the multi-level analysis reveals that an agent can maintain its identity in one dimension while losing it in another. For example, Marple achieved moderate lexical alignment with her literary reference, yet the more detailed character distance metric revealed that her linguistic choices were almost indistinguishable from the collective dialogue flow. Similarly, while Poirot demonstrated the strongest and most stable alignment with his reference vocabulary, the syntactic analysis revealed a significant global increase in structural complexity that drifted further from the literary baseline. This distinction is critical for understanding the complex dynamics of role-playing in multi-agent environments.
 
-Furthermore, this research assumes that 'linguistic fingerprints' are a valid proxy for character consistency. However, the direct relationship between these linguistic patterns and a deeper character or 'persona' still requires further exploration. Fluctuations in linguistic style may simply reflect how the model adapts to task complexity (for instance, by reverting to a neutral 'AI register' to process information more efficiently), rather than a genuine loss of the character's core identity. Therefore, future studies should incorporate psychological metrics or expert assessments to determine whether linguistic features can fully capture the cognitive and psychological dimensions of a character
+Finally, this framework moves beyond task-specific outcomes to offer an intrinsic evaluation of character performance. High task accuracy does not always mean an agent is remaining in character, as a model may solve a problem by abandoning its assigned persona to be more efficient. By prioritising linguistic form over task performance, this methodology offers a more rigorous way to evaluate the authenticity of LLM simulations. This shift from macro-evaluations to micro-linguistic analysis provides a valuable tool for future researchers seeking to build more resilient and believable role-playing agents.
 
-Building on these observations, there are several opportunities for future research. Incorporating human annotation would provide a valuable way to triangulate the model-based assessments of character consistency. Future studies could also test the multi-level framework on a more diverse range of personas to see if structural patterns remain the strongest anchors across different roles. Finally, exploring adaptive prompting strategies or longer interaction sequences could help determine how to mitigate the effects of character contamination. These developments would contribute to the creation of more robust and immersive multi-agent role-playing systems.
+\subsection{Limitations and future work}
+
+Several limitations should be acknowledged when interpreting the findings of this study. First, the construction of the gold-standard corpus and the classifier involved specific design choices that may have introduced bias. The character utterances used for training were extracted via an LLM-assisted pipeline, which may have contained attribution errors or noise from the original texts. Furthermore, while the classifier was trained on an 80\% split of the literary data, the subsequent comparison of lexical and syntactic metrics used the entire 100\% dataset as a reference. This overlap between the training data of the validator and the reference points for the metrics could have led to a slight overestimation of alignment. Additionally, two of the selected detectives, Poirot and Marple, were created by the same author (Agatha Christie). It is possible that shared authorial style and linguistic habits created an underlying similarity between these two personas that the current metrics could not fully separate from character-specific traits.
+
+Second, the scope of the simulation data and the sampling methods limit the generalisability of the findings. The analysis was based on a sample of 100 filtered utterances for several linguistic metrics to ensure computational efficiency. A larger sample size, or the inclusion of the entire generated corpus, might have revealed different patterns of erosion. Moreover, the experiment used only three specific murder mystery cases. The results suggested that character consistency was often case-dependent, as seen in the significant decline of Holmes's consistency only in Case 1. Future research should involve a broader range of scenarios and perform case-specific analyses to determine how different narrative contexts influence character performance.
+
+Third, the scope of this research was confined to three specific literary figures and a single model architecture, namely Llama-3.2-3B-Instruct. As a result, the patterns observed here—such as the high reliability of syntactic indicators—might vary when applied to characters with less distinctive voices or when using larger, more complex language models. In addition, the simulation involved only three agents interacting in each run. The dynamics of character consistency could differ in settings with more agents or with different group sizes.
+
+Moreover, the theoretical assumption that "linguistic fingerprints" are a valid proxy for character consistency requires further validation. While this research focused on observable language patterns, the relationship between these micro-linguistic features and a deeper, stable "persona" remains complex. Future work could incorporate standard psychological metrics or personality tests as an additional layer of validation. This would allow for a comparison of how linguistic drift correlates with shifts in an agent's underlying psychological profile.
+
+Finally, there are limitations regarding the implementation of the prompting and the linguistic metrics. The current agent construction relied on specific choices for character prompts, task presentation, and memory management. Although these choices were informed by prior literature, the robustness of the results to different prompting strategies was not tested. Similarly, the linguistic metrics used in this study represent a first proof of concept. The analysis focused on basic lexical similarity and syntactic depth, but more advanced measures—such as dependency tree structures for syntax, topic modelling for discourse, or advanced embedding methods for semantics—could provide deeper insights. Future studies could also employ different sentiment classification models or more nuanced discourse markers to further refine the measurement of character-level affect.
+
+
 
 \section{Conclusion} \label{sec:conclusion}
 
-This research has examined the stability of character consistency within large language model agents during collaborative reasoning tasks. By simulating a detective trio solving complex murder mysteries, the study tracked shifts in linguistic behaviour across multiple levels to determine how well agents stay in character over time. The findings demonstrate that character consistency is not a static trait but a fragile state that often diminishes as interactions become more complex. Rather than a uniform decline, the results point to a selective form of inconsistency, where the preservation of a character's unique voice varies according to the specific role and the nature of the task. This suggests that while agents can initially adopt distinctive personas, the ongoing demand for group consensus and the influence of the model's inherent "AI register" lead to a gradual convergence of styles. Ultimately, the study reveals that the social dynamics of collaboration act as a significant pressure point, often eroding the very character boundaries that define the agents' individual identities.
+This thesis investigated character consistency in multi-agent large language model (LLM) collaboration through a novel, linguistically grounded evaluation framework. By simulating three iconic detectives (Sherlock Holmes, Hercule Poirot, Miss Marple), the research addressed how well agents maintain their personas during collaborative reasoning and which linguistic metrics most accurately track these changes. The results showed that LLMs only partially maintained their assigned personas. Significant character inconsistency and contamination emerged as the interactions progressed, with the agents' unique linguistic fingerprints eventually converging into a uniform, undifferentiated group style. A clear performance-persona trade-off was identified: as persona constraints and collaborative requirements were introduced, the agents' ability to solve the cases declined. This suggested that the cognitive burden of maintaining a complex character can interfere with logical reasoning and task success.
 
-The empirical evaluation specifically addresses the research questions regarding the extent and measurement of character consistency within these simulations. Contrary to a uniform or predictable degradation, the findings reveal that the erosion of identity is notably selective and situational. While agents such as Hercule Poirot demonstrated a more resilient linguistic profile across most scenarios, others like Sherlock Holmes and Miss Marple exhibited statistically significant losses in character consistency only under specific interactional conditions, such as Case 1 and Case 3 respectively. This pattern suggests that the preservation of a character is not merely a product of the model's inherent capacity but is highly sensitive to the evolving complexity of the task. Central to these observations is the identification of syntactic depth as the most reliable indicator for capturing these subtle shifts. With a faithfulness score of $0.864$, this structural metric proved far more effective than surface-level word choices or discourse-level sentiment in tracking identity preservation. The data indicates that even when agents manage to retain character-specific vocabulary, their underlying sentence structures often migrate towards a complex and uniform "AI register", making syntactic patterns the most stable anchor for measuring true character consistency over extended dialogues.
+Character-specific variations were also prominent. Poirot exhibited the most robust consistency, likely due to his highly distinct linguistic anchors. In contrast, Marple proved most vulnerable to character drift, as her polite and indirect style often merged with the neutral, standardised language of the model. Holmes maintained a unique lexical style but displayed significant affective distance from his literary reference, prioritising task-relevant cooperation over his canonical detached persona.
 
-Beyond these structural shifts, the research identifies a significant "collaboration paradox" that serves as a primary driver of character inconsistency. As the agents engage in multi-round interactions to solve the cases, the practical necessity of reaching a consensus often forces their individual linguistic styles to align. This process leads to what has been termed character contamination, where the distinct "linguistic fingerprints" that define each detective in literary contexts effectively vanish during the simulation. The clustering analysis confirms this representational convergence, showing that while the detectives occupy separate spaces in their original works, their voices merge into a single, undifferentiated group under the pressure of shared reasoning. This erosion of character consistency is further exacerbated by the models' inherent "AI register"—a neutral and polite bias resulting from standard instruction-tuning. Consequently, the agents frequently abandon their specific investigative identities to adopt the persona of a generic AI assistant, prioritizing group harmony and task efficiency over the preservation of their assigned characters. This finding suggests that the social dynamics of collaboration act as a powerful de-identifying force, making the maintenance of a stable character particularly challenging in task-oriented multi-agent environments.
+The multi-level linguistic framework proved effective for capturing these subtle shifts. Among the various metrics, syntactic depth was identified as the most faithful and reliable indicator of character consistency, followed by lexical similarity. Discourse-level sentiment analysis, while useful for tracking affective drift, was found to be the least reliable for character recognition in this setting.
 
-Despite the insights gained from this multi-level evaluation, several practical limitations should be considered when interpreting the findings. The scope of this research was confined to three specific literary figures and a single model architecture, namely \texttt{llama-3.2-3B-Instruct}. As a result, the patterns observed here—such as the high reliability of syntactic indicators—might vary when applied to characters with less distinctive voices or when using larger, more complex language models. Furthermore, a significant challenge remains in the inherent "domain shift" between the canonical reference texts and the collaborative simulation dialogues. The detectives' original idiolects were formed within the narrative prose of 19th and early 20th-century fiction, whereas the simulation requires task-oriented reasoning to solve a modern "Jubensha" style mystery. This functional transition from storytelling to problem-solving naturally influences language use, suggesting that part of the recorded decline in character consistency may reflect an adaptation to the collaborative task rather than a total loss of identity.
-
-In summary, this research contributes a quantifiable, cost-effective evaluation framework grounded in linguistic theory, providing an alternative to the coarse or resource-heavy methods often found in current literature. Unlike traditional assessments that rely on human judgements or high-level psychological scales like MBTI and the Big Five, this approach identifies character consistency through the precise analysis of micro-linguistic features across lexical, syntactic, and discourse levels. By identifying syntactic depth as the most reliable anchor for persona fidelity, the study offers a practical and scalable tool for monitoring agent behaviour in real-time. Ultimately, by highlighting the 'collaboration paradox,' this work provides a foundation for developing more resilient multi-agent systems where individual character voices can be preserved without the need for expensive manual oversight. This shift towards an intrinsic, linguistic-based analysis ensures that AI-driven simulations remain both authentic and scientifically valid as they scale into more complex social applications.
-
-% This thesis examined how large language models (LLMs) maintain character consistency during multi-agent collaborative reasoning tasks. By simulating a detective trio solving complex cases, the study measured shifts in character consistency through a hierarchical linguistic framework. The findings lead to several important conclusions. 
-
-% First, LLM agents only partially maintain their assigned characters. As the dialogue continues, character consistency tends to erode. Second, a multi-level linguistic approach is necessary to detect these changes, as a single metric cannot capture the full complexity of character behavior. Third, syntactic features are the most faithful indicators of character consistency. Specifically, changes in sentence complexity, measured by syntactic depth, correlate most strongly with character recognition.
-
-% A major discovery of this research is the collaboration paradox. While agents work together to solve a task, the pressure to reach a consensus forces their linguistic styles to converge. This leads to character contamination, where the unique "linguistic fingerprints" of the detectives are replaced by a uniform, task-oriented style.
-
-% There are some limitations to this study. The evaluation relied on a model-based classifier rather than human judgment, and the results are limited to three specific literary characters. Future research should include human evaluations and explore a wider range of character types.
-
-% In summary, this thesis highlights the fragile nature of character consistency in collaborative environments and offers a quantitative method for future studies in role-playing LLM-based agents.
+In conclusion, the findings demonstrated that collaborative dynamics significantly challenge character consistency of LLM agents. The development of this linguistic grounded multi-dimensional evaluation methodology offers a scalable way to monitor and validate character performance in complex social applications.
 
 
 % ------ 引用 ------
@@ -1345,6 +1337,49 @@ In summary, this research contributes a quantifiable, cost-effective evaluation 
 
 % ------ 附录 ------
 \begin{appendices} \label{sec:app}
+
+
+\section{Glossary of Key Concepts}
+\begin{description}
+
+\item[Character]
+The identity as realised through linguistic behaviour in dialogue.
+
+\item[Persona] 
+The explicitly assigned profile or identity specification provided to the model through prompting.
+
+\item[Character Consistency]
+The successful maintenance of a specific linguistic style over the course of an
+interaction.
+
+
+\item[Character Hallucination]
+The phenomenon that agents solve the case based on memorised plots instead of collaborative reasoning.
+
+\item[Character Contamination] 
+The blurring of identity boundaries within multi-agent collaboration, where the pressure of collaboration may cause agents to unconsciously mirror each other's linguistic style.
+
+\item[Character Modelling]
+Conditioning a language model on a character description namely the persona. It has evolved from simple prompt engineering to complex architectural fine-tuning and specialised training. 
+
+\item[Simulation]
+A complete run of the case, terminates when 10 maximum turns are reached or a mutual agreement on the murderer's identity is reached.
+
+\item[Turn]
+A complete cycle in which all three agents each speak once in a randomly determined order. 
+
+\item[Utterance]
+A single agent's complete response in one turn of the dialogue, which may contain multiple sentences.
+
+\item[Linguistic Fingerprint] 
+the unique pattern of language that defines a specific character's voice and acts as a measurable sign of their identity stability.
+
+\item[Jubensha]
+A Chinese live action role-playing murder mystery game (also know as script murder games).
+
+\end{description}
+
+
 
 \section{Prompt for generating role-play guideline} \label{sec:app_gen_persona}
 
@@ -1385,9 +1420,57 @@ In summary, this research contributes a quantifiable, cost-effective evaluation 
 \subsection{Character Description of Poirot} \label{sec:app_dcp_poirot}
     \inputminted{text}{../profiles/hercule_poirot_analysis.txt}
 
-\section{List of Selected Novels} \label{sec:app_novels}
 
+\section{List of Source Texts} \label{sec:app_novels}
+The following literary works were used as the literary corpus for classification model training and also the gold corpus for analysis.
 
+\subsection{Sherlock Holmes (Arthur Conan Doyle)}
+\begin{itemize}[itemsep=0pt, parsep=0pt, topsep=2pt, partopsep=0pt]
+    \item Doyle, A. C. \textit{A Study in Scarlet}
+    \item Doyle, A. C. \textit{The Adventures of Sherlock Holmes}
+    \item Doyle, A. C. \textit{His Last Bow}
+    \item Doyle, A. C. \textit{The Case-Book of Sherlock Holmes}
+    \item Doyle, A. C. \textit{The Memoirs of Sherlock Holmes}
+    \item Doyle, A. C. \textit{The Return of Sherlock Holmes}
+    \item Doyle, A. C. \textit{The Valley of Fear}
+    \item Doyle, A. C. \textit{The Hound of the Baskervilles}
+    \item Doyle, A. C. \textit{The Sign of the Four}
+\end{itemize}
+
+\subsection{Miss Marple (Agatha Christie)}
+\begin{itemize}[itemsep=0pt, parsep=0pt, topsep=2pt, partopsep=0pt]
+    \item Christie, A. \textit{A Pocket Full of Rye}
+    \item Christie, A. \textit{The Mirror Crack'd from Side to Side}
+    \item Christie, A. \textit{The Complete Short Stories of Miss Marple}
+    \item Christie, A. \textit{Sleeping Murder}
+    \item Christie, A. \textit{The Body in the Library}
+    \item Christie, A. \textit{Nemesis}
+    \item Christie, A. \textit{The Moving Finger}
+    \item Christie, A. \textit{The Thirteen Problems}
+    \item Christie, A. \textit{At Bertram's Hotel}
+    \item Christie, A. \textit{They Do It with Mirrors}
+    \item Christie, A. \textit{A Murder Is Announced}
+    \item Christie, A. \textit{The Murder at the Vicarage}
+    \item Christie, A. \textit{A Caribbean Mystery}
+    \item Christie, A. \textit{Miss Marple's Final Cases}
+    \item Christie, A. \textit{4.50 from Paddington}
+\end{itemize}
+
+\subsection{Hercule Poirot (Agatha Christie)}
+\begin{itemize}[itemsep=0pt, parsep=0pt, topsep=2pt, partopsep=0pt]
+    \item Christie, A. \textit{The ABC Murders}
+    \item Christie, A. \textit{Murder in Mesopotamia}
+    \item Christie, A. \textit{Death on the Nile}
+    \item Christie, A. \textit{Cards on the Table}
+    \item Christie, A. \textit{The Murder of Roger Ackroyd}
+    \item Christie, A. \textit{Murder on the Orient Express}
+    \item Christie, A. \textit{Mrs McGinty's Dead}
+    \item Christie, A. \textit{Five Little Pigs}
+    \item Christie, A. \textit{Lord Edgware Dies}
+    \item Christie, A. \textit{Hercule Poirot's Christmas}
+    \item Christie, A. \textit{Evil Under the Sun}
+    \item Christie, A. \textit{Halloween Party}
+\end{itemize}
 \end{appendices}
 % ----------------
 

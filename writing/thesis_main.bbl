@@ -1,4 +1,4 @@
-\begin{thebibliography}{67}
+\begin{thebibliography}{69}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -25,7 +25,7 @@ Eliseo Bao, Anxo Perez, Xi~Wang, and Javier Parapar.
 \newblock Eval4sim: An evaluation framework for persona simulation.
 \newblock \emph{arXiv preprint arXiv:2603.02876}, 2026.
 
-\bibitem[Bhandari et~al.(2025)Bhandari, Fay, Wise, Datta, Meek, Naseem, and Nasim]{bhandari2025can}
+\bibitem[Bhandari et~al.(2025)Bhandari, Fay, Wise, Datta, Meek, Naseem, and Nasim]{bhandari2025ocean}
 Pranav Bhandari, Nicolas Fay, Michael~J Wise, Amitava Datta, Stephanie Meek, Usman Naseem, and Mehwish Nasim.
 \newblock Can llm agents maintain a persona in discourse?
 \newblock In \emph{Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing}, pages 29201--29217, 2025.
@@ -46,25 +46,20 @@ Hyungjoo Chae, Yongho Song, Kai Ong, Taeyoon Kwon, Minjin Kim, Youngjae Yu, Dong
 \newblock Dialogue chain-of-thought distillation for commonsense-aware conversational agents.
 \newblock In \emph{Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing}, pages 5606--5632, 2023.
 
-\bibitem[Chen et~al.(2024{\natexlab{a}})Chen, Yao, Ye, Wang, and Li]{chen2024evaluating}
-Chaoran Chen, Bingsheng Yao, Yanfang Ye, Dakuo Wang, and Toby Jia-Jun Li.
-\newblock Evaluating the llm agents for simulating humanoid behavior.
-\newblock In \emph{CHI conference proceedingsCHI Conference}. The First Workshop on Human-Centered Evaluation and Auditing of Language~…, 2024{\natexlab{a}}.
-
 \bibitem[Chen et~al.(2023{\natexlab{a}})Chen, Dong, Shu, Zhang, Jaward, B{\"o}rje, Fu, and Shi]{chen2023autoagents}
 Guangyao Chen, Siwei Dong, Yu~Shu, Ge~Zhang, Sesay Jaward, Karlsson B{\"o}rje, Jie Fu, and Yemin Shi.
 \newblock Autoagents: The automatic agents generation framework.
 \newblock \emph{arXiv preprint arXiv:2309.17288}, 2023{\natexlab{a}}.
 
-\bibitem[Chen et~al.(2024{\natexlab{b}})Chen, Chen, Yan, Xu, Xing, Shen, Quan, Li, Zhang, and Huang]{chen2024socialbench}
+\bibitem[Chen et~al.(2024{\natexlab{a}})Chen, Chen, Yan, Xu, Xing, Shen, Quan, Li, Zhang, and Huang]{chen2024socialbench}
 Hongzhan Chen, Hehong Chen, Ming Yan, Wenshen Xu, Gao Xing, Weizhou Shen, Xiaojun Quan, Chenliang Li, Ji~Zhang, and Fei Huang.
 \newblock Socialbench: Sociality evaluation of role-playing conversational agents.
-\newblock In \emph{Findings of the Association for Computational Linguistics: ACL 2024}, pages 2108--2126, 2024{\natexlab{b}}.
+\newblock In \emph{Findings of the Association for Computational Linguistics: ACL 2024}, pages 2108--2126, 2024{\natexlab{a}}.
 
-\bibitem[Chen et~al.(2024{\natexlab{c}})Chen, Wang, Xu, Yuan, Zhang, Shi, Xie, Li, Yang, Zhu, et~al.]{chen2024review}
+\bibitem[Chen et~al.(2024{\natexlab{b}})Chen, Wang, Xu, Yuan, Zhang, Shi, Xie, Li, Yang, Zhu, et~al.]{chen2024review}
 Jiangjie Chen, Xintao Wang, Rui Xu, Siyu Yuan, Yikai Zhang, Wei Shi, Jian Xie, Shuang Li, Ruihan Yang, Tinghui Zhu, et~al.
 \newblock From persona to personalization: A survey on role-playing language agents.
-\newblock \emph{arXiv preprint arXiv:2404.18231}, 2024{\natexlab{c}}.
+\newblock \emph{arXiv preprint arXiv:2404.18231}, 2024{\natexlab{b}}.
 
 \bibitem[Chen et~al.(2023{\natexlab{b}})Chen, Wang, Jiang, Cai, Li, Chen, Wang, and Li]{chen2023hp}
 Nuo Chen, Yan Wang, Haiyun Jiang, Deng Cai, Yuhan Li, Ziyang Chen, Longyue Wang, and Jia Li.
@@ -171,6 +166,16 @@ Ke~Ji, Yixin Lian, Linxu Li, Jingsheng Gao, Weiyuan Li, and Bin Dai.
 \newblock Enhancing persona consistency for llms’ role-playing using persona-aware contrastive learning.
 \newblock In \emph{Findings of the Association for Computational Linguistics: ACL 2025}, pages 26221--26238, 2025.
 
+\bibitem[John et~al.(1991)John, Donahue, and Kentle]{john1991bigfive}
+Oliver~P. John, E.~M. Donahue, and R.~L. Kentle.
+\newblock \emph{The Big Five Inventory--Versions 4a and 54}.
+\newblock University of California, Berkeley, Institute of Personality and Social Research, 1991.
+
+\bibitem[Li et~al.(2006)Li, Zheng, and Chen]{li2006fingerprint}
+Jiexun Li, Rong Zheng, and Hsinchun Chen.
+\newblock From fingerprint to writeprint.
+\newblock \emph{Communications of the ACM}, 49\penalty0 (4):\penalty0 76--82, 2006.
+
 \bibitem[Li et~al.(2021)Li, Hu, Beirami, and Smith]{li2021ditto}
 Tian Li, Shengyuan Hu, Ahmad Beirami, and Virginia Smith.
 \newblock Ditto: Fair and robust federated learning through personalization.
@@ -195,6 +200,11 @@ Meta.
 Suhong Moon, Marwa Abdulhai, Minwoo Kang, Joseph Suh, Widyadewi Soedarmadji, Eran~Kohen Behar, and David~M Chan.
 \newblock Virtual personas for language models via an anthology of backstories.
 \newblock In \emph{Proceedings of the 2024 conference on empirical methods in natural language processing}, pages 19864--19897, 2024.
+
+\bibitem[Myers and Briggs(1962)]{myers1962mbti}
+Isabel~Briggs Myers and Katharine~C Briggs.
+\newblock \emph{The {Myers-Briggs Type Indicator} manual}.
+\newblock Educational Testing Service, 1962.
 
 \bibitem[Norton and Toohey(2011)]{norton2011identity}
 Bonny Norton and Kelleen Toohey.

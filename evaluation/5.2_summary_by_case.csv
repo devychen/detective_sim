@@ -1,4 +1,4 @@
-case,mean_slope,mean_distance,std_slope,std_distance
-case1,0.041,0.938,0.071,0.087
-case2,0.022,0.869,0.105,0.153
-case3,0.077,0.887,0.13,0.127
+case,mean_slope,mean_distance,std_slope,std_distance,p_value_slope
+case1,0.041,0.938,0.071,0.087,0.143
+case2,0.022,0.869,0.105,0.153,0.143
+case3,0.077,0.887,0.13,0.127,0.143

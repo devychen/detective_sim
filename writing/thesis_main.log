@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Homebrew) (preloaded format=pdflatex 2024.3.20)  30 MAR 2026 21:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Homebrew) (preloaded format=pdflatex 2024.3.20)  4 APR 2026 12:17
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -125,6 +125,9 @@ Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@cntb=\count271
 \multirow@dima=\skip53
 \bigstrutjot=\dimen164
+) (/usr/local/Cellar/texlive/20240312/share/texmf-dist/tex/latex/threeparttable/threeparttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box61
 ) (/usr/local/Cellar/texlive/20240312/share/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen165
@@ -182,7 +185,7 @@ Package tocloft Info: The document has section divisions on input line 51.
 \cfttabnumwidth=\skip84
 ) (/usr/local/Cellar/texlive/20240312/share/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2023/10/27 v2.16 Sectioning titles
-\ttl@box=\box61
+\ttl@box=\box62
 \beforetitleunit=\skip85
 \aftertitleunit=\skip86
 \ttl@plus=\dimen178
@@ -236,8 +239,8 @@ LaTeX Info: Redefining \colon on input line 410.
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
-\Mathstrutbox@=\box62
-\strutbox@=\box63
+\Mathstrutbox@=\box63
+\strutbox@=\box64
 LaTeX Info: Redefining \big on input line 722.
 LaTeX Info: Redefining \Big on input line 723.
 LaTeX Info: Redefining \bigg on input line 724.
@@ -279,7 +282,7 @@ Package: appendix 2020/02/08 v1.2c extra appendix facilities
 \c@@ppsaveapp=\count294
 ) (/usr/local/Cellar/texlive/20240312/share/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count295
-\lst@gtempboxa=\box64
+\lst@gtempboxa=\box65
 \lst@token=\toks34
 \lst@length=\count296
 \lst@currlwidth=\dimen192
@@ -296,7 +299,7 @@ File: lstpatch.sty 2024/02/21 1.10 (Carsten Heinz)
 File: lstmisc.sty 2024/02/21 1.10 (Carsten Heinz)
 \c@lstnumber=\count301
 \lst@skipnumbers=\count302
-\lst@framebox=\box65
+\lst@framebox=\box66
 ) (/usr/local/Cellar/texlive/20240312/share/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2024/02/21 1.10 listings configuration
 ))
@@ -315,7 +318,7 @@ Package: fvextra 2023/11/28 v1.6.1 fvextra - extensions and patches for fancyvrb
 Package: fancyvrb 2024/01/20 4.5c verbatim text (tvz,hv)
 \FV@CodeLineNo=\count303
 \FV@InFile=\read2
-\FV@TabBox=\box66
+\FV@TabBox=\box67
 \c@FancyVerbLine=\count304
 \FV@StepNumber=\count305
 \FV@OutFile=\write3
@@ -338,7 +341,7 @@ Package: lineno 2023/05/20 line numbers on paragraphs v5.3
 \quotelinenumbersep=\dimen198
 \bframerule=\dimen199
 \bframesep=\dimen256
-\bframebox=\box67
+\bframebox=\box68
 \linenoamsmath@ams@eqpen=\count313
 LaTeX Info: Redefining \\ on input line 3180.
 )
@@ -349,12 +352,12 @@ LaTeX Info: Redefining \\ on input line 3180.
 \c@FV@oldbufferlength=\count318
 \c@FV@TrueTabGroupLevel=\count319
 \c@FV@TrueTabCounter=\count320
-\FV@TabBox@Group=\box68
+\FV@TabBox@Group=\box69
 \FV@TmpLength=\skip92
 \c@FV@HighlightLinesStart=\count321
 \c@FV@HighlightLinesStop=\count322
 \FV@LoopCount=\count323
-\FV@NCharsBox=\box69
+\FV@NCharsBox=\box70
 \FV@BreakIndent=\dimen257
 \FV@BreakIndentNChars=\count324
 \FV@BreakSymbolSepLeft=\dimen258
@@ -366,8 +369,8 @@ LaTeX Info: Redefining \\ on input line 3180.
 \FV@BreakSymbolIndentRight=\dimen261
 \FV@BreakSymbolIndentRightNChars=\count328
 \c@FancyVerbLineBreakLast=\count329
-\FV@LineBox=\box70
-\FV@LineIndentBox=\box71
+\FV@LineBox=\box71
+\FV@LineIndentBox=\box72
 \c@FV@BreakBufferDepth=\count330
 \FV@LineWidth=\dimen262
 ) (/usr/local/Cellar/texlive/20240312/share/texmf-dist/tex/latex/base/ifthen.sty
@@ -413,7 +416,7 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \FrameSep=\dimen266
 )
 \minted@appexistsfile=\read3
-\minted@bgbox=\box72
+\minted@bgbox=\box73
 \minted@code=\write4
 \c@minted@FancyVerbLineTemp=\count333
 \c@minted@pygmentizecounter=\count334
@@ -427,7 +430,7 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip94
 \enit@outerparindent=\dimen267
 \enit@toks=\toks37
-\enit@inbox=\box73
+\enit@inbox=\box74
 \enit@count@id=\count336
 \enitdp@description=\count337
 ) (/usr/local/Cellar/texlive/20240312/share/texmf-dist/tex/latex/xcolor/xcolor.sty
@@ -454,29 +457,29 @@ runsystem(rm thesis_main.aex)...executed.
  (/usr/local/Cellar/texlive/20240312/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count338
-\l__pdf_internal_box=\box74
+\l__pdf_internal_box=\box75
 ) (./thesis_main.aux)
 \openout1 = `thesis_main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
  (/usr/local/Cellar/texlive/20240312/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count339
 \scratchdimen=\dimen268
-\scratchbox=\box75
+\scratchbox=\box76
 \nofMPsegments=\count340
 \nofMParguments=\count341
 \everyMPshowfont=\toks38
@@ -494,18 +497,20 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
+Package caption Info: threeparttable package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count345
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 67.
+ [1
+
+{/usr/local/Cellar/texlive/20240312/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}] [1]
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 123.
  (/usr/local/Cellar/texlive/20240312/share/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-) [1
-
-{/usr/local/Cellar/texlive/20240312/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}] [2]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 90.
+)
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 124.
  (/usr/local/Cellar/texlive/20240312/share/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [3] (./thesis_main.lof)
+) [2] (./thesis_main.lof)
 \tf@lof=\write5
 \openout5 = `thesis_main.lof'.
 
@@ -513,24 +518,24 @@ File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 \tf@lot=\write6
 \openout6 = `thesis_main.lot'.
 
- [4] (./thesis_main.toc [5] [6])
+ [3] (./thesis_main.toc [4] [5])
 \tf@toc=\write7
 \openout7 = `thesis_main.toc'.
 
- [7] [8] [9]
-Overfull \hbox (0.26488pt too wide) in paragraph at lines 166--167
+ [6] [7] [8]
+Overfull \hbox (0.26488pt too wide) in paragraph at lines 200--201
 []\T1/cmr/bx/n/10 Classifier val-i-da-tion and cal-i-bra-tion\T1/cmr/m/n/10 : This study in-tro-duces a method-
  []
 
-[10] [11] [12] [13] [14] [15] [16]
-Overfull \hbox (0.87851pt too wide) in paragraph at lines 258--259
+[9] [10] [11] [12] [13] [14] [15]
+Overfull \hbox (0.87851pt too wide) in paragraph at lines 292--293
 \T1/cmr/m/n/10 specific vo-cab-u-lary or re-cur-ring ex-pres-sions. Such pat-terns may in-di-cate whether
  []
 
-[17] [18] [19] [20]
+[16] [17] [18] [19]
 \openout3 = `thesis_main.pyg'.
 
- (./_minted-thesis_main/default.pygstyle) (./_minted-thesis_main/7B5563BFC69759D606A199A074C7F4439AA7342A36CEFB4A5D405EE33236B500.pygtex [21])
+ (./_minted-thesis_main/default.pygstyle) (./_minted-thesis_main/7B5563BFC69759D606A199A074C7F4439AA7342A36CEFB4A5D405EE33236B500.pygtex [20])
 \openout3 = `thesis_main.pyg'.
 
  (./_minted-thesis_main/6B792B7A308A94E2B235BED9F84AC2C3A2A15465B43DB1D80E5655A8A4E24F46.pygtex
@@ -545,13 +550,13 @@ File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
  (./_minted-thesis_main/327AFC506CDF34A3194348D0DD6416C0A2A15465B43DB1D80E5655A8A4E24F46.pygtex)
 \openout3 = `thesis_main.pyg'.
 
- (./_minted-thesis_main/743ACABC15C700CBE55D2D3B59F71B529AA7342A36CEFB4A5D405EE33236B500.pygtex [22{/usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}])
+ (./_minted-thesis_main/D3F2F1B822E79B7DEBB4B9FB987BF6F19AA7342A36CEFB4A5D405EE33236B500.pygtex [21{/usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}])
 \openout3 = `thesis_main.pyg'.
 
  (./_minted-thesis_main/7084F8BF34ABC5915794BF5CEAA861C69AA7342A36CEFB4A5D405EE33236B500.pygtex)
 \openout3 = `thesis_main.pyg'.
 
- (./_minted-thesis_main/2F97202F822480EAF7E92F3E0843931C9AA7342A36CEFB4A5D405EE33236B500.pygtex [23])
+ (./_minted-thesis_main/2F97202F822480EAF7E92F3E0843931C9AA7342A36CEFB4A5D405EE33236B500.pygtex [22])
 \openout3 = `thesis_main.pyg'.
 
  (./_minted-thesis_main/705B53B6077F6536C8F09122803043D6A2A15465B43DB1D80E5655A8A4E24F46.pygtex)
@@ -560,120 +565,135 @@ File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
  (./_minted-thesis_main/00F2F50E56D53B23D362066DFDFFA95F9AA7342A36CEFB4A5D405EE33236B500.pygtex)
 \openout3 = `thesis_main.pyg'.
 
- (./_minted-thesis_main/B88616CF2336CEE1583A8A5086D39D12A2A15465B43DB1D80E5655A8A4E24F46.pygtex [24]) [25] [26]
+ (./_minted-thesis_main/B88616CF2336CEE1583A8A5086D39D12A2A15465B43DB1D80E5655A8A4E24F46.pygtex [23]) [24] [25]
 \openout3 = `thesis_main.pyg'.
 
- (./_minted-thesis_main/27F9075F4933F89FAC926235B37D5EF69AA7342A36CEFB4A5D405EE33236B500.pygtex) [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37]
-<images/case1_prob_multi_agent.png, id=143, 578.16pt x 433.62pt>
+ (./_minted-thesis_main/27F9075F4933F89FAC926235B37D5EF69AA7342A36CEFB4A5D405EE33236B500.pygtex) [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36]
+<images/case1_prob_multi_agent.png, id=144, 578.16pt x 433.62pt>
 File: images/case1_prob_multi_agent.png Graphic file (type png)
 <use images/case1_prob_multi_agent.png>
-Package pdftex.def Info: images/case1_prob_multi_agent.png  used on input line 796.
+Package pdftex.def Info: images/case1_prob_multi_agent.png  used on input line 832.
 (pdftex.def)             Requested size: 289.79799pt x 217.3454pt.
-<images/case1_brier_multi_agent.png, id=145, 578.16pt x 433.62pt>
+<images/case1_brier_multi_agent.png, id=146, 578.16pt x 433.62pt>
 File: images/case1_brier_multi_agent.png Graphic file (type png)
 <use images/case1_brier_multi_agent.png>
-Package pdftex.def Info: images/case1_brier_multi_agent.png  used on input line 801.
+Package pdftex.def Info: images/case1_brier_multi_agent.png  used on input line 837.
 (pdftex.def)             Requested size: 289.79799pt x 217.3454pt.
 
-Overfull \hbox (68.99895pt too wide) in paragraph at lines 794--804
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 830--840
  [][] 
  []
 
 
-Overfull \hbox (68.99895pt too wide) in paragraph at lines 794--804
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 830--840
  [] 
  []
 
-[38]
-<images/case2_prob_multi_agent.png, id=149, 578.16pt x 433.62pt>
+[37]
+<images/case2_prob_multi_agent.png, id=152, 578.16pt x 433.62pt>
 File: images/case2_prob_multi_agent.png Graphic file (type png)
 <use images/case2_prob_multi_agent.png>
-Package pdftex.def Info: images/case2_prob_multi_agent.png  used on input line 815.
+Package pdftex.def Info: images/case2_prob_multi_agent.png  used on input line 851.
 (pdftex.def)             Requested size: 289.79799pt x 217.3454pt.
-<images/case2_brier_multi_agent.png, id=150, 578.16pt x 433.62pt>
+<images/case2_brier_multi_agent.png, id=153, 578.16pt x 433.62pt>
 File: images/case2_brier_multi_agent.png Graphic file (type png)
 <use images/case2_brier_multi_agent.png>
-Package pdftex.def Info: images/case2_brier_multi_agent.png  used on input line 820.
+Package pdftex.def Info: images/case2_brier_multi_agent.png  used on input line 856.
 (pdftex.def)             Requested size: 289.79799pt x 217.3454pt.
 
-Overfull \hbox (68.99895pt too wide) in paragraph at lines 813--823
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 849--859
  [][] 
  []
 
 
-Overfull \hbox (68.99895pt too wide) in paragraph at lines 813--823
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 849--859
  [] 
  []
 
-[39 <./images/case1_prob_multi_agent.png> <./images/case1_brier_multi_agent.png>]
-<images/case3_prob_multi_agent.png, id=157, 578.16pt x 433.62pt>
+[38 <./images/case1_prob_multi_agent.png> <./images/case1_brier_multi_agent.png>]
+<images/case3_prob_multi_agent.png, id=159, 578.16pt x 433.62pt>
 File: images/case3_prob_multi_agent.png Graphic file (type png)
 <use images/case3_prob_multi_agent.png>
-Package pdftex.def Info: images/case3_prob_multi_agent.png  used on input line 834.
+Package pdftex.def Info: images/case3_prob_multi_agent.png  used on input line 870.
 (pdftex.def)             Requested size: 289.79799pt x 217.3454pt.
-<images/case3_brier_multi_agent.png, id=158, 578.16pt x 433.62pt>
+<images/case3_brier_multi_agent.png, id=160, 578.16pt x 433.62pt>
 File: images/case3_brier_multi_agent.png Graphic file (type png)
 <use images/case3_brier_multi_agent.png>
-Package pdftex.def Info: images/case3_brier_multi_agent.png  used on input line 839.
+Package pdftex.def Info: images/case3_brier_multi_agent.png  used on input line 875.
 (pdftex.def)             Requested size: 289.79799pt x 217.3454pt.
 
-Overfull \hbox (68.99895pt too wide) in paragraph at lines 832--842
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 868--878
  [][] 
  []
 
 
-Overfull \hbox (68.99895pt too wide) in paragraph at lines 832--842
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 868--878
  [] 
  []
 
-[40 <./images/case2_prob_multi_agent.png> <./images/case2_brier_multi_agent.png>] [41 <./images/case3_prob_multi_agent.png> <./images/case3_brier_multi_agent.png>] [42] [43] [44] [45] [46] [47]
-Overfull \hbox (8.22789pt too wide) in paragraph at lines 1037--1043
+[39 <./images/case2_prob_multi_agent.png> <./images/case2_brier_multi_agent.png>] [40 <./images/case3_prob_multi_agent.png> <./images/case3_brier_multi_agent.png>] [41] [42] [43] [44] [45] [46] [47]
+<images/5.2_distance_over_turns_holmes.png, id=196, 578.16pt x 361.35pt>
+File: images/5.2_distance_over_turns_holmes.png Graphic file (type png)
+<use images/5.2_distance_over_turns_holmes.png>
+Package pdftex.def Info: images/5.2_distance_over_turns_holmes.png  used on input line 1091.
+(pdftex.def)             Requested size: 289.79799pt x 181.12117pt.
+<images/5.2_distance_over_turns_marple.png, id=197, 578.16pt x 361.35pt>
+File: images/5.2_distance_over_turns_marple.png Graphic file (type png)
+<use images/5.2_distance_over_turns_marple.png>
+Package pdftex.def Info: images/5.2_distance_over_turns_marple.png  used on input line 1096.
+(pdftex.def)             Requested size: 289.79799pt x 181.12117pt.
+
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 1089--1099
  [][] 
  []
 
-[48] [49] [50]
-<images/5.2_distance_over_turns_holmes.png, id=202, 578.16pt x 361.35pt>
-File: images/5.2_distance_over_turns_holmes.png Graphic file (type png)
-<use images/5.2_distance_over_turns_holmes.png>
-Package pdftex.def Info: images/5.2_distance_over_turns_holmes.png  used on input line 1138.
-(pdftex.def)             Requested size: 108.67378pt x 67.91837pt.
-<images/5.2_distance_over_turns_marple.png, id=203, 578.16pt x 361.35pt>
-File: images/5.2_distance_over_turns_marple.png Graphic file (type png)
-<use images/5.2_distance_over_turns_marple.png>
-Package pdftex.def Info: images/5.2_distance_over_turns_marple.png  used on input line 1143.
-(pdftex.def)             Requested size: 108.67378pt x 67.91837pt.
- [51]
-<images/5.2_distance_over_turns_poirot.png, id=207, 578.16pt x 361.35pt>
+
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 1089--1099
+ [] 
+ []
+
+[48]
+<images/5.2_distance_over_turns_poirot.png, id=202, 578.16pt x 361.35pt>
 File: images/5.2_distance_over_turns_poirot.png Graphic file (type png)
 <use images/5.2_distance_over_turns_poirot.png>
-Package pdftex.def Info: images/5.2_distance_over_turns_poirot.png  used on input line 1157.
-(pdftex.def)             Requested size: 108.67378pt x 67.91837pt.
-<images/5.2_slope_boxplot_by_character.png, id=208, 433.62pt x 361.35pt>
+Package pdftex.def Info: images/5.2_distance_over_turns_poirot.png  used on input line 1110.
+(pdftex.def)             Requested size: 289.79799pt x 181.12117pt.
+<images/5.2_slope_boxplot_by_character.png, id=203, 433.62pt x 361.35pt>
 File: images/5.2_slope_boxplot_by_character.png Graphic file (type png)
 <use images/5.2_slope_boxplot_by_character.png>
-Package pdftex.def Info: images/5.2_slope_boxplot_by_character.png  used on input line 1162.
-(pdftex.def)             Requested size: 108.67378pt x 90.55782pt.
- [52 <./images/5.2_distance_over_turns_holmes.png> <./images/5.2_distance_over_turns_marple.png> <./images/5.2_distance_over_turns_poirot.png> <./images/5.2_slope_boxplot_by_character.png>] [53] [54] [55] [56] [57] [58] [59] [60] (./thesis_main.bbl [61] [62]
-Underfull \hbox (badness 10000) in paragraph at lines 133--138
+Package pdftex.def Info: images/5.2_slope_boxplot_by_character.png  used on input line 1115.
+(pdftex.def)             Requested size: 289.79799pt x 241.50775pt.
+
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 1108--1118
+ [][] 
+ []
+
+
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 1108--1118
+ [] 
+ []
+
+[49 <./images/5.2_distance_over_turns_holmes.png> <./images/5.2_distance_over_turns_marple.png>] [50 <./images/5.2_distance_over_turns_poirot.png> <./images/5.2_slope_boxplot_by_character.png>] [51] [52] [53] [54] [55] [56] [57] [58] [59] (./thesis_main.bbl [60] [61]
+Underfull \hbox (badness 10000) in paragraph at lines 128--133
 \T1/cmtt/m/n/10 / / www . dicebreaker . com / categories / roleplaying-[]game / feature /
  []
 
 
-Overfull \hbox (22.93878pt too wide) in paragraph at lines 133--138
+Overfull \hbox (22.93878pt too wide) in paragraph at lines 128--133
 \T1/cmtt/m/n/10 jubensha-[]live-[]action-[]roleplaying-[]cluedo-[]werewolf-[]chinese-[]phenomenon$\T1/cmr/m/n/10 .
  []
 
 
-Underfull \hbox (badness 1478) in paragraph at lines 145--148
+Underfull \hbox (badness 1478) in paragraph at lines 140--143
 \T1/cmr/m/n/10 Chawla, Olaf Wiest, and Xi-an-gliang Zhang.  Large lan-guage model
  []
 
-[63]
-Underfull \hbox (badness 2073) in paragraph at lines 190--193
+[62]
+Underfull \hbox (badness 2073) in paragraph at lines 195--198
 []\T1/cmr/m/n/10 Meta.  Llama 3.2-3b-instruct, 2024.  URL $\T1/cmtt/m/n/10 https : / / huggingface . co /
  []
 
-[64] [65] [66]) (./_minted-thesis_main/51ED45AC8E1958D8BBD61889C5EBAA0221809B1E84F1B1144DA32E16C4784B10.pygtex [67] [68]) (./_minted-thesis_main/2EA0B900DF3F3EEF4C7466CE9608B4EBFD903ED19DEBC0E0D4F5487E858AE242.pygtex [69] [70] [71]) (./_minted-thesis_main/6F675154D096E4E22C58E65D49D7A48494F06FB5EC026A2BBB606726FA67D757.pygtex [72] [73]) (./_minted-thesis_main/DFA736874866CFDEE9A85BAD294448C24026489473DBD88358564B6BB43818CA.pygtex) (./_minted-thesis_main/4D3C376550253A52D878ED22CA95E6DBF0552221DF258DA6691C1D5F22BB05D3.pygtex [74] [75] [76]) (./_minted-thesis_main/E909F8254622D073D8B7323962477BBA2CA4C33025BEA4359C55050DFEB23B6A.pygtex [77] [78] [79] [80]) (./_minted-thesis_main/C8A63655E7E06D47C9E4227664797EC68DEF0C50971D48C2F4E9BD610BC48E33.pygtex [81] [82] [83]) (./_minted-thesis_main/B796E4479EF6EE52C2A6BD1CF5A5B05DDB301D767501F1E04C478E6A396C850E.pygtex [84] [85]) (./_minted-thesis_main/3E93348F51F9EE8855D0E53DA26E7058D955BA1AD98E98D33AE0027DDF848B9D.pygtex [86]) (./_minted-thesis_main/A7711F05E579233F34628D1678FE947DF8E834F69438135D474209E8CC9E8012.pygtex [87] [88]) (./_minted-thesis_main/E855DA1C9EE239FB1EE0BFFD339939C24A217F46C8DF3B641C87A17F0BDA0D42.pygtex [89] [90]) [91] (./thesis_main.aux)
+[63] [64] [65]) [66] (./_minted-thesis_main/B128187DF4BF949C8CEF514A7C233E2A21809B1E84F1B1144DA32E16C4784B10.pygtex [67] [68]) (./_minted-thesis_main/24F327B2AA15B6FB341E14D258CCB1C7FD903ED19DEBC0E0D4F5487E858AE242.pygtex [69] [70] [71]) (./_minted-thesis_main/46397AA1194EFAFE810A8605949E878894F06FB5EC026A2BBB606726FA67D757.pygtex [72] [73]) (./_minted-thesis_main/DFA736874866CFDEE9A85BAD294448C24026489473DBD88358564B6BB43818CA.pygtex) (./_minted-thesis_main/4D3C376550253A52D878ED22CA95E6DBF0552221DF258DA6691C1D5F22BB05D3.pygtex [74] [75] [76]) (./_minted-thesis_main/E909F8254622D073D8B7323962477BBA2CA4C33025BEA4359C55050DFEB23B6A.pygtex [77] [78] [79]) (./_minted-thesis_main/C8A63655E7E06D47C9E4227664797EC68DEF0C50971D48C2F4E9BD610BC48E33.pygtex [80] [81] [82]) (./_minted-thesis_main/B796E4479EF6EE52C2A6BD1CF5A5B05DDB301D767501F1E04C478E6A396C850E.pygtex [83] [84]) (./_minted-thesis_main/3E93348F51F9EE8855D0E53DA26E7058D955BA1AD98E98D33AE0027DDF848B9D.pygtex [85] [86]) (./_minted-thesis_main/A7711F05E579233F34628D1678FE947DF8E834F69438135D474209E8CC9E8012.pygtex [87] [88]) (./_minted-thesis_main/E855DA1C9EE239FB1EE0BFFD339939C24A217F46C8DF3B641C87A17F0BDA0D42.pygtex [89]) [90] [91] [92] (./thesis_main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -682,18 +702,18 @@ runsystem(rm thesis_main.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 12224 strings out of 474116
- 229962 string characters out of 5735128
+ 12303 strings out of 474116
+ 231980 string characters out of 5735128
  1949187 words of memory out of 5000000
- 34307 multiletter control sequences out of 15000+600000
- 577463 words of font info for 86 fonts, out of 8000000 for 9000
+ 34385 multiletter control sequences out of 15000+600000
+ 576130 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 77i,12n,81p,1479b,712s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfit0900.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on thesis_main.pdf (91 pages, 2923654 bytes).
+ 77i,13n,81p,1337b,712s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
+Output written on thesis_main.pdf (93 pages, 2954249 bytes).
 PDF statistics:
- 458 PDF objects out of 1000 (max. 8388607)
- 288 compressed objects within 3 object streams
+ 469 PDF objects out of 1000 (max. 8388607)
+ 295 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
