@@ -1,4 +1,4 @@
-\begin{thebibliography}{69}
+\begin{thebibliography}{68}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -316,15 +316,10 @@ Zhiheng Xi, Wenxiang Chen, Xin Guo, Wei He, Yiwen Ding, Boyang Hong, Ming Zhang,
 \newblock The rise and potential of large language model based agents: A survey.
 \newblock \emph{Science China Information Sciences}, 68\penalty0 (2):\penalty0 121101, 2025.
 
-\bibitem[Xiao et~al.(2023{\natexlab{a}})Xiao, Yin, and Shan]{xiao2023policy}
+\bibitem[Xiao et~al.(2023)Xiao, Yin, and Shan]{xiao2023simulating}
 Bushi Xiao, Ziyuan Yin, and Zixuan Shan.
 \newblock Simulating public administration crisis: A novel generative agent-based simulation system to lower technology barriers in social science research.
-\newblock \emph{arXiv preprint arXiv:2311.06957}, 2023{\natexlab{a}}.
-
-\bibitem[Xiao et~al.(2023{\natexlab{b}})Xiao, Yin, and Shan]{xiao2023simulating}
-Bushi Xiao, Ziyuan Yin, and Zixuan Shan.
-\newblock Simulating public administration crisis: A novel generative agent-based simulation system to lower technology barriers in social science research.
-\newblock \emph{arXiv preprint arXiv:2311.06957}, 2023{\natexlab{b}}.
+\newblock \emph{arXiv preprint arXiv:2311.06957}, 2023.
 
 \bibitem[Xu et~al.(2024{\natexlab{a}})Xu, Wang, Chen, Yuan, Yuan, Liang, Chen, Dong, and Xiao]{xu2024destiny}
 Rui Xu, Xintao Wang, Jiangjie Chen, Siyu Yuan, Xinfeng Yuan, Jiaqing Liang, Zulong Chen, Xiaoqing Dong, and Yanghua Xiao.
