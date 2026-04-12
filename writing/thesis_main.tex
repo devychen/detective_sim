@@ -73,13 +73,20 @@
 \renewcommand{\footrulewidth}{0pt}
 
 
-
 % 使用 fancy 样式
 \pagestyle{fancy}
 
 % 防止 section/subsection 标题全大写（fancyhdr 默认 rightmark 会大写）
 \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
 \renewcommand{\subsectionmark}[1]{\markright{\thesubsection\ #1}}
+
+\usepackage{afterpage}
+\newcommand\myemptypage{%
+  \null
+  \thispagestyle{empty}
+  \addtocounter{page}{-1}
+  \newpage
+}
 
 % ------ 首页 ------
 
@@ -131,6 +138,8 @@
   \vfill
 \end{titlepage}
 
+\myemptypage
+
 
 % ------ 声明 ------
 
@@ -154,22 +163,25 @@ dass ich die Arbeit weder vollständig noch in wesentlichen Teilen bereits verö
 
 dass das in Dateiform eingereichte Exemplar mit dem eingereichten gebundenen Exemplar übereinstimmt.
 
-\newpage
+
+
 
 % ------ 鸣谢 ------
+
+\newpage
 
 \begin{center}
   \normalsize\bfseries\MakeUppercase{acknowledgement}
 \end{center}
-I thank Ms. Polina Tsvilodub and Prof. Dr. Michael Franke for encouraging and guiding me on the completion of this thesis.
+I would like to thank Ms. Polina Tsvilodub, Prof. Dr. Michael Franke, and Dr. Çağrı Çöltekin for their encouragement and guidance throughout the completion of this thesis.
+This thesis also benefited from the use of \citet{PerplexityAI2026} for grammar checking, language refinement, and code debugging. The final analysis and content presented here are entirely my own.
 
-This thesis was assisted by Perplexity.ai for grammar checking, language enhancement, and codes debugging. The final content is my own.
-
-\newpage
 
 
 
 % ------ 摘要 ------
+
+\newpage
 
 \begin{center}
   \normalsize\bfseries\MakeUppercase{abstract}

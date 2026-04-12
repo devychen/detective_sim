@@ -1,4 +1,4 @@
-\begin{thebibliography}{68}
+\begin{thebibliography}{69}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -230,6 +230,13 @@ Joon~Sung Park, Lindsay Popowski, Carrie Cai, Meredith~Ringel Morris, Percy Lian
 Joon~Sung Park, Joseph O'Brien, Carrie~Jun Cai, Meredith~Ringel Morris, Percy Liang, and Michael~S Bernstein.
 \newblock Generative agents: Interactive simulacra of human behavior.
 \newblock In \emph{Proceedings of the 36th annual acm symposium on user interface software and technology}, pages 1--22, 2023.
+
+\bibitem[{Perplexity AI}(2026)]{PerplexityAI2026}
+{Perplexity AI}.
+\newblock Perplexity {AI} {Search} {Engine}.
+\newblock [Large language model], 2026.
+\newblock URL \url{https://www.perplexity.ai}.
+\newblock Accessed: April 12, 2026.
 
 \bibitem[Przystalski et~al.(2025)Przystalski, Argasi{\'n}ski, Grabska-Gradzi{\'n}ska, and Ochab]{przystalski2025stylometry}
 Karol Przystalski, Jan~K Argasi{\'n}ski, Iwona Grabska-Gradzi{\'n}ska, and Jeremi Ochab.
